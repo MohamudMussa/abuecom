@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abu Ecom — Email Marketing for Muslim Brands</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #171717;
+      --surface: oklch(17% 0.009 55);
+      --border:  oklch(20% 0.007 55);
+      --text:    oklch(97% 0.005 80);
+      --muted:   #8A8A8A;
+      --faint:   oklch(33% 0.007 60);
+      --amber:   oklch(72% 0.18 75);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─────────────────────────────────────
+       LAYOUT
+    ───────────────────────────────────── */
+
+    /* Mobile: single column */
+    .left-panel  { padding: 40px 20px 48px; }
+    .right-panel { border-top: 1px solid var(--border); }
+
+    /* Desktop: sticky left + scrolling right */
+    @media (min-width: 860px) {
+      body { display: flex; flex-direction: column; }
+
+      .page {
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .left-panel {
+        position: sticky;
+        top: 0;
+        width: 44%;
+        height: 100svh;
+        overflow-y: auto;
+        scrollbar-width: none;
+        padding: 40px 36px;
+        border-right: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .left-panel::-webkit-scrollbar { display: none; }
+
+      .right-panel {
+        width: 56%;
+        border-top: none;
+      }
+    }
+
+    /* ─────────────────────────────────────
+       LEFT — HERO
+    ───────────────────────────────────── */
+
+    .label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 6.5vw, 42px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .sub {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 46ch;
+      margin-bottom: 24px;
+    }
+
+    /* ─────────────────────────────────────
+       BUTTONS — centered text, inline icon
+    ───────────────────────────────────── */
+
+    .btns {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      height: 52px;
+      padding: 0 18px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.12s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:active { opacity: 0.75; }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+    .btn-primary:hover { background: oklch(92% 0.006 80); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover { border-color: oklch(32% 0.007 55); }
+
+    .avail {
+      font-size: 12px;
+      color: var(--faint);
+      margin-bottom: 32px;
+    }
+
+    /* ─────────────────────────────────────
+       LOGOS — 3 columns
+    ───────────────────────────────────── */
+
+    .logos {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-bottom: 28px;
+    }
+
+    .logo-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--faint);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .logo-mark {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      background: oklch(22% 0.007 55);
+      flex-shrink: 0;
+    }
+
+    /* ─────────────────────────────────────
+       NICHE
+    ───────────────────────────────────── */
+
+    .niche p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 54ch;
+    }
+
+    .niche strong { font-weight: 600; color: var(--text); }
+    .num { font-style: normal; font-weight: 700; color: var(--amber); }
+
+    /* ─────────────────────────────────────
+       RIGHT — GALLERY IMAGES
+    ───────────────────────────────────── */
+
+    .right-panel img {
+      display: block;
+      width: calc(100% - 32px);
+      margin: 0 16px 16px;
+      border-radius: 12px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    @media (min-width: 860px) {
+      .right-panel img {
+        width: calc(100% - 48px);
+        margin: 0 24px 20px;
+        border-radius: 14px;
+      }
+    }
+
+    /* ─────────────────────────────────────
+       RIGHT — TESTIMONIAL CARDS
+    ───────────────────────────────────── */
+
+    .case-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--faint);
+      padding: 22px 22px 0;
+      letter-spacing: 0;
+    }
+
+    @media (min-width: 860px) {
+      .case-label { padding: 22px 28px 0; }
+    }
+
+    .testi-card {
+      background: #212121;
+      border: 1px solid oklch(26% 0.008 55);
+      border-radius: 16px;
+      padding: 24px 22px 28px;
+      margin: 20px 16px;
+    }
+
+    @media (min-width: 860px) {
+      .testi-card {
+        padding: 28px 28px 32px;
+        margin: 24px 24px;
+      }
+    }
+
+    .testi-quote {
+      font-size: clamp(17px, 2.8vw, 22px);
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .testi-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: oklch(25% 0.008 60);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .testi-name {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .testi-co {
+      font-size: 12px;
+      color: var(--faint);
+      margin-top: 2px;
+    }
+
+    /* ─────────────────────────────────────
+       END CTA
+    ───────────────────────────────────── */
+
+    .end-cta {
+      padding: 48px 20px 56px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    @media (min-width: 860px) {
+      .end-cta { padding: 56px 28px 64px; }
+    }
+
+    .end-cta-wave {
+      font-size: 36px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .end-cta-headline {
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 12px;
+      max-width: 28ch;
+    }
+
+    .end-cta-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 46ch;
+      margin-bottom: 32px;
+    }
+
+    .end-cta-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    @media (min-width: 480px) {
+      .end-cta-links { flex-direction: row; flex-wrap: wrap; }
+    }
+
+    .end-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      height: 46px;
+      padding: 0 20px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      transition: opacity 0.12s;
+      cursor: pointer;
+      border: none;
+    }
+    .end-link:active { opacity: 0.75; }
+
+    .end-link-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+    .end-link-primary:hover { background: oklch(92% 0.006 80); }
+
+    .end-link-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .end-link-ghost:hover { border-color: oklch(32% 0.007 55); }
+
+    /* ─────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────── */
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: oklch(11% 0.007 55);
+      padding: 20px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 860px) {
+      footer { padding: 20px 36px; }
+    }
+
+    .footer-brand { font-size: 14px; font-weight: 800; letter-spacing: -0.02em; }
+    .footer-link  { font-size: 13px; font-weight: 600; color: var(--muted); text-decoration: none; }
+    .footer-link:hover { color: var(--text); }
+    .footer-copy  { font-size: 12px; color: var(--faint); }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ══ LEFT: static ═══════════════════════ -->
+  <div class="left-panel">
+
+    <p class="label">The email agency for Muslim brands.</p>
+
+    <h1>We scale Muslim-owned ecom brands through email.</h1>
+
+    <p class="sub">Klaviyo flows, campaigns, and list growth — purpose-built for halal brands and Muslim founders.</p>
+
+    <div class="btns">
+      <a href="https://cal.com/mussa/abu-ecom" class="btn btn-primary">
+        Book a free strategy call 🤝
+      </a>
+      <a href="#gallery" class="btn btn-outline">
+        See our work [2026]
+      </a>
+    </div>
+
+    <p class="avail">3 spots open this month</p>
+
+    <div class="logos">
+      <div class="logo-item"><div class="logo-mark"></div>Boxed Halal</div>
+      <div class="logo-item"><div class="logo-mark"></div>Cave London</div>
+      <div class="logo-item"><div class="logo-mark"></div>Chaptrs</div>
+      <div class="logo-item"><div class="logo-mark"></div>Darassalam</div>
+      <div class="logo-item"><div class="logo-mark"></div>Kube</div>
+      <div class="logo-item"><div class="logo-mark"></div>Musmeat</div>
+      <div class="logo-item"><div class="logo-mark"></div>One Stop Halal</div>
+      <div class="logo-item"><div class="logo-mark"></div>5 Pillars</div>
+      <div class="logo-item"><div class="logo-mark"></div>Teapressa</div>
+    </div>
+
+    <div class="niche">
+      <p>We work with brands in <strong>Modest Fashion, Halal Food, Islamic Books, Muslim Gifting, Supplements, Home Goods,</strong> and <strong>Islamic Education.</strong> Over <em class="num">$2M</em> attributed across <em class="num">40+</em> Muslim-owned stores.</p>
+    </div>
+
+  </div>
+
+  <!-- ══ RIGHT: scrolling gallery + testimonials ═ -->
+  <div class="right-panel" id="work">
+
+    <!-- Testimonial 1 -->
+    <div class="testi-card">
+      <p class="testi-quote">"We went from 18% email revenue to 41% in 6 weeks. The flows run while we sleep — it's the best investment we've made in the business."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">🌙</div>
+        <div>
+          <div class="testi-name">Omar S.</div>
+          <div class="testi-co">Founder, Halal ecom brand</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Images 1–2 -->
+    <div id="gallery"></div>
+    <img src="/emails/5-pillars.png"       alt="5 Pillars email" />
+    <img src="/emails/anafiya-gifts.png"   alt="Anafiya Gifts email" />
+
+    <!-- Testimonial 2 -->
+    <div class="testi-card">
+      <p class="testi-quote">"Our open rates were stuck at 22% for two years. Abu Ecom rebuilt our segments and rewrote our subject lines — we hit 48% within a month."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">📿</div>
+        <div>
+          <div class="testi-name">Khalid A.</div>
+          <div class="testi-co">Co-Founder, Muslim lifestyle brand</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Images 3–4 -->
+    <img src="/emails/boxed-halal.png"     alt="Boxed Halal email" />
+    <img src="/emails/bsst.png"            alt="BSST email" />
+
+    <!-- Testimonial 3 -->
+    <div class="testi-card">
+      <p class="testi-quote">"I didn't think email would work for us. Full Klaviyo setup, live in two weeks. It paid for itself the first month and hasn't stopped since."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">✨</div>
+        <div>
+          <div class="testi-name">Fatima R.</div>
+          <div class="testi-co">Founder, Modest fashion brand</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Images 5–21 -->
+    <img src="/emails/cave-london.png"     alt="Cave London email" />
+    <img src="/emails/chaptrs.png"         alt="Chaptrs email" />
+    <img src="/emails/darassalam.png"      alt="Darassalam email" />
+    <img src="/emails/desi-dolls.png"      alt="Desi Dolls email" />
+    <img src="/emails/hallal-meals.png"    alt="Hallal Meals email" />
+    <img src="/emails/huraya.png"          alt="Huraya email" />
+    <img src="/emails/irontfit.png"        alt="IrontFit email" />
+    <img src="/emails/kube-publishing.png" alt="Kube Publishing email" />
+    <img src="/emails/lala-and-mo.png"     alt="Lala and Mo email" />
+    <img src="/emails/mama-yasmin.png"     alt="Mama Yasmin email" />
+    <img src="/emails/musmeat.png"         alt="Musmeat email" />
+    <img src="/emails/noor.png"            alt="Noor email" />
+    <img src="/emails/one-stop-halal.png"  alt="One Stop Halal email" />
+    <img src="/emails/osu.png"             alt="OSU email" />
+    <img src="/emails/roohts.png"          alt="Roohts email" />
+    <img src="/emails/simba.png"           alt="Simba email" />
+    <img src="/emails/teapressa.png"       alt="Teapressa email" />
+
+    <!-- End CTA -->
+    <div class="end-cta">
+      <span class="end-cta-wave">👋</span>
+      <h2 class="end-cta-headline">You made it this far — let's make you some money.</h2>
+      <p class="end-cta-sub">I'm Mussa, founder of Abu Ecom. I talk about email marketing and building Muslim-owned businesses — follow along on Instagram.</p>
+      <div class="end-cta-links">
+        <a href="https://cal.com/mussa/abu-ecom" class="end-link end-link-primary">Book a free call 🤝</a>
+        <a href="https://instagram.com/thatmussa" class="end-link end-link-ghost">Follow on Instagram →</a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-brand">Abu Ecom</span>
+  <a href="https://cal.com/mussa/abu-ecom" class="footer-link">Book a strategy call →</a>
+  <span class="footer-copy">© 2026</span>
+</footer>
+
+</body>
+</html>
