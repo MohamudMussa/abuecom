@@ -275,17 +275,27 @@
     .stack-list .stxt { flex: 1; color: var(--text); font-weight: 600; }
     .stack-list .sval { color: var(--amber); font-weight: 700; white-space: nowrap; font-size: clamp(11px, 1.1vw, 13px); }
     .stack-total {
-      margin-top: clamp(10px, 1.5vw, 16px);
-      font-size: clamp(14px, 1.6vw, 18px); font-weight: 600; color: var(--muted);
+      margin-top: clamp(12px, 2vw, 20px);
+      text-align: center;
       width: 100%;
     }
-    .stack-total span { color: var(--amber); font-weight: 800; font-size: clamp(18px, 2.2vw, 26px); }
+    .stack-total .total-label {
+      font-size: clamp(12px, 1.2vw, 15px); font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted); margin-bottom: 4px;
+    }
+    .stack-total span {
+      color: var(--amber); font-weight: 800;
+      font-size: clamp(48px, 7vw, 88px);
+      letter-spacing: -0.04em; line-height: 1;
+      display: block;
+    }
 
     /* ── CONTRAST PRICE ── */
     .contrast-price { width: 100%; max-width: 640px; text-align: center; }
     .cp-top { margin-bottom: 16px; }
     .cp-label { font-size: clamp(12px, 1.2vw, 15px); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 4px; }
-    .cp-was { font-size: clamp(44px, 7vw, 80px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--faint); text-decoration: line-through; }
+    .cp-was { font-size: clamp(44px, 7vw, 80px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--faint); }
     .cp-was span { font-size: 0.45em; font-weight: 600; }
     .cp-divider { display: flex; align-items: center; gap: 16px; margin: 16px 0; }
     .cp-line { flex: 1; height: 1px; background: var(--border); }
@@ -410,7 +420,7 @@
   <div class="slide center" id="s5">
     <span class="brand">Abu Ecom</span>
     <p class="eyebrow">The opportunity</p>
-    <h1 class="h1 wide">The average brand makes <span class="amber">30–40%</span> of its revenue from email.</h1>
+    <h1 class="h1 wide">The average brand makes <span class="amber">30 – 40%</span> of its revenue from email.</h1>
     <div class="opp-bar">
       <div class="opp-col">
         <div class="opp-num muted-num">~10%</div>
@@ -418,7 +428,7 @@
       </div>
       <div class="opp-arrow">→</div>
       <div class="opp-col">
-        <div class="opp-num amber-num">30–40%</div>
+        <div class="opp-num amber-num">30 – 40%</div>
         <div class="opp-label">Where you should be</div>
       </div>
     </div>
@@ -450,9 +460,35 @@
         <li><span class="chk">✓</span><span class="stxt">Muslim market expertise</span><span class="sval">Priceless</span></li>
       </ul>
     </div>
-    <div class="stack-total">Total value: <span>£9,850+/mo</span></div>
+    <div class="stack-total"><div class="total-label">Total value</div><span>£9,850+/mo</span></div>
     <div class="progress"><div class="progress-fill" id="prog"></div></div>
     <span class="counter" id="ctr">6 / 13</span>
+  </div>
+
+  <!-- 07 VALUE vs PRICE -->
+  <div class="slide center" id="s7">
+    <span class="brand">Abu Ecom</span>
+    <div class="contrast-price">
+      <div class="cp-top">
+        <div class="cp-label">What this is worth</div>
+        <div class="cp-was">£9,850<span>/mo</span></div>
+      </div>
+      <div class="cp-divider">
+        <div class="cp-line"></div>
+        <span class="cp-you">you pay</span>
+        <div class="cp-line"></div>
+      </div>
+      <div class="cp-real">£2,000<span>/mo</span></div>
+      <div class="cp-saving">You save £7,850 every single month</div>
+      <div class="price-perks" style="margin-top:20px;">
+        <span>✓ No setup fee</span>
+        <span>✓ No hidden costs</span>
+        <span>✓ No long-term contract</span>
+        <span>✓ Cancel any time</span>
+      </div>
+    </div>
+    <div class="progress"><div class="progress-fill" id="prog"></div></div>
+    <span class="counter" id="ctr">7 / 12</span>
   </div>
 
   <!-- 08 GALLERY -->
@@ -510,33 +546,7 @@
       </div>
     </div>
     <div class="progress"><div class="progress-fill" id="prog"></div></div>
-    <span class="counter" id="ctr">8 / 13</span>
-  </div>
-
-  <!-- 09 VALUE vs PRICE -->
-  <div class="slide center" id="s9">
-    <span class="brand">Abu Ecom</span>
-    <div class="contrast-price">
-      <div class="cp-top">
-        <div class="cp-label">What this is worth</div>
-        <div class="cp-was">£9,850<span>/mo</span></div>
-      </div>
-      <div class="cp-divider">
-        <div class="cp-line"></div>
-        <span class="cp-you">you pay</span>
-        <div class="cp-line"></div>
-      </div>
-      <div class="cp-real">£2,000<span>/mo</span></div>
-      <div class="cp-saving">You save £7,850 every single month</div>
-      <div class="price-perks" style="margin-top:20px;">
-        <span>✓ No setup fee</span>
-        <span>✓ No hidden costs</span>
-        <span>✓ No long-term contract</span>
-        <span>✓ Cancel any time</span>
-      </div>
-    </div>
-    <div class="progress"><div class="progress-fill" id="prog"></div></div>
-    <span class="counter" id="ctr">9 / 13</span>
+    <span class="counter" id="ctr">8 / 12</span>
   </div>
 
   <!-- 10 WHO IT'S FOR -->
