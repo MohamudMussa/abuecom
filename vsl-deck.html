@@ -242,7 +242,7 @@
     }
     .opp-col { text-align: center; }
     .opp-num { font-size: clamp(48px, 7vw, 80px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
-    .muted-num { color: var(--faint); text-decoration: line-through; }
+    .muted-num { color: var(--faint); }
     .amber-num { color: var(--amber); }
     .opp-label { font-size: clamp(12px, 1.2vw, 14px); color: var(--muted); margin-top: 6px; font-weight: 500; }
     .opp-arrow { font-size: clamp(28px, 4vw, 48px); color: var(--border); font-weight: 300; }
@@ -254,26 +254,27 @@
 
     /* ── STACK SLIDE ── */
     .stack-slide {
-      padding: clamp(20px, 2.5vw, 36px) clamp(32px, 5vw, 64px);
+      padding: clamp(64px, 7vw, 96px) clamp(32px, 5vw, 64px) clamp(24px, 3vw, 40px);
       justify-content: flex-start;
       gap: 0;
     }
-    .stack-header { margin-bottom: clamp(12px, 1.5vw, 18px); }
+    .stack-header { margin-bottom: clamp(14px, 1.8vw, 22px); }
     .stack-cols {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 8px clamp(16px, 2.5vw, 40px);
+      gap: clamp(6px, 0.8vw, 10px) clamp(16px, 2.5vw, 40px);
       width: 100%; flex: 1;
     }
-    .stack-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .stack-list { list-style: none; display: flex; flex-direction: column; gap: clamp(6px, 0.8vw, 10px); }
     .stack-list li {
-      display: flex; align-items: center; gap: 8px;
-      font-size: clamp(12px, 1.3vw, 15px);
-      background: var(--surface); border-radius: 8px;
-      padding: 8px 12px; border: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+      font-size: clamp(14px, 1.5vw, 18px);
+      background: var(--surface); border-radius: 10px;
+      padding: clamp(10px, 1.2vw, 14px) clamp(12px, 1.5vw, 18px);
+      border: 1px solid var(--border);
     }
-    .stack-list .chk { color: var(--green); font-weight: 800; flex-shrink: 0; font-size: 13px; }
+    .stack-list .chk { color: var(--green); font-weight: 800; flex-shrink: 0; font-size: clamp(14px, 1.4vw, 17px); }
     .stack-list .stxt { flex: 1; color: var(--text); font-weight: 600; }
-    .stack-list .sval { color: var(--amber); font-weight: 700; white-space: nowrap; font-size: clamp(11px, 1.1vw, 13px); }
+    .stack-list .sval { color: var(--amber); font-weight: 700; white-space: nowrap; font-size: clamp(13px, 1.3vw, 16px); }
     .stack-total {
       margin-top: clamp(12px, 2vw, 20px);
       text-align: center;
