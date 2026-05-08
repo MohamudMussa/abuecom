@@ -241,26 +241,55 @@
       margin-top: 8px;
     }
 
-    .price-total-row {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 8px;
+    .price-value-block {
+      text-align: center;
+      margin-bottom: 24px;
     }
 
-    .price-total-label { font-size: 13px; color: var(--muted); }
+    .price-value-label {
+      font-size: 13px; font-weight: 600;
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 8px;
+    }
 
-    .price-total-struck {
-      font-size: 15px; font-weight: 700;
-      color: var(--faint);
-      text-decoration: line-through;
+    .price-value-num {
+      font-size: clamp(52px, 10vw, 80px);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .price-value-num span {
+      font-size: clamp(22px, 4vw, 32px);
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .price-divider {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .price-divider-line {
+      flex: 1; height: 1px;
+      background: var(--border);
+    }
+
+    .price-divider-text {
+      font-size: 12px; font-weight: 700;
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: 0.08em; white-space: nowrap;
     }
 
     .price-main {
       display: flex; align-items: baseline; gap: 6px;
-      margin-bottom: 24px;
+      margin-bottom: 12px;
+      justify-content: center;
     }
 
     .price-amount {
-      font-size: clamp(48px, 8vw, 64px);
+      font-size: clamp(56px, 10vw, 80px);
       font-weight: 800;
       color: var(--amber);
       letter-spacing: -0.04em;
@@ -268,14 +297,21 @@
     }
 
     .price-period {
-      font-size: 20px; font-weight: 600;
+      font-size: 22px; font-weight: 600;
       color: var(--muted); letter-spacing: -0.01em;
+    }
+
+    .price-savings {
+      text-align: center;
+      font-size: 15px; font-weight: 700;
+      color: var(--green);
+      margin-bottom: 24px;
     }
 
     .price-details {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      gap: 10px;
       margin-bottom: 4px;
     }
 
@@ -555,21 +591,33 @@
 
   <!-- PRICE REVEAL -->
   <div class="price-reveal">
-    <div class="price-total-row">
-      <span class="price-total-label">Total value</span>
-      <span class="price-total-struck">£9,850+/mo</span>
+
+    <div class="price-value-block">
+      <p class="price-value-label">What this is worth</p>
+      <p class="price-value-num">£9,850<span>/mo</span></p>
     </div>
+
+    <div class="price-divider">
+      <div class="price-divider-line"></div>
+      <span class="price-divider-text">You pay</span>
+      <div class="price-divider-line"></div>
+    </div>
+
     <div class="price-main">
       <span class="price-amount">£2,000</span>
       <span class="price-period">/month</span>
     </div>
+
+    <div class="price-savings">You're saving £7,850 every single month.</div>
+
     <div class="price-details">
       <div class="price-detail-item">✓ No setup fee</div>
       <div class="price-detail-item">✓ No hidden costs</div>
       <div class="price-detail-item">✓ No long-term contract</div>
       <div class="price-detail-item">✓ Cancel any time</div>
     </div>
-    <a href="https://cal.com/mussa/abu-ecom" class="cta-btn" style="width:100%; justify-content:center; margin-top:24px;">Claim your spot — book a free call 🤝</a>
+
+    <a href="https://cal.com/mussa/abu-ecom" class="cta-btn" style="width:100%; justify-content:center; margin-top:28px;">Claim your spot — book a free call 🤝</a>
     <p style="text-align:center; font-size:12px; color:var(--faint); margin-top:10px;">3 new clients per month maximum. Spots fill fast.</p>
   </div>
 </div>
