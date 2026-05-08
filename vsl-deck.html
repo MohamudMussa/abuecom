@@ -235,6 +235,41 @@
       display: inline-block;
     }
 
+    /* ── GALLERY SLIDE ── */
+    .slide-gallery {
+      padding: clamp(24px, 3vw, 40px) clamp(32px, 5vw, 64px) 0;
+      justify-content: flex-start;
+      overflow: hidden;
+    }
+
+    .gallery-header { margin-bottom: clamp(12px, 1.5vw, 20px); flex-shrink: 0; }
+
+    .email-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      width: 100%;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .email-grid img {
+      width: 100%;
+      border-radius: 6px;
+      object-fit: cover;
+      object-position: center top;
+      aspect-ratio: 3/4;
+      display: block;
+    }
+
+    .gallery-fade {
+      position: absolute;
+      bottom: 36px; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, var(--bg));
+      pointer-events: none;
+    }
+
     /* ── PROGRESS ── */
     .progress {
       position: absolute; bottom: 0; left: 0; right: 0;
@@ -348,8 +383,43 @@
     <span class="counter" id="ctr">7 / 12</span>
   </div>
 
-  <!-- 08 VALUE vs PRICE -->
-  <div class="slide center" id="s8">
+  <!-- 08 GALLERY -->
+  <div class="slide slide-gallery" id="s8">
+    <span class="brand">Abu Ecom</span>
+    <div class="gallery-header">
+      <p class="eyebrow" style="margin-bottom:6px;">The work</p>
+      <h2 class="h2" style="font-size:clamp(20px,2.8vw,34px);">Real emails. Built for real Muslim brands.</h2>
+    </div>
+    <div class="email-grid">
+      <img src="/emails/5-pillars.png"       alt="5 Pillars" />
+      <img src="/emails/anafiya-gifts.png"   alt="Anafiya Gifts" />
+      <img src="/emails/boxed-halal.png"     alt="Boxed Halal" />
+      <img src="/emails/cave-london.png"     alt="Cave London" />
+      <img src="/emails/chaptrs.png"         alt="Chaptrs" />
+      <img src="/emails/darassalam.png"      alt="Darassalam" />
+      <img src="/emails/desi-dolls.png"      alt="Desi Dolls" />
+      <img src="/emails/hallal-meals.png"    alt="Hallal Meals" />
+      <img src="/emails/huraya.png"          alt="Huraya" />
+      <img src="/emails/irontfit.png"        alt="IrontFit" />
+      <img src="/emails/kube-publishing.png" alt="Kube Publishing" />
+      <img src="/emails/lala-and-mo.png"     alt="Lala and Mo" />
+      <img src="/emails/mama-yasmin.png"     alt="Mama Yasmin" />
+      <img src="/emails/musmeat.png"         alt="Musmeat" />
+      <img src="/emails/noor.png"            alt="Noor" />
+      <img src="/emails/one-stop-halal.png"  alt="One Stop Halal" />
+      <img src="/emails/osu.png"             alt="OSU" />
+      <img src="/emails/roohts.png"          alt="Roohts" />
+      <img src="/emails/simba.png"           alt="Simba" />
+      <img src="/emails/teapressa.png"       alt="Teapressa" />
+      <img src="/emails/bsst.png"            alt="BSST" />
+    </div>
+    <div class="gallery-fade"></div>
+    <div class="progress"><div class="progress-fill" id="prog"></div></div>
+    <span class="counter" id="ctr">8 / 13</span>
+  </div>
+
+  <!-- 09 VALUE vs PRICE -->
+  <div class="slide center" id="s9">
     <span class="brand">Abu Ecom</span>
     <p class="eyebrow">The investment</p>
     <div class="price-box">
@@ -364,11 +434,11 @@
       </div>
     </div>
     <div class="progress"><div class="progress-fill" id="prog"></div></div>
-    <span class="counter" id="ctr">8 / 12</span>
+    <span class="counter" id="ctr">9 / 13</span>
   </div>
 
-  <!-- 09 WHO IT'S FOR -->
-  <div class="slide" id="s9">
+  <!-- 10 WHO IT'S FOR -->
+  <div class="slide" id="s10">
     <span class="brand">Abu Ecom</span>
     <p class="eyebrow">Is this for you?</p>
     <h2 class="h2">This is for Muslim brand owners who are serious about growth.</h2>
@@ -380,11 +450,11 @@
       <li><span class="icon">✓</span>You want someone who actually understands your market</li>
     </ul>
     <div class="progress"><div class="progress-fill" id="prog"></div></div>
-    <span class="counter" id="ctr">9 / 12</span>
+    <span class="counter" id="ctr">10 / 13</span>
   </div>
 
-  <!-- 10 GUARANTEE -->
-  <div class="slide center" id="s10">
+  <!-- 11 GUARANTEE -->
+  <div class="slide center" id="s11">
     <span class="brand">Abu Ecom</span>
     <div class="guarantee-box">
       <div class="g-icon">🛡️</div>
@@ -392,11 +462,11 @@
       <p class="g-body">If we don't <strong>measurably increase your email revenue</strong> within 90 days, we work for free until we do. No arguments. No small print. We either deliver or we don't get paid.</p>
     </div>
     <div class="progress"><div class="progress-fill" id="prog"></div></div>
-    <span class="counter" id="ctr">10 / 12</span>
+    <span class="counter" id="ctr">11 / 13</span>
   </div>
 
-  <!-- 11 OBJECTIONS -->
-  <div class="slide" id="s11">
+  <!-- 12 OBJECTIONS -->
+  <div class="slide" id="s12">
     <span class="brand">Abu Ecom</span>
     <p class="eyebrow">I know what you're thinking</p>
     <h2 class="h2">Let's handle it.</h2>
@@ -407,18 +477,18 @@
       <li><span class="icon">→</span><span><strong>"I don't have time"</strong> — you don't need any. We handle everything, start to finish.</span></li>
     </ul>
     <div class="progress"><div class="progress-fill" id="prog"></div></div>
-    <span class="counter" id="ctr">11 / 12</span>
+    <span class="counter" id="ctr">12 / 13</span>
   </div>
 
-  <!-- 12 CTA -->
-  <div class="slide center" id="s12">
+  <!-- 13 CTA -->
+  <div class="slide center" id="s13">
     <span class="brand">Abu Ecom</span>
     <p class="eyebrow">One step</p>
     <h1 class="h1 wide">Book a free 30-min call. We'll show you exactly where your email money is.</h1>
     <a class="cta-url">abuecom.com/offer</a>
     <p class="body" style="text-align:center; margin-top:16px;">No pitch. No pressure. Just a free audit and a plan.<br><strong>3 new client spots per month. That's it.</strong></p>
     <div class="progress"><div class="progress-fill" id="prog"></div></div>
-    <span class="counter" id="ctr">12 / 12</span>
+    <span class="counter" id="ctr">13 / 13</span>
   </div>
 
 <script>
