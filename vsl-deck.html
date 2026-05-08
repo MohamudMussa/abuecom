@@ -235,39 +235,104 @@
       display: inline-block;
     }
 
+    /* ── OPPORTUNITY ── */
+    .opp-bar {
+      display: flex; align-items: center; gap: clamp(24px, 4vw, 56px);
+      margin: clamp(20px, 3vw, 32px) 0;
+    }
+    .opp-col { text-align: center; }
+    .opp-num { font-size: clamp(48px, 7vw, 80px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+    .muted-num { color: var(--faint); text-decoration: line-through; }
+    .amber-num { color: var(--amber); }
+    .opp-label { font-size: clamp(12px, 1.2vw, 14px); color: var(--muted); margin-top: 6px; font-weight: 500; }
+    .opp-arrow { font-size: clamp(28px, 4vw, 48px); color: var(--border); font-weight: 300; }
+    .pain-statement {
+      font-size: clamp(18px, 2.2vw, 26px); font-weight: 600;
+      color: var(--muted); line-height: 1.4;
+      max-width: 52ch; text-align: center;
+    }
+
+    /* ── STACK SLIDE ── */
+    .stack-slide {
+      padding: clamp(20px, 2.5vw, 36px) clamp(32px, 5vw, 64px);
+      justify-content: flex-start;
+      gap: 0;
+    }
+    .stack-header { margin-bottom: clamp(12px, 1.5vw, 18px); }
+    .stack-cols {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 8px clamp(16px, 2.5vw, 40px);
+      width: 100%; flex: 1;
+    }
+    .stack-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .stack-list li {
+      display: flex; align-items: center; gap: 8px;
+      font-size: clamp(12px, 1.3vw, 15px);
+      background: var(--surface); border-radius: 8px;
+      padding: 8px 12px; border: 1px solid var(--border);
+    }
+    .stack-list .chk { color: var(--green); font-weight: 800; flex-shrink: 0; font-size: 13px; }
+    .stack-list .stxt { flex: 1; color: var(--text); font-weight: 600; }
+    .stack-list .sval { color: var(--amber); font-weight: 700; white-space: nowrap; font-size: clamp(11px, 1.1vw, 13px); }
+    .stack-total {
+      margin-top: clamp(10px, 1.5vw, 16px);
+      font-size: clamp(14px, 1.6vw, 18px); font-weight: 600; color: var(--muted);
+      width: 100%;
+    }
+    .stack-total span { color: var(--amber); font-weight: 800; font-size: clamp(18px, 2.2vw, 26px); }
+
+    /* ── CONTRAST PRICE ── */
+    .contrast-price { width: 100%; max-width: 640px; text-align: center; }
+    .cp-top { margin-bottom: 16px; }
+    .cp-label { font-size: clamp(12px, 1.2vw, 15px); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 4px; }
+    .cp-was { font-size: clamp(44px, 7vw, 80px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--faint); text-decoration: line-through; }
+    .cp-was span { font-size: 0.45em; font-weight: 600; }
+    .cp-divider { display: flex; align-items: center; gap: 16px; margin: 16px 0; }
+    .cp-line { flex: 1; height: 1px; background: var(--border); }
+    .cp-you { font-size: clamp(11px, 1.1vw, 13px); font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); white-space: nowrap; }
+    .cp-real { font-size: clamp(64px, 11vw, 112px); font-weight: 800; letter-spacing: -0.045em; line-height: 1; color: var(--amber); }
+    .cp-real span { font-size: 0.35em; font-weight: 600; color: var(--muted); }
+    .cp-saving { font-size: clamp(14px, 1.6vw, 18px); font-weight: 700; color: var(--green); margin-top: 10px; }
+
     /* ── GALLERY SLIDE ── */
     .slide-gallery {
-      padding: clamp(24px, 3vw, 40px) clamp(32px, 5vw, 64px) 0;
+      padding: clamp(24px, 3vw, 40px) clamp(32px, 5vw, 64px) clamp(40px, 5vw, 60px);
       justify-content: flex-start;
       overflow: hidden;
     }
 
-    .gallery-header { margin-bottom: clamp(12px, 1.5vw, 20px); flex-shrink: 0; }
+    .gallery-header { margin-bottom: clamp(16px, 2vw, 28px); flex-shrink: 0; }
 
-    .email-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 8px;
-      width: 100%;
-      flex: 1;
-      overflow: hidden;
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
-    .email-grid img {
+    .marquee-wrap {
       width: 100%;
-      border-radius: 6px;
+      overflow: hidden;
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 14px;
+      animation: marquee 40s linear infinite;
+      will-change: transform;
+    }
+
+    .marquee-track img {
+      width: clamp(160px, 26vw, 300px);
+      flex-shrink: 0;
+      border-radius: 10px;
       object-fit: cover;
       object-position: center top;
       aspect-ratio: 3/4;
       display: block;
-    }
-
-    .gallery-fade {
-      position: absolute;
-      bottom: 36px; left: 0; right: 0;
-      height: 120px;
-      background: linear-gradient(to bottom, transparent, var(--bg));
-      pointer-events: none;
     }
 
     /* ── PROGRESS ── */
@@ -345,42 +410,49 @@
   <div class="slide center" id="s5">
     <span class="brand">Abu Ecom</span>
     <p class="eyebrow">The opportunity</p>
-    <h1 class="h1 wide">The average brand makes <span class="amber">30–40% of revenue</span> from email.</h1>
-    <p class="body" style="text-align:center;">Most Muslim brands are under <strong>10%</strong> when we find them. That gap is thousands of pounds sitting in your list every single month. Uncaptured.</p>
+    <h1 class="h1 wide">The average brand makes <span class="amber">30–40%</span> of its revenue from email.</h1>
+    <div class="opp-bar">
+      <div class="opp-col">
+        <div class="opp-num muted-num">~10%</div>
+        <div class="opp-label">Where most Muslim brands are</div>
+      </div>
+      <div class="opp-arrow">→</div>
+      <div class="opp-col">
+        <div class="opp-num amber-num">30–40%</div>
+        <div class="opp-label">Where you should be</div>
+      </div>
+    </div>
+    <p class="pain-statement">That gap is <span style="color:var(--text); font-weight:800;">thousands of pounds sitting in your list right now.</span> Uncaptured. Every. Single. Month.</p>
     <div class="progress"><div class="progress-fill" id="prog"></div></div>
-    <span class="counter" id="ctr">5 / 12</span>
+    <span class="counter" id="ctr">5 / 13</span>
   </div>
 
-  <!-- 06 WHAT YOU GET pt1 -->
-  <div class="slide" id="s6">
+  <!-- 06 FULL STACK (one slide) -->
+  <div class="slide stack-slide" id="s6">
     <span class="brand">Abu Ecom</span>
-    <p class="eyebrow">What's included</p>
-    <h2 class="h2">We take over your entire email operation.</h2>
-    <ul class="list check">
-      <li><span class="icon">✓</span>Full Klaviyo audit on day one — we find every leak <span class="val">£750</span></li>
-      <li><span class="icon">✓</span>5 revenue flows built and live in 2 weeks <span class="val">£3,500</span></li>
-      <li><span class="icon">✓</span>12 campaigns per month — 3 every single week <span class="val">£2,000/mo</span></li>
-      <li><span class="icon">✓</span>Smart segmentation — right email, right person <span class="val">£900</span></li>
-      <li><span class="icon">✓</span>Monthly A/B testing — always compounding <span class="val">£500/mo</span></li>
-    </ul>
+    <div class="stack-header">
+      <p class="eyebrow" style="margin-bottom:6px;">Everything included</p>
+      <h2 class="h2" style="font-size:clamp(20px,2.6vw,32px);">Every single thing. Done for you.</h2>
+    </div>
+    <div class="stack-cols">
+      <ul class="stack-list">
+        <li><span class="chk">✓</span><span class="stxt">Full Klaviyo audit</span><span class="sval">£750</span></li>
+        <li><span class="chk">✓</span><span class="stxt">5 revenue flows, live in 2 weeks</span><span class="sval">£3,500</span></li>
+        <li><span class="chk">✓</span><span class="stxt">12 campaigns/month — 3 per week</span><span class="sval">£2,000/mo</span></li>
+        <li><span class="chk">✓</span><span class="stxt">Smart segmentation</span><span class="sval">£900</span></li>
+        <li><span class="chk">✓</span><span class="stxt">Monthly A/B testing</span><span class="sval">£500/mo</span></li>
+      </ul>
+      <ul class="stack-list">
+        <li><span class="chk">✓</span><span class="stxt">List growth strategy</span><span class="sval">£600</span></li>
+        <li><span class="chk">✓</span><span class="stxt">Monthly performance report</span><span class="sval">£300/mo</span></li>
+        <li><span class="chk">✓</span><span class="stxt">Monthly strategy call with Mussa</span><span class="sval">£500/mo</span></li>
+        <li><span class="chk">✓</span><span class="stxt">24/7 Slack access</span><span class="sval">£800/mo</span></li>
+        <li><span class="chk">✓</span><span class="stxt">Muslim market expertise</span><span class="sval">Priceless</span></li>
+      </ul>
+    </div>
+    <div class="stack-total">Total value: <span>£9,850+/mo</span></div>
     <div class="progress"><div class="progress-fill" id="prog"></div></div>
-    <span class="counter" id="ctr">6 / 12</span>
-  </div>
-
-  <!-- 07 WHAT YOU GET pt2 -->
-  <div class="slide" id="s7">
-    <span class="brand">Abu Ecom</span>
-    <p class="eyebrow">Also included — no extras</p>
-    <h2 class="h2">Everything a full in-house team would do.</h2>
-    <ul class="list check">
-      <li><span class="icon">✓</span>List growth strategy — your audience compounds monthly <span class="val">£600</span></li>
-      <li><span class="icon">✓</span>Monthly performance report — full transparency on ROI <span class="val">£300/mo</span></li>
-      <li><span class="icon">✓</span>Monthly strategy call with Mussa directly <span class="val">£500/mo</span></li>
-      <li><span class="icon">✓</span>24/7 Slack access — message any time, day or night <span class="val">£800/mo</span></li>
-      <li><span class="icon">✓</span>Muslim market expertise — we understand your audience <span class="val">Priceless</span></li>
-    </ul>
-    <div class="progress"><div class="progress-fill" id="prog"></div></div>
-    <span class="counter" id="ctr">7 / 12</span>
+    <span class="counter" id="ctr">6 / 13</span>
   </div>
 
   <!-- 08 GALLERY -->
@@ -390,30 +462,53 @@
       <p class="eyebrow" style="margin-bottom:6px;">The work</p>
       <h2 class="h2" style="font-size:clamp(20px,2.8vw,34px);">Real emails. Built for real Muslim brands.</h2>
     </div>
-    <div class="email-grid">
-      <img src="/emails/5-pillars.png"       alt="5 Pillars" />
-      <img src="/emails/anafiya-gifts.png"   alt="Anafiya Gifts" />
-      <img src="/emails/boxed-halal.png"     alt="Boxed Halal" />
-      <img src="/emails/cave-london.png"     alt="Cave London" />
-      <img src="/emails/chaptrs.png"         alt="Chaptrs" />
-      <img src="/emails/darassalam.png"      alt="Darassalam" />
-      <img src="/emails/desi-dolls.png"      alt="Desi Dolls" />
-      <img src="/emails/hallal-meals.png"    alt="Hallal Meals" />
-      <img src="/emails/huraya.png"          alt="Huraya" />
-      <img src="/emails/irontfit.png"        alt="IrontFit" />
-      <img src="/emails/kube-publishing.png" alt="Kube Publishing" />
-      <img src="/emails/lala-and-mo.png"     alt="Lala and Mo" />
-      <img src="/emails/mama-yasmin.png"     alt="Mama Yasmin" />
-      <img src="/emails/musmeat.png"         alt="Musmeat" />
-      <img src="/emails/noor.png"            alt="Noor" />
-      <img src="/emails/one-stop-halal.png"  alt="One Stop Halal" />
-      <img src="/emails/osu.png"             alt="OSU" />
-      <img src="/emails/roohts.png"          alt="Roohts" />
-      <img src="/emails/simba.png"           alt="Simba" />
-      <img src="/emails/teapressa.png"       alt="Teapressa" />
-      <img src="/emails/bsst.png"            alt="BSST" />
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <img src="/emails/5-pillars.png"       alt="5 Pillars" />
+        <img src="/emails/anafiya-gifts.png"   alt="Anafiya Gifts" />
+        <img src="/emails/boxed-halal.png"     alt="Boxed Halal" />
+        <img src="/emails/cave-london.png"     alt="Cave London" />
+        <img src="/emails/chaptrs.png"         alt="Chaptrs" />
+        <img src="/emails/darassalam.png"      alt="Darassalam" />
+        <img src="/emails/desi-dolls.png"      alt="Desi Dolls" />
+        <img src="/emails/hallal-meals.png"    alt="Hallal Meals" />
+        <img src="/emails/huraya.png"          alt="Huraya" />
+        <img src="/emails/irontfit.png"        alt="IrontFit" />
+        <img src="/emails/kube-publishing.png" alt="Kube Publishing" />
+        <img src="/emails/lala-and-mo.png"     alt="Lala and Mo" />
+        <img src="/emails/mama-yasmin.png"     alt="Mama Yasmin" />
+        <img src="/emails/musmeat.png"         alt="Musmeat" />
+        <img src="/emails/noor.png"            alt="Noor" />
+        <img src="/emails/one-stop-halal.png"  alt="One Stop Halal" />
+        <img src="/emails/osu.png"             alt="OSU" />
+        <img src="/emails/roohts.png"          alt="Roohts" />
+        <img src="/emails/simba.png"           alt="Simba" />
+        <img src="/emails/teapressa.png"       alt="Teapressa" />
+        <img src="/emails/bsst.png"            alt="BSST" />
+        <!-- duplicate for seamless loop -->
+        <img src="/emails/5-pillars.png"       alt="" />
+        <img src="/emails/anafiya-gifts.png"   alt="" />
+        <img src="/emails/boxed-halal.png"     alt="" />
+        <img src="/emails/cave-london.png"     alt="" />
+        <img src="/emails/chaptrs.png"         alt="" />
+        <img src="/emails/darassalam.png"      alt="" />
+        <img src="/emails/desi-dolls.png"      alt="" />
+        <img src="/emails/hallal-meals.png"    alt="" />
+        <img src="/emails/huraya.png"          alt="" />
+        <img src="/emails/irontfit.png"        alt="" />
+        <img src="/emails/kube-publishing.png" alt="" />
+        <img src="/emails/lala-and-mo.png"     alt="" />
+        <img src="/emails/mama-yasmin.png"     alt="" />
+        <img src="/emails/musmeat.png"         alt="" />
+        <img src="/emails/noor.png"            alt="" />
+        <img src="/emails/one-stop-halal.png"  alt="" />
+        <img src="/emails/osu.png"             alt="" />
+        <img src="/emails/roohts.png"          alt="" />
+        <img src="/emails/simba.png"           alt="" />
+        <img src="/emails/teapressa.png"       alt="" />
+        <img src="/emails/bsst.png"            alt="" />
+      </div>
     </div>
-    <div class="gallery-fade"></div>
     <div class="progress"><div class="progress-fill" id="prog"></div></div>
     <span class="counter" id="ctr">8 / 13</span>
   </div>
@@ -421,12 +516,19 @@
   <!-- 09 VALUE vs PRICE -->
   <div class="slide center" id="s9">
     <span class="brand">Abu Ecom</span>
-    <p class="eyebrow">The investment</p>
-    <div class="price-box">
-      <div class="price-was">Worth £9,850/month if you hired separately</div>
-      <div class="price-big">£2,000<span class="mo">/mo</span></div>
-      <div class="price-saving">You save £7,850 every single month</div>
-      <div class="price-perks">
+    <div class="contrast-price">
+      <div class="cp-top">
+        <div class="cp-label">What this is worth</div>
+        <div class="cp-was">£9,850<span>/mo</span></div>
+      </div>
+      <div class="cp-divider">
+        <div class="cp-line"></div>
+        <span class="cp-you">you pay</span>
+        <div class="cp-line"></div>
+      </div>
+      <div class="cp-real">£2,000<span>/mo</span></div>
+      <div class="cp-saving">You save £7,850 every single month</div>
+      <div class="price-perks" style="margin-top:20px;">
         <span>✓ No setup fee</span>
         <span>✓ No hidden costs</span>
         <span>✓ No long-term contract</span>
