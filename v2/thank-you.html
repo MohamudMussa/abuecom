@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're booked — Abu Ecom</title>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window,document,"clarity","script","YOUR_CLARITY_ID");
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #F5F5F5;
+      --text:    #111111;
+      --muted:   #666666;
+      --border:  #E0E0E0;
+      --surface: #FFFFFF;
+      --orange:  #FF4D00;
+    }
+
+    body {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100svh;
+      display: flex; flex-direction: column;
+    }
+
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 16px clamp(20px, 5vw, 72px);
+      display: flex; align-items: center;
+    }
+    .nav-logo {
+      font-size: 16px; font-weight: 800;
+      letter-spacing: -0.03em; color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--orange); }
+
+    main {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      padding: clamp(48px, 8vw, 96px) clamp(20px, 5vw, 72px);
+    }
+
+    .ty-wrap {
+      max-width: 680px; width: 100%;
+    }
+
+    .check-badge {
+      width: 56px; height: 56px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 28px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 58px);
+      font-weight: 800; line-height: 1.04;
+      letter-spacing: -0.04em; color: var(--text);
+      margin-bottom: 18px;
+    }
+    h1 span { color: var(--orange); }
+
+    .ty-sub {
+      font-size: clamp(16px, 1.8vw, 19px);
+      color: var(--muted); line-height: 1.65;
+      margin-bottom: clamp(36px, 5vw, 52px);
+    }
+
+    /* What happens next */
+    .next-steps {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: clamp(24px, 3vw, 36px);
+      margin-bottom: clamp(28px, 4vw, 40px);
+    }
+
+    .next-steps-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.07em; color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .step {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .step-num {
+      width: 32px; height: 32px; flex-shrink: 0;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 800; color: #fff;
+    }
+
+    .step-title {
+      font-size: clamp(14px, 1.5vw, 16px);
+      font-weight: 700; color: var(--text);
+      margin-bottom: 4px; letter-spacing: -0.015em;
+    }
+
+    .step-body {
+      font-size: clamp(13px, 1.3vw, 14px);
+      color: var(--muted); line-height: 1.55;
+    }
+
+    /* Pre-sell block */
+    .presell {
+      background: var(--text);
+      border-radius: 16px;
+      padding: clamp(24px, 3vw, 36px);
+      margin-bottom: clamp(24px, 3vw, 36px);
+    }
+
+    .presell-title {
+      font-size: clamp(18px, 2.2vw, 24px);
+      font-weight: 800; letter-spacing: -0.03em;
+      color: #fff; margin-bottom: 16px;
+    }
+    .presell-title span { color: var(--orange); }
+
+    .presell-list {
+      list-style: none; display: flex; flex-direction: column; gap: 10px;
+    }
+    .presell-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: clamp(13px, 1.4vw, 15px);
+      color: rgba(255,255,255,0.7); line-height: 1.5;
+    }
+    .presell-list li::before {
+      content: '→'; color: var(--orange); font-weight: 800; flex-shrink: 0;
+    }
+
+    /* Social proof nudge */
+    .social-nudge {
+      font-size: 14px; color: var(--muted); text-align: center;
+      line-height: 1.6;
+    }
+    .social-nudge a {
+      color: var(--orange); font-weight: 700; text-decoration: none;
+    }
+    .social-nudge a:hover { text-decoration: underline; }
+
+    footer {
+      padding: 24px clamp(20px, 5vw, 72px);
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-logo {
+      font-size: 15px; font-weight: 800; letter-spacing: -0.03em;
+      color: var(--text); text-decoration: none;
+    }
+    .footer-logo span { color: var(--orange); }
+    footer p { font-size: 13px; color: var(--muted); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="/v2/">Abu<span>Ecom</span></a>
+  </nav>
+
+  <main>
+    <div class="ty-wrap">
+
+      <div class="check-badge">✓</div>
+
+      <h1>You're booked.<br><span>See you on the call.</span></h1>
+      <p class="ty-sub">Check your email for the calendar invite. In the meantime, here's exactly what to expect — and how to make the most of your 30 minutes with Mussa.</p>
+
+      <div class="next-steps">
+        <div class="next-steps-title">What happens next</div>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-title">Check your inbox</div>
+            <div class="step-body">You'll receive a calendar invite with the Zoom link. Add it to your calendar now so you don't miss it.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-title">Prepare two things</div>
+            <div class="step-body">Know your approximate monthly revenue and your current email list size. That's all you need — we handle the rest of the audit live on the call.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <div class="step-title">We do a free live audit</div>
+            <div class="step-body">Mussa will look at your Klaviyo account, identify exactly what's leaking money, and show you what we'd fix first. You leave with a clear picture — whether you work with us or not.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div>
+            <div class="step-title">If it's a fit, we go live in 2 weeks</div>
+            <div class="step-body">No long onboarding. We plug in, build your flows, and start sending campaigns within 14 days of signing.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="presell">
+        <div class="presell-title">What this call is <span>not</span></div>
+        <ul class="presell-list">
+          <li>It's not a 30-minute sales pitch — we spend the first 20 minutes actually auditing your account</li>
+          <li>It's not vague strategy talk — you'll leave with specific numbers and specific recommendations</li>
+          <li>It's not a hard close — if we're not the right fit, we'll tell you that honestly</li>
+          <li>It's not for brands that aren't serious — we only take 3 clients at a time, so we're selective</li>
+        </ul>
+      </div>
+
+      <p class="social-nudge">
+        While you wait, see the work we've done for other Muslim brands on Instagram.<br>
+        <a href="https://instagram.com/thatmussa" target="_blank">@thatmussa</a>
+      </p>
+
+    </div>
+  </main>
+
+  <footer>
+    <a class="footer-logo" href="/v2/">Abu<span>Ecom</span></a>
+    <p>Questions? DM <a href="https://instagram.com/thatmussa" target="_blank" style="color:var(--orange); font-weight:700; text-decoration:none;">@thatmussa</a></p>
+  </footer>
+
+</body>
+</html>
