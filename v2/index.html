@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abu Ecom — Email Marketing for Muslim Brands</title>
-  <meta name="description" content="Done-for-you email marketing exclusively for Muslim ecommerce brands. Live in 2 weeks. 90-day revenue guarantee." />
+  <meta name="description" content="Done-for-you email marketing for Muslim ecommerce brands. Live in 2 weeks. 90-day revenue guarantee." />
 
-  <!-- Microsoft Clarity -->
+  <!-- Microsoft Clarity — replace YOUR_CLARITY_ID -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -23,12 +23,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:      #F5F5F5;
-      --text:    #111111;
-      --muted:   #666666;
-      --border:  #E0E0E0;
-      --surface: #FFFFFF;
-      --orange:  #FF4D00;
+      --bg:        #F5F5F5;
+      --text:      #111111;
+      --muted:     #666666;
+      --border:    #E2E2E2;
+      --surface:   #FFFFFF;
+      --orange:    #FF4D00;
+      --dark:      #0C0C0C;
     }
 
     html { scroll-behavior: smooth; }
@@ -41,403 +42,506 @@
       overflow-x: hidden;
     }
 
-    /* ── NAV ── */
+    /* ─── UTILITIES ─── */
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px); }
+    .orange { color: var(--orange); }
+
+    /* ─── NAV ─── */
     nav {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      padding: 16px clamp(20px, 5vw, 72px);
-      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(12,12,12,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 14px clamp(20px, 5vw, 64px);
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
     }
     .nav-logo {
-      font-size: 16px; font-weight: 800;
-      letter-spacing: -0.03em; color: var(--text);
+      font-size: 17px; font-weight: 800;
+      letter-spacing: -0.03em; color: #fff;
       text-decoration: none;
     }
     .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.55);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .nav-links a:hover { color: #fff; }
+    @media (max-width: 600px) { .nav-links { display: none; } }
     .nav-cta {
       background: var(--orange); color: #fff;
-      font-family: inherit; font-size: 14px; font-weight: 700;
-      padding: 10px 22px; border-radius: 8px;
-      border: none; cursor: pointer; text-decoration: none;
-      letter-spacing: -0.01em; white-space: nowrap;
-      transition: opacity 0.15s;
+      font-family: inherit; font-size: 13px; font-weight: 700;
+      padding: 10px 20px; border-radius: 8px; border: none;
+      cursor: pointer; text-decoration: none; white-space: nowrap;
+      transition: opacity 0.15s; letter-spacing: -0.01em;
     }
     .nav-cta:hover { opacity: 0.88; }
 
-    /* ── SECTIONS ── */
-    section { padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 72px); }
-
-    section.hero {
-      padding-top: clamp(72px, 10vw, 128px);
-      padding-bottom: clamp(64px, 9vw, 112px);
-      border-bottom: 1px solid var(--border);
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      background: var(--dark);
+      padding: clamp(80px, 11vw, 140px) clamp(20px, 5vw, 64px) clamp(80px, 10vw, 128px);
+      text-align: center;
+      overflow: hidden;
     }
 
-    /* ── HERO ── */
-    .hero-inner { max-width: 860px; }
-
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
-      text-transform: uppercase; color: var(--orange);
-      margin-bottom: clamp(20px, 3vw, 32px);
+    /* dot-grid texture overlay */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(139,92,246,0.55) 1px, transparent 1px),
+        radial-gradient(circle, rgba(99,102,241,0.3) 1px, transparent 1px);
+      background-size: 28px 28px, 52px 52px;
+      background-position: 0 0, 14px 14px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+      opacity: 0.6;
     }
-    .eyebrow::before {
-      content: ''; display: block;
-      width: 20px; height: 2px; background: var(--orange);
-      border-radius: 2px;
+
+    /* purple glow */
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(139,92,246,0.18) 0%, transparent 70%);
+      pointer-events: none;
     }
 
-    h1 {
-      font-size: clamp(36px, 6vw, 76px);
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 820px; margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: clamp(20px, 3vw, 28px);
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 6.5vw, 76px);
       font-weight: 800; line-height: 1.02;
-      letter-spacing: -0.04em; color: var(--text);
-      max-width: 18ch;
+      letter-spacing: -0.04em;
+      color: #fff;
+      margin-bottom: clamp(18px, 2.5vw, 24px);
     }
-    h1 .highlight { color: var(--orange); }
+    .hero h1 .orange { color: var(--orange); }
+    .hero h1 .underline {
+      text-decoration: underline;
+      text-decoration-color: var(--orange);
+      text-underline-offset: 6px;
+    }
 
     .hero-sub {
-      font-size: clamp(16px, 1.8vw, 20px);
-      color: var(--muted); line-height: 1.65;
-      margin-top: clamp(20px, 2.5vw, 28px);
-      max-width: 52ch;
+      font-size: clamp(15px, 1.8vw, 19px);
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65; max-width: 52ch; margin: 0 auto;
+      margin-bottom: clamp(28px, 4vw, 40px);
     }
+    .hero-sub strong { color: rgba(255,255,255,0.85); }
 
-    .hero-cta-row {
-      display: flex; flex-wrap: wrap;
-      align-items: center; gap: 16px;
-      margin-top: clamp(28px, 4vw, 44px);
-    }
-
-    .btn-primary {
+    .btn-orange {
+      display: inline-flex; align-items: center; gap: 8px;
       background: var(--orange); color: #fff;
-      font-family: inherit; font-size: clamp(15px, 1.5vw, 17px);
-      font-weight: 700; padding: clamp(14px, 1.6vw, 18px) clamp(28px, 3vw, 40px);
+      font-family: inherit; font-size: clamp(15px, 1.6vw, 17px); font-weight: 700;
+      padding: clamp(14px, 1.8vw, 18px) clamp(28px, 3.5vw, 44px);
       border-radius: 10px; border: none; cursor: pointer;
       text-decoration: none; letter-spacing: -0.01em;
-      transition: opacity 0.15s; display: inline-block;
+      transition: opacity 0.15s;
     }
-    .btn-primary:hover { opacity: 0.88; }
+    .btn-orange:hover { opacity: 0.88; }
 
-    .trust-line {
-      font-size: 13px; color: var(--muted); font-weight: 500;
+    .hero-trust {
+      margin-top: clamp(20px, 3vw, 28px);
+      font-size: 13px; color: rgba(255,255,255,0.38);
+      font-weight: 500;
     }
-    .trust-line strong { color: var(--text); font-weight: 700; }
+    .hero-trust strong { color: rgba(255,255,255,0.6); }
 
     .hero-stats {
-      display: flex; gap: clamp(28px, 4vw, 56px); flex-wrap: wrap;
-      margin-top: clamp(48px, 6vw, 72px);
-      padding-top: clamp(32px, 4vw, 48px);
-      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      gap: clamp(32px, 5vw, 64px); flex-wrap: wrap;
+      margin-top: clamp(48px, 7vw, 80px);
+      padding-top: clamp(32px, 4vw, 44px);
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
-    .stat-num {
+    .hero-stat-num {
       font-size: clamp(28px, 4vw, 44px);
       font-weight: 800; letter-spacing: -0.04em;
-      color: var(--text); line-height: 1;
+      color: #fff; line-height: 1;
     }
-    .stat-num span { color: var(--orange); }
-    .stat-label {
-      font-size: 13px; color: var(--muted);
+    .hero-stat-num span { color: var(--orange); }
+    .hero-stat-label {
+      font-size: 12px; color: rgba(255,255,255,0.38);
       margin-top: 5px; font-weight: 500;
     }
 
-    /* ── PROBLEM / SOLUTION ── */
-    section.problem { border-bottom: 1px solid var(--border); }
-    .ps-inner { max-width: 960px; }
-
+    /* ─── SECTION BASE ─── */
+    .section { padding: clamp(64px, 9vw, 112px) clamp(20px, 5vw, 64px); }
     .section-tag {
       font-size: 12px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.07em; color: var(--orange);
-      margin-bottom: clamp(16px, 2vw, 24px);
+      letter-spacing: 0.08em; color: var(--orange);
+      margin-bottom: 14px;
     }
-
-    h2 {
-      font-size: clamp(28px, 4vw, 52px);
-      font-weight: 800; line-height: 1.06;
-      letter-spacing: -0.035em; color: var(--text);
+    .section h2 {
+      font-size: clamp(28px, 4.5vw, 54px);
+      font-weight: 800; line-height: 1.04;
+      letter-spacing: -0.04em; color: var(--text);
+      max-width: 20ch;
     }
-
-    .problem-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(20px, 3vw, 40px);
-      margin-top: clamp(36px, 5vw, 56px);
-    }
-    @media (max-width: 640px) { .problem-grid { grid-template-columns: 1fr; } }
-
-    .problem-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: clamp(22px, 3vw, 32px);
-    }
-
-    .problem-card h3 {
-      font-size: clamp(15px, 1.5vw, 18px);
-      font-weight: 700; color: var(--text);
-      margin-bottom: 10px; letter-spacing: -0.02em;
-    }
-
-    .problem-card p {
-      font-size: clamp(14px, 1.3vw, 15px);
+    .section h2 .orange { color: var(--orange); }
+    .section-sub {
+      font-size: clamp(15px, 1.6vw, 18px);
       color: var(--muted); line-height: 1.6;
+      max-width: 52ch; margin-top: 14px;
     }
 
-    .card-icon {
-      font-size: 22px; margin-bottom: 14px; display: block;
-    }
+    /* ─── SYSTEM SECTION ─── */
+    .system { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
-    .solution-block {
-      margin-top: clamp(40px, 6vw, 64px);
-      background: var(--text);
-      border-radius: 16px;
-      padding: clamp(28px, 4vw, 48px) clamp(28px, 5vw, 56px);
+    .system-head { max-width: 700px; margin-bottom: clamp(40px, 6vw, 60px); }
+    .system-head h2 { max-width: 100%; }
+
+    .deliverables {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(24px, 4vw, 48px);
-      align-items: center;
-    }
-    @media (max-width: 640px) { .solution-block { grid-template-columns: 1fr; } }
-
-    .solution-block h3 {
-      font-size: clamp(22px, 3vw, 36px);
-      font-weight: 800; letter-spacing: -0.03em;
-      color: #fff; line-height: 1.1;
-    }
-    .solution-block h3 span { color: var(--orange); }
-
-    .solution-list {
-      list-style: none;
-      display: flex; flex-direction: column; gap: 12px;
-    }
-    .solution-list li {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: clamp(14px, 1.4vw, 16px);
-      color: rgba(255,255,255,0.75); line-height: 1.5;
-    }
-    .solution-list li::before {
-      content: '✓';
-      color: var(--orange); font-weight: 800;
-      flex-shrink: 0; margin-top: 1px;
-    }
-
-    /* ── PROOF ── */
-    section.proof { border-bottom: 1px solid var(--border); }
-
-    .proof-head { max-width: 600px; margin-bottom: clamp(36px, 5vw, 56px); }
-
-    .proof-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(14px, 2vw, 24px);
-      margin-bottom: clamp(40px, 6vw, 60px);
-    }
-    @media (max-width: 560px) { .proof-metrics { grid-template-columns: 1fr 1fr; } }
-
-    .metric-card {
-      background: var(--surface);
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: clamp(20px, 2.5vw, 28px);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: clamp(32px, 5vw, 48px);
     }
-    .metric-num {
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 800; letter-spacing: -0.04em;
-      color: var(--text); line-height: 1;
-    }
-    .metric-num span { color: var(--orange); }
-    .metric-label {
-      font-size: 13px; color: var(--muted);
-      margin-top: 6px; font-weight: 500; line-height: 1.4;
+    @media (max-width: 620px) { .deliverables { grid-template-columns: 1fr; } }
+
+    .deliverable {
+      background: var(--surface);
+      padding: clamp(20px, 2.8vw, 32px);
+      display: flex; align-items: flex-start; gap: 16px;
     }
 
-    /* marquee gallery */
-    .gallery-label {
-      font-size: 12px; font-weight: 700; letter-spacing: 0.07em;
-      text-transform: uppercase; color: var(--muted);
-      margin-bottom: 20px;
+    .d-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
     }
 
-    .marquee-wrap {
-      width: 100%; overflow: hidden;
-      mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    .d-title {
+      font-size: clamp(14px, 1.4vw, 16px);
+      font-weight: 700; color: var(--text);
+      margin-bottom: 5px; letter-spacing: -0.02em;
     }
+
+    .d-body {
+      font-size: clamp(12px, 1.2vw, 14px);
+      color: var(--muted); line-height: 1.55;
+    }
+
+    .system-cta { text-align: center; }
+
+    /* ─── PROOF / WHY IT WORKS ─── */
+    .proof {
+      background: var(--dark);
+    }
+    .proof .section-tag { color: var(--orange); }
+    .proof h2 { color: #fff; }
+    .proof .section-sub { color: rgba(255,255,255,0.45); }
+
+    .proof-head { margin-bottom: clamp(36px, 5vw, 52px); }
 
     @keyframes marquee {
       0%   { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
 
+    .marquee-wrap {
+      width: 100%; overflow: hidden;
+      mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    }
+
     .marquee-track {
-      display: flex; gap: 12px;
-      animation: marquee 35s linear infinite;
+      display: flex; gap: 14px;
+      animation: marquee 38s linear infinite;
       will-change: transform;
     }
 
     .marquee-track img {
-      width: clamp(120px, 18vw, 200px);
-      flex-shrink: 0;
-      aspect-ratio: 3/4;
+      width: clamp(130px, 18vw, 210px);
+      flex-shrink: 0; aspect-ratio: 3/4;
       object-fit: cover; object-position: center top;
       border-radius: 10px;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(255,255,255,0.08);
       display: block;
     }
 
-    /* guarantee strip */
-    .guarantee-strip {
+    .proof-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(12px, 2vw, 20px);
       margin-top: clamp(40px, 6vw, 60px);
-      border: 2px solid #111111;
+    }
+    @media (max-width: 560px) { .proof-metrics { grid-template-columns: 1fr 1fr; } }
+
+    .proof-metric {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 14px;
-      padding: clamp(24px, 3vw, 36px) clamp(24px, 4vw, 44px);
+      padding: clamp(18px, 2.5vw, 28px);
+    }
+    .pm-num {
+      font-size: clamp(26px, 3.8vw, 42px);
+      font-weight: 800; letter-spacing: -0.04em;
+      color: #fff; line-height: 1;
+    }
+    .pm-num span { color: var(--orange); }
+    .pm-label { font-size: 13px; color: rgba(255,255,255,0.38); margin-top: 6px; line-height: 1.45; }
+
+    /* guarantee */
+    .guarantee {
+      margin-top: clamp(40px, 6vw, 60px);
+      border: 2px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: clamp(24px, 3.5vw, 40px);
       display: flex; align-items: flex-start; gap: 20px;
+      background: rgba(255,255,255,0.03);
     }
-    @media (max-width: 560px) { .guarantee-strip { flex-direction: column; } }
-    .g-icon { font-size: 36px; flex-shrink: 0; }
+    @media (max-width: 540px) { .guarantee { flex-direction: column; } }
+    .g-icon { font-size: 38px; flex-shrink: 0; }
     .g-title {
-      font-size: clamp(16px, 1.8vw, 20px);
-      font-weight: 800; letter-spacing: -0.025em;
-      margin-bottom: 8px; color: var(--text);
+      font-size: clamp(16px, 2vw, 21px);
+      font-weight: 800; letter-spacing: -0.025em; color: #fff;
+      margin-bottom: 8px;
     }
-    .g-body {
+    .g-body { font-size: clamp(13px, 1.4vw, 15px); color: rgba(255,255,255,0.45); line-height: 1.6; }
+    .g-body strong { color: rgba(255,255,255,0.8); }
+
+    /* ─── BOOKING ─── */
+    .booking { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .booking-inner { max-width: 900px; margin: 0 auto; }
+    .booking-head { text-align: center; margin-bottom: clamp(32px, 5vw, 48px); }
+    .booking-head h2 { max-width: 100%; }
+    .booking-head .section-sub { margin: 14px auto 0; text-align: center; }
+
+    .booking-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(14px, 2.5vw, 24px);
+      margin-bottom: clamp(32px, 5vw, 48px);
+    }
+    @media (max-width: 580px) { .booking-steps { grid-template-columns: 1fr; } }
+
+    .bstep {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: clamp(18px, 2.5vw, 28px);
+    }
+    .bstep-num {
+      width: 30px; height: 30px;
+      background: var(--orange); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 800; color: #fff;
+      margin-bottom: 14px;
+    }
+    .bstep-title {
       font-size: clamp(14px, 1.4vw, 16px);
-      color: var(--muted); line-height: 1.6;
+      font-weight: 700; color: var(--text);
+      margin-bottom: 6px; letter-spacing: -0.02em;
     }
-    .g-body strong { color: var(--text); }
+    .bstep-body { font-size: clamp(12px, 1.2vw, 14px); color: var(--muted); line-height: 1.55; }
 
-    /* ── OFFER + CTA ── */
-    section.offer { background: var(--text); }
+    .cal-embed-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      min-height: 600px;
+    }
+    .cal-embed-wrap iframe {
+      width: 100%; min-height: 600px; border: none; display: block;
+    }
 
-    section.offer .section-tag { color: var(--orange); }
+    /* ─── PRICING ─── */
+    .pricing { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .pricing-inner { max-width: 900px; margin: 0 auto; }
+    .pricing-head { text-align: center; margin-bottom: clamp(32px, 5vw, 48px); }
+    .pricing-head h2 { max-width: 100%; }
 
-    section.offer h2 { color: #fff; }
-
-    .offer-grid {
+    .price-card {
+      background: var(--dark);
+      border-radius: 20px;
+      padding: clamp(28px, 4vw, 52px);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: clamp(24px, 4vw, 48px);
-      margin-top: clamp(36px, 5vw, 52px);
+      gap: clamp(24px, 4vw, 56px);
       align-items: start;
     }
-    @media (max-width: 680px) { .offer-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 620px) { .price-card { grid-template-columns: 1fr; } }
 
-    .offer-stack {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 14px;
-      padding: clamp(20px, 2.5vw, 28px);
-    }
-
-    .offer-stack-title {
-      font-size: 12px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.07em; color: rgba(255,255,255,0.45);
+    .price-stack-title {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: rgba(255,255,255,0.35);
       margin-bottom: 16px;
     }
 
-    .offer-item {
+    .price-item {
       display: flex; align-items: center; justify-content: space-between;
-      gap: 12px; padding: 12px 0;
+      gap: 12px; padding: 11px 0;
       border-bottom: 1px solid rgba(255,255,255,0.07);
-      font-size: clamp(13px, 1.3vw, 15px);
+      font-size: clamp(13px, 1.3vw, 14px);
     }
-    .offer-item:last-child { border-bottom: none; }
-    .offer-item-name { color: rgba(255,255,255,0.8); font-weight: 600; }
-    .offer-item-val { color: var(--orange); font-weight: 700; white-space: nowrap; }
+    .price-item:last-child { border-bottom: none; }
+    .pi-name { color: rgba(255,255,255,0.7); font-weight: 600; }
+    .pi-val { color: var(--orange); font-weight: 700; white-space: nowrap; }
 
-    .offer-total {
-      margin-top: 14px; padding-top: 14px;
-      border-top: 1px solid rgba(255,255,255,0.15);
-      display: flex; align-items: baseline; justify-content: space-between;
-      gap: 8px;
+    .price-total-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 8px; margin-top: 12px; padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.12);
     }
-    .offer-total-label {
-      font-size: 12px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.07em; color: rgba(255,255,255,0.45);
-    }
-    .offer-total-val {
-      font-size: clamp(22px, 3vw, 30px);
+    .ptl { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: rgba(255,255,255,0.35); }
+    .ptv {
+      font-size: clamp(18px, 2.5vw, 26px);
       font-weight: 800; letter-spacing: -0.04em;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.4);
       text-decoration: line-through;
     }
 
-    .offer-cta-block {
-      display: flex; flex-direction: column;
-      gap: clamp(20px, 3vw, 28px);
+    .price-reveal { display: flex; flex-direction: column; gap: 20px; }
+
+    .price-reveal-label {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.07em; color: rgba(255,255,255,0.35);
     }
 
-    .price-reveal {
-      display: flex; flex-direction: column; gap: 6px;
-    }
-    .price-reveal-label {
-      font-size: 13px; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.07em; color: rgba(255,255,255,0.45);
-    }
     .price-big {
       font-size: clamp(56px, 9vw, 96px);
       font-weight: 800; letter-spacing: -0.05em;
       color: var(--orange); line-height: 1;
     }
-    .price-big .mo {
-      font-size: 0.35em; font-weight: 600;
-      color: rgba(255,255,255,0.4); letter-spacing: 0;
-    }
-    .price-saving {
-      font-size: clamp(13px, 1.4vw, 16px);
-      font-weight: 700; color: #4ade80;
+    .price-big .pmo {
+      font-size: 0.32em; font-weight: 600;
+      color: rgba(255,255,255,0.35); letter-spacing: 0;
     }
 
-    .perks-list {
-      list-style: none; display: flex; flex-direction: column; gap: 8px;
-    }
-    .perks-list li {
-      display: flex; align-items: center; gap: 8px;
-      font-size: clamp(13px, 1.3vw, 15px);
-      color: rgba(255,255,255,0.6); font-weight: 500;
-    }
-    .perks-list li::before {
-      content: '✓'; color: #4ade80; font-weight: 800; flex-shrink: 0;
-    }
+    .price-saving { font-size: clamp(13px, 1.4vw, 15px); font-weight: 700; color: #4ade80; }
 
-    .btn-primary-lg {
+    .perks {
+      list-style: none; display: flex; flex-direction: column; gap: 9px;
+    }
+    .perks li {
+      display: flex; align-items: center; gap: 9px;
+      font-size: clamp(13px, 1.3vw, 14px);
+      color: rgba(255,255,255,0.55); font-weight: 500;
+    }
+    .perks li::before { content: '✓'; color: #4ade80; font-weight: 800; flex-shrink: 0; }
+
+    .btn-orange-lg {
+      display: block; text-align: center;
       background: var(--orange); color: #fff;
-      font-family: inherit; font-size: clamp(16px, 1.7vw, 19px);
-      font-weight: 700; padding: clamp(16px, 2vw, 22px) clamp(32px, 4vw, 48px);
+      font-family: inherit; font-size: clamp(15px, 1.6vw, 17px); font-weight: 700;
+      padding: clamp(15px, 1.8vw, 20px) clamp(28px, 3vw, 40px);
       border-radius: 12px; border: none; cursor: pointer;
       text-decoration: none; letter-spacing: -0.01em;
-      transition: opacity 0.15s; display: inline-block;
-      text-align: center; width: 100%;
+      transition: opacity 0.15s;
     }
-    .btn-primary-lg:hover { opacity: 0.88; }
+    .btn-orange-lg:hover { opacity: 0.88; }
 
-    .urgency-note {
-      font-size: 13px; color: rgba(255,255,255,0.4);
-      text-align: center; font-weight: 500;
+    .urgency {
+      font-size: 13px; color: rgba(255,255,255,0.3);
+      text-align: center; font-weight: 500; margin-top: 10px;
     }
-    .urgency-note strong { color: rgba(255,255,255,0.7); }
+    .urgency strong { color: rgba(255,255,255,0.55); }
 
-    /* ── FOOTER ── */
-    footer {
-      padding: 28px clamp(20px, 5vw, 72px);
+    /* ─── FAQ ─── */
+    .faq { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .faq-inner { max-width: 720px; margin: 0 auto; }
+    .faq-head { margin-bottom: clamp(32px, 5vw, 48px); }
+    .faq-head h2 { max-width: 100%; }
+
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+
+    .faq-item {
       border-top: 1px solid var(--border);
+    }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+
+    .faq-q {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: clamp(16px, 2vw, 22px) 0;
+      font-family: inherit; font-size: clamp(14px, 1.5vw, 17px);
+      font-weight: 700; color: var(--text); letter-spacing: -0.02em;
+      text-align: left;
+    }
+    .faq-q:hover { color: var(--orange); }
+
+    .faq-chevron {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border: 1.5px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; color: var(--muted);
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(45deg);
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    .faq-a {
+      display: none;
+      padding-bottom: clamp(16px, 2vw, 22px);
+      font-size: clamp(14px, 1.4vw, 16px);
+      color: var(--muted); line-height: 1.65;
+    }
+    .faq-a strong { color: var(--text); }
+    .faq-item.open .faq-a { display: block; }
+
+    .faq-cta { text-align: center; margin-top: clamp(36px, 5vw, 52px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--dark);
+      padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 64px) clamp(28px, 4vw, 40px);
+    }
+
+    .footer-brand {
+      font-size: clamp(56px, 12vw, 140px);
+      font-weight: 800; letter-spacing: -0.05em;
+      color: rgba(255,255,255,0.07);
+      line-height: 1; text-align: center;
+      margin-bottom: clamp(28px, 4vw, 44px);
+      user-select: none;
+    }
+    .footer-brand span { color: rgba(255,77,0,0.3); }
+
+    .footer-row {
       display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 12px;
+      flex-wrap: wrap; gap: 14px;
+      padding-top: clamp(20px, 3vw, 28px);
+      border-top: 1px solid rgba(255,255,255,0.07);
     }
     .footer-logo {
       font-size: 15px; font-weight: 800; letter-spacing: -0.03em;
-      color: var(--text); text-decoration: none;
+      color: rgba(255,255,255,0.6); text-decoration: none;
     }
     .footer-logo span { color: var(--orange); }
-    .footer-links {
-      display: flex; gap: 20px; list-style: none;
-    }
+    .footer-links { display: flex; gap: 20px; list-style: none; }
     .footer-links a {
-      font-size: 13px; color: var(--muted); text-decoration: none;
-      font-weight: 500; transition: color 0.15s;
+      font-size: 13px; color: rgba(255,255,255,0.35);
+      text-decoration: none; font-weight: 500; transition: color 0.15s;
     }
-    .footer-links a:hover { color: var(--text); }
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
   </style>
 </head>
 <body>
@@ -445,234 +549,355 @@
   <!-- NAV -->
   <nav>
     <a class="nav-logo" href="/v2/">Abu<span>Ecom</span></a>
-    <a class="nav-cta" href="https://cal.com/abuecom/call">Apply for a spot →</a>
+    <ul class="nav-links">
+      <li><a href="#system">What We Do</a></li>
+      <li><a href="#proof">Results</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="nav-cta" href="#booking">Get Started →</a>
   </nav>
 
   <!-- ① HERO -->
-  <section class="hero">
+  <div class="hero">
     <div class="hero-inner">
-      <p class="eyebrow">For Muslim ecommerce brands</p>
-      <h1>Email that pays.<br>Done for you.<br>In <span class="highlight">2 weeks.</span></h1>
-      <p class="hero-sub">Most Muslim brands make less than 10% of their revenue from email. The average should be 30 – 40%. We close that gap — with flows, campaigns, and strategy handled entirely by us.</p>
-      <div class="hero-cta-row">
-        <a class="btn-primary" href="https://cal.com/abuecom/call">Book your free audit →</a>
-        <span class="trust-line"><strong>3 spots</strong> max · 90-day money-back guarantee</span>
-      </div>
+      <span class="hero-eyebrow">For Muslim ecommerce brands only</span>
+      <h1>We Add <span class="orange">£10K – £50K/Month</span> From Your Email List — <span class="underline">Done For You.</span></h1>
+      <p class="hero-sub">We handle your flows, campaigns, segmentation, and strategy — entirely done for you. <strong>Delivered in 2 weeks.</strong> We only work with 3 clients at a time, so you're never just another account.</p>
+      <a class="btn-orange" href="#booking">Book Your Free Audit →</a>
+      <p class="hero-trust"><strong>3 spots max</strong> · 90-day revenue guarantee · No setup fee</p>
       <div class="hero-stats">
         <div>
-          <div class="stat-num">£500K<span>+</span></div>
-          <div class="stat-label">Generated for Muslim brands</div>
+          <div class="hero-stat-num">£500K<span>+</span></div>
+          <div class="hero-stat-label">Generated for Muslim brands</div>
         </div>
         <div>
-          <div class="stat-num">3<span> max</span></div>
-          <div class="stat-label">Clients at any one time</div>
+          <div class="hero-stat-num"><span>3</span> max</div>
+          <div class="hero-stat-label">Clients at any one time</div>
         </div>
         <div>
-          <div class="stat-num">2 <span style="font-size:0.55em; color:var(--muted);">wks</span></div>
-          <div class="stat-label">From call to live</div>
+          <div class="hero-stat-num"><span>2</span> wks</div>
+          <div class="hero-stat-label">From call to fully live</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- ② PROBLEM + SOLUTION -->
-  <section class="problem">
-    <div class="ps-inner">
-      <p class="section-tag">The problem</p>
-      <h2>Your list is full of buyers.<br>You're not talking to them.</h2>
-      <div class="problem-grid">
-        <div class="problem-card">
-          <span class="card-icon">💸</span>
-          <h3>You're paying for cold ads</h3>
-          <p>Spending money on Meta and TikTok to reach strangers while past buyers go cold in your list.</p>
+  <!-- ② FULL SYSTEM -->
+  <div class="section system" id="system">
+    <div class="wrap">
+      <div class="system-head">
+        <p class="section-tag">What you get</p>
+        <h2>A Complete Email Revenue System. Built, Launched, And Running In 14 Days.</h2>
+        <p class="section-sub">Everything done for you — from audit to live campaigns. Not a template. Not a checklist. A fully managed email operation built specifically for your brand.</p>
+      </div>
+      <div class="deliverables">
+        <div class="deliverable">
+          <div class="d-icon">🔍</div>
+          <div>
+            <div class="d-title">Full Klaviyo Audit</div>
+            <div class="d-body">We dig into your account and find every leak — dead flows, missing segments, underperforming sequences. You'll see exactly what's been costing you money.</div>
+          </div>
         </div>
-        <div class="problem-card">
-          <span class="card-icon">🕰️</span>
-          <h3>Your flows are untouched</h3>
-          <p>That welcome series was built once and never optimised. It's leaking money every single day.</p>
+        <div class="deliverable">
+          <div class="d-icon">⚡</div>
+          <div>
+            <div class="d-title">5 Revenue Flows — Live In 2 Weeks</div>
+            <div class="d-body">Welcome, abandoned cart, browse abandon, post-purchase, and win-back. All written, designed, and built. These run 24/7 and generate revenue while you sleep.</div>
+          </div>
         </div>
-        <div class="problem-card">
-          <span class="card-icon">🤷</span>
-          <h3>Generic agencies don't get you</h3>
-          <p>They don't understand Ramadan campaigns, halal audiences, or Muslim buying behaviour. You're just another account.</p>
+        <div class="deliverable">
+          <div class="d-icon">✉️</div>
+          <div>
+            <div class="d-title">12 Campaigns Per Month (3/Week)</div>
+            <div class="d-body">Campaigns written, designed, and sent consistently — timed around Islamic events, product drops, Ramadan, and your promotions. We handle the full calendar.</div>
+          </div>
         </div>
-        <div class="problem-card">
-          <span class="card-icon">📉</span>
-          <h3>You're leaving money on the table</h3>
-          <p>Email should be your most profitable channel. For most Muslim brands, it's an afterthought.</p>
+        <div class="deliverable">
+          <div class="d-icon">🎯</div>
+          <div>
+            <div class="d-title">Smart Segmentation</div>
+            <div class="d-body">The right email to the right person. VIPs, lapsed buyers, window shoppers — each segment gets messaging that converts. No spray-and-pray.</div>
+          </div>
+        </div>
+        <div class="deliverable">
+          <div class="d-icon">🧪</div>
+          <div>
+            <div class="d-title">Monthly A/B Testing</div>
+            <div class="d-body">Subject lines, send times, content — we test constantly and compound every win. Your results improve every single month.</div>
+          </div>
+        </div>
+        <div class="deliverable">
+          <div class="d-icon">📈</div>
+          <div>
+            <div class="d-title">List Growth Strategy</div>
+            <div class="d-body">Pop-ups, lead magnets, and on-site capture — we build you a system that keeps growing the list so the asset compounds over time.</div>
+          </div>
+        </div>
+        <div class="deliverable">
+          <div class="d-icon">📊</div>
+          <div>
+            <div class="d-title">Monthly Performance Report</div>
+            <div class="d-body">Revenue attributed, open rates, click rates, flow performance — laid out clearly every month so you always know exactly what's working.</div>
+          </div>
+        </div>
+        <div class="deliverable">
+          <div class="d-icon">💬</div>
+          <div>
+            <div class="d-title">Direct Slack Access To Mussa</div>
+            <div class="d-body">24/7 Slack access — not a junior, not an account manager. You talk directly to the person building your emails. Questions answered same day.</div>
+          </div>
+        </div>
+        <div class="deliverable">
+          <div class="d-icon">🕌</div>
+          <div>
+            <div class="d-title">Muslim Market Expertise</div>
+            <div class="d-body">Ramadan campaigns that actually convert. Halal-conscious messaging. An understanding of your customer's values that a generic agency will never have.</div>
+          </div>
+        </div>
+        <div class="deliverable">
+          <div class="d-icon">📅</div>
+          <div>
+            <div class="d-title">Monthly Strategy Call</div>
+            <div class="d-body">Every month, a dedicated call with Mussa to review results, plan the next 30 days, and align campaigns with your business goals and upcoming launches.</div>
+          </div>
         </div>
       </div>
-      <div class="solution-block">
-        <div>
-          <h3>We handle<br><span>everything.</span><br>You handle nothing.</h3>
-        </div>
-        <ul class="solution-list">
-          <li>Full Klaviyo audit — we find what's broken</li>
-          <li>5 revenue flows live within 2 weeks</li>
-          <li>3 campaigns per week, written and designed</li>
-          <li>Smart segmentation so the right person gets the right email</li>
-          <li>Monthly A/B testing to keep results compounding</li>
-          <li>Direct Slack access to Mussa — not a junior</li>
-        </ul>
+      <div class="system-cta">
+        <a class="btn-orange" href="#booking">Get Your Free Audit →</a>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- ③ PROOF -->
-  <section class="proof">
-    <div class="proof-head">
-      <p class="section-tag">Proof</p>
-      <h2>Real results for real Muslim brands.</h2>
+  <div class="section proof" id="proof">
+    <div class="wrap">
+      <div class="proof-head">
+        <p class="section-tag">The work</p>
+        <h2>Real Emails. Built For Real Muslim Brands.</h2>
+        <p class="section-sub">Every email below was written, designed, and sent by us. This is the level of work your brand gets — from day one.</p>
+      </div>
+      <div class="marquee-wrap">
+        <div class="marquee-track">
+          <img src="/emails/5-pillars.png"       alt="5 Pillars" />
+          <img src="/emails/anafiya-gifts.png"   alt="Anafiya Gifts" />
+          <img src="/emails/boxed-halal.png"     alt="Boxed Halal" />
+          <img src="/emails/cave-london.png"     alt="Cave London" />
+          <img src="/emails/chaptrs.png"         alt="Chaptrs" />
+          <img src="/emails/darassalam.png"      alt="Darassalam" />
+          <img src="/emails/desi-dolls.png"      alt="Desi Dolls" />
+          <img src="/emails/hallal-meals.png"    alt="Hallal Meals" />
+          <img src="/emails/huraya.png"          alt="Huraya" />
+          <img src="/emails/irontfit.png"        alt="IrontFit" />
+          <img src="/emails/kube-publishing.png" alt="Kube Publishing" />
+          <img src="/emails/lala-and-mo.png"     alt="Lala and Mo" />
+          <img src="/emails/mama-yasmin.png"     alt="Mama Yasmin" />
+          <img src="/emails/musmeat.png"         alt="Musmeat" />
+          <img src="/emails/noor.png"            alt="Noor" />
+          <img src="/emails/one-stop-halal.png"  alt="One Stop Halal" />
+          <img src="/emails/osu.png"             alt="OSU" />
+          <img src="/emails/roohts.png"          alt="Roohts" />
+          <img src="/emails/simba.png"           alt="Simba" />
+          <img src="/emails/teapressa.png"       alt="Teapressa" />
+          <img src="/emails/bsst.png"            alt="BSST" />
+          <!-- duplicate for seamless loop -->
+          <img src="/emails/5-pillars.png"       alt="" />
+          <img src="/emails/anafiya-gifts.png"   alt="" />
+          <img src="/emails/boxed-halal.png"     alt="" />
+          <img src="/emails/cave-london.png"     alt="" />
+          <img src="/emails/chaptrs.png"         alt="" />
+          <img src="/emails/darassalam.png"      alt="" />
+          <img src="/emails/desi-dolls.png"      alt="" />
+          <img src="/emails/hallal-meals.png"    alt="" />
+          <img src="/emails/huraya.png"          alt="" />
+          <img src="/emails/irontfit.png"        alt="" />
+          <img src="/emails/kube-publishing.png" alt="" />
+          <img src="/emails/lala-and-mo.png"     alt="" />
+          <img src="/emails/mama-yasmin.png"     alt="" />
+          <img src="/emails/musmeat.png"         alt="" />
+          <img src="/emails/noor.png"            alt="" />
+          <img src="/emails/one-stop-halal.png"  alt="" />
+          <img src="/emails/osu.png"             alt="" />
+          <img src="/emails/roohts.png"          alt="" />
+          <img src="/emails/simba.png"           alt="" />
+          <img src="/emails/teapressa.png"       alt="" />
+          <img src="/emails/bsst.png"            alt="" />
+        </div>
+      </div>
+      <div class="proof-metrics">
+        <div class="proof-metric">
+          <div class="pm-num">£500K<span>+</span></div>
+          <div class="pm-label">Email revenue generated for Muslim brands</div>
+        </div>
+        <div class="proof-metric">
+          <div class="pm-num">30<span>–40%</span></div>
+          <div class="pm-label">Of total revenue from email — what we consistently deliver</div>
+        </div>
+        <div class="proof-metric">
+          <div class="pm-num"><span>3</span> max</div>
+          <div class="pm-label">Clients at any time — so every single one gets results</div>
+        </div>
+      </div>
+      <div class="guarantee">
+        <div class="g-icon">🛡️</div>
+        <div>
+          <div class="g-title">The 90-Day Revenue Guarantee</div>
+          <p class="g-body">If we don't <strong>measurably increase your email revenue</strong> within 90 days, we keep working for free until we do. No arguments. No small print. We either deliver or we don't get paid. Simple.</p>
+        </div>
+      </div>
     </div>
-    <div class="proof-metrics">
-      <div class="metric-card">
-        <div class="metric-num">£500K<span>+</span></div>
-        <div class="metric-label">Revenue attributed to email</div>
+  </div>
+
+  <!-- ④ BOOKING -->
+  <div class="section booking" id="booking">
+    <div class="booking-inner">
+      <div class="booking-head">
+        <p class="section-tag">One step</p>
+        <h2>Schedule Your Free Audit Call Now.</h2>
+        <p class="section-sub">Wait for the calendar to load — pick a time that works for you. No pitch, no pressure.</p>
       </div>
-      <div class="metric-card">
-        <div class="metric-num">30<span>–40%</span></div>
-        <div class="metric-label">Of revenue from email (industry standard we deliver)</div>
+      <div class="booking-steps">
+        <div class="bstep">
+          <div class="bstep-num">1</div>
+          <div class="bstep-title">Book a free 30-min call</div>
+          <div class="bstep-body">Pick a slot below. Mussa will look at your Klaviyo account live and show you exactly where you're losing money.</div>
+        </div>
+        <div class="bstep">
+          <div class="bstep-num">2</div>
+          <div class="bstep-title">Get a free audit</div>
+          <div class="bstep-body">You leave with specific numbers — how much revenue you're currently leaving on the table, and what we'd fix first.</div>
+        </div>
+        <div class="bstep">
+          <div class="bstep-num">3</div>
+          <div class="bstep-title">Live in 2 weeks if it's a fit</div>
+          <div class="bstep-body">No long onboarding. We plug in, build your flows and campaigns, and start generating revenue within 14 days of signing.</div>
+        </div>
       </div>
-      <div class="metric-card">
-        <div class="metric-num">3<span> max</span></div>
-        <div class="metric-label">Clients — so every account gets elite attention</div>
+      <!-- Replace src with your actual Cal.com link -->
+      <div class="cal-embed-wrap">
+        <iframe
+          src="https://cal.com/abuecom/call?embed=true&theme=light"
+          title="Book a call with Abu Ecom"
+          loading="lazy"
+        ></iframe>
       </div>
     </div>
+  </div>
 
-    <p class="gallery-label">The work — emails we've built</p>
-    <div class="marquee-wrap">
-      <div class="marquee-track">
-        <img src="/emails/5-pillars.png"       alt="5 Pillars" />
-        <img src="/emails/anafiya-gifts.png"   alt="Anafiya Gifts" />
-        <img src="/emails/boxed-halal.png"     alt="Boxed Halal" />
-        <img src="/emails/cave-london.png"     alt="Cave London" />
-        <img src="/emails/chaptrs.png"         alt="Chaptrs" />
-        <img src="/emails/darassalam.png"      alt="Darassalam" />
-        <img src="/emails/desi-dolls.png"      alt="Desi Dolls" />
-        <img src="/emails/hallal-meals.png"    alt="Hallal Meals" />
-        <img src="/emails/huraya.png"          alt="Huraya" />
-        <img src="/emails/irontfit.png"        alt="IrontFit" />
-        <img src="/emails/kube-publishing.png" alt="Kube Publishing" />
-        <img src="/emails/lala-and-mo.png"     alt="Lala and Mo" />
-        <img src="/emails/mama-yasmin.png"     alt="Mama Yasmin" />
-        <img src="/emails/musmeat.png"         alt="Musmeat" />
-        <img src="/emails/noor.png"            alt="Noor" />
-        <img src="/emails/one-stop-halal.png"  alt="One Stop Halal" />
-        <img src="/emails/osu.png"             alt="OSU" />
-        <img src="/emails/roohts.png"          alt="Roohts" />
-        <img src="/emails/simba.png"           alt="Simba" />
-        <img src="/emails/teapressa.png"       alt="Teapressa" />
-        <img src="/emails/bsst.png"            alt="BSST" />
-        <!-- duplicate for seamless loop -->
-        <img src="/emails/5-pillars.png"       alt="" />
-        <img src="/emails/anafiya-gifts.png"   alt="" />
-        <img src="/emails/boxed-halal.png"     alt="" />
-        <img src="/emails/cave-london.png"     alt="" />
-        <img src="/emails/chaptrs.png"         alt="" />
-        <img src="/emails/darassalam.png"      alt="" />
-        <img src="/emails/desi-dolls.png"      alt="" />
-        <img src="/emails/hallal-meals.png"    alt="" />
-        <img src="/emails/huraya.png"          alt="" />
-        <img src="/emails/irontfit.png"        alt="" />
-        <img src="/emails/kube-publishing.png" alt="" />
-        <img src="/emails/lala-and-mo.png"     alt="" />
-        <img src="/emails/mama-yasmin.png"     alt="" />
-        <img src="/emails/musmeat.png"         alt="" />
-        <img src="/emails/noor.png"            alt="" />
-        <img src="/emails/one-stop-halal.png"  alt="" />
-        <img src="/emails/osu.png"             alt="" />
-        <img src="/emails/roohts.png"          alt="" />
-        <img src="/emails/simba.png"           alt="" />
-        <img src="/emails/teapressa.png"       alt="" />
-        <img src="/emails/bsst.png"            alt="" />
+  <!-- ⑤ PRICING -->
+  <div class="section pricing" id="pricing">
+    <div class="pricing-inner">
+      <div class="pricing-head">
+        <p class="section-tag">Pricing</p>
+        <h2>Everything Done For You. <span class="orange">One Flat Price.</span></h2>
       </div>
-    </div>
-
-    <div class="guarantee-strip">
-      <div class="g-icon">🛡️</div>
-      <div>
-        <div class="g-title">90-Day Revenue Guarantee</div>
-        <p class="g-body">If we don't <strong>measurably increase your email revenue</strong> within 90 days, we work for free until we do. No arguments. No small print.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ④ OFFER + CTA -->
-  <section class="offer">
-    <p class="section-tag">The offer</p>
-    <h2>Everything done for you.<br>One flat price.</h2>
-    <div class="offer-grid">
-      <div class="offer-stack">
-        <div class="offer-stack-title">What's included — total value</div>
-        <div class="offer-item">
-          <span class="offer-item-name">Full Klaviyo audit</span>
-          <span class="offer-item-val">£750</span>
+      <div class="price-card">
+        <div>
+          <div class="price-stack-title">What's included — total value</div>
+          <div class="price-item"><span class="pi-name">Full Klaviyo audit</span><span class="pi-val">£750</span></div>
+          <div class="price-item"><span class="pi-name">5 revenue flows (live in 2 wks)</span><span class="pi-val">£3,500</span></div>
+          <div class="price-item"><span class="pi-name">12 campaigns/month</span><span class="pi-val">£2,000/mo</span></div>
+          <div class="price-item"><span class="pi-name">Smart segmentation</span><span class="pi-val">£900</span></div>
+          <div class="price-item"><span class="pi-name">Monthly A/B testing</span><span class="pi-val">£500/mo</span></div>
+          <div class="price-item"><span class="pi-name">List growth strategy</span><span class="pi-val">£600</span></div>
+          <div class="price-item"><span class="pi-name">Monthly strategy call</span><span class="pi-val">£500/mo</span></div>
+          <div class="price-item"><span class="pi-name">24/7 Slack access to Mussa</span><span class="pi-val">£800/mo</span></div>
+          <div class="price-item"><span class="pi-name">Muslim market expertise</span><span class="pi-val">Priceless</span></div>
+          <div class="price-total-row">
+            <span class="ptl">Total value</span>
+            <span class="ptv">£9,850+/mo</span>
+          </div>
         </div>
-        <div class="offer-item">
-          <span class="offer-item-name">5 revenue flows, live in 2 weeks</span>
-          <span class="offer-item-val">£3,500</span>
-        </div>
-        <div class="offer-item">
-          <span class="offer-item-name">12 campaigns/month (3 per week)</span>
-          <span class="offer-item-val">£2,000/mo</span>
-        </div>
-        <div class="offer-item">
-          <span class="offer-item-name">Smart segmentation</span>
-          <span class="offer-item-val">£900</span>
-        </div>
-        <div class="offer-item">
-          <span class="offer-item-name">Monthly A/B testing</span>
-          <span class="offer-item-val">£500/mo</span>
-        </div>
-        <div class="offer-item">
-          <span class="offer-item-name">List growth strategy</span>
-          <span class="offer-item-val">£600</span>
-        </div>
-        <div class="offer-item">
-          <span class="offer-item-name">Monthly strategy call with Mussa</span>
-          <span class="offer-item-val">£500/mo</span>
-        </div>
-        <div class="offer-item">
-          <span class="offer-item-name">24/7 Slack access</span>
-          <span class="offer-item-val">£800/mo</span>
-        </div>
-        <div class="offer-item">
-          <span class="offer-item-name">Muslim market expertise</span>
-          <span class="offer-item-val">Priceless</span>
-        </div>
-        <div class="offer-total">
-          <span class="offer-total-label">Total value</span>
-          <span class="offer-total-val">£9,850+/mo</span>
-        </div>
-      </div>
-
-      <div class="offer-cta-block">
         <div class="price-reveal">
-          <span class="price-reveal-label">You pay</span>
-          <div class="price-big">£2,000<span class="mo">/mo</span></div>
-          <div class="price-saving">You save £7,850 every single month</div>
+          <div>
+            <div class="price-reveal-label">You pay</div>
+            <div class="price-big">£2,000<span class="pmo">/mo</span></div>
+            <div class="price-saving">You save £7,850 every single month</div>
+          </div>
+          <ul class="perks">
+            <li>No setup fee</li>
+            <li>No hidden costs</li>
+            <li>No long-term contract</li>
+            <li>Cancel any time</li>
+            <li>90-day revenue guarantee</li>
+          </ul>
+          <a class="btn-orange-lg" href="#booking">Apply for a spot →</a>
+          <p class="urgency"><strong>3 spots maximum.</strong> If you're reading this, one may still be open.</p>
         </div>
-        <ul class="perks-list">
-          <li>No setup fee</li>
-          <li>No hidden costs</li>
-          <li>No long-term contract</li>
-          <li>Cancel any time</li>
-          <li>90-day revenue guarantee</li>
-        </ul>
-        <a class="btn-primary-lg" href="https://cal.com/abuecom/call">Book your free audit →</a>
-        <p class="urgency-note"><strong>3 spots maximum.</strong> If you're reading this, one may still be open.</p>
       </div>
     </div>
-  </section>
+  </div>
+
+  <!-- ⑥ FAQ -->
+  <div class="section faq" id="faq">
+    <div class="wrap">
+      <div class="faq-inner">
+        <div class="faq-head">
+          <p class="section-tag">FAQ</p>
+          <h2>Your questions, answered.</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q">How much does this cost?<span class="faq-chevron">+</span></button>
+            <div class="faq-a">£2,000/month flat. No setup fee, no hidden costs, no long-term contract. Every client pays the same price and gets the same level of service — because we only take 3 at a time.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">What if my list is really small?<span class="faq-chevron">+</span></button>
+            <div class="faq-a">Small lists often outperform large ones when done right. We've seen 500-person lists outperform 50,000-person lists. It's about how you segment and what you say — not just the size.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">How do you define "qualified results"?<span class="faq-chevron">+</span></button>
+            <div class="faq-a">A measurable increase in revenue directly attributed to email — tracked inside Klaviyo. We'll agree on a baseline on the audit call and measure against it. No vague metrics, no moving goalposts.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">When will I start seeing results?<span class="faq-chevron">+</span></button>
+            <div class="faq-a">Most clients see revenue from flows within the first 2 weeks — that's when we go live. Full results compound over 30–90 days as we test and optimise. We're not a quick fix, we're a long-term revenue channel.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">How does the 90-day guarantee work?<span class="faq-chevron">+</span></button>
+            <div class="faq-a">Simple. If we don't measurably increase your email revenue within 90 days, we keep working for free until we do. No arguments, no small print. We either deliver or you don't pay.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">I've been burned by agencies before. Why is this different?<span class="faq-chevron">+</span></button>
+            <div class="faq-a"><strong>Three things make us different:</strong> (1) We only take 3 clients at a time — you're not one of 50. (2) You work directly with Mussa, not a junior. (3) We have a 90-day guarantee, so if we don't deliver, you don't pay. Most agencies don't offer any of that.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Why not just hire someone in-house?<span class="faq-chevron">+</span></button>
+            <div class="faq-a">A good in-house email marketer costs £3,000–£5,000/month minimum — and that's before you factor in management time, tools, and onboarding. We deliver a full team's output for £2,000/month with a revenue guarantee attached.</div>
+          </div>
+        </div>
+        <div class="faq-cta">
+          <a class="btn-orange" href="#booking">Book Your Free Audit →</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer>
-    <a class="footer-logo" href="/v2/">Abu<span>Ecom</span></a>
-    <ul class="footer-links">
-      <li><a href="https://instagram.com/thatmussa" target="_blank">@thatmussa</a></li>
-      <li><a href="/privacy-policy.html">Privacy</a></li>
-    </ul>
+    <div class="footer-brand">Abu<span>Ecom</span></div>
+    <div class="wrap">
+      <div class="footer-row">
+        <a class="footer-logo" href="/v2/">Abu<span>Ecom</span></a>
+        <ul class="footer-links">
+          <li><a href="https://instagram.com/thatmussa" target="_blank">@thatmussa</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
 
 </body>
 </html>
