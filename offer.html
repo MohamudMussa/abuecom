@@ -233,17 +233,56 @@
       align-self: center;
     }
 
-    .total-box {
-      border: 1px solid oklch(72% 0.18 75 / 0.25);
-      border-radius: 14px;
-      padding: 24px;
-      background: oklch(72% 0.18 75 / 0.05);
-      text-align: center;
+    .price-reveal {
+      border: 1px solid oklch(72% 0.18 75 / 0.3);
+      border-radius: 16px;
+      padding: 32px 28px;
+      background: oklch(72% 0.18 75 / 0.04);
+      margin-top: 8px;
     }
 
-    .total-label { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
-    .total-value { font-size: 36px; font-weight: 800; color: var(--amber); letter-spacing: -0.03em; margin-bottom: 4px; }
-    .total-note { font-size: 12px; color: var(--faint); }
+    .price-total-row {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .price-total-label { font-size: 13px; color: var(--muted); }
+
+    .price-total-struck {
+      font-size: 15px; font-weight: 700;
+      color: var(--faint);
+      text-decoration: line-through;
+    }
+
+    .price-main {
+      display: flex; align-items: baseline; gap: 6px;
+      margin-bottom: 24px;
+    }
+
+    .price-amount {
+      font-size: clamp(48px, 8vw, 64px);
+      font-weight: 800;
+      color: var(--amber);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .price-period {
+      font-size: 20px; font-weight: 600;
+      color: var(--muted); letter-spacing: -0.01em;
+    }
+
+    .price-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .price-detail-item {
+      font-size: 14px; font-weight: 600;
+      color: var(--text);
+    }
 
     /* ── WHO IT'S FOR ── */
     .for h2 {
@@ -427,65 +466,111 @@
 
 <!-- OFFER / VALUE STACK -->
 <div class="section offer">
-  <p class="offer-label">The offer</p>
-  <h2>Everything you need to turn email into your #1 revenue channel.</h2>
-  <p class="offer-sub">This isn't a template package. Everything is built from scratch for your brand, your audience, and your products.</p>
+  <p class="offer-label">Everything that's included</p>
+  <h2>Here's what you get every single month.</h2>
+  <p class="offer-sub">Every item below is done for you. You don't write a word, design a single email, or touch Klaviyo. We handle all of it.</p>
 
   <div class="stack">
     <div class="stack-item">
       <div class="stack-icon">🔍</div>
       <div class="stack-body">
-        <div class="stack-title">Full Klaviyo Account Audit</div>
-        <div class="stack-desc">We go through everything — deliverability, flows, segments, suppression lists. You'll know exactly what's broken and why.</div>
+        <div class="stack-title">Full Klaviyo Audit on day one</div>
+        <div class="stack-desc">We tear apart your entire account — deliverability health, broken flows, dead segments, missed revenue. You'll see exactly where the money is leaking before we fix it.</div>
       </div>
-      <div class="stack-value">£500</div>
+      <div class="stack-value">£750</div>
     </div>
     <div class="stack-item">
       <div class="stack-icon">⚡</div>
       <div class="stack-body">
-        <div class="stack-title">Core Flow Build-Out</div>
-        <div class="stack-desc">Welcome series, abandoned cart, browse abandon, post-purchase, win-back — all written, designed, and live. These run 24/7 and pay for themselves.</div>
+        <div class="stack-title">5-Flow Build — written, designed, live in 2 weeks</div>
+        <div class="stack-desc">Welcome series, abandoned cart, browse abandon, post-purchase upsell, and win-back. Built from scratch for your brand, your tone, your products. These run 24/7 and generate revenue while you sleep.</div>
       </div>
-      <div class="stack-value">£2,500</div>
+      <div class="stack-value">£3,500</div>
     </div>
     <div class="stack-item">
       <div class="stack-icon">✉️</div>
       <div class="stack-body">
-        <div class="stack-title">Monthly Campaign Management</div>
-        <div class="stack-desc">2–4 campaigns per month, written and designed for your audience. Ramadan, Eid, product drops, seasonal — handled.</div>
+        <div class="stack-title">4 campaigns per month</div>
+        <div class="stack-desc">Fully written and designed. Product drops, Ramadan, Eid, seasonal pushes, re-engagement — we plan the calendar, write the copy, build the emails and hit send. Every month, no excuses.</div>
       </div>
-      <div class="stack-value">£1,200/mo</div>
+      <div class="stack-value">£1,600/mo</div>
     </div>
     <div class="stack-item">
       <div class="stack-icon">🎯</div>
       <div class="stack-body">
-        <div class="stack-title">List Segmentation & Health</div>
-        <div class="stack-desc">We build intelligent segments so the right email hits the right person. Better open rates, better deliverability, more revenue per send.</div>
+        <div class="stack-title">Smart segmentation — right email, right person</div>
+        <div class="stack-desc">VIP buyers, first-time purchasers, window shoppers, lapsed customers — we build segments that make every send more relevant, more personal, and more profitable.</div>
       </div>
-      <div class="stack-value">£800</div>
+      <div class="stack-value">£900</div>
     </div>
     <div class="stack-item">
       <div class="stack-icon">📈</div>
       <div class="stack-body">
-        <div class="stack-title">List Growth Strategy</div>
-        <div class="stack-desc">Pop-up optimisation, lead magnet ideation, and sign-up flow setup so your list grows while you sleep.</div>
+        <div class="stack-title">List growth setup</div>
+        <div class="stack-desc">Pop-up optimisation, sign-up form copy, lead magnet strategy. We make sure new visitors join your list so the audience compounds every month.</div>
       </div>
       <div class="stack-value">£600</div>
     </div>
     <div class="stack-item">
+      <div class="stack-icon">🧪</div>
+      <div class="stack-body">
+        <div class="stack-title">A/B testing every month</div>
+        <div class="stack-desc">Subject lines, send times, preview text, CTAs — we test and optimise continuously. Open rates compound. Revenue compounds.</div>
+      </div>
+      <div class="stack-value">£500/mo</div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-icon">📊</div>
+      <div class="stack-body">
+        <div class="stack-title">Monthly performance report</div>
+        <div class="stack-desc">Revenue attributed, open rates, click rates, list growth, flow performance. Clear numbers every month so you always know your email ROI.</div>
+      </div>
+      <div class="stack-value">£300/mo</div>
+    </div>
+    <div class="stack-item">
       <div class="stack-icon">📞</div>
       <div class="stack-body">
-        <div class="stack-title">Monthly Strategy Calls</div>
-        <div class="stack-desc">Direct access to Mussa every month. We review performance, plan ahead, and make sure you're always moving forward.</div>
+        <div class="stack-title">Monthly strategy call with Mussa</div>
+        <div class="stack-desc">We review last month, plan the next one, and make sure the strategy is always ahead of where your brand is going. Direct founder access, every single month.</div>
       </div>
-      <div class="stack-value">£400/mo</div>
+      <div class="stack-value">£500/mo</div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-icon">💬</div>
+      <div class="stack-body">
+        <div class="stack-title">24/7 Slack access</div>
+        <div class="stack-desc">Got a product launch tomorrow? A question at 11pm? A flash sale you need an email for by morning? Message us. We're there. No ticket systems, no 5-day response times. Direct line to your email team, always.</div>
+      </div>
+      <div class="stack-value">£800/mo</div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-icon">🕌</div>
+      <div class="stack-body">
+        <div class="stack-title">Muslim brand expertise — baked in</div>
+        <div class="stack-desc">We understand halal, we understand your audience's values, and we write copy that speaks to Muslim consumers authentically. No generic agency that has to Google what Ramadan is.</div>
+      </div>
+      <div class="stack-value">Priceless</div>
     </div>
   </div>
 
-  <div class="total-box">
-    <div class="total-label">Total value</div>
-    <div class="total-value">£6,000+</div>
-    <div class="total-note">Included in your retainer — book a call to get your custom quote</div>
+  <!-- PRICE REVEAL -->
+  <div class="price-reveal">
+    <div class="price-total-row">
+      <span class="price-total-label">Total value</span>
+      <span class="price-total-struck">£9,450+/mo</span>
+    </div>
+    <div class="price-main">
+      <span class="price-amount">£2,000</span>
+      <span class="price-period">/month</span>
+    </div>
+    <div class="price-details">
+      <div class="price-detail-item">✓ No setup fee</div>
+      <div class="price-detail-item">✓ No hidden costs</div>
+      <div class="price-detail-item">✓ No long-term contract</div>
+      <div class="price-detail-item">✓ Cancel any time</div>
+    </div>
+    <a href="https://cal.com/mussa/abu-ecom" class="cta-btn" style="width:100%; justify-content:center; margin-top:24px;">Claim your spot — book a free call 🤝</a>
+    <p style="text-align:center; font-size:12px; color:var(--faint); margin-top:10px;">3 new clients per month maximum. Spots fill fast.</p>
   </div>
 </div>
 
