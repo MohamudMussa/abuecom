@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>You're booked — Abu Ecom</title>
 
-  <!-- Microsoft Clarity -->
+  <!-- Microsoft Clarity — replace YOUR_CLARITY_ID -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -22,13 +22,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:      #F5F5F5;
+      --bg:      #F2F2F2;
       --text:    #111111;
-      --muted:   #666666;
-      --border:  #E0E0E0;
+      --muted:   #5C5C5C;
+      --border:  #DEDEDE;
       --surface: #FFFFFF;
-      --orange:  #FF4D00;
+      --blue:    #3B3BF5;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Bricolage Grotesque', sans-serif;
@@ -39,62 +41,107 @@
       display: flex; flex-direction: column;
     }
 
+    /* ─── NAV ─── */
     nav {
+      background: var(--bg);
       border-bottom: 1px solid var(--border);
-      padding: 16px clamp(20px, 5vw, 72px);
-      display: flex; align-items: center;
+      padding: 14px clamp(20px, 5vw, 80px);
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
     }
     .nav-logo {
-      font-size: 16px; font-weight: 800;
-      letter-spacing: -0.03em; color: var(--text);
-      text-decoration: none;
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 15px; font-weight: 700;
+      letter-spacing: -0.025em; color: var(--text);
+      text-decoration: none; white-space: nowrap;
+      background: var(--surface);
     }
-    .nav-logo span { color: var(--orange); }
+    .nav-back {
+      font-size: 13px; font-weight: 600; color: var(--muted);
+      text-decoration: none; display: flex; align-items: center; gap: 6px;
+      transition: color 0.15s;
+    }
+    .nav-back:hover { color: var(--text); }
 
-    main {
-      flex: 1;
-      display: flex; align-items: center; justify-content: center;
-      padding: clamp(48px, 8vw, 96px) clamp(20px, 5vw, 72px);
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      background: var(--bg);
+      padding: clamp(64px, 9vw, 112px) clamp(20px, 5vw, 80px) 0;
+      text-align: center;
+      overflow: hidden;
+      flex: 0 0 auto;
     }
 
-    .ty-wrap {
-      max-width: 680px; width: 100%;
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 760px; margin: 0 auto;
+      padding-bottom: clamp(90px, 14vw, 160px);
     }
 
     .check-badge {
+      display: inline-flex; align-items: center; justify-content: center;
       width: 56px; height: 56px;
-      background: var(--orange);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px; margin-bottom: 28px;
+      background: var(--blue); border-radius: 50%;
+      font-size: 22px; color: #fff;
+      margin-bottom: clamp(20px, 3vw, 28px);
     }
 
-    h1 {
-      font-size: clamp(32px, 5vw, 58px);
+    .hero-eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--blue);
+      margin-bottom: 14px; display: block;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5.5vw, 64px);
       font-weight: 800; line-height: 1.04;
       letter-spacing: -0.04em; color: var(--text);
-      margin-bottom: 18px;
+      margin-bottom: clamp(16px, 2.5vw, 22px);
     }
-    h1 span { color: var(--orange); }
+    .hero h1 .blue {
+      color: var(--blue);
+      text-decoration: underline;
+      text-decoration-color: var(--blue);
+      text-underline-offset: 6px;
+      text-decoration-thickness: 3px;
+    }
 
-    .ty-sub {
-      font-size: clamp(16px, 1.8vw, 19px);
+    .hero-sub {
+      font-size: clamp(15px, 1.7vw, 18px);
       color: var(--muted); line-height: 1.65;
-      margin-bottom: clamp(36px, 5vw, 52px);
+      max-width: 52ch; margin: 0 auto;
     }
+    .hero-sub strong { color: var(--text); font-weight: 700; }
+
+    #particles {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      width: 100%; height: clamp(100px, 16vw, 180px);
+      display: block; z-index: 1;
+    }
+
+    /* ─── MAIN CONTENT ─── */
+    main {
+      flex: 1;
+      padding: clamp(48px, 7vw, 88px) clamp(20px, 5vw, 80px);
+    }
+
+    .content-wrap { max-width: 760px; margin: 0 auto; }
 
     /* What happens next */
     .next-steps {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: clamp(24px, 3vw, 36px);
-      margin-bottom: clamp(28px, 4vw, 40px);
+      border-radius: 18px;
+      padding: clamp(24px, 3.5vw, 40px);
+      margin-bottom: clamp(24px, 3.5vw, 36px);
     }
 
-    .next-steps-title {
+    .block-title {
       font-size: 12px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.07em; color: var(--muted);
+      letter-spacing: 0.08em; color: var(--muted);
       margin-bottom: 22px;
     }
 
@@ -107,8 +154,7 @@
 
     .step-num {
       width: 32px; height: 32px; flex-shrink: 0;
-      background: var(--orange);
-      border-radius: 50%;
+      background: var(--blue); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-size: 13px; font-weight: 800; color: #fff;
     }
@@ -116,133 +162,225 @@
     .step-title {
       font-size: clamp(14px, 1.5vw, 16px);
       font-weight: 700; color: var(--text);
-      margin-bottom: 4px; letter-spacing: -0.015em;
+      margin-bottom: 4px; letter-spacing: -0.02em;
     }
 
     .step-body {
-      font-size: clamp(13px, 1.3vw, 14px);
-      color: var(--muted); line-height: 1.55;
+      font-size: clamp(13px, 1.3vw, 15px);
+      color: var(--muted); line-height: 1.6;
     }
 
     /* Pre-sell block */
     .presell {
       background: var(--text);
-      border-radius: 16px;
-      padding: clamp(24px, 3vw, 36px);
-      margin-bottom: clamp(24px, 3vw, 36px);
+      border-radius: 18px;
+      padding: clamp(24px, 3.5vw, 40px);
+      margin-bottom: clamp(24px, 3.5vw, 36px);
     }
 
-    .presell-title {
-      font-size: clamp(18px, 2.2vw, 24px);
-      font-weight: 800; letter-spacing: -0.03em;
-      color: #fff; margin-bottom: 16px;
+    .presell .block-title { color: rgba(255,255,255,0.35); }
+
+    .presell-heading {
+      font-size: clamp(18px, 2.5vw, 26px);
+      font-weight: 800; letter-spacing: -0.035em;
+      color: #fff; margin-bottom: 18px; line-height: 1.1;
     }
-    .presell-title span { color: var(--orange); }
+    .presell-heading .blue { color: var(--blue); }
 
     .presell-list {
-      list-style: none; display: flex; flex-direction: column; gap: 10px;
+      list-style: none; display: flex; flex-direction: column; gap: 11px;
     }
     .presell-list li {
       display: flex; align-items: flex-start; gap: 10px;
       font-size: clamp(13px, 1.4vw, 15px);
-      color: rgba(255,255,255,0.7); line-height: 1.5;
+      color: rgba(255,255,255,0.6); line-height: 1.55;
     }
     .presell-list li::before {
-      content: '→'; color: var(--orange); font-weight: 800; flex-shrink: 0;
+      content: '→'; color: var(--blue);
+      font-weight: 800; flex-shrink: 0; margin-top: 1px;
     }
 
-    /* Social proof nudge */
-    .social-nudge {
-      font-size: 14px; color: var(--muted); text-align: center;
-      line-height: 1.6;
+    /* Urgency / social nudge */
+    .bottom-note {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: clamp(22px, 3vw, 32px);
+      text-align: center;
     }
-    .social-nudge a {
-      color: var(--orange); font-weight: 700; text-decoration: none;
-    }
-    .social-nudge a:hover { text-decoration: underline; }
 
+    .bottom-note p {
+      font-size: clamp(14px, 1.5vw, 16px);
+      color: var(--muted); line-height: 1.65;
+    }
+    .bottom-note p strong { color: var(--text); }
+    .bottom-note a {
+      color: var(--blue); font-weight: 700; text-decoration: none;
+    }
+    .bottom-note a:hover { text-decoration: underline; }
+
+    /* ─── FOOTER ─── */
     footer {
-      padding: 24px clamp(20px, 5vw, 72px);
-      border-top: 1px solid var(--border);
+      background: var(--text);
+      padding: clamp(40px, 6vw, 72px) clamp(20px, 5vw, 80px) clamp(20px, 3vw, 28px);
+    }
+    .footer-brand {
+      font-size: clamp(40px, 10vw, 110px);
+      font-weight: 800; letter-spacing: -0.05em;
+      color: rgba(255,255,255,0.06); line-height: 1;
+      text-align: center; margin-bottom: clamp(18px, 3vw, 32px);
+      user-select: none;
+    }
+    .footer-brand .blue { color: rgba(59,59,245,0.2); }
+    .footer-row {
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 12px;
+      padding-top: clamp(16px, 2.5vw, 22px);
+      border-top: 1px solid rgba(255,255,255,0.07);
     }
-    .footer-logo {
-      font-size: 15px; font-weight: 800; letter-spacing: -0.03em;
-      color: var(--text); text-decoration: none;
-    }
-    .footer-logo span { color: var(--orange); }
-    footer p { font-size: 13px; color: var(--muted); }
+    .footer-logo { font-size: 14px; font-weight: 700; letter-spacing: -0.03em; color: rgba(255,255,255,0.45); text-decoration: none; }
+    .footer-links { display: flex; gap: 20px; list-style: none; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.28); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.6); }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="/v2/">Abu<span>Ecom</span></a>
+    <a class="nav-logo" href="/v2/">AbuEcom</a>
+    <a class="nav-back" href="/v2/">← Back to home</a>
   </nav>
 
-  <main>
-    <div class="ty-wrap">
-
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
       <div class="check-badge">✓</div>
+      <span class="hero-eyebrow">You're booked</span>
+      <h1>You're In. <span class="blue">See You On The Call.</span></h1>
+      <p class="hero-sub">Check your inbox for the calendar invite. Here's exactly what to expect — and how to make the most of your 30 minutes with Mussa.</p>
+    </div>
+    <canvas id="particles"></canvas>
+  </div>
 
-      <h1>You're booked.<br><span>See you on the call.</span></h1>
-      <p class="ty-sub">Check your email for the calendar invite. In the meantime, here's exactly what to expect — and how to make the most of your 30 minutes with Mussa.</p>
+  <!-- CONTENT -->
+  <main>
+    <div class="content-wrap">
 
       <div class="next-steps">
-        <div class="next-steps-title">What happens next</div>
+        <div class="block-title">What happens next</div>
         <div class="step">
           <div class="step-num">1</div>
           <div>
             <div class="step-title">Check your inbox</div>
-            <div class="step-body">You'll receive a calendar invite with the Zoom link. Add it to your calendar now so you don't miss it.</div>
+            <div class="step-body">You'll receive a calendar invite with the Zoom link. Add it now so you don't miss it.</div>
           </div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <div>
-            <div class="step-title">Prepare two things</div>
-            <div class="step-body">Know your approximate monthly revenue and your current email list size. That's all you need — we handle the rest of the audit live on the call.</div>
+            <div class="step-title">Prepare two things only</div>
+            <div class="step-body">Your approximate monthly revenue and current email list size. That's it — Mussa handles the rest of the audit live on the call.</div>
           </div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <div>
             <div class="step-title">We do a free live audit</div>
-            <div class="step-body">Mussa will look at your Klaviyo account, identify exactly what's leaking money, and show you what we'd fix first. You leave with a clear picture — whether you work with us or not.</div>
+            <div class="step-body">Mussa reviews your Klaviyo account, identifies exactly what's leaking money, and shows you what he'd fix first. You leave with clarity — whether you work with us or not.</div>
           </div>
         </div>
         <div class="step">
           <div class="step-num">4</div>
           <div>
-            <div class="step-title">If it's a fit, we go live in 2 weeks</div>
-            <div class="step-body">No long onboarding. We plug in, build your flows, and start sending campaigns within 14 days of signing.</div>
+            <div class="step-title">If it's a fit, you're live in 2 weeks</div>
+            <div class="step-body">No long onboarding. Flows built, campaigns scheduled, and revenue generating within 14 days of signing.</div>
           </div>
         </div>
       </div>
 
       <div class="presell">
-        <div class="presell-title">What this call is <span>not</span></div>
+        <div class="block-title">What this call is not</div>
+        <div class="presell-heading">We don't pitch. We <span class="blue">diagnose.</span></div>
         <ul class="presell-list">
-          <li>It's not a 30-minute sales pitch — we spend the first 20 minutes actually auditing your account</li>
-          <li>It's not vague strategy talk — you'll leave with specific numbers and specific recommendations</li>
-          <li>It's not a hard close — if we're not the right fit, we'll tell you that honestly</li>
-          <li>It's not for brands that aren't serious — we only take 3 clients at a time, so we're selective</li>
+          <li>Not a 30-minute sales pitch — the first 20 minutes are spent actually auditing your account</li>
+          <li>Not vague strategy talk — you'll leave with specific numbers and specific recommendations</li>
+          <li>Not a hard close — if we're not the right fit, Mussa will tell you honestly</li>
+          <li>Not for brands who aren't serious — we only take 3 clients per month, so we're selective on both sides</li>
         </ul>
       </div>
 
-      <p class="social-nudge">
-        While you wait, see the work we've done for other Muslim brands on Instagram.<br>
-        <a href="https://instagram.com/thatmussa" target="_blank">@thatmussa</a>
-      </p>
+      <div class="bottom-note">
+        <p>
+          We only take <strong>3 new clients per month</strong> to maintain performance quality.<br>
+          You've applied for one of the remaining spots — Mussa will confirm on the call.<br><br>
+          While you wait, see the work we've done for Muslim brands on Instagram:<br>
+          <a href="https://instagram.com/thatmussa" target="_blank">@thatmussa</a>
+        </p>
+      </div>
 
     </div>
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <a class="footer-logo" href="/v2/">Abu<span>Ecom</span></a>
-    <p>Questions? DM <a href="https://instagram.com/thatmussa" target="_blank" style="color:var(--orange); font-weight:700; text-decoration:none;">@thatmussa</a></p>
+    <div class="footer-brand">Abu<span class="blue">Ecom</span></div>
+    <div class="footer-row">
+      <a class="footer-logo" href="/v2/">AbuEcom</a>
+      <ul class="footer-links">
+        <li><a href="https://instagram.com/thatmussa" target="_blank">@thatmussa</a></li>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
   </footer>
+
+  <script>
+    (function() {
+      const canvas = document.getElementById('particles');
+      const ctx    = canvas.getContext('2d');
+      const BLUE   = [59, 59, 245];
+
+      function rand(min, max) { return min + Math.random() * (max - min); }
+
+      function draw() {
+        const W = canvas.offsetWidth;
+        const H = canvas.offsetHeight;
+        canvas.width  = W;
+        canvas.height = H;
+        ctx.clearRect(0, 0, W, H);
+
+        const count = Math.floor(W * 0.8);
+
+        for (let i = 0; i < count; i++) {
+          let x, y, alpha, r;
+          const zone = Math.random();
+
+          if (zone < 0.42) {
+            x     = rand(0, W * 0.42);
+            y     = rand(H * 0.2, H);
+            alpha = Math.pow((y - H * 0.2) / (H * 0.8), 1.6) * rand(0.5, 1);
+          } else if (zone < 0.84) {
+            x     = rand(W * 0.58, W);
+            y     = rand(H * 0.2, H);
+            alpha = Math.pow((y - H * 0.2) / (H * 0.8), 1.6) * rand(0.5, 1);
+          } else {
+            x     = rand(W * 0.25, W * 0.75);
+            y     = rand(H * 0.7, H);
+            alpha = rand(0.08, 0.4);
+          }
+
+          r = rand(0.6, 2.4);
+          ctx.beginPath();
+          ctx.arc(x, y, r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${BLUE[0]},${BLUE[1]},${BLUE[2]},${alpha.toFixed(2)})`;
+          ctx.fill();
+        }
+      }
+
+      draw();
+      window.addEventListener('resize', draw);
+    })();
+  </script>
 
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abu Ecom — Email Marketing for Muslim Brands</title>
-  <meta name="description" content="Done-for-you email marketing for Muslim ecommerce brands. Live in 2 weeks. 90-day revenue guarantee." />
+  <meta name="description" content="Done-for-you email marketing exclusively for Muslim ecommerce brands. Live in 2 weeks. 90-day revenue guarantee." />
 
   <!-- Microsoft Clarity — replace YOUR_CLARITY_ID -->
   <script type="text/javascript">
@@ -23,13 +23,12 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #F5F5F5;
-      --text:      #111111;
-      --muted:     #666666;
-      --border:    #E2E2E2;
-      --surface:   #FFFFFF;
-      --orange:    #FF4D00;
-      --dark:      #0C0C0C;
+      --bg:      #F2F2F2;
+      --text:    #111111;
+      --muted:   #5C5C5C;
+      --border:  #DEDEDE;
+      --surface: #FFFFFF;
+      --blue:    #3B3BF5;
     }
 
     html { scroll-behavior: smooth; }
@@ -42,194 +41,165 @@
       overflow-x: hidden;
     }
 
-    /* ─── UTILITIES ─── */
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px); }
-    .orange { color: var(--orange); }
-
     /* ─── NAV ─── */
     nav {
       position: sticky; top: 0; z-index: 200;
-      background: rgba(12,12,12,0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      padding: 14px clamp(20px, 5vw, 64px);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 14px clamp(20px, 5vw, 80px);
       display: flex; align-items: center; justify-content: space-between; gap: 20px;
     }
+
     .nav-logo {
-      font-size: 17px; font-weight: 800;
-      letter-spacing: -0.03em; color: #fff;
-      text-decoration: none;
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 15px; font-weight: 700;
+      letter-spacing: -0.025em; color: var(--text);
+      text-decoration: none; white-space: nowrap;
+      background: var(--surface);
     }
-    .nav-logo span { color: var(--orange); }
-    .nav-links { display: flex; gap: 28px; list-style: none; }
+
+    .nav-links {
+      display: flex; gap: 32px; list-style: none;
+    }
     .nav-links a {
-      font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.55);
+      font-size: 14px; font-weight: 500; color: var(--muted);
       text-decoration: none; transition: color 0.15s;
     }
-    .nav-links a:hover { color: #fff; }
-    @media (max-width: 600px) { .nav-links { display: none; } }
+    .nav-links a:hover { color: var(--text); }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
     .nav-cta {
-      background: var(--orange); color: #fff;
-      font-family: inherit; font-size: 13px; font-weight: 700;
-      padding: 10px 20px; border-radius: 8px; border: none;
+      background: var(--text); color: #fff;
+      font-family: inherit; font-size: 14px; font-weight: 700;
+      padding: 11px 24px; border-radius: 100px; border: none;
       cursor: pointer; text-decoration: none; white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 8px;
       transition: opacity 0.15s; letter-spacing: -0.01em;
     }
-    .nav-cta:hover { opacity: 0.88; }
+    .nav-cta:hover { opacity: 0.82; }
+    .nav-cta .arrow {
+      width: 22px; height: 22px;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 11px;
+    }
 
     /* ─── HERO ─── */
     .hero {
       position: relative;
-      background: var(--dark);
-      padding: clamp(80px, 11vw, 140px) clamp(20px, 5vw, 64px) clamp(80px, 10vw, 128px);
+      background: var(--bg);
+      padding: clamp(72px, 10vw, 128px) clamp(20px, 5vw, 80px) 0;
       text-align: center;
       overflow: hidden;
-    }
-
-    /* dot-grid texture overlay */
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image:
-        radial-gradient(circle, rgba(139,92,246,0.55) 1px, transparent 1px),
-        radial-gradient(circle, rgba(99,102,241,0.3) 1px, transparent 1px);
-      background-size: 28px 28px, 52px 52px;
-      background-position: 0 0, 14px 14px;
-      mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
-      opacity: 0.6;
-    }
-
-    /* purple glow */
-    .hero::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(139,92,246,0.18) 0%, transparent 70%);
-      pointer-events: none;
+      min-height: 520px;
     }
 
     .hero-inner {
       position: relative; z-index: 2;
-      max-width: 820px; margin: 0 auto;
-    }
-
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: clamp(20px, 3vw, 28px);
+      max-width: 860px; margin: 0 auto;
+      padding-bottom: clamp(100px, 16vw, 180px);
     }
 
     .hero h1 {
-      font-size: clamp(34px, 6.5vw, 76px);
-      font-weight: 800; line-height: 1.02;
-      letter-spacing: -0.04em;
-      color: #fff;
-      margin-bottom: clamp(18px, 2.5vw, 24px);
+      font-size: clamp(32px, 5.8vw, 70px);
+      font-weight: 800; line-height: 1.04;
+      letter-spacing: -0.04em; color: var(--text);
+      margin-bottom: clamp(18px, 2.5vw, 26px);
     }
-    .hero h1 .orange { color: var(--orange); }
-    .hero h1 .underline {
+    .hero h1 .blue {
+      color: var(--blue);
       text-decoration: underline;
-      text-decoration-color: var(--orange);
+      text-decoration-color: var(--blue);
       text-underline-offset: 6px;
+      text-decoration-thickness: 3px;
     }
 
     .hero-sub {
-      font-size: clamp(15px, 1.8vw, 19px);
-      color: rgba(255,255,255,0.55);
-      line-height: 1.65; max-width: 52ch; margin: 0 auto;
-      margin-bottom: clamp(28px, 4vw, 40px);
+      font-size: clamp(15px, 1.7vw, 18px);
+      color: var(--muted); line-height: 1.65;
+      max-width: 54ch; margin: 0 auto clamp(28px, 4vw, 40px);
     }
-    .hero-sub strong { color: rgba(255,255,255,0.85); }
+    .hero-sub strong { color: var(--text); font-weight: 700; }
 
-    .btn-orange {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--orange); color: #fff;
+    .btn-black {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--text); color: #fff;
       font-family: inherit; font-size: clamp(15px, 1.6vw, 17px); font-weight: 700;
-      padding: clamp(14px, 1.8vw, 18px) clamp(28px, 3.5vw, 44px);
-      border-radius: 10px; border: none; cursor: pointer;
+      padding: clamp(14px, 1.8vw, 18px) clamp(28px, 3.5vw, 40px);
+      border-radius: 100px; border: none; cursor: pointer;
       text-decoration: none; letter-spacing: -0.01em;
       transition: opacity 0.15s;
     }
-    .btn-orange:hover { opacity: 0.88; }
-
-    .hero-trust {
-      margin-top: clamp(20px, 3vw, 28px);
-      font-size: 13px; color: rgba(255,255,255,0.38);
-      font-weight: 500;
-    }
-    .hero-trust strong { color: rgba(255,255,255,0.6); }
-
-    .hero-stats {
-      display: flex; align-items: center; justify-content: center;
-      gap: clamp(32px, 5vw, 64px); flex-wrap: wrap;
-      margin-top: clamp(48px, 7vw, 80px);
-      padding-top: clamp(32px, 4vw, 44px);
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-    .hero-stat-num {
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 800; letter-spacing: -0.04em;
-      color: #fff; line-height: 1;
-    }
-    .hero-stat-num span { color: var(--orange); }
-    .hero-stat-label {
-      font-size: 12px; color: rgba(255,255,255,0.38);
-      margin-top: 5px; font-weight: 500;
+    .btn-black:hover { opacity: 0.82; }
+    .btn-black .arr {
+      width: 26px; height: 26px;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 12px;
     }
 
-    /* ─── SECTION BASE ─── */
-    .section { padding: clamp(64px, 9vw, 112px) clamp(20px, 5vw, 64px); }
+    /* particle canvas — sits at bottom of hero */
+    #particles {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      width: 100%; height: clamp(140px, 22vw, 240px);
+      display: block; z-index: 1;
+    }
+
+    /* ─── SHARED SECTION ─── */
+    .section {
+      padding: clamp(64px, 9vw, 112px) clamp(20px, 5vw, 80px);
+    }
+    .wrap { max-width: 1040px; margin: 0 auto; }
+
     .section-tag {
       font-size: 12px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.08em; color: var(--orange);
-      margin-bottom: 14px;
+      letter-spacing: 0.08em; color: var(--blue); margin-bottom: 14px;
     }
+
     .section h2 {
-      font-size: clamp(28px, 4.5vw, 54px);
-      font-weight: 800; line-height: 1.04;
+      font-size: clamp(26px, 4vw, 50px);
+      font-weight: 800; line-height: 1.06;
       letter-spacing: -0.04em; color: var(--text);
-      max-width: 20ch;
     }
-    .section h2 .orange { color: var(--orange); }
+    .section h2 .blue { color: var(--blue); }
+
     .section-sub {
       font-size: clamp(15px, 1.6vw, 18px);
-      color: var(--muted); line-height: 1.6;
-      max-width: 52ch; margin-top: 14px;
+      color: var(--muted); line-height: 1.65;
+      margin-top: 14px; max-width: 52ch;
     }
 
-    /* ─── SYSTEM SECTION ─── */
-    .system { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-
-    .system-head { max-width: 700px; margin-bottom: clamp(40px, 6vw, 60px); }
+    /* ─── SYSTEM ─── */
+    .system { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .system-head { max-width: 700px; margin-bottom: clamp(36px, 5vw, 52px); }
     .system-head h2 { max-width: 100%; }
 
     .deliverables {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 18px; overflow: hidden;
       margin-bottom: clamp(32px, 5vw, 48px);
     }
-    @media (max-width: 620px) { .deliverables { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .deliverables { grid-template-columns: 1fr; } }
 
     .deliverable {
       background: var(--surface);
-      padding: clamp(20px, 2.8vw, 32px);
+      padding: clamp(22px, 3vw, 32px);
       display: flex; align-items: flex-start; gap: 16px;
     }
 
     .d-icon {
-      width: 40px; height: 40px; flex-shrink: 0;
-      background: var(--bg);
-      border: 1px solid var(--border);
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: var(--bg); border: 1px solid var(--border);
       border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
+      font-size: 19px;
     }
 
     .d-title {
@@ -240,347 +210,230 @@
 
     .d-body {
       font-size: clamp(12px, 1.2vw, 14px);
-      color: var(--muted); line-height: 1.55;
+      color: var(--muted); line-height: 1.6;
     }
 
     .system-cta { text-align: center; }
 
-    /* ─── PROOF / WHY IT WORKS ─── */
-    .proof {
-      background: var(--dark);
-    }
-    .proof .section-tag { color: var(--orange); }
-    .proof h2 { color: #fff; }
-    .proof .section-sub { color: rgba(255,255,255,0.45); }
-
-    .proof-head { margin-bottom: clamp(36px, 5vw, 52px); }
+    /* ─── PROOF ─── */
+    .proof { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .proof-head { margin-bottom: clamp(32px, 5vw, 52px); }
 
     @keyframes marquee {
       0%   { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-
     .marquee-wrap {
       width: 100%; overflow: hidden;
       mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
       -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      margin-bottom: clamp(36px, 5vw, 56px);
     }
-
     .marquee-track {
-      display: flex; gap: 14px;
+      display: flex; gap: 12px;
       animation: marquee 38s linear infinite;
       will-change: transform;
     }
-
     .marquee-track img {
-      width: clamp(130px, 18vw, 210px);
+      width: clamp(120px, 17vw, 200px);
       flex-shrink: 0; aspect-ratio: 3/4;
       object-fit: cover; object-position: center top;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px; border: 1px solid var(--border);
       display: block;
     }
 
     .proof-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: grid; grid-template-columns: repeat(3, 1fr);
       gap: clamp(12px, 2vw, 20px);
-      margin-top: clamp(40px, 6vw, 60px);
-    }
-    @media (max-width: 560px) { .proof-metrics { grid-template-columns: 1fr 1fr; } }
-
-    .proof-metric {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      padding: clamp(18px, 2.5vw, 28px);
-    }
-    .pm-num {
-      font-size: clamp(26px, 3.8vw, 42px);
-      font-weight: 800; letter-spacing: -0.04em;
-      color: #fff; line-height: 1;
-    }
-    .pm-num span { color: var(--orange); }
-    .pm-label { font-size: 13px; color: rgba(255,255,255,0.38); margin-top: 6px; line-height: 1.45; }
-
-    /* guarantee */
-    .guarantee {
-      margin-top: clamp(40px, 6vw, 60px);
-      border: 2px solid rgba(255,255,255,0.12);
-      border-radius: 16px;
-      padding: clamp(24px, 3.5vw, 40px);
-      display: flex; align-items: flex-start; gap: 20px;
-      background: rgba(255,255,255,0.03);
-    }
-    @media (max-width: 540px) { .guarantee { flex-direction: column; } }
-    .g-icon { font-size: 38px; flex-shrink: 0; }
-    .g-title {
-      font-size: clamp(16px, 2vw, 21px);
-      font-weight: 800; letter-spacing: -0.025em; color: #fff;
-      margin-bottom: 8px;
-    }
-    .g-body { font-size: clamp(13px, 1.4vw, 15px); color: rgba(255,255,255,0.45); line-height: 1.6; }
-    .g-body strong { color: rgba(255,255,255,0.8); }
-
-    /* ─── BOOKING ─── */
-    .booking { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .booking-inner { max-width: 900px; margin: 0 auto; }
-    .booking-head { text-align: center; margin-bottom: clamp(32px, 5vw, 48px); }
-    .booking-head h2 { max-width: 100%; }
-    .booking-head .section-sub { margin: 14px auto 0; text-align: center; }
-
-    .booking-steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(14px, 2.5vw, 24px);
       margin-bottom: clamp(32px, 5vw, 48px);
     }
-    @media (max-width: 580px) { .booking-steps { grid-template-columns: 1fr; } }
+    @media (max-width: 540px) { .proof-metrics { grid-template-columns: 1fr 1fr; } }
+
+    .metric-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 14px; padding: clamp(18px, 2.5vw, 28px);
+    }
+    .metric-num {
+      font-size: clamp(26px, 3.8vw, 44px);
+      font-weight: 800; letter-spacing: -0.04em; color: var(--text); line-height: 1;
+    }
+    .metric-num .blue { color: var(--blue); }
+    .metric-label { font-size: 13px; color: var(--muted); margin-top: 6px; line-height: 1.45; }
+
+    .guarantee-strip {
+      border: 2px solid var(--text);
+      border-radius: 16px;
+      padding: clamp(22px, 3vw, 36px) clamp(22px, 4vw, 44px);
+      display: flex; align-items: flex-start; gap: 18px;
+      background: var(--surface);
+    }
+    @media (max-width: 520px) { .guarantee-strip { flex-direction: column; } }
+    .g-icon { font-size: 36px; flex-shrink: 0; }
+    .g-title { font-size: clamp(16px, 2vw, 20px); font-weight: 800; letter-spacing: -0.025em; color: var(--text); margin-bottom: 7px; }
+    .g-body { font-size: clamp(13px, 1.4vw, 15px); color: var(--muted); line-height: 1.65; }
+    .g-body strong { color: var(--text); }
+
+    /* ─── BOOKING ─── */
+    .booking { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .booking-inner { max-width: 900px; margin: 0 auto; }
+    .booking-head { text-align: center; margin-bottom: clamp(28px, 4vw, 44px); }
+    .booking-head h2 { max-width: 100%; }
+    .booking-head .urgency-note {
+      margin-top: 16px;
+      font-size: clamp(14px, 1.5vw, 17px);
+      color: var(--muted); line-height: 1.55;
+    }
+    .booking-head .urgency-note strong { color: var(--text); }
+
+    .booking-steps {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: clamp(12px, 2.5vw, 20px);
+      margin-bottom: clamp(28px, 4vw, 44px);
+    }
+    @media (max-width: 560px) { .booking-steps { grid-template-columns: 1fr; } }
 
     .bstep {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: clamp(18px, 2.5vw, 28px);
+      padding: clamp(18px, 2.5vw, 26px);
     }
     .bstep-num {
       width: 30px; height: 30px;
-      background: var(--orange); border-radius: 50%;
+      background: var(--blue); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-size: 13px; font-weight: 800; color: #fff;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
-    .bstep-title {
-      font-size: clamp(14px, 1.4vw, 16px);
-      font-weight: 700; color: var(--text);
-      margin-bottom: 6px; letter-spacing: -0.02em;
-    }
-    .bstep-body { font-size: clamp(12px, 1.2vw, 14px); color: var(--muted); line-height: 1.55; }
+    .bstep-title { font-size: clamp(14px, 1.4vw, 16px); font-weight: 700; color: var(--text); margin-bottom: 5px; letter-spacing: -0.02em; }
+    .bstep-body { font-size: clamp(12px, 1.2vw, 14px); color: var(--muted); line-height: 1.6; }
 
     .cal-embed-wrap {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
-      overflow: hidden;
-      min-height: 600px;
+      overflow: hidden; min-height: 600px;
     }
-    .cal-embed-wrap iframe {
-      width: 100%; min-height: 600px; border: none; display: block;
-    }
+    .cal-embed-wrap iframe { width: 100%; min-height: 600px; border: none; display: block; }
 
     /* ─── PRICING ─── */
     .pricing { background: var(--surface); border-bottom: 1px solid var(--border); }
     .pricing-inner { max-width: 900px; margin: 0 auto; }
-    .pricing-head { text-align: center; margin-bottom: clamp(32px, 5vw, 48px); }
-    .pricing-head h2 { max-width: 100%; }
+    .pricing-head { margin-bottom: clamp(28px, 4vw, 44px); }
 
     .price-card {
-      background: var(--dark);
+      background: var(--text);
       border-radius: 20px;
       padding: clamp(28px, 4vw, 52px);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(24px, 4vw, 56px);
-      align-items: start;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(24px, 4vw, 56px); align-items: start;
     }
-    @media (max-width: 620px) { .price-card { grid-template-columns: 1fr; } }
+    @media (max-width: 580px) { .price-card { grid-template-columns: 1fr; } }
 
-    .price-stack-title {
-      font-size: 11px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.08em; color: rgba(255,255,255,0.35);
-      margin-bottom: 16px;
-    }
-
-    .price-item {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 12px; padding: 11px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      font-size: clamp(13px, 1.3vw, 14px);
-    }
+    .price-stack-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); margin-bottom: 14px; }
+    .price-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: clamp(12px, 1.25vw, 14px); }
     .price-item:last-child { border-bottom: none; }
-    .pi-name { color: rgba(255,255,255,0.7); font-weight: 600; }
-    .pi-val { color: var(--orange); font-weight: 700; white-space: nowrap; }
+    .pi-name { color: rgba(255,255,255,0.65); font-weight: 600; }
+    .pi-val { color: var(--blue); font-weight: 700; white-space: nowrap; }
+    .price-total-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12); }
+    .ptl { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: rgba(255,255,255,0.3); }
+    .ptv { font-size: clamp(17px, 2.2vw, 24px); font-weight: 800; letter-spacing: -0.03em; color: rgba(255,255,255,0.35); text-decoration: line-through; }
 
-    .price-total-row {
-      display: flex; justify-content: space-between; align-items: baseline;
-      gap: 8px; margin-top: 12px; padding-top: 12px;
-      border-top: 1px solid rgba(255,255,255,0.12);
-    }
-    .ptl { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: rgba(255,255,255,0.35); }
-    .ptv {
-      font-size: clamp(18px, 2.5vw, 26px);
-      font-weight: 800; letter-spacing: -0.04em;
-      color: rgba(255,255,255,0.4);
-      text-decoration: line-through;
-    }
-
-    .price-reveal { display: flex; flex-direction: column; gap: 20px; }
-
-    .price-reveal-label {
-      font-size: 12px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.07em; color: rgba(255,255,255,0.35);
-    }
-
-    .price-big {
-      font-size: clamp(56px, 9vw, 96px);
-      font-weight: 800; letter-spacing: -0.05em;
-      color: var(--orange); line-height: 1;
-    }
-    .price-big .pmo {
-      font-size: 0.32em; font-weight: 600;
-      color: rgba(255,255,255,0.35); letter-spacing: 0;
-    }
-
+    .price-right { display: flex; flex-direction: column; gap: 20px; }
+    .price-reveal-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: rgba(255,255,255,0.35); }
+    .price-big { font-size: clamp(52px, 9vw, 96px); font-weight: 800; letter-spacing: -0.05em; color: #fff; line-height: 1; }
+    .price-big .pmo { font-size: 0.32em; font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 0; }
     .price-saving { font-size: clamp(13px, 1.4vw, 15px); font-weight: 700; color: #4ade80; }
-
-    .perks {
-      list-style: none; display: flex; flex-direction: column; gap: 9px;
-    }
-    .perks li {
-      display: flex; align-items: center; gap: 9px;
-      font-size: clamp(13px, 1.3vw, 14px);
-      color: rgba(255,255,255,0.55); font-weight: 500;
-    }
+    .perks { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .perks li { display: flex; align-items: center; gap: 9px; font-size: clamp(13px, 1.3vw, 14px); color: rgba(255,255,255,0.55); font-weight: 500; }
     .perks li::before { content: '✓'; color: #4ade80; font-weight: 800; flex-shrink: 0; }
 
-    .btn-orange-lg {
+    .btn-blue-lg {
       display: block; text-align: center;
-      background: var(--orange); color: #fff;
+      background: var(--blue); color: #fff;
       font-family: inherit; font-size: clamp(15px, 1.6vw, 17px); font-weight: 700;
-      padding: clamp(15px, 1.8vw, 20px) clamp(28px, 3vw, 40px);
-      border-radius: 12px; border: none; cursor: pointer;
+      padding: clamp(15px, 1.8vw, 20px) 32px;
+      border-radius: 100px; border: none; cursor: pointer;
       text-decoration: none; letter-spacing: -0.01em;
       transition: opacity 0.15s;
     }
-    .btn-orange-lg:hover { opacity: 0.88; }
-
-    .urgency {
-      font-size: 13px; color: rgba(255,255,255,0.3);
-      text-align: center; font-weight: 500; margin-top: 10px;
-    }
-    .urgency strong { color: rgba(255,255,255,0.55); }
+    .btn-blue-lg:hover { opacity: 0.88; }
+    .price-urgency { font-size: 13px; color: rgba(255,255,255,0.3); text-align: center; font-weight: 500; margin-top: 6px; }
+    .price-urgency strong { color: rgba(255,255,255,0.55); }
 
     /* ─── FAQ ─── */
     .faq { background: var(--bg); border-bottom: 1px solid var(--border); }
     .faq-inner { max-width: 720px; margin: 0 auto; }
-    .faq-head { margin-bottom: clamp(32px, 5vw, 48px); }
-    .faq-head h2 { max-width: 100%; }
-
-    .faq-list { display: flex; flex-direction: column; gap: 0; }
-
-    .faq-item {
-      border-top: 1px solid var(--border);
-    }
+    .faq-head { margin-bottom: clamp(28px, 4vw, 44px); }
+    .faq-item { border-top: 1px solid var(--border); }
     .faq-item:last-child { border-bottom: 1px solid var(--border); }
-
     .faq-q {
       width: 100%; background: none; border: none; cursor: pointer;
       display: flex; align-items: center; justify-content: space-between; gap: 16px;
       padding: clamp(16px, 2vw, 22px) 0;
       font-family: inherit; font-size: clamp(14px, 1.5vw, 17px);
-      font-weight: 700; color: var(--text); letter-spacing: -0.02em;
-      text-align: left;
+      font-weight: 700; color: var(--text); letter-spacing: -0.02em; text-align: left;
     }
-    .faq-q:hover { color: var(--orange); }
-
+    .faq-q:hover { color: var(--blue); }
     .faq-chevron {
-      flex-shrink: 0; width: 22px; height: 22px;
-      border: 1.5px solid var(--border);
-      border-radius: 50%;
+      flex-shrink: 0; width: 24px; height: 24px;
+      border: 1.5px solid var(--border); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 12px; color: var(--muted);
-      transition: transform 0.25s, border-color 0.25s;
+      font-size: 14px; color: var(--muted);
+      transition: transform 0.22s, border-color 0.22s, color 0.22s;
     }
-
-    .faq-item.open .faq-chevron {
-      transform: rotate(45deg);
-      border-color: var(--orange);
-      color: var(--orange);
-    }
-
-    .faq-a {
-      display: none;
-      padding-bottom: clamp(16px, 2vw, 22px);
-      font-size: clamp(14px, 1.4vw, 16px);
-      color: var(--muted); line-height: 1.65;
-    }
+    .faq-item.open .faq-chevron { transform: rotate(45deg); border-color: var(--blue); color: var(--blue); }
+    .faq-a { display: none; padding-bottom: clamp(16px, 2vw, 22px); font-size: clamp(14px, 1.4vw, 16px); color: var(--muted); line-height: 1.7; }
     .faq-a strong { color: var(--text); }
     .faq-item.open .faq-a { display: block; }
-
     .faq-cta { text-align: center; margin-top: clamp(36px, 5vw, 52px); }
 
     /* ─── FOOTER ─── */
     footer {
-      background: var(--dark);
-      padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 64px) clamp(28px, 4vw, 40px);
+      background: var(--text);
+      padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 80px) clamp(24px, 4vw, 36px);
     }
-
     .footer-brand {
-      font-size: clamp(56px, 12vw, 140px);
+      font-size: clamp(52px, 12vw, 140px);
       font-weight: 800; letter-spacing: -0.05em;
-      color: rgba(255,255,255,0.07);
-      line-height: 1; text-align: center;
-      margin-bottom: clamp(28px, 4vw, 44px);
+      color: rgba(255,255,255,0.06); line-height: 1;
+      text-align: center; margin-bottom: clamp(24px, 4vw, 40px);
       user-select: none;
     }
-    .footer-brand span { color: rgba(255,77,0,0.3); }
-
+    .footer-brand .blue { color: rgba(59,59,245,0.2); }
     .footer-row {
       display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 14px;
-      padding-top: clamp(20px, 3vw, 28px);
+      flex-wrap: wrap; gap: 12px;
+      padding-top: clamp(18px, 2.5vw, 26px);
       border-top: 1px solid rgba(255,255,255,0.07);
     }
-    .footer-logo {
-      font-size: 15px; font-weight: 800; letter-spacing: -0.03em;
-      color: rgba(255,255,255,0.6); text-decoration: none;
-    }
-    .footer-logo span { color: var(--orange); }
+    .footer-logo { font-size: 14px; font-weight: 700; letter-spacing: -0.03em; color: rgba(255,255,255,0.5); text-decoration: none; }
     .footer-links { display: flex; gap: 20px; list-style: none; }
-    .footer-links a {
-      font-size: 13px; color: rgba(255,255,255,0.35);
-      text-decoration: none; font-weight: 500; transition: color 0.15s;
-    }
-    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.65); }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="/v2/">Abu<span>Ecom</span></a>
+    <a class="nav-logo" href="/v2/">AbuEcom</a>
     <ul class="nav-links">
-      <li><a href="#system">What We Do</a></li>
-      <li><a href="#proof">Results</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#proof">Our Results</a></li>
+      <li><a href="#pricing">Our Offer</a></li>
+      <li><a href="#faq">FAQs</a></li>
     </ul>
-    <a class="nav-cta" href="#booking">Get Started →</a>
+    <a class="nav-cta" href="#booking">Get Started <span class="arrow">↗</span></a>
   </nav>
 
   <!-- ① HERO -->
   <div class="hero">
     <div class="hero-inner">
-      <span class="hero-eyebrow">For Muslim ecommerce brands only</span>
-      <h1>We Add <span class="orange">£10K – £50K/Month</span> From Your Email List — <span class="underline">Done For You.</span></h1>
-      <p class="hero-sub">We handle your flows, campaigns, segmentation, and strategy — entirely done for you. <strong>Delivered in 2 weeks.</strong> We only work with 3 clients at a time, so you're never just another account.</p>
-      <a class="btn-orange" href="#booking">Book Your Free Audit →</a>
-      <p class="hero-trust"><strong>3 spots max</strong> · 90-day revenue guarantee · No setup fee</p>
-      <div class="hero-stats">
-        <div>
-          <div class="hero-stat-num">£500K<span>+</span></div>
-          <div class="hero-stat-label">Generated for Muslim brands</div>
-        </div>
-        <div>
-          <div class="hero-stat-num"><span>3</span> max</div>
-          <div class="hero-stat-label">Clients at any one time</div>
-        </div>
-        <div>
-          <div class="hero-stat-num"><span>2</span> wks</div>
-          <div class="hero-stat-label">From call to fully live</div>
-        </div>
-      </div>
+      <h1>We Will Add <span class="blue">£10K–£50K To Your Monthly Revenue</span> From Email Using A Done-For-You System Built Exclusively For Muslim Brands.</h1>
+      <p class="hero-sub">We handle everything: flows, campaigns, segmentation, copy, and design. Fully done-for-you. <strong>Live in 2 weeks. Revenue increase in 90 days. Or we keep working for free until you see it.</strong></p>
+      <a class="btn-black" href="#booking">Get Started <span class="arr">↗</span></a>
     </div>
+    <canvas id="particles"></canvas>
   </div>
 
   <!-- ② FULL SYSTEM -->
@@ -588,50 +441,50 @@
     <div class="wrap">
       <div class="system-head">
         <p class="section-tag">What you get</p>
-        <h2>A Complete Email Revenue System. Built, Launched, And Running In 14 Days.</h2>
-        <p class="section-sub">Everything done for you — from audit to live campaigns. Not a template. Not a checklist. A fully managed email operation built specifically for your brand.</p>
+        <h2>A Complete Email Revenue System. <span class="blue">Built, Launched, And Running In 14 Days.</span></h2>
+        <p class="section-sub">Everything done for you — from audit to live campaigns. Not templates, not a DIY course. A fully managed email operation built for your brand.</p>
       </div>
       <div class="deliverables">
         <div class="deliverable">
           <div class="d-icon">🔍</div>
           <div>
             <div class="d-title">Full Klaviyo Audit</div>
-            <div class="d-body">We dig into your account and find every leak — dead flows, missing segments, underperforming sequences. You'll see exactly what's been costing you money.</div>
+            <div class="d-body">We dig into your account and find every leak — dead flows, missing segments, underperforming sequences. You'll see exactly what's costing you money.</div>
           </div>
         </div>
         <div class="deliverable">
           <div class="d-icon">⚡</div>
           <div>
             <div class="d-title">5 Revenue Flows — Live In 2 Weeks</div>
-            <div class="d-body">Welcome, abandoned cart, browse abandon, post-purchase, and win-back. All written, designed, and built. These run 24/7 and generate revenue while you sleep.</div>
+            <div class="d-body">Welcome, abandoned cart, browse abandon, post-purchase, win-back. All written, designed, and built. These run 24/7 and generate revenue while you sleep.</div>
           </div>
         </div>
         <div class="deliverable">
           <div class="d-icon">✉️</div>
           <div>
-            <div class="d-title">12 Campaigns Per Month (3/Week)</div>
-            <div class="d-body">Campaigns written, designed, and sent consistently — timed around Islamic events, product drops, Ramadan, and your promotions. We handle the full calendar.</div>
+            <div class="d-title">12 Campaigns Per Month (3 Per Week)</div>
+            <div class="d-body">Campaigns written, designed, and sent consistently — timed around Islamic events, product drops, Ramadan, and your calendar. We own the whole thing.</div>
           </div>
         </div>
         <div class="deliverable">
           <div class="d-icon">🎯</div>
           <div>
             <div class="d-title">Smart Segmentation</div>
-            <div class="d-body">The right email to the right person. VIPs, lapsed buyers, window shoppers — each segment gets messaging that converts. No spray-and-pray.</div>
+            <div class="d-body">VIPs, lapsed buyers, window shoppers — each segment gets messaging that converts. No spray-and-pray. The right email to the right person.</div>
           </div>
         </div>
         <div class="deliverable">
           <div class="d-icon">🧪</div>
           <div>
             <div class="d-title">Monthly A/B Testing</div>
-            <div class="d-body">Subject lines, send times, content — we test constantly and compound every win. Your results improve every single month.</div>
+            <div class="d-body">Subject lines, send times, content angles — we test constantly and compound every win so your numbers improve month after month.</div>
           </div>
         </div>
         <div class="deliverable">
           <div class="d-icon">📈</div>
           <div>
             <div class="d-title">List Growth Strategy</div>
-            <div class="d-body">Pop-ups, lead magnets, and on-site capture — we build you a system that keeps growing the list so the asset compounds over time.</div>
+            <div class="d-body">Pop-ups, lead magnets, and on-site capture — we build a system that keeps growing the list so the asset compounds over time.</div>
           </div>
         </div>
         <div class="deliverable">
@@ -645,26 +498,26 @@
           <div class="d-icon">💬</div>
           <div>
             <div class="d-title">Direct Slack Access To Mussa</div>
-            <div class="d-body">24/7 Slack access — not a junior, not an account manager. You talk directly to the person building your emails. Questions answered same day.</div>
+            <div class="d-body">Not a junior. Not an account manager. You talk directly to the person building your emails. Questions answered same day, every day.</div>
           </div>
         </div>
         <div class="deliverable">
           <div class="d-icon">🕌</div>
           <div>
             <div class="d-title">Muslim Market Expertise</div>
-            <div class="d-body">Ramadan campaigns that actually convert. Halal-conscious messaging. An understanding of your customer's values that a generic agency will never have.</div>
+            <div class="d-body">Ramadan campaigns, halal-conscious messaging, an understanding of your audience's values. Something a generic agency will never be able to replicate.</div>
           </div>
         </div>
         <div class="deliverable">
           <div class="d-icon">📅</div>
           <div>
             <div class="d-title">Monthly Strategy Call</div>
-            <div class="d-body">Every month, a dedicated call with Mussa to review results, plan the next 30 days, and align campaigns with your business goals and upcoming launches.</div>
+            <div class="d-body">A dedicated call every month to review results, plan the next 30 days, and align campaigns with your upcoming launches and goals.</div>
           </div>
         </div>
       </div>
       <div class="system-cta">
-        <a class="btn-orange" href="#booking">Get Your Free Audit →</a>
+        <a class="btn-black" href="#booking">Get Started <span class="arr">↗</span></a>
       </div>
     </div>
   </div>
@@ -674,8 +527,8 @@
     <div class="wrap">
       <div class="proof-head">
         <p class="section-tag">The work</p>
-        <h2>Real Emails. Built For Real Muslim Brands.</h2>
-        <p class="section-sub">Every email below was written, designed, and sent by us. This is the level of work your brand gets — from day one.</p>
+        <h2>Real Emails. <span class="blue">Built For Real Muslim Brands.</span></h2>
+        <p class="section-sub">Every email below was written, designed, and sent by us. This is the standard your brand receives — from day one.</p>
       </div>
       <div class="marquee-wrap">
         <div class="marquee-track">
@@ -700,49 +553,48 @@
           <img src="/emails/simba.png"           alt="Simba" />
           <img src="/emails/teapressa.png"       alt="Teapressa" />
           <img src="/emails/bsst.png"            alt="BSST" />
-          <!-- duplicate for seamless loop -->
-          <img src="/emails/5-pillars.png"       alt="" />
-          <img src="/emails/anafiya-gifts.png"   alt="" />
-          <img src="/emails/boxed-halal.png"     alt="" />
-          <img src="/emails/cave-london.png"     alt="" />
-          <img src="/emails/chaptrs.png"         alt="" />
-          <img src="/emails/darassalam.png"      alt="" />
-          <img src="/emails/desi-dolls.png"      alt="" />
-          <img src="/emails/hallal-meals.png"    alt="" />
-          <img src="/emails/huraya.png"          alt="" />
-          <img src="/emails/irontfit.png"        alt="" />
-          <img src="/emails/kube-publishing.png" alt="" />
-          <img src="/emails/lala-and-mo.png"     alt="" />
-          <img src="/emails/mama-yasmin.png"     alt="" />
-          <img src="/emails/musmeat.png"         alt="" />
-          <img src="/emails/noor.png"            alt="" />
-          <img src="/emails/one-stop-halal.png"  alt="" />
-          <img src="/emails/osu.png"             alt="" />
-          <img src="/emails/roohts.png"          alt="" />
-          <img src="/emails/simba.png"           alt="" />
-          <img src="/emails/teapressa.png"       alt="" />
-          <img src="/emails/bsst.png"            alt="" />
+          <img src="/emails/5-pillars.png"       alt="" aria-hidden="true" />
+          <img src="/emails/anafiya-gifts.png"   alt="" aria-hidden="true" />
+          <img src="/emails/boxed-halal.png"     alt="" aria-hidden="true" />
+          <img src="/emails/cave-london.png"     alt="" aria-hidden="true" />
+          <img src="/emails/chaptrs.png"         alt="" aria-hidden="true" />
+          <img src="/emails/darassalam.png"      alt="" aria-hidden="true" />
+          <img src="/emails/desi-dolls.png"      alt="" aria-hidden="true" />
+          <img src="/emails/hallal-meals.png"    alt="" aria-hidden="true" />
+          <img src="/emails/huraya.png"          alt="" aria-hidden="true" />
+          <img src="/emails/irontfit.png"        alt="" aria-hidden="true" />
+          <img src="/emails/kube-publishing.png" alt="" aria-hidden="true" />
+          <img src="/emails/lala-and-mo.png"     alt="" aria-hidden="true" />
+          <img src="/emails/mama-yasmin.png"     alt="" aria-hidden="true" />
+          <img src="/emails/musmeat.png"         alt="" aria-hidden="true" />
+          <img src="/emails/noor.png"            alt="" aria-hidden="true" />
+          <img src="/emails/one-stop-halal.png"  alt="" aria-hidden="true" />
+          <img src="/emails/osu.png"             alt="" aria-hidden="true" />
+          <img src="/emails/roohts.png"          alt="" aria-hidden="true" />
+          <img src="/emails/simba.png"           alt="" aria-hidden="true" />
+          <img src="/emails/teapressa.png"       alt="" aria-hidden="true" />
+          <img src="/emails/bsst.png"            alt="" aria-hidden="true" />
         </div>
       </div>
       <div class="proof-metrics">
-        <div class="proof-metric">
-          <div class="pm-num">£500K<span>+</span></div>
-          <div class="pm-label">Email revenue generated for Muslim brands</div>
+        <div class="metric-card">
+          <div class="metric-num">£500K<span class="blue">+</span></div>
+          <div class="metric-label">Email revenue generated for Muslim brands</div>
         </div>
-        <div class="proof-metric">
-          <div class="pm-num">30<span>–40%</span></div>
-          <div class="pm-label">Of total revenue from email — what we consistently deliver</div>
+        <div class="metric-card">
+          <div class="metric-num">30<span class="blue">–40%</span></div>
+          <div class="metric-label">Of total revenue from email — what we consistently deliver</div>
         </div>
-        <div class="proof-metric">
-          <div class="pm-num"><span>3</span> max</div>
-          <div class="pm-label">Clients at any time — so every single one gets results</div>
+        <div class="metric-card">
+          <div class="metric-num"><span class="blue">3</span> max</div>
+          <div class="metric-label">Clients at a time — so every account gets full attention</div>
         </div>
       </div>
-      <div class="guarantee">
+      <div class="guarantee-strip">
         <div class="g-icon">🛡️</div>
         <div>
           <div class="g-title">The 90-Day Revenue Guarantee</div>
-          <p class="g-body">If we don't <strong>measurably increase your email revenue</strong> within 90 days, we keep working for free until we do. No arguments. No small print. We either deliver or we don't get paid. Simple.</p>
+          <p class="g-body">If we don't <strong>measurably increase your email revenue</strong> within 90 days, we keep working for free until we do. No arguments. No small print. We either deliver or you don't pay.</p>
         </div>
       </div>
     </div>
@@ -752,28 +604,28 @@
   <div class="section booking" id="booking">
     <div class="booking-inner">
       <div class="booking-head">
-        <p class="section-tag">One step</p>
-        <h2>Schedule Your Free Audit Call Now.</h2>
-        <p class="section-sub">Wait for the calendar to load — pick a time that works for you. No pitch, no pressure.</p>
+        <p class="section-tag">Apply for a spot</p>
+        <h2>Schedule Your Free Discovery Call Now.</h2>
+        <p class="urgency-note">We only take <strong>3 new clients per month</strong> to maintain performance quality.<br>If you want one of the remaining spots, apply below.</p>
       </div>
       <div class="booking-steps">
         <div class="bstep">
           <div class="bstep-num">1</div>
           <div class="bstep-title">Book a free 30-min call</div>
-          <div class="bstep-body">Pick a slot below. Mussa will look at your Klaviyo account live and show you exactly where you're losing money.</div>
+          <div class="bstep-body">Mussa looks at your Klaviyo account live and shows you exactly where you're losing money.</div>
         </div>
         <div class="bstep">
           <div class="bstep-num">2</div>
           <div class="bstep-title">Get a free audit</div>
-          <div class="bstep-body">You leave with specific numbers — how much revenue you're currently leaving on the table, and what we'd fix first.</div>
+          <div class="bstep-body">You leave with specific numbers — how much revenue you're leaving on the table and what we'd fix first.</div>
         </div>
         <div class="bstep">
           <div class="bstep-num">3</div>
           <div class="bstep-title">Live in 2 weeks if it's a fit</div>
-          <div class="bstep-body">No long onboarding. We plug in, build your flows and campaigns, and start generating revenue within 14 days of signing.</div>
+          <div class="bstep-body">No long onboarding. Flows and campaigns live within 14 days of signing. Revenue follows.</div>
         </div>
       </div>
-      <!-- Replace src with your actual Cal.com link -->
+      <!-- Replace src with your actual Cal.com embed URL -->
       <div class="cal-embed-wrap">
         <iframe
           src="https://cal.com/abuecom/call?embed=true&theme=light"
@@ -789,11 +641,12 @@
     <div class="pricing-inner">
       <div class="pricing-head">
         <p class="section-tag">Pricing</p>
-        <h2>Everything Done For You. <span class="orange">One Flat Price.</span></h2>
+        <h2>Everything Done For You. <span class="blue">One Flat Price.</span></h2>
+        <p class="section-sub">No setup fee. No retainer tiers. No surprises. One price, everything included.</p>
       </div>
       <div class="price-card">
         <div>
-          <div class="price-stack-title">What's included — total value</div>
+          <div class="price-stack-label">What's included — total value</div>
           <div class="price-item"><span class="pi-name">Full Klaviyo audit</span><span class="pi-val">£750</span></div>
           <div class="price-item"><span class="pi-name">5 revenue flows (live in 2 wks)</span><span class="pi-val">£3,500</span></div>
           <div class="price-item"><span class="pi-name">12 campaigns/month</span><span class="pi-val">£2,000/mo</span></div>
@@ -808,7 +661,7 @@
             <span class="ptv">£9,850+/mo</span>
           </div>
         </div>
-        <div class="price-reveal">
+        <div class="price-right">
           <div>
             <div class="price-reveal-label">You pay</div>
             <div class="price-big">£2,000<span class="pmo">/mo</span></div>
@@ -821,8 +674,8 @@
             <li>Cancel any time</li>
             <li>90-day revenue guarantee</li>
           </ul>
-          <a class="btn-orange-lg" href="#booking">Apply for a spot →</a>
-          <p class="urgency"><strong>3 spots maximum.</strong> If you're reading this, one may still be open.</p>
+          <a class="btn-blue-lg" href="#booking">Apply for a spot →</a>
+          <p class="price-urgency">We only take <strong>3 new clients per month.</strong></p>
         </div>
       </div>
     </div>
@@ -833,7 +686,7 @@
     <div class="wrap">
       <div class="faq-inner">
         <div class="faq-head">
-          <p class="section-tag">FAQ</p>
+          <p class="section-tag">FAQs</p>
           <h2>Your questions, answered.</h2>
         </div>
         <div class="faq-list">
@@ -843,31 +696,31 @@
           </div>
           <div class="faq-item">
             <button class="faq-q">What if my list is really small?<span class="faq-chevron">+</span></button>
-            <div class="faq-a">Small lists often outperform large ones when done right. We've seen 500-person lists outperform 50,000-person lists. It's about how you segment and what you say — not just the size.</div>
+            <div class="faq-a">Small lists often outperform large ones when managed correctly. We've seen 500-person lists outperform 50,000-person lists. It's about segmentation and messaging quality — not just size.</div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">How do you define "qualified results"?<span class="faq-chevron">+</span></button>
-            <div class="faq-a">A measurable increase in revenue directly attributed to email — tracked inside Klaviyo. We'll agree on a baseline on the audit call and measure against it. No vague metrics, no moving goalposts.</div>
+            <button class="faq-q">How do you define a "qualified result"?<span class="faq-chevron">+</span></button>
+            <div class="faq-a">A measurable increase in revenue directly attributed to email — tracked inside Klaviyo. We agree on a baseline on the audit call and measure against it. No vague metrics. No moving goalposts.</div>
           </div>
           <div class="faq-item">
             <button class="faq-q">When will I start seeing results?<span class="faq-chevron">+</span></button>
-            <div class="faq-a">Most clients see revenue from flows within the first 2 weeks — that's when we go live. Full results compound over 30–90 days as we test and optimise. We're not a quick fix, we're a long-term revenue channel.</div>
+            <div class="faq-a">Most clients see revenue from flows within the first 2 weeks — that's when we go live. Full results compound over 30–90 days as we test and optimise. We're not a quick fix. We're a permanent revenue channel.</div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">How does the 90-day guarantee work?<span class="faq-chevron">+</span></button>
+            <button class="faq-q">How does the 90-day ROI guarantee work?<span class="faq-chevron">+</span></button>
             <div class="faq-a">Simple. If we don't measurably increase your email revenue within 90 days, we keep working for free until we do. No arguments, no small print. We either deliver or you don't pay.</div>
           </div>
           <div class="faq-item">
             <button class="faq-q">I've been burned by agencies before. Why is this different?<span class="faq-chevron">+</span></button>
-            <div class="faq-a"><strong>Three things make us different:</strong> (1) We only take 3 clients at a time — you're not one of 50. (2) You work directly with Mussa, not a junior. (3) We have a 90-day guarantee, so if we don't deliver, you don't pay. Most agencies don't offer any of that.</div>
+            <div class="faq-a"><strong>Three things:</strong> We only take 3 clients at a time so you're not one of 50. You work directly with Mussa — not a junior account manager. And we back everything with a 90-day revenue guarantee. Most agencies offer none of that.</div>
           </div>
           <div class="faq-item">
             <button class="faq-q">Why not just hire someone in-house?<span class="faq-chevron">+</span></button>
-            <div class="faq-a">A good in-house email marketer costs £3,000–£5,000/month minimum — and that's before you factor in management time, tools, and onboarding. We deliver a full team's output for £2,000/month with a revenue guarantee attached.</div>
+            <div class="faq-a">A good email marketer costs £3,000–£5,000/month before tools and management overhead. We deliver more for £2,000/month — with a revenue guarantee attached. It's not even a close comparison.</div>
           </div>
         </div>
         <div class="faq-cta">
-          <a class="btn-orange" href="#booking">Book Your Free Audit →</a>
+          <a class="btn-black" href="#booking">Book Your Free Audit <span class="arr">↗</span></a>
         </div>
       </div>
     </div>
@@ -875,10 +728,10 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-brand">Abu<span>Ecom</span></div>
+    <div class="footer-brand">Abu<span class="blue">Ecom</span></div>
     <div class="wrap">
       <div class="footer-row">
-        <a class="footer-logo" href="/v2/">Abu<span>Ecom</span></a>
+        <a class="footer-logo" href="/v2/">AbuEcom</a>
         <ul class="footer-links">
           <li><a href="https://instagram.com/thatmussa" target="_blank">@thatmussa</a></li>
           <li><a href="/privacy-policy.html">Privacy Policy</a></li>
@@ -888,10 +741,60 @@
   </footer>
 
   <script>
-    // FAQ accordion
+    // ── Particle canvas ──
+    (function() {
+      const canvas = document.getElementById('particles');
+      const ctx    = canvas.getContext('2d');
+      const BLUE   = [59, 59, 245];
+
+      function rand(min, max) { return min + Math.random() * (max - min); }
+
+      function draw() {
+        const W = canvas.offsetWidth;
+        const H = canvas.offsetHeight;
+        canvas.width  = W;
+        canvas.height = H;
+        ctx.clearRect(0, 0, W, H);
+
+        const count = Math.floor(W * 0.9);
+
+        for (let i = 0; i < count; i++) {
+          let x, y, alpha, r;
+
+          const zone = Math.random();
+          if (zone < 0.42) {
+            // Left cluster — bottom-left quadrant, heaviest at very bottom
+            x     = rand(0, W * 0.42);
+            y     = rand(H * 0.25, H);
+            alpha = Math.pow((y - H * 0.25) / (H * 0.75), 1.6) * rand(0.5, 1);
+          } else if (zone < 0.84) {
+            // Right cluster
+            x     = rand(W * 0.58, W);
+            y     = rand(H * 0.25, H);
+            alpha = Math.pow((y - H * 0.25) / (H * 0.75), 1.6) * rand(0.5, 1);
+          } else {
+            // Sparse centre scatter along bottom
+            x     = rand(W * 0.25, W * 0.75);
+            y     = rand(H * 0.72, H);
+            alpha = rand(0.1, 0.45);
+          }
+
+          r = rand(0.6, 2.4);
+          ctx.beginPath();
+          ctx.arc(x, y, r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${BLUE[0]},${BLUE[1]},${BLUE[2]},${alpha.toFixed(2)})`;
+          ctx.fill();
+        }
+      }
+
+      draw();
+      window.addEventListener('resize', draw);
+    })();
+
+    // ── FAQ accordion ──
     document.querySelectorAll('.faq-q').forEach(btn => {
       btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
+        const item   = btn.closest('.faq-item');
         const isOpen = item.classList.contains('open');
         document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
         if (!isOpen) item.classList.add('open');
