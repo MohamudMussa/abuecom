@@ -90,11 +90,34 @@
     /* ─── HERO ─── */
     .hero {
       position: relative;
-      background: var(--bg);
+      background: #E4EDEF;
       padding: clamp(72px, 10vw, 128px) clamp(20px, 5vw, 80px) 0;
       text-align: center;
       overflow: hidden;
       min-height: 520px;
+    }
+
+    /* ASCII / code character texture */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='130'%3E%3Ctext x='2' y='12' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3E0 S %230 %40 8 S 0 0 S %23 8 x%3C/text%3E%3Ctext x='2' y='25' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3E%23 %23 0 S S 0 8 %40 x %23 0 S%3C/text%3E%3Ctext x='2' y='38' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3Ex 8 %40 %23 0 x 8 S %23 %40 0 x%3C/text%3E%3Ctext x='2' y='51' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3E0 0 S %23 x 8 0 S %23 %40 8 x%3C/text%3E%3Ctext x='2' y='64' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3E%40 x %23 0 S 0 %23 8 x %40 S 0%3C/text%3E%3Ctext x='2' y='77' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3ES 0 0 %23 8 %40 x S 0 %23 8 x%3C/text%3E%3Ctext x='2' y='90' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3E%23 %40 S 0 x 8 %23 0 S %40 x 8%3C/text%3E%3Ctext x='2' y='103' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3E0 x 8 %40 S %23 0 8 x S %23 %40%3C/text%3E%3Ctext x='2' y='116' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3Ex S %23 8 0 %40 x %23 8 S 0 %40%3C/text%3E%3Ctext x='2' y='129' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3E8 0 %40 x %23 S 8 x %40 %23 0 S%3C/text%3E%3C/svg%3E");
+      opacity: 0.38;
+    }
+
+    /* Aurora gradient — rises from bottom, fades to transparent at top */
+    .hero-aurora {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 68%;
+      z-index: 1; pointer-events: none;
+      background:
+        radial-gradient(ellipse 85% 85% at 12% 105%, rgba(38, 196, 208, 0.88) 0%, rgba(60, 170, 220, 0.52) 35%, rgba(110, 148, 218, 0.18) 62%, transparent 80%),
+        radial-gradient(ellipse 60% 55% at 58% 100%, rgba(72, 182, 218, 0.55) 0%, rgba(120, 155, 212, 0.28) 48%, transparent 76%),
+        radial-gradient(ellipse 35% 35% at 82% 92%, rgba(155, 170, 228, 0.3) 0%, transparent 70%);
+      filter: blur(22px);
+      mask-image: linear-gradient(to top, black 0%, black 20%, rgba(0,0,0,0.6) 50%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to top, black 0%, black 20%, rgba(0,0,0,0.6) 50%, transparent 100%);
     }
 
     .hero-inner {
@@ -142,13 +165,7 @@
       font-size: 12px;
     }
 
-    /* particle canvas — sits at bottom of hero */
-    #particles {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      width: 100%; height: clamp(140px, 22vw, 240px);
-      display: block; z-index: 1;
-    }
+    /* (aurora handled by .hero-aurora div above) */
 
     /* ─── SHARED SECTION ─── */
     .section {
@@ -433,7 +450,7 @@
       <p class="hero-sub">We handle everything: flows, campaigns, segmentation, copy, and design. Fully done-for-you. <strong>Live in 2 weeks. Revenue increase in 90 days. Or we keep working for free until you see it.</strong></p>
       <a class="btn-black" href="#booking">Get Started <span class="arr">↗</span></a>
     </div>
-    <canvas id="particles"></canvas>
+    <div class="hero-aurora"></div>
   </div>
 
   <!-- ② FULL SYSTEM -->
@@ -741,56 +758,6 @@
   </footer>
 
   <script>
-    // ── Particle canvas ──
-    (function() {
-      const canvas = document.getElementById('particles');
-      const ctx    = canvas.getContext('2d');
-      const BLUE   = [59, 59, 245];
-
-      function rand(min, max) { return min + Math.random() * (max - min); }
-
-      function draw() {
-        const W = canvas.offsetWidth;
-        const H = canvas.offsetHeight;
-        canvas.width  = W;
-        canvas.height = H;
-        ctx.clearRect(0, 0, W, H);
-
-        const count = Math.floor(W * 0.9);
-
-        for (let i = 0; i < count; i++) {
-          let x, y, alpha, r;
-
-          const zone = Math.random();
-          if (zone < 0.42) {
-            // Left cluster — bottom-left quadrant, heaviest at very bottom
-            x     = rand(0, W * 0.42);
-            y     = rand(H * 0.25, H);
-            alpha = Math.pow((y - H * 0.25) / (H * 0.75), 1.6) * rand(0.5, 1);
-          } else if (zone < 0.84) {
-            // Right cluster
-            x     = rand(W * 0.58, W);
-            y     = rand(H * 0.25, H);
-            alpha = Math.pow((y - H * 0.25) / (H * 0.75), 1.6) * rand(0.5, 1);
-          } else {
-            // Sparse centre scatter along bottom
-            x     = rand(W * 0.25, W * 0.75);
-            y     = rand(H * 0.72, H);
-            alpha = rand(0.1, 0.45);
-          }
-
-          r = rand(0.6, 2.4);
-          ctx.beginPath();
-          ctx.arc(x, y, r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${BLUE[0]},${BLUE[1]},${BLUE[2]},${alpha.toFixed(2)})`;
-          ctx.fill();
-        }
-      }
-
-      draw();
-      window.addEventListener('resize', draw);
-    })();
-
     // ── FAQ accordion ──
     document.querySelectorAll('.faq-q').forEach(btn => {
       btn.addEventListener('click', () => {
