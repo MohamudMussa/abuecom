@@ -90,34 +90,21 @@
     /* ─── HERO ─── */
     .hero {
       position: relative;
-      background: #E4EDEF;
+      background: #E8EEEF;
       padding: clamp(72px, 10vw, 128px) clamp(20px, 5vw, 80px) 0;
       text-align: center;
       overflow: hidden;
       min-height: 520px;
     }
 
-    /* ASCII / code character texture */
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0; z-index: 0; pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='130'%3E%3Ctext x='2' y='12' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3E0 S %230 %40 8 S 0 0 S %23 8 x%3C/text%3E%3Ctext x='2' y='25' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3E%23 %23 0 S S 0 8 %40 x %23 0 S%3C/text%3E%3Ctext x='2' y='38' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3Ex 8 %40 %23 0 x 8 S %23 %40 0 x%3C/text%3E%3Ctext x='2' y='51' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3E0 0 S %23 x 8 0 S %23 %40 8 x%3C/text%3E%3Ctext x='2' y='64' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3E%40 x %23 0 S 0 %23 8 x %40 S 0%3C/text%3E%3Ctext x='2' y='77' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3ES 0 0 %23 8 %40 x S 0 %23 8 x%3C/text%3E%3Ctext x='2' y='90' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3E%23 %40 S 0 x 8 %23 0 S %40 x 8%3C/text%3E%3Ctext x='2' y='103' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3E0 x 8 %40 S %23 0 8 x S %23 %40%3C/text%3E%3Ctext x='2' y='116' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3Ex S %23 8 0 %40 x %23 8 S 0 %40%3C/text%3E%3Ctext x='2' y='129' font-family='Courier New,monospace' font-size='9' letter-spacing='2.5' fill='%236A8A94'%3E8 0 %40 x %23 S 8 x %40 %23 0 S%3C/text%3E%3C/svg%3E");
-      opacity: 0.38;
-    }
-
-    /* Aurora gradient — rises from bottom, fades to transparent at top */
+    /* Actual background image — fades from transparent at top to fully visible at bottom */
     .hero-aurora {
       position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 68%;
+      inset: 0;
       z-index: 1; pointer-events: none;
-      background:
-        radial-gradient(ellipse 85% 85% at 12% 105%, rgba(38, 196, 208, 0.88) 0%, rgba(60, 170, 220, 0.52) 35%, rgba(110, 148, 218, 0.18) 62%, transparent 80%),
-        radial-gradient(ellipse 60% 55% at 58% 100%, rgba(72, 182, 218, 0.55) 0%, rgba(120, 155, 212, 0.28) 48%, transparent 76%),
-        radial-gradient(ellipse 35% 35% at 82% 92%, rgba(155, 170, 228, 0.3) 0%, transparent 70%);
-      filter: blur(22px);
-      mask-image: linear-gradient(to top, black 0%, black 20%, rgba(0,0,0,0.6) 50%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to top, black 0%, black 20%, rgba(0,0,0,0.6) 50%, transparent 100%);
+      background: url('hero-bg.png') center bottom / cover no-repeat;
+      mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.75) 60%, black 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.75) 60%, black 100%);
     }
 
     .hero-inner {
@@ -165,7 +152,6 @@
       font-size: 12px;
     }
 
-    /* (aurora handled by .hero-aurora div above) */
 
     /* ─── SHARED SECTION ─── */
     .section {
