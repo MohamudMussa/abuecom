@@ -11,12 +11,12 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:      #171717;
-      --surface: #222222;
-      --border:  #2e2e2e;
-      --text:    #f5f5f5;
-      --muted:   #8A8A8A;
-      --faint:   #666666;
+      --bg:      #F9F9F9;
+      --surface: #FFFFFF;
+      --border:  #E0E0E0;
+      --text:    #111111;
+      --muted:   #555555;
+      --faint:   #888888;
       --amber:   oklch(72% 0.18 75);
     }
 
@@ -148,33 +148,101 @@
     }
 
     /* ─────────────────────────────────────
-       LOGOS — 3 columns
+       STATS ROW
     ───────────────────────────────────── */
 
-    .logos {
+    .stats-row {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .stat-box {
+      padding: 14px 12px;
+      border-right: 1px solid var(--border);
+      text-align: center;
+    }
+    .stat-box:last-child { border-right: none; }
+
+    .stat-box-num {
+      font-size: clamp(18px, 3vw, 22px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--amber);
+      line-height: 1;
+    }
+    .stat-box-label {
+      font-size: 11px;
+      color: var(--faint);
+      font-weight: 500;
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+
+    /* ─────────────────────────────────────
+       INDUSTRY TAGS
+    ───────────────────────────────────── */
+
+    .industry-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
       margin-bottom: 28px;
     }
 
-    .logo-item {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      padding: 9px 0;
-      border-bottom: 1px solid var(--border);
-      color: var(--faint);
-      font-size: 12.5px;
+    .itag {
+      font-size: 12px;
       font-weight: 600;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 12px;
       letter-spacing: -0.01em;
     }
 
-    .logo-mark {
-      width: 16px;
-      height: 16px;
-      border-radius: 4px;
-      background: oklch(22% 0.007 55);
-      flex-shrink: 0;
+    /* ─────────────────────────────────────
+       GALLERY INTRO (right panel header)
+    ───────────────────────────────────── */
+
+    .gallery-intro {
+      padding: 28px 20px 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 8px;
+    }
+
+    @media (min-width: 860px) {
+      .gallery-intro { padding: 32px 28px 24px; }
+    }
+
+    .gallery-intro-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--amber);
+      margin-bottom: 10px;
+    }
+
+    .gallery-intro-headline {
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      max-width: 32ch;
+      margin-bottom: 10px;
+    }
+
+    .gallery-intro-sub {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 48ch;
     }
 
     /* ─────────────────────────────────────
@@ -408,28 +476,48 @@
       </a>
     </div>
 
-    <p class="avail">3 client spots maximum — currently accepting applications</p>
+    <p class="avail">We only take 3 new clients per month to maintain performance quality. If you want one of the remaining spots, apply above.</p>
 
-    <div class="logos">
-      <div class="logo-item"><div class="logo-mark"></div>Boxed Halal</div>
-      <div class="logo-item"><div class="logo-mark"></div>Cave London</div>
-      <div class="logo-item"><div class="logo-mark"></div>Chaptrs</div>
-      <div class="logo-item"><div class="logo-mark"></div>Darassalam</div>
-      <div class="logo-item"><div class="logo-mark"></div>Kube</div>
-      <div class="logo-item"><div class="logo-mark"></div>Musmeat</div>
-      <div class="logo-item"><div class="logo-mark"></div>One Stop Halal</div>
-      <div class="logo-item"><div class="logo-mark"></div>5 Pillars</div>
-      <div class="logo-item"><div class="logo-mark"></div>Teapressa</div>
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-box-num">£500K+</div>
+        <div class="stat-box-label">Revenue generated</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-num">3 max</div>
+        <div class="stat-box-label">Clients at one time</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-num">2 wks</div>
+        <div class="stat-box-label">From call to live</div>
+      </div>
+    </div>
+
+    <div class="industry-tags">
+      <span class="itag">Halal Food</span>
+      <span class="itag">Modest Fashion</span>
+      <span class="itag">Islamic Books</span>
+      <span class="itag">Muslim Gifting</span>
+      <span class="itag">Supplements</span>
+      <span class="itag">Islamic Education</span>
+      <span class="itag">Home Goods</span>
     </div>
 
     <div class="niche">
-      <p>We work with brands in <strong>Modest Fashion, Halal Food, Islamic Books, Muslim Gifting, Supplements, Home Goods,</strong> and <strong>Islamic Education.</strong> Over <em class="num">£500K</em> attributed. We keep it to <em class="num">3 clients</em> — so every single one gets results.</p>
+      <p>If your brand sells to Muslims, we already understand your customer better than any generic agency ever will. Ramadan timing, halal-conscious copy, the values that drive your buyers — <strong>this is the only email agency built for exactly this market.</strong></p>
     </div>
 
   </div>
 
   <!-- ══ RIGHT: scrolling gallery + testimonials ═ -->
   <div class="right-panel" id="work">
+
+    <!-- Gallery intro -->
+    <div class="gallery-intro">
+      <p class="gallery-intro-tag">The work</p>
+      <h2 class="gallery-intro-headline">This is the standard. Every email below was built by us — this is what your brand gets.</h2>
+      <p class="gallery-intro-sub">Not templates. Not AI-generated. Hand-crafted, conversion-focused emails built specifically for Muslim ecommerce brands.</p>
+    </div>
 
     <!-- Testimonial 1 -->
     <div class="testi-card">
@@ -445,8 +533,8 @@
 
     <!-- Images 1–2 -->
     <div id="gallery"></div>
-    <img src="/emails/5-pillars.png"       alt="5 Pillars email" />
-    <img src="/emails/anafiya-gifts.png"   alt="Anafiya Gifts email" />
+    <img src="/emails/5-pillars.png"       alt="Email design example" />
+    <img src="/emails/anafiya-gifts.png"   alt="Email design example" />
 
     <!-- Testimonial 2 -->
     <div class="testi-card">
@@ -461,8 +549,8 @@
     </div>
 
     <!-- Images 3–4 -->
-    <img src="/emails/boxed-halal.png"     alt="Boxed Halal email" />
-    <img src="/emails/bsst.png"            alt="BSST email" />
+    <img src="/emails/boxed-halal.png"     alt="Email design example" />
+    <img src="/emails/bsst.png"            alt="Email design example" />
 
     <!-- Testimonial 3 -->
     <div class="testi-card">
@@ -477,23 +565,23 @@
     </div>
 
     <!-- Images 5–21 -->
-    <img src="/emails/cave-london.png"     alt="Cave London email" />
-    <img src="/emails/chaptrs.png"         alt="Chaptrs email" />
-    <img src="/emails/darassalam.png"      alt="Darassalam email" />
-    <img src="/emails/desi-dolls.png"      alt="Desi Dolls email" />
-    <img src="/emails/hallal-meals.png"    alt="Hallal Meals email" />
-    <img src="/emails/huraya.png"          alt="Huraya email" />
-    <img src="/emails/irontfit.png"        alt="IrontFit email" />
-    <img src="/emails/kube-publishing.png" alt="Kube Publishing email" />
-    <img src="/emails/lala-and-mo.png"     alt="Lala and Mo email" />
-    <img src="/emails/mama-yasmin.png"     alt="Mama Yasmin email" />
-    <img src="/emails/musmeat.png"         alt="Musmeat email" />
-    <img src="/emails/noor.png"            alt="Noor email" />
-    <img src="/emails/one-stop-halal.png"  alt="One Stop Halal email" />
-    <img src="/emails/osu.png"             alt="OSU email" />
-    <img src="/emails/roohts.png"          alt="Roohts email" />
-    <img src="/emails/simba.png"           alt="Simba email" />
-    <img src="/emails/teapressa.png"       alt="Teapressa email" />
+    <img src="/emails/cave-london.png"     alt="Email design example" />
+    <img src="/emails/chaptrs.png"         alt="Email design example" />
+    <img src="/emails/darassalam.png"      alt="Email design example" />
+    <img src="/emails/desi-dolls.png"      alt="Email design example" />
+    <img src="/emails/hallal-meals.png"    alt="Email design example" />
+    <img src="/emails/huraya.png"          alt="Email design example" />
+    <img src="/emails/irontfit.png"        alt="Email design example" />
+    <img src="/emails/kube-publishing.png" alt="Email design example" />
+    <img src="/emails/lala-and-mo.png"     alt="Email design example" />
+    <img src="/emails/mama-yasmin.png"     alt="Email design example" />
+    <img src="/emails/musmeat.png"         alt="Email design example" />
+    <img src="/emails/noor.png"            alt="Email design example" />
+    <img src="/emails/one-stop-halal.png"  alt="Email design example" />
+    <img src="/emails/osu.png"             alt="Email design example" />
+    <img src="/emails/roohts.png"          alt="Email design example" />
+    <img src="/emails/simba.png"           alt="Email design example" />
+    <img src="/emails/teapressa.png"       alt="Email design example" />
 
     <!-- End CTA -->
     <div class="end-cta">
