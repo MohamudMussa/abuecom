@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abu Ecom — Email Marketing for Muslim Brands</title>
+  <title>Abu Ecom — Stop Wasting The Customers You Already Paid For</title>
+  <meta name="description" content="We turn one-time buyers into repeat customers for Muslim ecommerce owners. Done for you. 90-day guarantee." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
@@ -18,6 +19,9 @@
       --muted:   #555555;
       --faint:   #888888;
       --amber:   oklch(72% 0.18 75);
+      --green:   oklch(68% 0.18 145);
+      --red:     oklch(58% 0.18 25);
+      --dark:    #111111;
     }
 
     html { scroll-behavior: smooth; }
@@ -29,250 +33,215 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ─────────────────────────────────────
-       LAYOUT
-    ───────────────────────────────────── */
-
-    /* Mobile: single column */
+    /* ─── LAYOUT ─── */
     .left-panel  { padding: 40px 20px 48px; }
     .right-panel { border-top: 1px solid var(--border); }
 
-    /* Desktop: sticky left + scrolling right */
     @media (min-width: 860px) {
       body { display: flex; flex-direction: column; }
-
-      .page {
-        display: flex;
-        align-items: flex-start;
-      }
-
+      .page { display: flex; align-items: flex-start; }
       .left-panel {
-        position: sticky;
-        top: 0;
-        width: 44%;
-        height: 100svh;
-        overflow-y: auto;
-        scrollbar-width: none;
+        position: sticky; top: 0;
+        width: 44%; height: 100svh;
+        overflow-y: auto; scrollbar-width: none;
         padding: 40px 36px;
         border-right: 1px solid var(--border);
-        display: flex;
-        flex-direction: column;
+        display: flex; flex-direction: column;
         justify-content: center;
       }
       .left-panel::-webkit-scrollbar { display: none; }
-
-      .right-panel {
-        width: 56%;
-        border-top: none;
-      }
+      .right-panel { width: 56%; border-top: none; }
     }
 
-    /* ─────────────────────────────────────
-       LEFT — HERO
-    ───────────────────────────────────── */
-
-    .label {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
+    /* ─── LEFT: HERO ─── */
+    .label { font-size: 13px; font-weight: 600; color: var(--faint); margin-bottom: 18px; letter-spacing: -0.01em; }
 
     h1 {
-      font-size: clamp(32px, 6.5vw, 42px);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      color: var(--text);
-      margin-bottom: 14px;
+      font-size: clamp(30px, 6vw, 40px);
+      font-weight: 800; line-height: 1.08;
+      letter-spacing: -0.035em;
+      color: var(--text); margin-bottom: 16px;
     }
 
     .sub {
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--muted);
-      line-height: 1.6;
-      max-width: 46ch;
-      margin-bottom: 24px;
+      font-size: 14px; font-weight: 400;
+      color: var(--muted); line-height: 1.65;
+      max-width: 46ch; margin-bottom: 24px;
     }
+    .sub strong { color: var(--text); font-weight: 600; }
 
-    /* ─────────────────────────────────────
-       BUTTONS — centered text, inline icon
-    ───────────────────────────────────── */
-
-    .btns {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
+    .btns { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
     .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      height: 52px;
-      padding: 0 18px;
-      border-radius: 12px;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      transition: opacity 0.12s;
-      -webkit-tap-highlight-color: transparent;
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; width: 100%; height: 52px; padding: 0 18px;
+      border-radius: 12px; font-family: inherit;
+      font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
+      text-decoration: none; cursor: pointer; border: none;
+      transition: opacity 0.12s; -webkit-tap-highlight-color: transparent;
     }
     .btn:active { opacity: 0.75; }
-
-    .btn-primary {
-      background: var(--text);
-      color: var(--bg);
-    }
-    .btn-primary:hover { background: oklch(92% 0.006 80); }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--amber);
-      border: 1.5px solid var(--amber);
-    }
+    .btn-primary { background: var(--text); color: var(--bg); }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-outline { background: transparent; color: var(--amber); border: 1.5px solid var(--amber); }
     .btn-outline:hover { background: oklch(72% 0.18 75 / 0.08); }
 
-    .avail {
-      font-size: 12px;
-      color: var(--faint);
-      margin-bottom: 32px;
-    }
+    .avail { font-size: 12px; color: var(--faint); margin-bottom: 28px; line-height: 1.55; }
 
-    /* ─────────────────────────────────────
-       STATS ROW
-    ───────────────────────────────────── */
-
+    /* stats */
     .stats-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 0;
-      margin-bottom: 24px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      margin-bottom: 24px; border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
     }
-
-    .stat-box {
-      padding: 14px 12px;
-      border-right: 1px solid var(--border);
-      text-align: center;
-    }
+    .stat-box { padding: 14px 10px; border-right: 1px solid var(--border); text-align: center; }
     .stat-box:last-child { border-right: none; }
+    .stat-box-num { font-size: clamp(17px, 2.8vw, 21px); font-weight: 800; letter-spacing: -0.04em; color: var(--amber); line-height: 1; }
+    .stat-box-label { font-size: 10.5px; color: var(--faint); font-weight: 500; margin-top: 4px; line-height: 1.35; }
 
-    .stat-box-num {
-      font-size: clamp(18px, 3vw, 22px);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      color: var(--amber);
-      line-height: 1;
+    /* ihsan block */
+    .values {
+      font-size: 13px; color: var(--muted); line-height: 1.7;
+      padding-top: 20px; border-top: 1px solid var(--border);
     }
-    .stat-box-label {
-      font-size: 11px;
-      color: var(--faint);
-      font-weight: 500;
-      margin-top: 4px;
-      line-height: 1.3;
+    .values strong { color: var(--text); font-weight: 600; }
+
+    /* ─── RIGHT: CONTENT SECTIONS ─── */
+    .rp-section {
+      padding: 32px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    @media (min-width: 860px) { .rp-section { padding: 40px 28px; } }
+
+    .rp-tag {
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .rp-tag.red { color: var(--red); }
+    .rp-tag.amber { color: var(--amber); }
+    .rp-tag.green { color: var(--green); }
+
+    .rp-headline {
+      font-size: clamp(20px, 3.5vw, 28px);
+      font-weight: 800; line-height: 1.12;
+      letter-spacing: -0.03em; color: var(--text);
+      margin-bottom: 16px; max-width: 30ch;
     }
 
-    /* ─────────────────────────────────────
-       INDUSTRY TAGS
-    ───────────────────────────────────── */
-
-    .industry-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 28px;
+    .rp-body {
+      font-size: 14px; color: var(--muted);
+      line-height: 1.65; max-width: 52ch;
     }
+    .rp-body strong { color: var(--text); font-weight: 600; }
 
-    .itag {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
+    /* diagnosis list */
+    .dx-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+    .dx-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: var(--muted); line-height: 1.55;
+    }
+    .dx-list .icon { flex-shrink: 0; font-weight: 700; margin-top: 1px; }
+    .dx-list.pain .icon { color: var(--red); }
+    .dx-list.check .icon { color: var(--green); }
+    .dx-list.check li { color: var(--text); font-weight: 600; }
+
+    /* dark diagnosis card */
+    .dx-card {
+      background: var(--dark); border-radius: 16px;
+      padding: 28px 24px; margin-top: 18px;
+    }
+    @media (min-width: 860px) { .dx-card { padding: 32px 28px; } }
+    .dx-card .dx-stat {
+      font-size: clamp(32px, 5vw, 44px);
+      font-weight: 800; letter-spacing: -0.04em;
+      color: #fff; line-height: 1; margin-bottom: 6px;
+    }
+    .dx-card .dx-stat span { color: var(--amber); }
+    .dx-card .dx-stat-label {
+      font-size: 13px; color: rgba(255,255,255,0.4);
+      margin-bottom: 20px; line-height: 1.5;
+    }
+    .dx-card .dx-contrast {
+      display: flex; align-items: center; gap: 16px;
+      padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .dx-col { text-align: center; flex: 1; }
+    .dx-col-num {
+      font-size: clamp(24px, 3.5vw, 32px);
+      font-weight: 800; letter-spacing: -0.04em; line-height: 1;
+    }
+    .dx-col-num.low { color: var(--faint); }
+    .dx-col-num.high { color: var(--amber); }
+    .dx-col-label { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 4px; }
+    .dx-arrow { font-size: 20px; color: rgba(255,255,255,0.15); }
+
+    /* avatar condition cards */
+    .avatars { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; }
+    .avatar-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 5px 12px;
-      letter-spacing: -0.01em;
+      border-radius: 14px; padding: 20px 22px;
+    }
+    .avatar-rev {
+      font-size: 12px; font-weight: 700; color: var(--amber);
+      letter-spacing: -0.01em; margin-bottom: 8px;
+    }
+    .avatar-title {
+      font-size: 15px; font-weight: 700; color: var(--text);
+      letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.25;
+    }
+    .avatar-body {
+      font-size: 13px; color: var(--muted); line-height: 1.6;
     }
 
-    /* ─────────────────────────────────────
-       GALLERY INTRO (right panel header)
-    ───────────────────────────────────── */
-
-    .gallery-intro {
-      padding: 28px 20px 20px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 8px;
+    /* outcomes */
+    .outcomes { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; }
+    .outcome {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 20px 22px;
+    }
+    .outcome-time {
+      flex-shrink: 0;
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--amber);
+      padding: 4px 10px; border: 1px solid oklch(72% 0.18 75 / 0.3);
+      border-radius: 100px; white-space: nowrap;
+    }
+    .outcome-text {
+      font-size: 15px; font-weight: 700; color: var(--text);
+      line-height: 1.35; letter-spacing: -0.02em;
+    }
+    .outcome-sub {
+      font-size: 13px; color: var(--muted); margin-top: 4px;
+      line-height: 1.55; font-weight: 400;
     }
 
-    @media (min-width: 860px) {
-      .gallery-intro { padding: 32px 28px 24px; }
+    /* bridge */
+    .bridge-card {
+      background: var(--dark); border-radius: 16px;
+      padding: 28px 24px; margin-top: 18px;
     }
-
-    .gallery-intro-tag {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--amber);
-      margin-bottom: 10px;
+    @media (min-width: 860px) { .bridge-card { padding: 32px 28px; } }
+    .bridge-headline {
+      font-size: clamp(18px, 2.8vw, 24px);
+      font-weight: 800; letter-spacing: -0.03em;
+      color: #fff; line-height: 1.15; margin-bottom: 12px;
     }
-
-    .gallery-intro-headline {
-      font-size: clamp(18px, 3vw, 24px);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      color: var(--text);
-      max-width: 32ch;
-      margin-bottom: 10px;
+    .bridge-body {
+      font-size: 14px; color: rgba(255,255,255,0.5);
+      line-height: 1.65;
     }
+    .bridge-body strong { color: rgba(255,255,255,0.85); }
 
-    .gallery-intro-sub {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.6;
-      max-width: 48ch;
-    }
-
-    /* ─────────────────────────────────────
-       NICHE
-    ───────────────────────────────────── */
-
-    .niche p {
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 1.7;
-      color: var(--muted);
-      max-width: 54ch;
-    }
-
-    .niche strong { font-weight: 600; color: var(--text); }
-    .num { font-style: normal; font-weight: 700; color: var(--amber); }
-
-    /* ─────────────────────────────────────
-       RIGHT — GALLERY IMAGES
-    ───────────────────────────────────── */
-
+    /* gallery */
     .right-panel img {
       display: block;
       width: calc(100% - 32px);
       margin: 0 16px 16px;
       border-radius: 12px;
-      object-fit: cover;
-      object-position: center top;
+      object-fit: cover; object-position: center top;
     }
-
     @media (min-width: 860px) {
       .right-panel img {
         width: calc(100% - 48px);
@@ -281,211 +250,95 @@
       }
     }
 
-    /* ─────────────────────────────────────
-       RIGHT — TESTIMONIAL CARDS
-    ───────────────────────────────────── */
-
-    .case-label {
-      display: block;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--faint);
-      padding: 22px 22px 0;
-      letter-spacing: 0;
-    }
-
-    @media (min-width: 860px) {
-      .case-label { padding: 22px 28px 0; }
-    }
-
-    .testi-card {
-      background: #212121;
-      border: 1px solid oklch(26% 0.008 55);
+    /* values card */
+    .values-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 24px 22px 28px;
-      margin: 20px 16px;
+      padding: 24px 22px; margin-top: 18px;
+    }
+    @media (min-width: 860px) { .values-card { padding: 28px 28px; } }
+    .values-card-body {
+      font-size: 15px; color: var(--text);
+      line-height: 1.6; font-weight: 500;
+      font-style: italic; letter-spacing: -0.01em;
+    }
+    .values-card-footer {
+      font-size: 12px; color: var(--faint);
+      margin-top: 14px; font-style: normal; font-weight: 500;
     }
 
-    @media (min-width: 860px) {
-      .testi-card {
-        padding: 28px 28px 32px;
-        margin: 24px 24px;
-      }
-    }
-
-    .testi-quote {
-      font-size: clamp(17px, 2.8vw, 22px);
-      font-weight: 700;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin-bottom: 20px;
-    }
-
-    .testi-author {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .testi-avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: oklch(25% 0.008 60);
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-    }
-
-    .testi-name {
-      font-size: 13.5px;
-      font-weight: 600;
-      color: var(--text);
-      letter-spacing: -0.01em;
-    }
-
-    .testi-co {
-      font-size: 12px;
-      color: var(--faint);
-      margin-top: 2px;
-    }
-
-    /* ─────────────────────────────────────
-       END CTA
-    ───────────────────────────────────── */
-
-    .end-cta {
-      padding: 48px 20px 56px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    @media (min-width: 860px) {
-      .end-cta { padding: 56px 28px 64px; }
-    }
-
-    .end-cta-wave {
-      font-size: 36px;
-      margin-bottom: 20px;
-      display: block;
-    }
-
+    /* end CTA */
+    .end-cta { padding: 48px 20px 56px; border-bottom: 1px solid var(--border); }
+    @media (min-width: 860px) { .end-cta { padding: 56px 28px 64px; } }
     .end-cta-headline {
       font-size: clamp(22px, 4vw, 30px);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.025em;
-      color: var(--text);
-      margin-bottom: 12px;
-      max-width: 28ch;
+      font-weight: 800; line-height: 1.12;
+      letter-spacing: -0.03em; color: var(--text);
+      margin-bottom: 12px; max-width: 28ch;
     }
-
-    .end-cta-sub {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.6;
-      max-width: 46ch;
-      margin-bottom: 32px;
-    }
-
-    .end-cta-links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    @media (min-width: 480px) {
-      .end-cta-links { flex-direction: row; flex-wrap: wrap; }
-    }
-
+    .end-cta-sub { font-size: 14px; color: var(--muted); line-height: 1.6; max-width: 46ch; margin-bottom: 24px; }
+    .end-cta-links { display: flex; flex-direction: column; gap: 12px; }
+    @media (min-width: 480px) { .end-cta-links { flex-direction: row; flex-wrap: wrap; } }
     .end-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      height: 46px;
-      padding: 0 20px;
-      border-radius: 10px;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      text-decoration: none;
-      transition: opacity 0.12s;
-      cursor: pointer;
-      border: none;
+      display: inline-flex; align-items: center; gap: 7px;
+      height: 46px; padding: 0 20px; border-radius: 10px;
+      font-family: inherit; font-size: 14px; font-weight: 600;
+      letter-spacing: -0.01em; text-decoration: none;
+      transition: opacity 0.12s; cursor: pointer; border: none;
     }
     .end-link:active { opacity: 0.75; }
+    .end-link-primary { background: var(--text); color: var(--bg); }
+    .end-link-primary:hover { opacity: 0.85; }
+    .end-link-ghost { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
+    .end-link-ghost:hover { border-color: #999; }
 
-    .end-link-primary {
-      background: var(--text);
-      color: var(--bg);
-    }
-    .end-link-primary:hover { background: oklch(92% 0.006 80); }
-
-    .end-link-ghost {
-      background: transparent;
-      color: var(--text);
-      border: 1.5px solid var(--border);
-    }
-    .end-link-ghost:hover { border-color: oklch(32% 0.007 55); }
-
-    /* ─────────────────────────────────────
-       FOOTER
-    ───────────────────────────────────── */
-
+    /* footer */
     footer {
       border-top: 1px solid var(--border);
-      background: oklch(11% 0.007 55);
+      background: var(--dark);
       padding: 20px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between;
     }
-
-    @media (min-width: 860px) {
-      footer { padding: 20px 36px; }
-    }
-
-    .footer-brand { font-size: 14px; font-weight: 800; letter-spacing: -0.02em; }
-    .footer-link  { font-size: 13px; font-weight: 600; color: var(--muted); text-decoration: none; }
-    .footer-link:hover { color: var(--text); }
-    .footer-copy  { font-size: 12px; color: var(--faint); }
+    @media (min-width: 860px) { footer { padding: 20px 36px; } }
+    .footer-brand { font-size: 14px; font-weight: 800; letter-spacing: -0.02em; color: #fff; }
+    .footer-link { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer-link:hover { color: #fff; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
   </style>
 </head>
 <body>
 
 <div class="page">
 
-  <!-- ══ LEFT: static ═══════════════════════ -->
+  <!-- ══ LEFT: STICKY HERO ══════════════════ -->
   <div class="left-panel">
 
-    <p class="label">The only email agency for Muslim brands.</p>
+    <p class="label">Abu Ecom</p>
 
-    <h1>We turn Muslim ecommerce owners into email revenue machines.</h1>
+    <h1>You're already paying for customers. Stop wasting them.</h1>
 
-    <p class="sub">Your email list is full of buyers you're not talking to. We fix that — completely done for you. We've generated over £500K in revenue for our clients so far, and we only accept 3 new clients a month so we can focus and actually deliver results.</p>
+    <p class="sub">You spend thousands getting someone to buy once — then they disappear. Your email list is where that money sits. <strong>We turn one-time buyers into repeat customers, completely done for you</strong> — without you hiring anyone, learning a new platform, or spending more on ads.</p>
 
     <div class="btns">
       <a href="https://cal.com/mussa/abu-ecom" class="btn btn-primary">
-        Book a free strategy call 🤝
+        Book a free revenue audit
       </a>
-      <a href="#gallery" class="btn btn-outline">
-        See our work [2026]
+      <a href="#work" class="btn btn-outline">
+        See the work ↓
       </a>
     </div>
 
-    <p class="avail">3 spots. That's it. Worst case: you get a free audit of your email list and leave knowing exactly where you're losing money.</p>
+    <p class="avail">We only accept 3 new clients a month. Worst case: you leave the call knowing exactly where your revenue is leaking — for free.</p>
 
     <div class="stats-row">
       <div class="stat-box">
         <div class="stat-box-num">£500K+</div>
-        <div class="stat-box-label">Revenue generated</div>
+        <div class="stat-box-label">Revenue recovered for clients</div>
       </div>
       <div class="stat-box">
-        <div class="stat-box-num">3 max</div>
-        <div class="stat-box-label">Clients at one time</div>
+        <div class="stat-box-num">25–35%</div>
+        <div class="stat-box-label">Email share of revenue</div>
       </div>
       <div class="stat-box">
         <div class="stat-box-num">2 wks</div>
@@ -493,68 +346,166 @@
       </div>
     </div>
 
-    <div class="industry-tags">
-      <span class="itag">Halal Food</span>
-      <span class="itag">Modest Fashion</span>
-      <span class="itag">Islamic Books</span>
-      <span class="itag">Muslim Gifting</span>
-      <span class="itag">Supplements</span>
-      <span class="itag">Islamic Education</span>
-      <span class="itag">Home Goods</span>
-    </div>
-
-    <div class="niche">
-      <p>Whether you're selling to Muslims or to the world — <strong>you want to do it with ihsan.</strong> With excellence. With integrity. Without cutting corners. We get that because we operate the same way. The work on the right isn't just design — it's what happens when you take email seriously and do it properly.</p>
-    </div>
+    <p class="values">We believe rizq comes from Allah — so we build systems through honest offers, clear communication, and genuine value. No fake urgency. No misleading scarcity. <strong>Just retention systems that actually work.</strong></p>
 
   </div>
 
-  <!-- ══ RIGHT: scrolling gallery + testimonials ═ -->
+  <!-- ══ RIGHT: SCROLLING CONTENT ═══════════ -->
   <div class="right-panel" id="work">
 
-    <!-- Gallery intro -->
-    <div class="gallery-intro">
-      <p class="gallery-intro-tag">The work</p>
-      <h2 class="gallery-intro-headline">This is the standard. Every email below was built by us — this is what your brand gets.</h2>
-      <p class="gallery-intro-sub">Not templates. Not AI-generated. Hand-crafted, conversion-focused emails built specifically for Muslim ecommerce brands.</p>
+    <!-- ① DIAGNOSIS -->
+    <div class="rp-section">
+      <p class="rp-tag red">The real problem</p>
+      <h2 class="rp-headline">Your business is leaking money — and you probably don't even know how much.</h2>
+      <p class="rp-body">You're not short on traffic. Your ads work. Your product is good. But the customers you're paying to acquire? Most of them buy once and never come back. That's not a marketing problem — <strong>it's a retention problem.</strong></p>
+
+      <ul class="dx-list pain">
+        <li><span class="icon">✗</span>You're spending thousands on Meta to acquire customers who buy once and vanish</li>
+        <li><span class="icon">✗</span>Every abandoned cart is money you already paid for — walking out the door</li>
+        <li><span class="icon">✗</span>Customers who loved your product 3 months ago have forgotten you exist</li>
+        <li><span class="icon">✗</span>Your competitors are getting 25 – 35% of revenue from email. You're probably at 5 – 10%</li>
+      </ul>
+
+      <div class="dx-card">
+        <div class="dx-stat">£14,000<span>+</span></div>
+        <div class="dx-stat-label">That's how much a £50K/month store leaks every single month by not having a proper retention system in place.</div>
+        <div class="dx-contrast">
+          <div class="dx-col">
+            <div class="dx-col-num low">~6%</div>
+            <div class="dx-col-label">Where most brands are</div>
+          </div>
+          <div class="dx-arrow">→</div>
+          <div class="dx-col">
+            <div class="dx-col-num high">25 – 35%</div>
+            <div class="dx-col-label">Where you should be</div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Images 1–2 -->
-    <div id="gallery"></div>
-    <img src="/emails/5-pillars.png"       alt="Email design example" />
-    <img src="/emails/anafiya-gifts.png"   alt="Email design example" />
+    <!-- ② CONDITIONS — "Does this sound like you?" -->
+    <div class="rp-section">
+      <p class="rp-tag amber">Does this sound like you?</p>
+      <h2 class="rp-headline">Same industry. Same niche. Completely different situations.</h2>
+      <p class="rp-body">We don't work with "Shopify stores." We work with founders in specific conditions — because the fix depends on where you actually are.</p>
 
-    <!-- Images 3–4 -->
-    <img src="/emails/boxed-halal.png"     alt="Email design example" />
-    <img src="/emails/bsst.png"            alt="Email design example" />
+      <div class="avatars">
+        <div class="avatar-card">
+          <div class="avatar-rev">£10K – £30K / month</div>
+          <div class="avatar-title">You're busy. Ads carry the business. Email is an afterthought.</div>
+          <div class="avatar-body">You know email matters but you've never had time to set it up properly. You've got one VA, maybe two. If Meta changes tomorrow, revenue drops and there's no safety net. You need a system that runs without you touching it.</div>
+        </div>
+        <div class="avatar-card">
+          <div class="avatar-rev">£30K – £100K / month</div>
+          <div class="avatar-title">You tried an agency. They disappointed you. You don't trust marketers anymore.</div>
+          <div class="avatar-body">You've been burned. Someone promised results, sent generic templates, and disappeared after 3 months. You need someone who actually cares about your numbers — not just their retainer. You value professionalism and want systems, not excuses.</div>
+        </div>
+        <div class="avatar-card">
+          <div class="avatar-rev">£15K+ / month</div>
+          <div class="avatar-title">You're doing everything yourself. Kids. Working weekends. Something has to give.</div>
+          <div class="avatar-body">You built this business from nothing and you're proud of it. But you're stretched thin. You know email would add revenue — you just never have the hours. You need someone to take it completely off your plate and make it produce.</div>
+        </div>
+      </div>
+    </div>
 
-    <!-- Images 5–21 -->
-    <img src="/emails/cave-london.png"     alt="Email design example" />
-    <img src="/emails/chaptrs.png"         alt="Email design example" />
-    <img src="/emails/darassalam.png"      alt="Email design example" />
-    <img src="/emails/desi-dolls.png"      alt="Email design example" />
-    <img src="/emails/hallal-meals.png"    alt="Email design example" />
-    <img src="/emails/huraya.png"          alt="Email design example" />
-    <img src="/emails/irontfit.png"        alt="Email design example" />
-    <img src="/emails/kube-publishing.png" alt="Email design example" />
-    <img src="/emails/lala-and-mo.png"     alt="Email design example" />
-    <img src="/emails/mama-yasmin.png"     alt="Email design example" />
-    <img src="/emails/musmeat.png"         alt="Email design example" />
-    <img src="/emails/noor.png"            alt="Email design example" />
-    <img src="/emails/one-stop-halal.png"  alt="Email design example" />
-    <img src="/emails/osu.png"             alt="Email design example" />
-    <img src="/emails/roohts.png"          alt="Email design example" />
-    <img src="/emails/simba.png"           alt="Email design example" />
-    <img src="/emails/teapressa.png"       alt="Email design example" />
+    <!-- ③ OUTCOMES -->
+    <div class="rp-section">
+      <p class="rp-tag green">What actually changes</p>
+      <h2 class="rp-headline">This isn't about emails. It's about what your business looks like 90 days from now.</h2>
 
-    <!-- End CTA -->
+      <div class="outcomes">
+        <div class="outcome">
+          <span class="outcome-time">Month 1</span>
+          <div>
+            <div class="outcome-text">Next month's revenue goes up.</div>
+            <div class="outcome-sub">Your flows go live in 2 weeks. Abandoned carts get recovered. Welcome sequences start converting. You see revenue you weren't getting before — immediately.</div>
+          </div>
+        </div>
+        <div class="outcome">
+          <span class="outcome-time">Month 3</span>
+          <div>
+            <div class="outcome-text">Email is doing 25 – 35% of your total revenue.</div>
+            <div class="outcome-sub">Campaigns running weekly. Segments dialled in. Repeat purchase rate climbing. Your email list stops being a liability and becomes your most profitable channel.</div>
+          </div>
+        </div>
+        <div class="outcome">
+          <span class="outcome-time">Month 6+</span>
+          <div>
+            <div class="outcome-text">Your business makes money even when ads slow down.</div>
+            <div class="outcome-sub">You've built an asset — a retention system that compounds every month. When Meta gets expensive, when ROAS dips, your email list keeps producing. That's the real value.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ BRIDGE -->
+    <div class="rp-section">
+      <p class="rp-tag amber">What we actually build</p>
+      <h2 class="rp-headline">We don't sell email marketing. We build retention systems.</h2>
+      <p class="rp-body">Nobody buys "emails." You buy predictable revenue. You buy customers who come back. You buy a channel that works while you sleep — without you hiring an employee, learning a platform, or spending more on ads.</p>
+
+      <div class="bridge-card">
+        <div class="bridge-headline">We turn one-time buyers into repeat customers without you lifting a finger.</div>
+        <p class="bridge-body">Revenue flows. Weekly campaigns. Smart segmentation. A/B testing. List growth. Monthly reporting. Strategy calls. <strong>24/7 Slack access directly to the person building your system.</strong> All done for you. Live in 2 weeks. Guaranteed to increase revenue in 90 days — or we keep working for free until it does.</p>
+      </div>
+    </div>
+
+    <!-- ⑤ GALLERY -->
+    <div class="rp-section" id="gallery">
+      <p class="rp-tag amber">The work</p>
+      <h2 class="rp-headline">This is what retention infrastructure actually looks like.</h2>
+      <p class="rp-body" style="margin-bottom: 20px;">Every email below was built by us. Not templates. Not AI-generated. Built to convert — with the level of care your brand deserves.</p>
+    </div>
+
+    <img src="/emails/5-pillars.png"       alt="Email design" />
+    <img src="/emails/anafiya-gifts.png"   alt="Email design" />
+    <img src="/emails/boxed-halal.png"     alt="Email design" />
+    <img src="/emails/bsst.png"            alt="Email design" />
+    <img src="/emails/cave-london.png"     alt="Email design" />
+    <img src="/emails/chaptrs.png"         alt="Email design" />
+    <img src="/emails/darassalam.png"      alt="Email design" />
+    <img src="/emails/desi-dolls.png"      alt="Email design" />
+    <img src="/emails/hallal-meals.png"    alt="Email design" />
+    <img src="/emails/huraya.png"          alt="Email design" />
+    <img src="/emails/irontfit.png"        alt="Email design" />
+    <img src="/emails/kube-publishing.png" alt="Email design" />
+    <img src="/emails/lala-and-mo.png"     alt="Email design" />
+    <img src="/emails/mama-yasmin.png"     alt="Email design" />
+    <img src="/emails/musmeat.png"         alt="Email design" />
+    <img src="/emails/noor.png"            alt="Email design" />
+    <img src="/emails/one-stop-halal.png"  alt="Email design" />
+    <img src="/emails/osu.png"             alt="Email design" />
+    <img src="/emails/roohts.png"          alt="Email design" />
+    <img src="/emails/simba.png"           alt="Email design" />
+    <img src="/emails/teapressa.png"       alt="Email design" />
+
+    <!-- ⑥ VALUES -->
+    <div class="rp-section">
+      <p class="rp-tag amber">Why us</p>
+      <h2 class="rp-headline">Honest marketing compounds. Deceptive marketing eventually destroys trust.</h2>
+      <p class="rp-body">Most agencies sell hype. "10x your revenue." "Guaranteed millions." You've seen it. You know it's not real.</p>
+
+      <div class="values-card">
+        <p class="values-card-body">"We believe rizq comes from Allah — so we build systems that grow businesses through honest offers, clear communication, and genuine value. Not manipulation. Not fake urgency. Not misleading scarcity. Just systems that work — built with ihsan."</p>
+        <p class="values-card-footer">— That's not a marketing angle. That's how we actually operate.</p>
+      </div>
+
+      <ul class="dx-list check" style="margin-top: 20px;">
+        <li><span class="icon">✓</span>You're already paying for customers — we stop you wasting them</li>
+        <li><span class="icon">✓</span>Retention is cheaper than acquisition. Always has been</li>
+        <li><span class="icon">✓</span>Your system should make money while you sleep</li>
+        <li><span class="icon">✓</span>Most brands don't have a traffic problem — they have a repeat purchase problem</li>
+        <li><span class="icon">✓</span>Honest marketing compounds. That's what we build</li>
+      </ul>
+    </div>
+
+    <!-- ⑦ END CTA -->
     <div class="end-cta">
-      <span class="end-cta-wave">👋</span>
-      <h2 class="end-cta-headline">You made it this far — let's make you some money.</h2>
-      <p class="end-cta-sub">I'm Mussa, founder of Abu Ecom. I talk about email marketing and building Muslim-owned businesses — follow along on Instagram.</p>
+      <h2 class="end-cta-headline">You're already paying for these customers. Let's stop wasting them.</h2>
+      <p class="end-cta-sub">Book a free 30-minute revenue audit. We'll show you exactly where your money is leaking — even if we never work together. 3 spots a month. If this page is live, at least one is still open.</p>
       <div class="end-cta-links">
-        <a href="https://cal.com/mussa/abu-ecom" class="end-link end-link-primary">Book a free call 🤝</a>
-        <a href="https://instagram.com/thatmussa" class="end-link end-link-ghost">Follow on Instagram →</a>
+        <a href="https://cal.com/mussa/abu-ecom" class="end-link end-link-primary">Book your free audit</a>
+        <a href="https://instagram.com/thatmussa" class="end-link end-link-ghost">Follow @thatmussa →</a>
       </div>
     </div>
 
@@ -564,7 +515,7 @@
 
 <footer>
   <span class="footer-brand">Abu Ecom</span>
-  <a href="https://cal.com/mussa/abu-ecom" class="footer-link">Book a strategy call →</a>
+  <a href="https://cal.com/mussa/abu-ecom" class="footer-link">Book a revenue audit →</a>
   <span class="footer-copy">© 2026</span>
 </footer>
 
