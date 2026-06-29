@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abu Ecom — Retention Systems for Muslim Ecommerce Owners</title>
+  <meta name="description" content="We turn one-time buyers into repeat customers. Done for you. 90-day guarantee. 3 spots a month." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FFFFFF;
+      --text: #111111;
+      --muted: #555555;
+      --faint: #999999;
+      --border: #EBEBEB;
+      --accent: oklch(72% 0.18 75);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px clamp(20px, 5vw, 48px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { font-size: 15px; font-weight: 800; letter-spacing: -0.03em; color: var(--text); text-decoration: none; }
+    .nav-cta {
+      background: var(--text); color: #fff;
+      font-family: inherit; font-size: 13px; font-weight: 600;
+      padding: 9px 18px; border-radius: 8px; border: none;
+      cursor: pointer; text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ─── HERO ─── */
+    .hero {
+      max-width: 680px; margin: 0 auto;
+      padding: clamp(56px, 9vw, 96px) clamp(20px, 5vw, 48px) clamp(40px, 6vw, 64px);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5.5vw, 48px);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.04em; color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .hero-sub {
+      font-size: clamp(15px, 1.8vw, 18px);
+      color: var(--muted); line-height: 1.6;
+      max-width: 48ch; margin: 0 auto 28px;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--text); color: #fff;
+      font-family: inherit; font-size: 16px; font-weight: 700;
+      padding: 16px 32px; border-radius: 10px; border: none;
+      cursor: pointer; text-decoration: none;
+      transition: opacity 0.15s; letter-spacing: -0.01em;
+    }
+    .btn:hover { opacity: 0.85; }
+
+    .trust {
+      margin-top: 16px;
+      font-size: 13px; color: var(--faint); font-weight: 500;
+    }
+    .trust strong { color: var(--muted); }
+
+    /* ─── THREE POINTS ─── */
+    .points {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    @media (max-width: 600px) { .points { grid-template-columns: 1fr; } }
+
+    .point {
+      background: var(--bg);
+      padding: clamp(24px, 3.5vw, 36px) clamp(20px, 3vw, 32px);
+      text-align: center;
+    }
+    .point-icon { font-size: 24px; margin-bottom: 12px; }
+    .point-text {
+      font-size: 14px; font-weight: 600;
+      color: var(--text); line-height: 1.45;
+      letter-spacing: -0.01em;
+    }
+    .point-sub {
+      font-size: 13px; color: var(--muted);
+      margin-top: 6px; line-height: 1.5;
+    }
+
+    /* ─── GALLERY ─── */
+    .gallery {
+      padding: clamp(40px, 6vw, 64px) 0;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .gallery-label {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.07em; color: var(--faint);
+      text-align: center; margin-bottom: clamp(20px, 3vw, 28px);
+    }
+
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    .gallery-track {
+      display: flex; gap: 12px;
+      animation: scroll 42s linear infinite;
+      will-change: transform;
+    }
+    .gallery-track img {
+      width: clamp(120px, 16vw, 180px); flex-shrink: 0;
+      aspect-ratio: 3/4; object-fit: cover; object-position: center top;
+      border-radius: 10px; display: block;
+      border: 1px solid var(--border);
+    }
+    .gallery-wrap {
+      mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    }
+
+    /* ─── CTA BOTTOM ─── */
+    .cta-bottom {
+      max-width: 600px; margin: 0 auto;
+      padding: clamp(48px, 7vw, 80px) clamp(20px, 5vw, 48px);
+      text-align: center;
+    }
+    .cta-bottom h2 {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 800; line-height: 1.12;
+      letter-spacing: -0.035em; color: var(--text);
+      margin-bottom: 12px;
+    }
+    .cta-bottom p {
+      font-size: 14px; color: var(--muted);
+      line-height: 1.6; margin-bottom: 24px;
+    }
+    .cta-bottom .btn { margin-bottom: 12px; }
+    .cta-note {
+      font-size: 12px; color: var(--faint);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px clamp(20px, 5vw, 48px);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .f-brand { font-size: 13px; font-weight: 700; color: var(--text); }
+    .f-copy { font-size: 12px; color: var(--faint); }
+    .f-link { font-size: 12px; font-weight: 600; color: var(--muted); text-decoration: none; }
+    .f-link:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-brand" href="/v4/">Abu Ecom</a>
+    <a class="nav-cta" href="https://cal.com/mussa/abu-ecom">Book a call →</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>You're already paying for customers. Stop wasting them.</h1>
+    <p class="hero-sub">We turn one-time buyers into repeat customers for Muslim ecommerce owners — completely done for you. No hiring. No learning Klaviyo. No extra ad spend.</p>
+    <a class="btn" href="https://cal.com/mussa/abu-ecom">Book your free revenue audit →</a>
+    <p class="trust"><strong>£500K+ recovered for clients</strong> · 3 spots/month · 90-day guarantee</p>
+  </div>
+
+  <!-- 3 POINTS -->
+  <div class="points">
+    <div class="point">
+      <div class="point-icon">💰</div>
+      <div class="point-text">Your list is full of money you're not collecting.</div>
+      <div class="point-sub">Most brands get 5–10% of revenue from email. It should be 25–35%. That gap is thousands every month.</div>
+    </div>
+    <div class="point">
+      <div class="point-icon">⚙️</div>
+      <div class="point-text">We build the system, run it, and report back monthly.</div>
+      <div class="point-sub">Flows, campaigns, segmentation, testing — all done for you. Live in 2 weeks. You don't touch a thing.</div>
+    </div>
+    <div class="point">
+      <div class="point-icon">🛡️</div>
+      <div class="point-text">90 days. If revenue doesn't go up, we work for free.</div>
+      <div class="point-sub">No fake promises. No fine print. We either increase your email revenue or we don't get paid. Simple.</div>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="gallery">
+    <div class="gallery-label">The work — every email built by us</div>
+    <div class="gallery-wrap">
+      <div class="gallery-track">
+        <img src="/emails/5-pillars.png" alt="" />
+        <img src="/emails/anafiya-gifts.png" alt="" />
+        <img src="/emails/boxed-halal.png" alt="" />
+        <img src="/emails/bsst.png" alt="" />
+        <img src="/emails/cave-london.png" alt="" />
+        <img src="/emails/chaptrs.png" alt="" />
+        <img src="/emails/darassalam.png" alt="" />
+        <img src="/emails/desi-dolls.png" alt="" />
+        <img src="/emails/hallal-meals.png" alt="" />
+        <img src="/emails/huraya.png" alt="" />
+        <img src="/emails/irontfit.png" alt="" />
+        <img src="/emails/kube-publishing.png" alt="" />
+        <img src="/emails/lala-and-mo.png" alt="" />
+        <img src="/emails/mama-yasmin.png" alt="" />
+        <img src="/emails/musmeat.png" alt="" />
+        <img src="/emails/noor.png" alt="" />
+        <img src="/emails/one-stop-halal.png" alt="" />
+        <img src="/emails/osu.png" alt="" />
+        <img src="/emails/roohts.png" alt="" />
+        <img src="/emails/simba.png" alt="" />
+        <img src="/emails/teapressa.png" alt="" />
+        <!-- loop -->
+        <img src="/emails/5-pillars.png" alt="" />
+        <img src="/emails/anafiya-gifts.png" alt="" />
+        <img src="/emails/boxed-halal.png" alt="" />
+        <img src="/emails/bsst.png" alt="" />
+        <img src="/emails/cave-london.png" alt="" />
+        <img src="/emails/chaptrs.png" alt="" />
+        <img src="/emails/darassalam.png" alt="" />
+        <img src="/emails/desi-dolls.png" alt="" />
+        <img src="/emails/hallal-meals.png" alt="" />
+        <img src="/emails/huraya.png" alt="" />
+        <img src="/emails/irontfit.png" alt="" />
+        <img src="/emails/kube-publishing.png" alt="" />
+        <img src="/emails/lala-and-mo.png" alt="" />
+        <img src="/emails/mama-yasmin.png" alt="" />
+        <img src="/emails/musmeat.png" alt="" />
+        <img src="/emails/noor.png" alt="" />
+        <img src="/emails/one-stop-halal.png" alt="" />
+        <img src="/emails/osu.png" alt="" />
+        <img src="/emails/roohts.png" alt="" />
+        <img src="/emails/simba.png" alt="" />
+        <img src="/emails/teapressa.png" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BOTTOM -->
+  <div class="cta-bottom">
+    <h2>You're already paying for these customers. Let's stop wasting them.</h2>
+    <p>Book a free 30-minute audit. We'll show you exactly where your revenue is leaking — even if we never work together.</p>
+    <a class="btn" href="https://cal.com/mussa/abu-ecom">Book your free audit →</a>
+    <p class="cta-note">3 spots a month. If this page is live, at least one is still open.</p>
+  </div>
+
+  <footer>
+    <span class="f-brand">Abu Ecom</span>
+    <a class="f-link" href="https://instagram.com/thatmussa">@thatmussa</a>
+    <span class="f-copy">© 2026</span>
+  </footer>
+
+</body>
+</html>
