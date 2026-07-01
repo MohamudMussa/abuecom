@@ -6,6 +6,17 @@
   <title>Abu Ecom — Stop Wasting The Customers You Already Paid For</title>
   <meta name="description" content="We build retention systems that turn one-time buyers into repeat customers. Done for you. 3 spots a month." />
   <link rel="icon" type="image/png" href="/logo.png" />
+  <!-- Meta Pixel — replace YOUR_PIXEL_ID -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -214,6 +225,24 @@
     .f-link { font-size: 12px; color: rgba(255,255,255,0.45); text-decoration: none; font-weight: 500; }
     .f-link:hover { color: #fff; }
     .f-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+    /* cookie banner */
+    .cookie-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+      background: #111; color: #fff;
+      padding: 14px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .cookie-bar p { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.5; flex: 1; min-width: 200px; }
+    .cookie-bar a { color: #fff; }
+    .cookie-bar button {
+      background: #fff; color: #111; border: none; cursor: pointer;
+      font-family: inherit; font-size: 12px; font-weight: 700;
+      padding: 8px 18px; border-radius: 6px; white-space: nowrap;
+      flex-shrink: 0;
+    }
   </style>
 </head>
 <body>
@@ -303,8 +332,15 @@
 <footer>
   <span class="f-brand">Abu Ecom</span>
   <a href="https://instagram.com/thatmussa" class="f-link">@thatmussa</a>
+  <a href="/privacy-policy.html" class="f-link">Privacy Policy</a>
   <span class="f-copy">© 2026</span>
 </footer>
+
+<div class="cookie-bar" id="cookieBar">
+  <p>We use cookies and the Meta Pixel to measure our ads and improve your experience. <a href="/privacy-policy.html">Learn more</a>.</p>
+  <button onclick="document.getElementById('cookieBar').style.display='none'; localStorage.setItem('cookieOk','1')">Got it</button>
+</div>
+<script>if(localStorage.getItem('cookieOk')) document.getElementById('cookieBar').style.display='none';</script>
 
 </body>
 </html>
