@@ -1,0 +1,13 @@
+{
+  "name": "abuecom",
+  "version": "1.0.0",
+  "description": "Abu Ecom - Ecommerce retention systems",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'Static HTML site - open index.html in browser'",
+    "build": "echo 'No build required for static HTML'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
