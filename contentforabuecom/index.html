@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Content Studio</title>
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #111; -webkit-font-smoothing: antialiased; }
+
+    /* hide scrollbars everywhere — nothing should look like a website while recording */
+    ::-webkit-scrollbar { display: none; }
+    html, body { scrollbar-width: none; }
+
+    /* ── DASHBOARD ── */
+    .dash { max-width: 560px; margin: 0 auto; padding: 28px 20px 60px; }
+    .dash-head { margin-bottom: 24px; }
+    .dash-head img { width: 40px; height: 40px; display: block; margin-bottom: 14px; }
+    .dash-head h1 { font-size: 22px; font-weight: 800; letter-spacing: -0.03em; }
+    .dash-head p { font-size: 13px; color: #555; margin-top: 4px; line-height: 1.5; }
+
+    .card {
+      border: 1px solid #EBEBEB; border-radius: 14px;
+      overflow: hidden; margin-bottom: 16px; background: #fff;
+    }
+    .card-thumb {
+      height: 150px; overflow: hidden; position: relative; background: #F7F7F7;
+    }
+    .card-thumb img { width: 100%; display: block; }
+    .card-body { padding: 14px 16px 16px; }
+    .card-title { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; }
+    .card-sub { font-size: 12px; color: #777; margin-top: 2px; }
+    .card-btns { display: flex; gap: 8px; margin-top: 12px; }
+    .card-btns a {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      height: 42px; border-radius: 9px; font-size: 13px; font-weight: 700;
+      text-decoration: none; letter-spacing: -0.01em;
+    }
+    .btn-record { background: #111; color: #fff; }
+    .btn-notes { border: 1.5px solid #E0E0E0; color: #111; }
+
+    /* ── RECORD VIEW ── */
+    .record-view { display: none; }
+    body.recording { background: #fff; }
+    body.recording .dash { display: none; }
+    body.recording .record-view { display: block; }
+
+    .record-img { width: 100%; max-width: 560px; margin: 0 auto; display: block; }
+
+    .record-overlay {
+      position: fixed; inset: 0; z-index: 50;
+      background: rgba(255,255,255,0.96);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 22px; padding: 24px; text-align: center;
+      transition: opacity 0.3s;
+    }
+    .record-overlay.hidden { opacity: 0; pointer-events: none; }
+    .record-overlay h2 { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+    .record-overlay p { font-size: 13px; color: #555; line-height: 1.6; max-width: 34ch; }
+    .speed-row { display: flex; gap: 8px; }
+    .speed-row button {
+      font-family: inherit; font-size: 13px; font-weight: 700;
+      padding: 10px 18px; border-radius: 100px; cursor: pointer;
+      border: 1.5px solid #E0E0E0; background: #fff; color: #111;
+    }
+    .speed-row button.active { background: #111; color: #fff; border-color: #111; }
+    .start-btn {
+      font-family: inherit; font-size: 15px; font-weight: 700;
+      background: #111; color: #fff; border: none; cursor: pointer;
+      padding: 15px 38px; border-radius: 100px;
+    }
+    .overlay-back { font-size: 13px; color: #999; text-decoration: none; }
+
+    .countdown {
+      position: fixed; inset: 0; z-index: 60;
+      display: none; align-items: center; justify-content: center;
+      background: #fff; font-size: 120px; font-weight: 800; letter-spacing: -0.05em;
+    }
+
+    /* ── NOTES VIEW ── */
+    .notes-view { display: none; max-width: 640px; margin: 0 auto; padding: 28px 22px 80px; }
+    body.notes .dash { display: none; }
+    body.notes .notes-view { display: block; }
+    .notes-back { font-size: 13px; font-weight: 600; color: #999; text-decoration: none; display: inline-block; margin-bottom: 24px; }
+    .notes-view h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 4px; }
+    .notes-brand { font-size: 13px; color: #777; margin-bottom: 28px; }
+    .n-section { margin-bottom: 26px; }
+    .n-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.07em; color: oklch(72% 0.18 75); margin-bottom: 8px;
+    }
+    .n-section p, .n-section li { font-size: 15px; line-height: 1.7; color: #222; }
+    .n-section ul { padding-left: 18px; }
+    .n-section li { margin-bottom: 10px; }
+    .n-section li strong { font-weight: 700; }
+    .n-hook {
+      background: #F7F7F7; border-radius: 12px; padding: 16px 18px;
+      font-size: 15px; line-height: 1.65; font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── DASHBOARD ── -->
+<div class="dash">
+  <div class="dash-head">
+    <img src="/logo.png" alt="" />
+    <h1>Content Studio</h1>
+    <p>Tap <strong>Record</strong> for a clean, slow-scrolling view of the email (screen record it for green screen). Tap <strong>Notes</strong> for your talking points.</p>
+  </div>
+  <div id="cards"></div>
+</div>
+
+<!-- ── RECORD VIEW ── -->
+<div class="record-view">
+  <div class="record-overlay" id="overlay">
+    <h2 id="overlayTitle">Ready to record</h2>
+    <p>Pick a speed, start your screen recording, then tap Start. Tap the screen to pause / resume. Double-tap to go back to the top.</p>
+    <div class="speed-row" id="speedRow">
+      <button data-speed="0.35">Slow</button>
+      <button data-speed="0.6" class="active">Normal</button>
+      <button data-speed="1.0">Fast</button>
+    </div>
+    <button class="start-btn" id="startBtn">Start</button>
+    <a href="#/" class="overlay-back">← Back to dashboard</a>
+  </div>
+  <div class="countdown" id="countdown">3</div>
+  <img class="record-img" id="recordImg" src="" alt="" />
+</div>
+
+<!-- ── NOTES VIEW ── -->
+<div class="notes-view" id="notesView"></div>
+
+<script>
+const EMAILS = [
+  {
+    id: "pendulum",
+    brand: "Pendulum",
+    title: "Grow Your Gut Garden",
+    img: "emails/pendulum.webp",
+    notes: {
+      hook: "This probiotics brand just did something most health brands never figure out — they made gut bacteria feel like gardening. Let me show you why this email prints money.",
+      points: [
+        "<strong>The metaphor does the selling.</strong> 'Grow your gut garden' — probiotics are an invisible, boring product. The garden metaphor makes it visual and memorable. If your product is hard to picture, wrap it in something people can already see.",
+        "<strong>The discount is at the top, but it doesn't lead.</strong> 36% off sits in a thin banner. The hero sells the concept. Weak brands lead with the discount — strong brands lead with the idea and let the discount catch you on the way in.",
+        "<strong>The ecosystem diagram teaches in 3 steps.</strong> Feed → Thrive → Support. They took complex microbiome science and made it a loop a 10-year-old could follow. Educated customers buy more and refund less.",
+        "<strong>The comparison table kills the cheaper alternative.</strong> 'Designed to do what others can't' — us vs. Others, with 'Sometimes' as the burn. They're handling the 'why not the £15 Amazon one?' objection inside the email, before you ever think it.",
+        "<strong>The perks strip sits right before the end.</strong> Free shipping, skip anytime, HSA/FSA. Every last-minute objection dies one scroll before the final CTA."
+      ],
+      zoom: "Zoom in on the comparison table — point at the 'Sometimes' column. That's the most quietly savage objection-handling you'll see in an email.",
+      close: "One email: a metaphor, an education loop, an objection table, and a perks strip. That's not a newsletter — that's a salesperson."
+    }
+  },
+  {
+    id: "fubo",
+    brand: "Fubo",
+    title: "The World Is Watching",
+    img: "emails/fubo.webp",
+    notes: {
+      hook: "The World Cup is the biggest event on the planet — and this streaming brand didn't have to create any desire at all. Watch how they just… channel it.",
+      points: [
+        "<strong>Newsjacking done right.</strong> Fubo isn't selling a subscription here — they're selling the World Cup. Tie your campaigns to moments your audience already cares about and half the copywriting is done for you.",
+        "<strong>'THE WORLD IS WATCHING' is pure FOMO.</strong> Massive type, red and black, a striker mid-kick over the world's flags. Live sport is the one thing you can't watch later — the headline weaponises that.",
+        "<strong>The offer is split across the very top.</strong> $70 off before you even see the hero. Value first, story second, for the skimmers who never scroll.",
+        "<strong>The league rows are scannable proof.</strong> MLB, NWSL, LaLiga, MLS, Bundesliga, Serie A — logo, name, channel. Nobody reads paragraphs about catalog depth. Everyone scans a list of badges.",
+        "<strong>Same CTA twice: 'Redeem offer'.</strong> After the hero, and again after the proof. One action, repeated after every value block. Never make people scroll back up to buy."
+      ],
+      zoom: "Zoom on the league list — logo, league, channel, nothing else. This is how you show depth without writing a single sentence.",
+      close: "Lesson: you don't always need to create desire. Sometimes the culture already did it — your email just needs to stand in front of it."
+    }
+  },
+  {
+    id: "eight-sleep",
+    brand: "Eight Sleep",
+    title: "Your Body Cools First",
+    img: "emails/eight-sleep.webp",
+    notes: {
+      hook: "This is a $2,000+ mattress cover, and the email that sells it opens with a biology lesson. Here's why teaching one fact beats shouting ten features.",
+      points: [
+        "<strong>It leads with a fact, not a product.</strong> 'Your body needs to drop about 2°F to stay asleep.' One crisp, checkable fact = instant credibility. You believe the fact, so you believe the product.",
+        "<strong>It kills the fan without naming it.</strong> 'Air movement doesn't lower body temperature.' That one line quietly destroys the free alternative everyone's thinking of. Elite objection handling never sounds defensive.",
+        "<strong>The sale supports, it doesn't lead.</strong> July 4th, up to $600 off — but it comes AFTER the education. Premium brands never open with the discount; it would cheapen the fact they just taught you.",
+        "<strong>The risk-reversal strip is a masterclass.</strong> 30 nights risk-free, free shipping and returns, 5-year warranty, financing. Four objections, four icons, one row, right before the close.",
+        "<strong>One CTA, three times, same words.</strong> 'Shop the Pod.' Not 'learn more', not 'explore'. One action, repeated. Confused readers don't click — consistent ones do."
+      ],
+      zoom: "Zoom on the '60°' temperature UI over the sleeping guy — they show the product working without a single line of explanation.",
+      close: "One idea per email. Every block here reinforces 'cooler = better sleep'. That's discipline — and discipline is what premium looks like."
+    }
+  },
+  {
+    id: "oura",
+    brand: "Oura Ring",
+    title: "Minimal Design. Meaningful Insights.",
+    img: "emails/oura.webp",
+    notes: {
+      hook: "This email sells a £300 ring with almost no words. And that's exactly the point — let me show you how premium brands sell with restraint.",
+      points: [
+        "<strong>The headline mirrors the product.</strong> 'Minimal design. Meaningful insights.' Four words, parallel structure, and it IS the value prop. The copy is shaped like the product it's selling.",
+        "<strong>Lifestyle first, specs second.</strong> The hero isn't a product render — it's a hand holding a bag, ring barely visible. Aspirational, not desperate. You see the life before you see the gadget.",
+        "<strong>Every spec is translated into a benefit.</strong> 'One week of battery life — so you never miss a day of data.' Spec → so what → benefit. Never leave the translation to the reader.",
+        "<strong>'Built to stay ahead of your health' sells the future.</strong> New features roll out regularly — they're telling you the product gets BETTER after you buy. That's how you pre-sell the membership and kill buyer's remorse in advance.",
+        "<strong>One concrete feature beats vague promises.</strong> They bold 'Live Activity Tracking' specifically. 'We keep improving' is noise; one named feature is proof."
+      ],
+      zoom: "Zoom on the three feature blocks — Sleek, Precise, Powerful. Icon, one word, one benefit line. That's the whole spec sheet, humanised.",
+      close: "For premium products, whitespace is the flex. The less you say, the more expensive it sounds — as long as every word that's left is doing work."
+    }
+  }
+];
+
+// ── build dashboard cards ──
+const cardsEl = document.getElementById('cards');
+EMAILS.forEach(e => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-thumb"><img src="${e.img}" loading="lazy" alt="" /></div>
+    <div class="card-body">
+      <div class="card-title">${e.title}</div>
+      <div class="card-sub">${e.brand}</div>
+      <div class="card-btns">
+        <a class="btn-record" href="#/record/${e.id}">Record</a>
+        <a class="btn-notes" href="#/notes/${e.id}">Notes</a>
+      </div>
+    </div>`;
+  cardsEl.appendChild(card);
+});
+
+// ── router ──
+const overlay = document.getElementById('overlay');
+const overlayTitle = document.getElementById('overlayTitle');
+const countdownEl = document.getElementById('countdown');
+const recordImg = document.getElementById('recordImg');
+const notesView = document.getElementById('notesView');
+const speedRow = document.getElementById('speedRow');
+const startBtn = document.getElementById('startBtn');
+
+let speed = 0.6;
+let scrolling = false;
+let rafId = null;
+
+speedRow.addEventListener('click', ev => {
+  const b = ev.target.closest('button'); if (!b) return;
+  speed = parseFloat(b.dataset.speed);
+  speedRow.querySelectorAll('button').forEach(x => x.classList.toggle('active', x === b));
+});
+
+function stopScroll() { scrolling = false; if (rafId) cancelAnimationFrame(rafId); rafId = null; }
+
+function scrollLoop() {
+  if (!scrolling) return;
+  window.scrollBy(0, speed);
+  if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 1) { scrolling = false; return; }
+  rafId = requestAnimationFrame(scrollLoop);
+}
+
+startBtn.addEventListener('click', () => {
+  overlay.classList.add('hidden');
+  countdownEl.style.display = 'flex';
+  let n = 3;
+  countdownEl.textContent = n;
+  const t = setInterval(() => {
+    n--;
+    if (n === 0) {
+      clearInterval(t);
+      countdownEl.style.display = 'none';
+      window.scrollTo(0, 0);
+      scrolling = true;
+      scrollLoop();
+    } else countdownEl.textContent = n;
+  }, 1000);
+});
+
+// tap = pause/resume, double-tap = back to top (record mode only)
+let lastTap = 0;
+document.addEventListener('click', ev => {
+  if (!document.body.classList.contains('recording')) return;
+  if (ev.target.closest('.record-overlay') || ev.target.closest('.countdown')) return;
+  const now = Date.now();
+  if (now - lastTap < 300) {
+    stopScroll();
+    window.scrollTo(0, 0);
+    overlay.classList.remove('hidden');
+  } else {
+    if (scrolling) stopScroll();
+    else { scrolling = true; scrollLoop(); }
+  }
+  lastTap = now;
+});
+
+function renderNotes(e) {
+  const pts = e.notes.points.map(p => `<li>${p}</li>`).join('');
+  notesView.innerHTML = `
+    <a class="notes-back" href="#/">← Back</a>
+    <h1>${e.title}</h1>
+    <p class="notes-brand">${e.brand} — video talking points</p>
+    <div class="n-section">
+      <div class="n-label">Open with this</div>
+      <div class="n-hook">${e.notes.hook}</div>
+    </div>
+    <div class="n-section">
+      <div class="n-label">Why this email works</div>
+      <ul>${pts}</ul>
+    </div>
+    <div class="n-section">
+      <div class="n-label">Zoom in on</div>
+      <p>${e.notes.zoom}</p>
+    </div>
+    <div class="n-section">
+      <div class="n-label">Close with this</div>
+      <div class="n-hook">${e.notes.close}</div>
+    </div>`;
+}
+
+function route() {
+  stopScroll();
+  document.body.classList.remove('recording', 'notes');
+  const hash = location.hash || '#/';
+  const m = hash.match(/^#\/(record|notes)\/(.+)$/);
+  if (m) {
+    const e = EMAILS.find(x => x.id === m[2]);
+    if (!e) { location.hash = '#/'; return; }
+    if (m[1] === 'record') {
+      recordImg.src = e.img;
+      overlayTitle.textContent = e.brand + ' — ready to record';
+      overlay.classList.remove('hidden');
+      countdownEl.style.display = 'none';
+      document.body.classList.add('recording');
+      window.scrollTo(0, 0);
+    } else {
+      renderNotes(e);
+      document.body.classList.add('notes');
+      window.scrollTo(0, 0);
+    }
+  } else {
+    window.scrollTo(0, 0);
+  }
+}
+window.addEventListener('hashchange', route);
+route();
+</script>
+
+</body>
+</html>
