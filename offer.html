@@ -7,7 +7,13 @@
   <link rel="icon" type="image/png" href="/logo.png" />
   <script src="https://fast.wistia.com/player.js" async></script>
   <script src="https://fast.wistia.com/embed/igeuote9i6.js" async type="module"></script>
-  <style>wistia-player[media-id='igeuote9i6']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/igeuote9i6/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+  <script src="https://fast.wistia.com/embed/jbfubarxpf.js" async type="module"></script>
+  <script src="https://fast.wistia.com/embed/v12houl57j.js" async type="module"></script>
+  <style>
+    wistia-player[media-id='igeuote9i6']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/igeuote9i6/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }
+    wistia-player[media-id='jbfubarxpf']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/jbfubarxpf/swatch'); display: block; filter: blur(5px); padding-top:177.78%; }
+    wistia-player[media-id='v12houl57j']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/v12houl57j/swatch'); display: block; filter: blur(5px); padding-top:179.17%; }
+  </style>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
@@ -450,10 +456,103 @@
     .cta-group {
       display: flex; flex-wrap: wrap; gap: 12px;
       justify-content: center;
+      max-width: 620px; margin: 0 auto;
     }
-    .cta-group .cta-btn, .cta-group .cta-btn-outline { margin-bottom: 0; }
+    .cta-group .cta-btn, .cta-group .cta-btn-outline {
+      margin-bottom: 0;
+      flex: 1 1 240px; justify-content: center;
+    }
 
     .cta-note { font-size: 12px; color: var(--faint); }
+
+    /* ── TESTIMONIALS ── */
+    .testi-grid {
+      display: flex; flex-direction: column; gap: 32px;
+      align-items: center;
+    }
+    @media (min-width: 720px) {
+      .testi-grid { flex-direction: row; justify-content: center; align-items: flex-start; gap: 28px; }
+    }
+    .testi-card { width: 100%; max-width: 320px; }
+    .testi-video {
+      border-radius: 18px; overflow: hidden;
+      border: 1px solid var(--border-light);
+      background: var(--surface);
+    }
+    .testi-video wistia-player { display: block; width: 100%; }
+    .testi-meta { margin-top: 16px; text-align: center; }
+    .testi-name { font-size: 16px; font-weight: 800; color: var(--text); letter-spacing: -0.01em; }
+    .testi-result {
+      display: inline-block; margin-top: 6px;
+      font-size: 13px; font-weight: 700; color: var(--amber);
+      background: oklch(72% 0.18 75 / 0.1);
+      padding: 4px 12px; border-radius: 100px;
+    }
+
+    /* ── COMPARISON ── */
+    .compare {
+      width: 100%; border-collapse: collapse;
+      border: 1px solid var(--border-light); border-radius: 16px;
+      overflow: hidden; margin-top: 8px;
+    }
+    .compare th, .compare td {
+      padding: 13px 12px; text-align: left;
+      font-size: 13px; line-height: 1.4;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    @media (min-width: 600px) { .compare th, .compare td { padding: 15px 18px; font-size: 14px; } }
+    .compare tr:last-child td { border-bottom: none; }
+    .compare thead th {
+      font-weight: 800; color: var(--text);
+      font-size: 12px; letter-spacing: -0.01em;
+    }
+    @media (min-width: 600px) { .compare thead th { font-size: 14px; } }
+    .compare .feat { font-weight: 700; color: var(--text); }
+    .compare .col-us { background: oklch(72% 0.18 75 / 0.07); font-weight: 700; color: var(--text); }
+    .compare thead .col-us { color: var(--amber); }
+    .compare .muted { color: var(--muted); font-weight: 500; }
+
+    /* ── STEPS (after you pay) ── */
+    .steps { display: flex; flex-direction: column; gap: 12px; }
+    .step {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--surface); border: 1px solid var(--border-light);
+      border-radius: 14px; padding: 20px 22px;
+    }
+    .step-num {
+      flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+      background: var(--text); color: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 800;
+    }
+    .step-body { flex: 1; }
+    .step-title { font-size: 15px; font-weight: 700; color: var(--text); letter-spacing: -0.01em; margin-bottom: 3px; }
+    .step-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+    /* ── FAQ ── */
+    .faq { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      background: var(--surface); border: 1px solid var(--border-light);
+      border-radius: 12px; padding: 4px 20px;
+    }
+    .faq-item summary {
+      list-style: none; cursor: pointer;
+      padding: 16px 0; font-size: 15px; font-weight: 700;
+      color: var(--text); letter-spacing: -0.01em;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+'; font-size: 22px; font-weight: 600;
+      color: var(--amber); flex-shrink: 0; line-height: 1;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item p {
+      font-size: 14px; color: var(--muted); line-height: 1.6;
+      padding: 0 0 18px; margin: 0;
+    }
 
     /* ── GALLERY ── */
     .gallery-label {
@@ -508,10 +607,10 @@
   </div>
 
   <div class="cta-group">
-    <a href="https://buy.stripe.com/00w3cvfGp21b2fm2W55ZC0g" class="cta-btn">Start Today ($997)</a>
+    <a href="#pricing" class="cta-btn">Start Today</a>
     <a href="https://cal.com/abuecom/30min" class="cta-btn-outline">Book Free Strategy Call 🤝</a>
   </div>
-  <p class="cta-note" style="margin-top:12px;">One-time $997 · Built &amp; live in 14 days · No monthly contracts.</p>
+  <p class="cta-note" style="margin-top:12px;">Built &amp; live in 14 days · No monthly contracts.</p>
 </div>
 
 <!-- MECHANISM -->
@@ -621,7 +720,7 @@
   </div>
 
   <!-- PRICE REVEAL -->
-  <div class="price-reveal">
+  <div class="price-reveal" id="pricing">
 
     <div class="price-value-block">
       <p class="price-value-label">Total value</p>
@@ -648,9 +747,35 @@
       <div class="price-detail-item">✓ Built &amp; live in 14 days</div>
     </div>
 
-    <a href="https://buy.stripe.com/00w3cvfGp21b2fm2W55ZC0g" class="cta-btn" style="width:100%; justify-content:center; margin-top:28px; margin-bottom:10px;">Start Today ($997)</a>
+    <a href="https://buy.stripe.com/00w3cvfGp21b2fm2W55ZC0g" class="cta-btn" style="width:100%; justify-content:center; margin-top:28px; margin-bottom:10px;">Start Now ($997)</a>
     <a href="https://cal.com/abuecom/30min" class="cta-btn-outline" style="width:100%; justify-content:center;">Book Free Strategy Call 🤝</a>
     <p style="text-align:center; font-size:12px; color:var(--faint); margin-top:10px;">We only take 3 new builds per month. Spots fill fast.</p>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="section">
+  <p class="offer-label">Real results</p>
+  <h2 style="font-size:clamp(24px,4vw,36px); font-weight:800; line-height:1.1; letter-spacing:-0.025em; margin-bottom:28px;">Founders who let us build their system — in their own words.</h2>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-video">
+        <wistia-player media-id="jbfubarxpf" aspect="0.5625"></wistia-player>
+      </div>
+      <div class="testi-meta">
+        <div class="testi-name">Founder of OJI</div>
+        <div class="testi-result">6-figure brand</div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-video">
+        <wistia-player media-id="v12houl57j" aspect="0.5581395348837209"></wistia-player>
+      </div>
+      <div class="testi-meta">
+        <div class="testi-name">Aman</div>
+        <div class="testi-result">$200k+ generated with email alone</div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -685,6 +810,53 @@
   <p class="problem-closer" style="margin-bottom:0;">Once installed, your retention system automatically nurtures new subscribers, recovers abandoned carts, brings back previous customers and generates additional revenue every single day. You pay once. It keeps working — day after day, month after month, year after year.</p>
 </div>
 
+<!-- COMPARISON -->
+<div class="section">
+  <p class="offer-label">The smart maths</p>
+  <h2 style="font-size:clamp(24px,4vw,36px); font-weight:800; line-height:1.1; letter-spacing:-0.025em; margin-bottom:24px;">$997 once vs. every other way to do this.</h2>
+  <table class="compare">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="col-us">Abu Ecom</th>
+        <th>The alternatives</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="feat">Cost</td>
+        <td class="col-us">$997 once</td>
+        <td class="muted">$2,000+/mo agency or a $50k+/yr hire</td>
+      </tr>
+      <tr>
+        <td class="feat">Time to live</td>
+        <td class="col-us">14 days</td>
+        <td class="muted">4–8 weeks, or months to hire &amp; train</td>
+      </tr>
+      <tr>
+        <td class="feat">Who does the work</td>
+        <td class="col-us">Fully done for you</td>
+        <td class="muted">You manage freelancers, or do it yourself</td>
+      </tr>
+      <tr>
+        <td class="feat">Ongoing fees</td>
+        <td class="col-us">None — you own it</td>
+        <td class="muted">Monthly retainers or a salary, forever</td>
+      </tr>
+      <tr>
+        <td class="feat">Muslim-brand expertise</td>
+        <td class="col-us">Built in</td>
+        <td class="muted">Rare to none</td>
+      </tr>
+      <tr>
+        <td class="feat">The result</td>
+        <td class="col-us">An asset that pays you daily</td>
+        <td class="muted">A cost that never stops</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <!-- WHO IT'S FOR -->
 <div class="section for">
   <h2>Perfect for brands that…</h2>
@@ -698,12 +870,84 @@
   </div>
 </div>
 
+<!-- HOW IT WORKS -->
+<div class="section">
+  <p class="offer-label">What happens after you start</p>
+  <h2 style="font-size:clamp(24px,4vw,36px); font-weight:800; line-height:1.1; letter-spacing:-0.025em; margin-bottom:28px;">From payment to live system — here's exactly how it goes.</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Secure your spot</div>
+        <div class="step-desc">One simple payment. You're in, and we reserve one of this month's three build slots for your brand.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Quick onboarding</div>
+        <div class="step-desc">A short form and access to your Klaviyo (we'll set it up if you're not on it yet). Around 20 minutes of your time — that's all we need from you.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">We build everything</div>
+        <div class="step-desc">Audit, strategy, copy, design, flows and full Klaviyo implementation — all handled for you over 14 days. You stay updated on WhatsApp the whole way.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Go live &amp; walkthrough</div>
+        <div class="step-desc">Your system goes live and starts generating revenue. We personally walk you through everything we built and how it makes you money.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section">
+  <p class="offer-label">Questions</p>
+  <h2 style="font-size:clamp(24px,4vw,36px); font-weight:800; line-height:1.1; letter-spacing:-0.025em; margin-bottom:24px;">Everything you might be wondering.</h2>
+  <div class="faq">
+    <details class="faq-item">
+      <summary>What if I'm not on Klaviyo?</summary>
+      <p>No problem. We'll set your Klaviyo account up from scratch and migrate anything you already have. Klaviyo is free until your list grows, so there's usually no extra cost to get started.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do I need a big email list?</summary>
+      <p>No. As long as you're getting traffic and making some sales, the system starts working straight away — recovering carts and converting new subscribers. It only compounds as your list grows, which is exactly why we also optimise your pop-up.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What do I actually have to do?</summary>
+      <p>Very little. Fill out a short onboarding form, give us Klaviyo access, and share your brand assets and product info — roughly 20 minutes total. From there, we handle everything and keep you updated.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What happens after the 14 days?</summary>
+      <p>The system is yours — forever. Every flow and email keeps running automatically with no monthly fee. If you ever want ongoing weekly campaigns managed for you, that's an optional add-on, never a requirement.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Is it really done-for-you?</summary>
+      <p>Yes. We write, design, build and install everything directly inside your Klaviyo account. You review and approve — you never touch a setting or write a word.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can I pay in instalments?</summary>
+      <p>It's a one-time payment of $997. If you'd like to arrange a split, mention it on your free strategy call and we'll sort something out.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What platforms do you work with?</summary>
+      <p>We specialise in Klaviyo for Shopify brands — the highest-converting setup for ecommerce email. If you're on something else, book a call and we'll tell you honestly whether we're the right fit.</p>
+    </details>
+  </div>
+</div>
+
 <!-- FINAL CTA -->
 <div class="section cta-section">
   <h2>Build it once. <span>Get paid every day.</span></h2>
   <p>Get your complete 24/7 retention system built, installed and live in 14 days. One payment, and it keeps generating revenue for you long after.</p>
   <div class="cta-group">
-    <a href="https://buy.stripe.com/00w3cvfGp21b2fm2W55ZC0g" class="cta-btn">Start Today ($997)</a>
+    <a href="https://buy.stripe.com/00w3cvfGp21b2fm2W55ZC0g" class="cta-btn">Start Now ($997)</a>
     <a href="https://cal.com/abuecom/30min" class="cta-btn-outline">Book Free Strategy Call 🤝</a>
   </div>
   <p class="cta-note" style="margin-top:12px;">One-time $997 · We only take 3 new builds per month.</p>
