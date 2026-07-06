@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Abu Ecom Offer — Email Revenue for Muslim Brands</title>
   <link rel="icon" type="image/png" href="/logo.png" />
+  <script src="https://fast.wistia.com/player.js" async></script>
+  <script src="https://fast.wistia.com/embed/igeuote9i6.js" async type="module"></script>
+  <style>wistia-player[media-id='igeuote9i6']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/igeuote9i6/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
@@ -103,41 +106,8 @@
       overflow: hidden;
       border: 1px solid var(--border-light);
       background: var(--surface);
-      aspect-ratio: 16/9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      position: relative;
     }
-
-    .vsl-thumb {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, oklch(18% 0.01 55) 0%, oklch(14% 0.008 55) 100%);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 16px;
-    }
-
-    .vsl-play {
-      width: 64px; height: 64px;
-      border-radius: 50%;
-      background: var(--amber);
-      display: flex; align-items: center; justify-content: center;
-      transition: transform 0.15s, opacity 0.15s;
-    }
-    .vsl-wrap:hover .vsl-play { transform: scale(1.08); }
-
-    .vsl-play svg { width: 22px; height: 22px; fill: #000; margin-left: 3px; }
-
-    .vsl-label {
-      font-size: 13px; font-weight: 600; color: var(--muted);
-      letter-spacing: -0.01em;
-    }
-
-    .vsl-duration {
-      font-size: 12px; color: var(--faint);
-    }
+    .vsl-wrap wistia-player { display: block; width: 100%; }
 
     /* ── PROBLEM ── */
     .problem-label {
@@ -475,13 +445,7 @@
 
   <!-- VSL -->
   <div class="vsl-wrap">
-    <div class="vsl-thumb">
-      <div class="vsl-play">
-        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="vsl-label">Watch: How we scale Muslim brands with email</div>
-      <div class="vsl-duration">~8 min</div>
-    </div>
+    <wistia-player media-id="igeuote9i6" aspect="1.7777777777777777"></wistia-player>
   </div>
 
   <a href="https://cal.com/abuecom/30min" class="cta-btn">Book your free strategy call 🤝</a>
