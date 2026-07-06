@@ -5,15 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Abu Ecom™ 14-Day Retention System — A 24/7 Revenue System for Your Store</title>
   <link rel="icon" type="image/png" href="/logo.png" />
-  <script src="https://fast.wistia.com/player.js" async></script>
-  <script src="https://fast.wistia.com/embed/igeuote9i6.js" async type="module"></script>
-  <script src="https://fast.wistia.com/embed/jbfubarxpf.js" async type="module"></script>
-  <script src="https://fast.wistia.com/embed/v12houl57j.js" async type="module"></script>
-  <style>
-    wistia-player[media-id='igeuote9i6']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/igeuote9i6/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }
-    wistia-player[media-id='jbfubarxpf']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/jbfubarxpf/swatch'); display: block; filter: blur(5px); padding-top:177.78%; }
-    wistia-player[media-id='v12houl57j']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/v12houl57j/swatch'); display: block; filter: blur(5px); padding-top:179.17%; }
-  </style>
+  <!-- Wistia videos use the classic iframe embed for reliable cross-device (mobile) playback -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
@@ -115,8 +108,10 @@
       overflow: hidden;
       border: 1px solid var(--border-light);
       background: var(--surface);
+      position: relative;
+      aspect-ratio: 16 / 9;
     }
-    .vsl-wrap wistia-player { display: block; width: 100%; }
+    .vsl-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
     /* ── PROBLEM ── */
     .problem-label {
@@ -475,11 +470,14 @@
     }
     .testi-card { width: 100%; max-width: 320px; }
     .testi-video {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
       border-radius: 18px; overflow: hidden;
       border: 1px solid var(--border-light);
       background: var(--surface);
     }
-    .testi-video wistia-player { display: block; width: 100%; }
+    .testi-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .testi-meta { margin-top: 16px; text-align: center; }
     .testi-name { font-size: 16px; font-weight: 800; color: var(--text); letter-spacing: -0.01em; }
     .testi-result {
@@ -603,7 +601,7 @@
 
   <!-- VSL -->
   <div class="vsl-wrap">
-    <wistia-player media-id="igeuote9i6" aspect="1.7777777777777777"></wistia-player>
+    <iframe src="https://fast.wistia.net/embed/iframe/igeuote9i6?playsinline=true&videoFoam=false" title="Abu Ecom VSL" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
   </div>
 
   <div class="cta-group">
@@ -760,7 +758,7 @@
   <div class="testi-grid">
     <div class="testi-card">
       <div class="testi-video">
-        <wistia-player media-id="jbfubarxpf" aspect="0.5625"></wistia-player>
+        <iframe src="https://fast.wistia.net/embed/iframe/jbfubarxpf?playsinline=true&videoFoam=false" title="Founder of OJI testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
       </div>
       <div class="testi-meta">
         <div class="testi-name">Founder of OJI</div>
@@ -769,7 +767,7 @@
     </div>
     <div class="testi-card">
       <div class="testi-video">
-        <wistia-player media-id="v12houl57j" aspect="0.5581395348837209"></wistia-player>
+        <iframe src="https://fast.wistia.net/embed/iframe/v12houl57j?playsinline=true&videoFoam=false" title="Aman testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
       </div>
       <div class="testi-meta">
         <div class="testi-name">Aman</div>
