@@ -56,8 +56,9 @@
         padding: 48px 40px;
         border-right: 1px solid var(--border);
         display: flex; flex-direction: column;
-        justify-content: center;
+        justify-content: safe center;
       }
+      .left-panel > * { flex-shrink: 0; }
       .left-panel::-webkit-scrollbar { display: none; }
 
       .right-panel { width: 58%; border-top: none; }
