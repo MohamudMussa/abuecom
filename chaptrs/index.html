@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Abu Ecom × Chaptrs — High-Converting Emails</title>
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #F3EEE3;   /* cream */
+      --surface: #FBF8F1;
+      --ink:     #141210;
+      --muted:   #5A544B;
+      --faint:   #8A8278;
+      --orange:  #B85C1F;   /* burnt orange */
+      --orange-soft: rgba(184, 92, 31, 0.10);
+      --border:  #E1D9C9;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      background: var(--bg); color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+
+    .wrap { max-width: 620px; margin: 0 auto; padding: 0 22px; }
+
+    /* ── HERO ── */
+    .hero { padding: 30px 0 40px; text-align: center; }
+    .hero-logo { width: 46px; height: 46px; display: block; margin: 0 auto 30px; }
+    .hero-eyebrow {
+      display: inline-block; font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--orange); margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(30px, 8vw, 46px);
+      font-weight: 800; line-height: 1.03;
+      letter-spacing: -0.035em; margin-bottom: 16px;
+    }
+    .hero .for { color: var(--orange); }
+    .hero-contact { font-size: 13px; color: var(--faint); font-weight: 600; }
+
+    /* ── SECTIONS ── */
+    .section { padding: 40px 0; }
+    .tag {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--orange); margin-bottom: 12px;
+    }
+    .section h2 {
+      font-size: clamp(23px, 5.5vw, 32px);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.03em; margin-bottom: 10px;
+    }
+    .section .lede { font-size: 15px; color: var(--muted); line-height: 1.6; max-width: 46ch; }
+
+    /* ── OBSERVATION ── */
+    .observe {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 30px 26px;
+    }
+    .observe p { font-size: clamp(17px, 4.4vw, 21px); font-weight: 600; line-height: 1.45; letter-spacing: -0.015em; }
+    .observe p + p { margin-top: 18px; }
+    .observe .muted { color: var(--muted); font-weight: 500; font-size: clamp(15px, 4vw, 18px); }
+    .observe .punch {
+      display: inline-block; margin-top: 20px;
+      background: var(--ink); color: var(--surface);
+      font-size: clamp(18px, 4.6vw, 23px); font-weight: 800; letter-spacing: -0.02em;
+      padding: 10px 16px; border-radius: 8px;
+    }
+
+    /* ── EMAIL / PROOF GALLERY ── */
+    .gallery { display: flex; flex-direction: column; gap: 20px; margin-top: 24px; }
+    .frame {
+      border: 1px solid var(--border); border-radius: 16px;
+      overflow: hidden; background: var(--surface);
+      box-shadow: 0 8px 30px rgba(20, 18, 16, 0.06);
+    }
+    .frame img { display: block; width: 100%; height: auto; }
+    .cap { font-size: 12px; color: var(--faint); margin-top: 14px; font-weight: 500; }
+
+    /* draft banner (remove once corrected mockups are in) */
+    .draft {
+      background: var(--orange-soft); border: 1px dashed var(--orange);
+      color: var(--orange); font-size: 12px; font-weight: 700;
+      border-radius: 10px; padding: 10px 14px; margin-top: 16px;
+      text-align: center; letter-spacing: -0.01em;
+    }
+
+    /* ── CTA ── */
+    .cta { text-align: center; padding: 48px 0 20px; }
+    .cta h2 { font-size: clamp(24px, 6vw, 36px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 14px; }
+    .cta p { font-size: 15px; color: var(--muted); line-height: 1.6; max-width: 42ch; margin: 0 auto 26px; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      height: 58px; padding: 0 34px; border-radius: 14px;
+      background: var(--orange); color: #fff;
+      font-family: inherit; font-size: 17px; font-weight: 700;
+      text-decoration: none; letter-spacing: -0.01em;
+      transition: opacity 0.12s;
+    }
+    .cta-btn:hover { opacity: 0.9; }
+    .cta-risk {
+      font-size: 14px; color: var(--muted); font-weight: 600;
+      max-width: 40ch; margin: 22px auto 0; line-height: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    footer { text-align: center; padding: 40px 0 48px; border-top: 1px solid var(--border); margin-top: 40px; }
+    .f-logo { width: 34px; height: 34px; display: block; margin: 0 auto 12px; opacity: 0.85; }
+    .f-txt { font-size: 12px; color: var(--faint); font-weight: 500; }
+    .f-txt a { color: var(--muted); text-decoration: none; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img class="hero-logo" src="/logo.png" alt="Abu Ecom" />
+    <span class="hero-eyebrow" id="eyebrow"></span>
+    <h1 id="hero-title"></h1>
+    <p class="hero-contact" id="contact"></p>
+  </div>
+
+  <!-- OBSERVATION -->
+  <div class="section">
+    <div class="observe" id="observe"></div>
+  </div>
+
+  <!-- THE EMAILS -->
+  <div class="section">
+    <p class="tag">The emails</p>
+    <h2 id="emails-title"></h2>
+    <p class="lede" id="emails-lede"></p>
+    <div class="draft" id="draft"></div>
+    <div class="gallery" id="email-gallery"></div>
+    <p class="cap" id="emails-cap"></p>
+  </div>
+
+  <!-- PROOF -->
+  <div class="section">
+    <p class="tag">Proof</p>
+    <h2 id="proof-title"></h2>
+    <p class="lede" id="proof-lede"></p>
+    <div class="gallery" id="proof-gallery"></div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2 id="cta-title"></h2>
+    <p id="cta-body"></p>
+    <a class="cta-btn" id="cta-btn"></a>
+    <p class="cta-risk" id="cta-risk"></p>
+  </div>
+
+  <footer>
+    <img class="f-logo" src="/logo.png" alt="Abu Ecom" />
+    <p class="f-txt">Abu Ecom · <a id="f-mail" href="#"></a></p>
+  </footer>
+
+</div>
+
+<script>
+/* =======================================================================
+   CLIENT CONFIG — this is the ONLY block you edit per prospect.
+   New client: duplicate this /chaptrs/ folder to /{slug}/, swap this
+   config, and replace img/email-*.jpg. Proof images are shared from
+   /pitch-assets/proof/ so every pitch gets the same examples.
+   ======================================================================= */
+const CONFIG = {
+  eyebrow: "A private pitch for Chaptrs",
+  heroTitle: 'High-Converting Emails for <span class="for">Chaptrs</span>',
+  contact: "Mussa@AbuEcom.com",
+
+  observation: [
+    { text: "Last Chaptrs email I received: Feb 25 (Ramadan)." },
+    { text: "That's 4+ months of trial signups, lapsed listeners, and free &amp; paid users hearing nothing.", muted: true },
+    { text: "I didn't want to send a pitch about it." },
+    { punch: "So I made the emails instead." }
+  ],
+
+  emailsTitle: "Emails, built for Chaptrs.",
+  emailsLede: "Trial-to-paid conversion, winning back lapsed listeners, upgrading free users, and switchers coming over from Audible &amp; Spotify.",
+  emailsCaption: "Figures illustrative — built before seeing your data.",
+  draftNote: "DRAFT — placeholder mockups. A few figures &amp; labels are being corrected before send.",
+  emails: [
+    { src: "img/email-1.jpg", alt: "Chaptrs email — Islamic knowledge / trial conversion" },
+    { src: "img/email-2.jpg", alt: "Chaptrs email — why scholars trust Chaptrs" },
+    { src: "img/email-3.jpg", alt: "Chaptrs email — switch from Spotify & Audible" },
+    { src: "img/email-4.jpg", alt: "Chaptrs email — Audible/Spotify comparison" },
+    { src: "img/email-5.jpg", alt: "Chaptrs email — from busy to blessed" },
+    { src: "img/email-6.jpg", alt: "Chaptrs email — discovery / find your match" }
+  ],
+
+  proofTitle: "Example emails we've done for other Muslim-owned brands.",
+  proofLede: "Real work for real brands — the standard your subscribers would get.",
+  proof: [
+    { src: "/pitch-assets/proof/lala-and-mo.jpg", alt: "Lala + Mo email" },
+    { src: "/pitch-assets/proof/halalmeals.jpg", alt: "HalalMeals email" },
+    { src: "/pitch-assets/proof/anafiya.jpg", alt: "Anafiya Gifts email" },
+    { src: "/pitch-assets/proof/ironfit.jpg", alt: "IronFit email" },
+    { src: "/pitch-assets/proof/desi-doll.jpg", alt: "Desi Doll email" }
+  ],
+
+  ctaTitle: "Next step: a call.",
+  ctaBody: "Walk me through your customer data and I'll sharpen these emails around it.",
+  ctaButton: "Book a 30-min call",
+  ctaLink: "https://cal.com/abuecom/30min",
+  ctaRisk: "Worst case, you leave knowing exactly where the revenue is leaking — for free."
+};
+
+/* ---------- render ---------- */
+const $ = id => document.getElementById(id);
+$('eyebrow').textContent = CONFIG.eyebrow;
+$('hero-title').innerHTML = CONFIG.heroTitle;
+$('contact').textContent = CONFIG.contact;
+
+$('observe').innerHTML = CONFIG.observation.map(o =>
+  o.punch ? `<span class="punch">${o.punch}</span>`
+          : `<p class="${o.muted ? 'muted' : ''}">${o.text}</p>`
+).join('');
+
+$('emails-title').innerHTML = CONFIG.emailsTitle;
+$('emails-lede').innerHTML = CONFIG.emailsLede;
+$('emails-cap').textContent = CONFIG.emailsCaption;
+if (CONFIG.draftNote) { $('draft').innerHTML = CONFIG.draftNote; } else { $('draft').remove(); }
+$('email-gallery').innerHTML = CONFIG.emails.map(e =>
+  `<div class="frame"><img src="${e.src}" alt="${e.alt}" loading="lazy" /></div>`
+).join('');
+
+$('proof-title').innerHTML = CONFIG.proofTitle;
+$('proof-lede').innerHTML = CONFIG.proofLede;
+$('proof-gallery').innerHTML = CONFIG.proof.map(p =>
+  `<div class="frame"><img src="${p.src}" alt="${p.alt}" loading="lazy" /></div>`
+).join('');
+
+$('cta-title').textContent = CONFIG.ctaTitle;
+$('cta-body').textContent = CONFIG.ctaBody;
+$('cta-btn').textContent = CONFIG.ctaButton;
+$('cta-btn').href = CONFIG.ctaLink;
+$('cta-risk').textContent = CONFIG.ctaRisk;
+$('f-mail').textContent = CONFIG.contact;
+$('f-mail').href = 'mailto:' + CONFIG.contact;
+
+/* block right-click / drag on images */
+document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+</script>
+</body>
+</html>
