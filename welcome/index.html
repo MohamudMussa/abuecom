@@ -127,6 +127,61 @@
 
 </div>
 
+<!-- Celebration confetti on first load -->
+<canvas id="confetti" style="position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:9999;"></canvas>
+<script>
+(function () {
+  var canvas = document.getElementById('confetti');
+  var ctx = canvas.getContext('2d');
+  var W, H, DPR = window.devicePixelRatio || 1;
+  function resize() { W = canvas.width = innerWidth * DPR; H = canvas.height = innerHeight * DPR; }
+  resize(); addEventListener('resize', resize);
+
+  var colors = ['#111111', '#f5b301', '#e8663a', '#2e9e5b', '#3b7dd8', '#d94f70'];
+  var pieces = [];
+  var bursts = 160;
+  for (var i = 0; i < bursts; i++) {
+    pieces.push({
+      x: W / 2 + (Math.random() - 0.5) * W * 0.3,
+      y: H * 0.28,
+      vx: (Math.random() - 0.5) * 14 * DPR,
+      vy: (Math.random() * -12 - 4) * DPR,
+      g: (0.28 + Math.random() * 0.12) * DPR,
+      w: (6 + Math.random() * 8) * DPR,
+      h: (8 + Math.random() * 8) * DPR,
+      rot: Math.random() * Math.PI,
+      vr: (Math.random() - 0.5) * 0.3,
+      color: colors[(Math.random() * colors.length) | 0],
+      life: 1
+    });
+  }
+
+  var start = performance.now();
+  function frame(now) {
+    var t = now - start;
+    ctx.clearRect(0, 0, W, H);
+    var alive = false;
+    for (var i = 0; i < pieces.length; i++) {
+      var p = pieces[i];
+      p.vy += p.g; p.x += p.vx; p.y += p.vy; p.vx *= 0.99; p.rot += p.vr;
+      if (t > 2600) p.life -= 0.02;
+      if (p.life > 0 && p.y < H + 40) {
+        alive = true;
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, p.life);
+        ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      }
+    }
+    if (alive) requestAnimationFrame(frame);
+    else canvas.remove();
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+
 <!-- Tally embed loader (loads + auto-resizes the onboarding form) -->
 <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
 </body>
