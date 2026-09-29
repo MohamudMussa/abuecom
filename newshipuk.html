@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abu Ecom 14-Day Retention System | Email that sells every day</title>
+  <meta name="description" content="A done-for-you Klaviyo retention system for Muslim ecommerce brands. Built and live in 14 days. One payment, no retainer. Run your numbers and see what it's worth to your store." />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FFFFFF;
+      --surface: #F6F5F3;
+      --border: #E8E6E2;
+      --text: #111111;
+      --muted: #5C5A56;
+      --faint: #8A8782;
+      --accent: oklch(72% 0.18 75);
+      --accent-ink: oklch(52% 0.14 70);
+      --accent-soft: oklch(72% 0.18 75 / 0.12);
+      --ink: #121110;
+      --ink-2: #1D1C1A;
+      --ink-line: #2E2C29;
+      --ink-muted: #A19D96;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg); color: var(--text);
+      letter-spacing: -0.01em; line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 22px; }
+    .narrow { max-width: 720px; margin: 0 auto; padding: 0 22px; }
+    @media (min-width: 860px) { .wrap, .narrow { padding: 0 44px; } }
+
+    section { padding: 72px 0; }
+    @media (min-width: 860px) { section { padding: 104px 0; } }
+
+    .eyebrow {
+      font-size: 13px; font-weight: 600; color: var(--accent-ink);
+      margin-bottom: 14px; letter-spacing: 0;
+    }
+    h1, h2, h3 { letter-spacing: -0.035em; line-height: 1.04; font-weight: 900; }
+    h2 { font-size: clamp(30px, 5.4vw, 48px); margin-bottom: 18px; max-width: 20ch; }
+    .lede { font-size: 17px; color: var(--muted); max-width: 58ch; }
+    .lede strong { color: var(--text); font-weight: 600; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+      height: 58px; padding: 0 12px 0 26px; border-radius: var(--radius);
+      font: 700 16px/1 'Inter', sans-serif; letter-spacing: -0.01em;
+      text-decoration: none; cursor: pointer; border: 0; white-space: nowrap;
+      transition: opacity 140ms ease-out;
+    }
+    .btn:hover { opacity: 0.86; }
+    .btn-primary { background: var(--text); color: #fff; }
+    .btn-primary .chip {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--accent); color: var(--text);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 17px;
+    }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1.5px solid var(--border); padding: 0 26px;
+    }
+    .btn-light { background: #fff; color: var(--text); }
+    .btn-light .chip { width: 34px; height: 34px; border-radius: 50%; background: var(--accent); display: inline-flex; align-items: center; justify-content: center; font-size: 17px; }
+    .btn-block { width: 100%; }
+    .fine { font-size: 13px; color: var(--faint); }
+
+    /* ── NAV ── */
+    .nav { display: flex; align-items: center; justify-content: space-between; padding-top: 18px; padding-bottom: 18px; }
+    .nav img { width: 44px; height: 44px; }
+    .nav-cta {
+      height: 40px; padding: 0 16px; border-radius: 10px;
+      background: var(--text); color: #fff; font-size: 14px; font-weight: 700;
+      text-decoration: none; display: inline-flex; align-items: center;
+    }
+
+    /* ── HERO ── */
+    .hero { padding: 28px 0 64px; }
+    @media (min-width: 860px) { .hero { padding: 48px 0 96px; } }
+    .hero-grid { display: grid; gap: 40px; }
+    @media (min-width: 960px) { .hero-grid { grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; } }
+    .tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 600; color: var(--text);
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 6px 12px; border-radius: 100px; margin-bottom: 22px;
+    }
+    .tag i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); display: block; }
+    .hero h1 { font-size: clamp(40px, 8.4vw, 72px); margin-bottom: 22px; max-width: 13ch; }
+    .hero h1 em { font-style: normal; box-shadow: inset 0 -0.2em 0 var(--accent-soft); }
+    .hero .lede { margin-bottom: 30px; }
+    .hero-ctas { display: flex; flex-direction: column; gap: 12px; }
+    @media (min-width: 600px) { .hero-ctas { flex-direction: row; } .hero-ctas .btn { min-width: 220px; } }
+    .hero-note { margin-top: 16px; }
+
+    .vsl {
+      position: relative; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden;
+      background: var(--ink); border: 1px solid var(--border);
+    }
+    .vsl iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .vsl-cap { margin-top: 12px; font-size: 13px; color: var(--faint); }
+
+    /* ── PROOF STRIP ── */
+    .proof { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0; }
+    .proof-row { display: grid; grid-template-columns: 1fr; }
+    @media (min-width: 760px) { .proof-row { grid-template-columns: 1.2fr 1fr 1fr; } }
+    .proof-item { padding: 22px 0; border-bottom: 1px solid var(--border); }
+    .proof-item:last-child { border-bottom: 0; }
+    @media (min-width: 760px) {
+      .proof-item { padding: 28px 28px; border-bottom: 0; border-left: 1px solid var(--border); }
+      .proof-item:first-child { border-left: 0; padding-left: 0; }
+    }
+    .proof-quote { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 6px; }
+    .proof-who { font-size: 13px; color: var(--muted); }
+
+    .brands { padding: 26px 0 0; font-size: 14px; color: var(--muted); line-height: 1.9; }
+    .brands b { color: var(--text); font-weight: 600; }
+
+    /* ── CALCULATOR ── */
+    .calc-section { background: var(--ink); color: #fff; }
+    .calc-section .eyebrow { color: var(--accent); }
+    .calc-section .lede { color: var(--ink-muted); }
+    .calc-section .lede strong { color: #fff; }
+    .calc {
+      margin-top: 40px; display: grid; gap: 20px;
+    }
+    @media (min-width: 960px) { .calc { grid-template-columns: 0.9fr 1.1fr; gap: 24px; align-items: start; } }
+    .panel { background: var(--ink-2); border: 1px solid var(--ink-line); border-radius: 20px; padding: 24px 20px; }
+    @media (min-width: 860px) { .panel { padding: 30px 28px; } }
+    .panel-title { font-size: 13px; font-weight: 600; color: var(--ink-muted); margin-bottom: 22px; }
+
+    .field { margin-bottom: 26px; }
+    .field:last-child { margin-bottom: 0; }
+    .field-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+    .field label { font-size: 15px; font-weight: 600; color: #fff; }
+    .field .hint { display: block; font-size: 12.5px; font-weight: 400; color: var(--ink-muted); margin-top: 2px; }
+    .field output { font-size: 18px; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+    input[type=range] {
+      -webkit-appearance: none; appearance: none; width: 100%; height: 28px; background: transparent; cursor: pointer;
+      --p: 50%;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      height: 6px; border-radius: 6px;
+      background: linear-gradient(to right, var(--accent) 0 var(--p), var(--ink-line) var(--p) 100%);
+    }
+    input[type=range]::-moz-range-track { height: 6px; border-radius: 6px; background: var(--ink-line); }
+    input[type=range]::-moz-range-progress { height: 6px; border-radius: 6px; background: var(--accent); }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 26px; height: 26px; border-radius: 50%;
+      background: #fff; border: 0; margin-top: -10px; box-shadow: 0 1px 4px rgb(0 0 0 / 0.4);
+    }
+    input[type=range]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: #fff; border: 0; }
+    input[type=range]:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
+
+    .seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; background: var(--ink); border: 1px solid var(--ink-line); border-radius: 12px; padding: 4px; }
+    .seg button {
+      font: 600 13px/1.25 'Inter', sans-serif; letter-spacing: -0.01em;
+      color: var(--ink-muted); background: transparent; border: 0; border-radius: 9px;
+      padding: 10px 6px; cursor: pointer; transition: opacity 140ms ease-out;
+    }
+    .seg button[aria-pressed=true] { background: #fff; color: var(--text); }
+
+    .results { position: relative; }
+    @media (min-width: 960px) { .results { position: sticky; top: 20px; } }
+    .big-label { font-size: 14px; color: var(--ink-muted); margin-bottom: 6px; }
+    .big-num {
+      font-size: clamp(48px, 11vw, 76px); font-weight: 900; letter-spacing: -0.045em; line-height: 1;
+      color: var(--accent); font-variant-numeric: tabular-nums;
+    }
+    .big-num small { font-size: 0.34em; color: var(--ink-muted); font-weight: 700; letter-spacing: -0.02em; }
+    .kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--ink-line); border: 1px solid var(--ink-line); border-radius: 14px; overflow: hidden; margin: 24px 0 26px; }
+    .kpi { background: var(--ink-2); padding: 16px 16px; }
+    .kpi b { display: block; font-size: 24px; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+    .kpi > span { font-size: 12.5px; color: var(--ink-muted); line-height: 1.35; display: block; margin-top: 3px; }
+
+    .bd-title { font-size: 13px; font-weight: 600; color: var(--ink-muted); margin-bottom: 12px; display: flex; justify-content: space-between; }
+    .bd { display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; }
+    .bd-row { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: baseline; }
+    .bd-name { font-size: 14px; font-weight: 600; }
+    .bd-name em { font-style: normal; font-weight: 500; color: var(--ink-muted); font-size: 12px; margin-left: 4px; }
+    .bd-val { font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .bd-bar { grid-column: 1 / -1; height: 6px; border-radius: 6px; background: var(--ink-line); overflow: hidden; }
+    .bd-bar i { display: block; height: 100%; background: #fff; border-radius: 6px; transition: width 140ms ease-out; }
+    .bd-row.camp .bd-bar i { background: var(--accent); }
+
+    .chart-wrap { border-top: 1px solid var(--ink-line); padding-top: 20px; }
+    .chart-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 10px; }
+    .chart-head b { font-size: 14px; font-weight: 600; }
+    .chart-head span { font-size: 12.5px; color: var(--ink-muted); }
+    #chart { width: 100%; height: auto; display: block; overflow: visible; }
+    #chart text { font: 500 11px 'Inter', sans-serif; fill: var(--ink-muted); }
+
+    .lever {
+      margin-top: 20px; padding: 16px 18px; border-radius: 14px;
+      background: oklch(72% 0.18 75 / 0.1); border: 1px solid oklch(72% 0.18 75 / 0.3);
+      font-size: 14.5px; line-height: 1.5;
+    }
+    .lever b { color: var(--accent); }
+
+    .calc-foot { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+    @media (min-width: 600px) { .calc-foot { flex-direction: row; align-items: center; } }
+    .calc-foot .fine { color: var(--ink-muted); }
+
+    .assump { margin-top: 28px; border-top: 1px solid var(--ink-line); }
+    .assump summary { list-style: none; cursor: pointer; padding: 18px 0; font-weight: 600; font-size: 15px; display: flex; justify-content: space-between; }
+    .assump summary::-webkit-details-marker { display: none; }
+    .assump summary::after { content: '+'; color: var(--accent); font-size: 20px; line-height: 1; }
+    .assump[open] summary::after { content: '−'; }
+    .assump-body { color: var(--ink-muted); font-size: 14px; line-height: 1.65; max-width: 72ch; padding-bottom: 8px; }
+    .assump-body ul { padding-left: 18px; margin: 10px 0 14px; }
+    .assump-body li { margin-bottom: 4px; }
+    .assump-body b { color: #fff; font-weight: 600; }
+
+    /* ── LEAKS / SYSTEM ── */
+    .flows { margin-top: 40px; border-top: 1px solid var(--border); }
+    .flow {
+      display: grid; grid-template-columns: 1fr; gap: 6px 32px;
+      padding: 24px 0; border-bottom: 1px solid var(--border);
+    }
+    @media (min-width: 760px) { .flow { grid-template-columns: 240px 1fr 150px; align-items: baseline; } }
+    .flow-leak { font-size: 14px; color: var(--muted); }
+    .flow-name { font-size: 20px; font-weight: 800; letter-spacing: -0.025em; }
+    .flow-desc { font-size: 15px; color: var(--muted); }
+    .flow-emails { font-size: 13px; font-weight: 600; color: var(--accent-ink); }
+    @media (min-width: 760px) { .flow-emails { text-align: right; } }
+
+    /* ── TESTIMONIALS ── */
+    .testi-section { background: var(--surface); }
+    .testi-scroll {
+      margin-top: 36px; display: grid; grid-auto-flow: column; grid-auto-columns: 78%;
+      gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    }
+    .testi-scroll::-webkit-scrollbar { display: none; }
+    @media (min-width: 760px) { .testi-scroll { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); overflow: visible; } }
+    .testi { scroll-snap-align: start; }
+    .testi-vid { position: relative; aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden; background: var(--ink); }
+    .testi-vid iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .testi-result { margin-top: 14px; font-size: 16px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.3; }
+    .testi-name { margin-top: 4px; font-size: 13px; color: var(--muted); }
+    .swipe-hint { margin-top: 10px; }
+    @media (min-width: 760px) { .swipe-hint { display: none; } }
+
+    /* ── OFFER ── */
+    .offer-grid { display: grid; gap: 36px; margin-top: 8px; }
+    @media (min-width: 960px) { .offer-grid { grid-template-columns: 1fr 440px; gap: 56px; align-items: start; } }
+    .inc { list-style: none; border-top: 1px solid var(--border); }
+    .inc li { padding: 18px 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 28px 1fr; gap: 2px 10px; }
+    .inc li::before { content: '✓'; font-weight: 800; color: var(--accent-ink); grid-row: span 2; }
+    .inc b { font-size: 16px; font-weight: 700; letter-spacing: -0.015em; }
+    .inc span { font-size: 14.5px; color: var(--muted); }
+
+    .price-card {
+      border: 1.5px solid var(--text); border-radius: 22px; padding: 28px 24px; background: var(--bg);
+    }
+    @media (min-width: 960px) { .price-card { position: sticky; top: 24px; padding: 34px 32px; } }
+    .price-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+    .price-top b { font-size: 15px; font-weight: 700; }
+    .slots { font-size: 12.5px; font-weight: 600; background: var(--accent-soft); color: var(--accent-ink); padding: 5px 10px; border-radius: 100px; }
+    .price { font-size: 68px; font-weight: 900; letter-spacing: -0.05em; line-height: 1; }
+    .price small { font-size: 20px; font-weight: 600; color: var(--muted); letter-spacing: -0.02em; margin-left: 4px; }
+    .price-sub { font-size: 14.5px; color: var(--muted); margin: 10px 0 22px; }
+    .price-sub b { color: var(--text); }
+    .vs { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 14px; }
+    .vs td { padding: 11px 0; border-top: 1px solid var(--border); vertical-align: top; }
+    .vs td:last-child { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .vs tr.us td { font-weight: 800; }
+    .vs tr.us td:last-child { color: var(--accent-ink); }
+    .vs .m { color: var(--muted); font-weight: 500; }
+    .price-card .btn + .btn { margin-top: 10px; }
+    .price-card .fine { margin-top: 14px; text-align: center; }
+
+    /* ── TIMELINE ── */
+    .tl { margin-top: 36px; display: grid; gap: 0; border-top: 1px solid var(--border); }
+    @media (min-width: 860px) { .tl { grid-template-columns: repeat(4, 1fr); border-top: 0; } }
+    .tl-step { padding: 22px 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 96px 1fr; gap: 12px; }
+    @media (min-width: 860px) { .tl-step { display: block; border-bottom: 0; border-top: 2px solid var(--text); padding: 18px 20px 0 0; } }
+    .tl-days { font-size: 14px; font-weight: 800; color: var(--accent-ink); }
+    .tl-what { font-size: 16px; font-weight: 700; letter-spacing: -0.015em; }
+    @media (min-width: 860px) { .tl-what { margin-top: 8px; } }
+    .tl-desc { font-size: 14px; color: var(--muted); margin-top: 4px; }
+    .you-do { margin-top: 32px; padding: 20px 22px; border-radius: 14px; background: var(--surface); font-size: 15.5px; }
+    .you-do b { font-weight: 700; }
+
+    /* ── FIT ── */
+    .fit { display: grid; gap: 16px; margin-top: 36px; }
+    @media (min-width: 760px) { .fit { grid-template-columns: 1fr 1fr; gap: 20px; } }
+    .fit-col { border-radius: 18px; padding: 24px 22px; }
+    .fit-yes { background: var(--surface); }
+    .fit-no { border: 1px solid var(--border); }
+    .fit-col h3 { font-size: 20px; letter-spacing: -0.025em; margin-bottom: 14px; font-weight: 800; }
+    .fit-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .fit-col li { font-size: 15px; color: var(--muted); padding-left: 26px; position: relative; }
+    .fit-yes li::before { content: '✓'; position: absolute; left: 0; font-weight: 800; color: var(--accent-ink); }
+    .fit-no li::before { content: '✕'; position: absolute; left: 0; font-weight: 800; color: var(--faint); }
+
+    /* ── FAQ ── */
+    .faq { margin-top: 32px; border-top: 1px solid var(--border); }
+    .faq details { border-bottom: 1px solid var(--border); }
+    .faq summary { list-style: none; cursor: pointer; padding: 20px 0; font-size: 17px; font-weight: 700; letter-spacing: -0.02em; display: flex; justify-content: space-between; gap: 16px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; font-size: 22px; font-weight: 500; color: var(--accent-ink); line-height: 1; flex-shrink: 0; }
+    .faq details[open] summary::after { content: '−'; }
+    .faq p { font-size: 15.5px; color: var(--muted); padding-bottom: 20px; max-width: 64ch; }
+
+    /* ── WORK ── */
+    .work { padding-bottom: 0; }
+    .work-strip {
+      margin-top: 32px; display: grid; grid-auto-flow: column; grid-auto-columns: 86%;
+      gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 22px 8px;
+      scrollbar-width: none;
+    }
+    .work-strip::-webkit-scrollbar { display: none; }
+    .work-strip img { width: 100%; aspect-ratio: 1400 / 787; object-fit: cover; border-radius: 14px; scroll-snap-align: center; background: var(--surface); }
+    @media (min-width: 860px) {
+      .work-strip { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); overflow: visible; max-width: 1120px; margin-left: auto; margin-right: auto; padding: 0 44px; gap: 16px; }
+    }
+
+    /* ── FINAL CTA ── */
+    .final { text-align: left; }
+    .final h2 { font-size: clamp(36px, 7vw, 64px); max-width: 14ch; }
+    .final .hero-ctas { margin-top: 30px; }
+
+    footer { border-top: 1px solid var(--border); padding: 24px 0 110px; font-size: 13px; color: var(--faint); }
+    @media (min-width: 860px) { footer { padding-bottom: 32px; } }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    footer a { color: var(--muted); text-decoration: none; }
+
+    /* ── STICKY MOBILE CTA ── */
+    .sticky {
+      position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 50;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      background: var(--text); color: #fff; border-radius: 18px; padding: 10px 10px 10px 18px;
+      box-shadow: 0 8px 30px rgb(0 0 0 / 0.25);
+      opacity: 0; pointer-events: none; transition: opacity 140ms ease-out;
+    }
+    .sticky.show { opacity: 1; pointer-events: auto; }
+    .sticky-txt { font-size: 13px; line-height: 1.3; color: #CFCBC4; }
+    .sticky-txt b { color: #fff; font-size: 15px; display: block; }
+    .sticky a { height: 46px; padding: 0 18px; border-radius: 12px; background: var(--accent); color: var(--text); font-weight: 800; font-size: 15px; text-decoration: none; display: inline-flex; align-items: center; white-space: nowrap; }
+    @media (min-width: 860px) { .sticky { display: none; } }
+  </style>
+</head>
+<body data-cur="£" data-stripe="https://buy.stripe.com/aFa14nam50X7bPWbsB5ZC0k">
+
+<!-- NAV -->
+<nav class="wrap nav">
+  <a href="/"><img src="/logo.png" alt="Abu Ecom" /></a>
+  <a class="nav-cta" href="#calculator">Run your numbers</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="tag"><i></i>The email agency for Muslim brands</span>
+      <h1>Your emails should be your <em>best salesperson.</em></h1>
+      <p class="lede">We build your store a complete Klaviyo retention system in 14 days. Welcome, abandoned checkout, post-purchase, winback. <strong>24 emails, written and designed for your brand, live and selling every day. One payment of <span data-price>£997</span>. No retainer.</strong></p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#calculator">See what it's worth to you <span class="chip">↓</span></a>
+        <a class="btn btn-outline" href="#offer"><span>Start for <span data-price>£997</span></span></a>
+      </div>
+      <p class="fine hero-note">We take 3 new builds a month. Live in 14 days.</p>
+    </div>
+    <div>
+      <div class="vsl">
+        <iframe src="https://fast.wistia.com/embed/iframe/igeuote9i6?playsinline=true&videoFoam=false" title="How the Abu Ecom retention system works" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <p class="vsl-cap">Watch: how the system works, in plain English.</p>
+    </div>
+  </div>
+</header>
+
+<!-- PROOF STRIP -->
+<div class="wrap">
+  <div class="proof">
+    <div class="proof-row">
+      <div class="proof-item">
+        <p class="proof-quote">"Made it all back in week one. Profit every day since."</p>
+        <p class="proof-who">Bijou Cat, luxury collars</p>
+      </div>
+      <div class="proof-item">
+        <p class="proof-quote">$200k+ generated with email alone</p>
+        <p class="proof-who">Aman, ecom founder</p>
+      </div>
+      <div class="proof-item">
+        <p class="proof-quote">40%+ returning customers, month on month</p>
+        <p class="proof-who">Zubash, co-founder, MyOJI</p>
+      </div>
+    </div>
+  </div>
+  <p class="brands">Emails built for <b>5 Pillars</b> · <b>Boxed Halal</b> · <b>Darussalam</b> · <b>Kube Publishing</b> · <b>Cave London</b> · <b>Huraya</b> · <b>VT Fight Gear</b> · <b>Teapressa</b> and more</p>
+</div>
+
+<!-- CALCULATOR -->
+<section class="calc-section" id="calculator" style="margin-top:64px;">
+  <div class="wrap">
+    <p class="eyebrow">The maths</p>
+    <h2>What better emails are worth to your store.</h2>
+    <p class="lede">Move the sliders to match your store. We model each flow separately, using conservative numbers, so you can see <strong>where the money comes from</strong> and how fast the system pays for itself.</p>
+
+    <div class="calc">
+      <!-- INPUTS -->
+      <div class="panel">
+        <p class="panel-title">Your store</p>
+
+        <div class="field">
+          <div class="field-top">
+            <label for="in-rev">Monthly revenue</label>
+            <output id="out-rev"></output>
+          </div>
+          <input type="range" id="in-rev" min="0" max="1000" step="1" aria-label="Monthly revenue" />
+        </div>
+
+        <div class="field">
+          <div class="field-top">
+            <label for="in-aov">Average order value</label>
+            <output id="out-aov"></output>
+          </div>
+          <input type="range" id="in-aov" min="15" max="250" step="5" aria-label="Average order value" />
+        </div>
+
+        <div class="field">
+          <div class="field-top">
+            <label for="in-list">Email subscribers <span class="hint">Roughly. Klaviyo or Shopify shows this.</span></label>
+            <output id="out-list"></output>
+          </div>
+          <input type="range" id="in-list" min="0" max="1000" step="1" aria-label="Email subscribers" />
+        </div>
+
+        <div class="field">
+          <div class="field-top">
+            <label for="in-margin">Gross margin <span class="hint">What's left after product cost.</span></label>
+            <output id="out-margin"></output>
+          </div>
+          <input type="range" id="in-margin" min="20" max="85" step="5" aria-label="Gross margin" />
+        </div>
+
+        <div class="field">
+          <div class="field-top"><label>Your email today</label></div>
+          <div class="seg" role="group" aria-label="Your email today">
+            <button type="button" data-today="0">Nothing set up</button>
+            <button type="button" data-today="1">A few basic flows</button>
+            <button type="button" data-today="2">Flows + some campaigns</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-top">
+            <label for="in-spw">Targeted campaigns a week <span class="hint">Sent to engaged segments, not blasts.</span></label>
+            <output id="out-spw"></output>
+          </div>
+          <input type="range" id="in-spw" min="0" max="4" step="1" aria-label="Campaigns per week" />
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="panel results" aria-live="polite">
+        <p class="big-label">Extra revenue from email, every month</p>
+        <p class="big-num"><span id="r-month">+$0</span><small> /mo</small></p>
+
+        <div class="kpis">
+          <div class="kpi"><b id="r-year">$0</b><span>extra revenue in the first 12 months</span></div>
+          <div class="kpi"><b id="r-payback">0 days</b><span>to earn back <span data-price>£997</span> in profit</span></div>
+          <div class="kpi"><b id="r-profit">$0</b><span>extra gross profit in 12 months</span></div>
+          <div class="kpi"><b id="r-share">0%</b><span>of revenue from email after (was <span id="r-share-now">0%</span>)</span></div>
+        </div>
+
+        <p class="bd-title"><span>Email revenue with the system, per month</span><span>at full speed</span></p>
+        <div class="bd" id="breakdown"></div>
+
+        <div class="chart-wrap">
+          <div class="chart-head"><b>Extra profit vs. what you pay</b><span>first 12 months</span></div>
+          <svg id="chart" viewBox="0 0 520 190" role="img" aria-label="Cumulative extra profit over 12 months compared with the one-time cost"></svg>
+        </div>
+
+        <p class="lever" id="lever"></p>
+      </div>
+    </div>
+
+    <div class="calc-foot">
+      <a class="btn btn-light" href="#offer">Build this for my store <span class="chip">→</span></a>
+      <p class="fine">Estimates, not promises. Tap "How we calculate this" to see every assumption.</p>
+    </div>
+
+    <details class="assump">
+      <summary>How we calculate this</summary>
+      <div class="assump-body">
+        <p>We build the number flow by flow from your revenue, order value and list size. Every rate below is on the conservative side of what well-run Klaviyo stores see.</p>
+        <ul>
+          <li><b>Visitors:</b> worked back from your orders at a 1.8% store conversion rate.</li>
+          <li><b>Welcome series:</b> an optimised pop-up captures 2.5% of visitors, and 3% of new subscribers buy during the series.</li>
+          <li><b>Abandoned checkout:</b> about 1.2 checkouts are abandoned per order, 75% leave an email, and the flow wins back 6% of them.</li>
+          <li><b>Browse abandonment:</b> 2% of visits are known subscribers viewing products, and 1.5% of those come back and buy.</li>
+          <li><b>Post-purchase:</b> 3% of customers place an extra order they would not have placed otherwise.</li>
+          <li><b>Winback:</b> brings lapsed customers back, worth about 1.5% of monthly orders.</li>
+          <li><b>Campaigns:</b> each send to your engaged list earns about 0.12% of your order value per subscriber, with a haircut for every extra send per week so more is never free.</li>
+          <li><b>Your email today:</b> "Nothing" assumes Shopify's default abandoned cart email. "Basic flows" assumes 45% of what a full system earns. "Flows + campaigns" assumes 70%, plus one untargeted send a week. We only count the <b>difference</b>.</li>
+          <li><b>Timing:</b> month one runs at half speed while the system goes live. Your list grows each month from the better pop-up, less 1.5% churn.</li>
+        </ul>
+        <p>Your results depend on your product, your traffic and your offer. That's why the first thing we do is a revenue audit of your actual Klaviyo account.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- THE LEAKS / THE SYSTEM -->
+<section id="system">
+  <div class="wrap">
+    <p class="eyebrow">What we build</p>
+    <h2>Every place your store leaks money gets its own flow.</h2>
+    <p class="lede">You already paid to get these people to your store. Ads stop the moment you stop paying. <strong>These flows keep selling to the people you already reached, every day, without you touching them.</strong></p>
+
+    <div class="flows">
+      <div class="flow">
+        <p class="flow-leak">They sign up, then forget you</p>
+        <div><p class="flow-name">Welcome series</p><p class="flow-desc">Turns a new subscriber into a first order. Your story, your best sellers, a reason to buy now.</p></div>
+        <p class="flow-emails">5 emails</p>
+      </div>
+      <div class="flow">
+        <p class="flow-leak">They reach checkout, then leave</p>
+        <div><p class="flow-name">Abandoned checkout</p><p class="flow-desc">The highest-earning email you'll ever send. Timed reminders that answer the objection that stopped them.</p></div>
+        <p class="flow-emails">4 emails</p>
+      </div>
+      <div class="flow">
+        <p class="flow-leak">They browse, then bounce</p>
+        <div><p class="flow-name">Browse abandonment</p><p class="flow-desc">Shows known subscribers the exact products they looked at, while they still care.</p></div>
+        <p class="flow-emails">3 emails</p>
+      </div>
+      <div class="flow">
+        <p class="flow-leak">They buy once, never again</p>
+        <div><p class="flow-name">Post-purchase + thank you</p><p class="flow-desc">Makes the first order feel great, then sets up the second one with the right product at the right time.</p></div>
+        <p class="flow-emails">5 emails</p>
+      </div>
+      <div class="flow">
+        <p class="flow-leak">Good customers go quiet</p>
+        <div><p class="flow-name">Winback</p><p class="flow-desc">Brings lapsed customers back before they forget your name.</p></div>
+        <p class="flow-emails">4 emails</p>
+      </div>
+      <div class="flow">
+        <p class="flow-leak">Dead subscribers hurt your inbox rate</p>
+        <div><p class="flow-name">Sunset + re-engagement</p><p class="flow-desc">Wakes up the sleepers and cleans out the rest, so every campaign you send lands in the inbox.</p></div>
+        <p class="flow-emails">3 emails</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="wrap">
+    <p class="eyebrow">In their words</p>
+    <h2>Founders who let us build their system.</h2>
+    <div class="testi-scroll">
+      <div class="testi">
+        <div class="testi-vid"><iframe src="https://fast.wistia.com/embed/iframe/vozqi9zd59?playsinline=true&videoFoam=false" title="Bijou Cat testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+        <p class="testi-result">Made it all back in week one. Profit every day since.</p>
+        <p class="testi-name">Bijou Cat, luxury collars</p>
+      </div>
+      <div class="testi">
+        <div class="testi-vid"><iframe src="https://fast.wistia.com/embed/iframe/v12houl57j?playsinline=true&videoFoam=false" title="Aman testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+        <p class="testi-result">$200k+ generated with email alone.</p>
+        <p class="testi-name">Aman</p>
+      </div>
+      <div class="testi">
+        <div class="testi-vid"><iframe src="https://fast.wistia.com/embed/iframe/jbfubarxpf?playsinline=true&videoFoam=false" title="MyOJI testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+        <p class="testi-result">40%+ returning customers, month on month.</p>
+        <p class="testi-name">Zubash, co-founder, MyOJI</p>
+      </div>
+      <div class="testi">
+        <div class="testi-vid"><iframe src="https://fast.wistia.com/embed/iframe/me9fxu0nyi?playsinline=true&videoFoam=false" title="VT Fight Gear testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+        <p class="testi-result">Repeat purchases on autopilot.</p>
+        <p class="testi-name">Essa, founder and CEO, VT Fight Gear</p>
+      </div>
+    </div>
+    <p class="fine swipe-hint">Swipe for more →</p>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section id="offer">
+  <div class="wrap">
+    <p class="eyebrow">The offer</p>
+    <h2>The 14-Day Retention System.</h2>
+    <p class="lede" style="margin-bottom:36px;">Built, written, designed and installed inside your Klaviyo. You approve. You never write a word or touch a setting.</p>
+
+    <div class="offer-grid">
+      <ul class="inc">
+        <li><b>Klaviyo revenue audit</b><span>We find where your store is leaking money before we write a single email.</span></li>
+        <li><b>6 core flows, 24 custom emails</b><span>Welcome, abandoned checkout, browse, post-purchase, winback and sunset. Copy and design made for your brand. No templates, no generic AI copy.</span></li>
+        <li><b>Full Klaviyo build</b><span>We install everything inside your account and switch it on. No files and good luck.</span></li>
+        <li><b>Pop-up rebuilt to grow your list</b><span>More subscribers going into the system every day.</span></li>
+        <li><b>QA on every trigger, link and device</b><span>Nothing goes live until it works.</span></li>
+        <li><b>Launch walkthrough</b><span>We show you what we built and how each flow makes you money.</span></li>
+        <li><b>Direct WhatsApp line</b><span>Message the people building your system. No tickets.</span></li>
+        <li><b>Muslim-brand know-how</b><span>Ramadan, Eid, halal, modesty. We don't need to Google any of it.</span></li>
+      </ul>
+
+      <div class="price-card">
+        <div class="price-top"><b>One payment</b><span class="slots">3 builds a month</span></div>
+        <p class="price"><span data-price>£997</span><small>once</small></p>
+        <p class="price-sub">No retainer. No contract. <b>You own the system forever.</b></p>
+        <table class="vs">
+          <tr class="us"><td>Abu Ecom system</td><td><span data-price>£997</span> once</td></tr>
+          <tr><td class="m">Email agency retainer</td><td class="m"><span data-cur>£</span>2,000+ /mo</td></tr>
+          <tr><td class="m">In-house email marketer</td><td class="m"><span data-cur>£</span>50k+ /yr</td></tr>
+          <tr><td class="m">Doing it yourself</td><td class="m">Months of evenings</td></tr>
+        </table>
+        <a class="btn btn-primary btn-block" data-buy href="https://buy.stripe.com/aFa14nam50X7bPWbsB5ZC0k">Start my build <span class="chip">→</span></a>
+        <a class="btn btn-outline btn-block" href="https://cal.com/abuecom/30min">Not sure? Book a free call</a>
+        <p class="fine">Secure checkout by Stripe. Onboarding starts the same day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <p class="eyebrow">After you start</p>
+    <h2>Live in 14 days. Here's exactly how.</h2>
+    <div class="tl">
+      <div class="tl-step"><p class="tl-days">Days 1–2</p><div><p class="tl-what">Audit and plan</p><p class="tl-desc">We dig into your Klaviyo and store data and map the flows.</p></div></div>
+      <div class="tl-step"><p class="tl-days">Days 3–8</p><div><p class="tl-what">Write and design</p><p class="tl-desc">24 emails in your voice. You review and approve.</p></div></div>
+      <div class="tl-step"><p class="tl-days">Days 9–12</p><div><p class="tl-what">Build in Klaviyo</p><p class="tl-desc">Flows, triggers, segments and your new pop-up.</p></div></div>
+      <div class="tl-step"><p class="tl-days">Days 13–14</p><div><p class="tl-what">Test and launch</p><p class="tl-desc">Full QA, switch on, then your walkthrough call.</p></div></div>
+    </div>
+    <p class="you-do"><b>Your part: about 20 minutes.</b> A short onboarding form, Klaviyo access and your brand assets. Not on Klaviyo yet? We set it up for you.</p>
+  </div>
+</section>
+
+<!-- FIT -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <p class="eyebrow">Is this for you?</p>
+    <h2>We say no to brands we can't help.</h2>
+    <div class="fit">
+      <div class="fit-col fit-yes">
+        <h3>A great fit if you</h3>
+        <ul>
+          <li>Run a Shopify store that's already making sales</li>
+          <li>Get steady traffic from ads, social or search</li>
+          <li>Have no flows, or flows you set up years ago</li>
+          <li>Sell halal food, modest fashion, Islamic books, gifts or anything your Muslim customers love</li>
+          <li>Want an asset you own, not another monthly bill</li>
+        </ul>
+      </div>
+      <div class="fit-col fit-no">
+        <h3>Not a fit if you</h3>
+        <ul>
+          <li>Haven't made your first sales yet</li>
+          <li>Want someone to fix your product or your ads</li>
+          <li>Expect email to replace having traffic</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding-top:0;">
+  <div class="narrow" style="max-width:820px;">
+    <p class="eyebrow">Questions</p>
+    <h2>Straight answers.</h2>
+    <div class="faq">
+      <details>
+        <summary>Are the calculator numbers real?</summary>
+        <p>They're an estimate built from conservative rates, and every assumption is listed under the calculator. Your real numbers depend on your product, traffic and offer. The audit on day one tells us exactly what your store can do, and we'll be straight with you about it.</p>
+      </details>
+      <details>
+        <summary>What if I'm not on Klaviyo?</summary>
+        <p>We set Klaviyo up from scratch and move over anything you already have. Klaviyo is free until your list grows, so there's usually no extra cost to start.</p>
+      </details>
+      <details>
+        <summary>Do I need a big list?</summary>
+        <p>No. If you're getting traffic and making sales, the flows start working straight away, recovering checkouts and turning new subscribers into buyers. The new pop-up grows your list from day one.</p>
+      </details>
+      <details>
+        <summary>Does it include weekly campaigns?</summary>
+        <p>The build covers your automated flows, which run forever without anyone touching them. Campaigns are the emails you send to your list each week. You can send them yourself, or we can manage them as an optional add-on. The calculator shows both so you can see what each is worth.</p>
+      </details>
+      <details>
+        <summary>What happens after the 14 days?</summary>
+        <p>The system is yours. Every flow keeps running with no monthly fee. Ongoing help is optional, never required.</p>
+      </details>
+      <details>
+        <summary>Can I pay in instalments?</summary>
+        <p>We keep it to one payment of <span data-price>£997</span>. For a store already making sales it tends to pay for itself fast, and the calculator above shows how fast for yours. If the timing isn't right, book a free call and we'll tell you honestly whether to start now or wait.</p>
+      </details>
+      <details>
+        <summary>What platforms do you work with?</summary>
+        <p>Klaviyo on Shopify, the strongest setup for ecommerce email. On something else? Book a call and we'll tell you honestly if we're the right fit.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="work" style="padding-top:0;">
+  <div class="wrap">
+    <p class="eyebrow">Our work</p>
+    <h2>Real emails we've built for Muslim brands.</h2>
+  </div>
+  <div class="work-strip">
+    <img loading="lazy" src="/emails/5-pillars.jpg" alt="5 Pillars email" />
+    <img loading="lazy" src="/emails/boxed-halal.jpg" alt="Boxed Halal email" />
+    <img loading="lazy" src="/emails/darassalam.jpg" alt="Darussalam email" />
+    <img loading="lazy" src="/emails/kube-publishing.jpg" alt="Kube Publishing email" />
+    <img loading="lazy" src="/emails/cave-london.jpg" alt="Cave London email" />
+    <img loading="lazy" src="/emails/huraya.jpg" alt="Huraya email" />
+    <img loading="lazy" src="/emails/teapressa.jpg" alt="Teapressa email" />
+    <img loading="lazy" src="/emails/noor.jpg" alt="Noor email" />
+    <img loading="lazy" src="/emails/lala-and-mo.jpg" alt="Lala and Mo email" />
+    <img loading="lazy" src="/emails/mama-yasmin.jpg" alt="Mama Yasmin email" />
+    <img loading="lazy" src="/emails/one-stop-halal.jpg" alt="One Stop Halal email" />
+    <img loading="lazy" src="/emails/desi-dolls.jpg" alt="Desi Dolls email" />
+    <img loading="lazy" src="/emails/hallal-meals.jpg" alt="Hallal Meals email" />
+    <img loading="lazy" src="/emails/bsst.jpg" alt="BSST email" />
+    <img loading="lazy" src="/emails/irontfit.jpg" alt="IrontFit email" />
+    <img loading="lazy" src="/emails/osu.jpg" alt="OSU email" />
+    <img loading="lazy" src="/emails/roohts.jpg" alt="Roohts email" />
+    <img loading="lazy" src="/emails/simba.jpg" alt="Simba email" />
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <h2>Build it once. Get paid every day.</h2>
+    <p class="lede">Your system, live in 14 days. One payment of <span data-price>£997</span>, and it keeps selling long after.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" data-buy href="https://buy.stripe.com/aFa14nam50X7bPWbsB5ZC0k">Start my build <span class="chip">→</span></a>
+      <a class="btn btn-outline" href="https://cal.com/abuecom/30min">Book a free call</a>
+    </div>
+    <p class="fine hero-note">3 builds a month. When they're gone, they're gone.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Abu Ecom</span>
+    <a href="/privacy-policy">Privacy policy</a>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <p class="sticky-txt"><b><span data-price>£997</span> once</b>Live in 14 days</p>
+  <a data-buy href="https://buy.stripe.com/aFa14nam50X7bPWbsB5ZC0k">Start my build</a>
+</div>
+
+<script>
+(function () {
+  var CUR = document.body.dataset.cur || '$';
+  var PRICE = 997;
+
+  // ── Sliders: log scale for revenue and list size ──
+  var el = function (id) { return document.getElementById(id); };
+  var inRev = el('in-rev'), inAov = el('in-aov'), inList = el('in-list'), inMargin = el('in-margin'), inSpw = el('in-spw');
+  var REV_MIN = 2000, REV_MAX = 500000, LIST_MIN = 200, LIST_MAX = 200000;
+  var fromLog = function (v, lo, hi) { return lo * Math.pow(hi / lo, v / 1000); };
+  var toLog = function (x, lo, hi) { return Math.round(1000 * Math.log(x / lo) / Math.log(hi / lo)); };
+  var nice = function (x) {
+    var m = x < 10000 ? 500 : x < 50000 ? 1000 : x < 200000 ? 5000 : 10000;
+    return Math.round(x / m) * m;
+  };
+  var niceList = function (x) {
+    var m = x < 2000 ? 100 : x < 10000 ? 250 : x < 50000 ? 1000 : 5000;
+    return Math.round(x / m) * m;
+  };
+
+  var state = { today: 0 };
+  inRev.value = toLog(20000, REV_MIN, REV_MAX);
+  inAov.value = 55;
+  inList.value = toLog(3000, LIST_MIN, LIST_MAX);
+  inMargin.value = 60;
+  inSpw.value = 2;
+
+  var money = function (x) {
+    var r = Math.round(x);
+    return CUR + r.toLocaleString('en-GB');
+  };
+  var moneyShort = function (x) {
+    if (Math.abs(x) >= 1000000) return CUR + (x / 1000000).toFixed(1).replace(/\.0$/, '') + 'm';
+    if (Math.abs(x) >= 10000) return CUR + Math.round(x / 1000) + 'k';
+    return money(x);
+  };
+
+  // ── Model ──
+  // Current state: share of full-system flow revenue already earned, campaigns/week, campaign quality.
+  var TODAY = [
+    { flows: 0.15, spw: 0, quality: 0.6 },
+    { flows: 0.45, spw: 0.25, quality: 0.6 },
+    { flows: 0.70, spw: 1, quality: 0.6 }
+  ];
+  var CVR = 0.018, POPUP_NEW = 0.025, POPUP_OLD = 0.012, CHURN = 0.015;
+
+  function campaignPerSend(spw) {
+    // Diminishing returns: each extra weekly send earns a little less per send.
+    return spw <= 0 ? 0 : 1 / (1 + 0.12 * (spw - 1));
+  }
+
+  function flowsFor(orders, aov) {
+    var visitors = orders / CVR;
+    return [
+      { key: 'Welcome series', v: visitors * POPUP_NEW * 0.03 * aov },
+      { key: 'Abandoned checkout', v: orders * 1.2 * 0.75 * 0.06 * aov },
+      { key: 'Browse abandonment', v: visitors * 0.02 * 0.015 * aov },
+      { key: 'Post-purchase', v: orders * 0.03 * aov },
+      { key: 'Winback', v: orders * 0.015 * aov }
+    ];
+  }
+
+  function campaignRev(list, spw, aov, quality) {
+    var rpr = aov * 0.0012 * quality; // revenue per recipient per send
+    return list * spw * 4.33 * rpr * campaignPerSend(spw);
+  }
+
+  function compute() {
+    var rev = nice(fromLog(+inRev.value, REV_MIN, REV_MAX));
+    var aov = +inAov.value;
+    var list0 = niceList(fromLog(+inList.value, LIST_MIN, LIST_MAX));
+    var margin = +inMargin.value / 100;
+    var spw = +inSpw.value;
+    var t = TODAY[state.today];
+
+    var orders = rev / aov;
+    var visitors = orders / CVR;
+    var flows = flowsFor(orders, aov);
+    var flowFull = flows.reduce(function (s, f) { return s + f.v; }, 0);
+
+    // Month-by-month for 12 months, lists grow at different rates with and without the system.
+    var listNew = list0, listOld = list0, cum = 0, cumProfit = 0, series = [], paybackDay = null, month1 = 0, steady = 0;
+    for (var m = 1; m <= 12; m++) {
+      var ramp = m === 1 ? 0.5 : 1;
+      var withSys = flowFull * ramp + campaignRev(listNew, spw, aov, 1) * ramp + campaignRev(listOld, t.spw, aov, t.quality) * (1 - ramp);
+      var without = flowFull * t.flows + campaignRev(listOld, t.spw, aov, t.quality);
+      var extra = Math.max(0, withSys - without);
+      var profit = extra * margin;
+      if (paybackDay === null && cumProfit + profit >= PRICE) {
+        paybackDay = Math.max(1, Math.ceil((m - 1) * 30 + 30 * (PRICE - cumProfit) / Math.max(profit, 0.01)));
+      }
+      cum += extra; cumProfit += profit;
+      series.push(cumProfit);
+      if (m === 1) month1 = extra;
+      if (m === 3) steady = extra;
+      listNew = listNew * (1 - CHURN) + visitors * POPUP_NEW;
+      listOld = listOld * (1 - CHURN) + visitors * POPUP_OLD;
+    }
+
+    var campNow = campaignRev(list0, spw, aov, 1);
+    var campOld = campaignRev(list0, t.spw, aov, t.quality);
+    var monthExtra = Math.max(0, flowFull + campNow - flowFull * t.flows - campOld);
+    var shareNow = (flowFull * t.flows + campOld) / rev;
+    var shareAfter = (flowFull + campNow) / rev;
+
+    // What does +1 campaign a week add?
+    var nextSpw = spw < 4 ? spw + 1 : null;
+    var leverDelta = nextSpw !== null ? campaignRev(list0, nextSpw, aov, 1) - campNow : 0;
+
+    return {
+      rev: rev, aov: aov, list: list0, margin: margin, spw: spw,
+      flows: flows, flowFull: flowFull, campNow: campNow,
+      monthExtra: monthExtra, year: cum, yearProfit: cumProfit, series: series,
+      payback: paybackDay, shareNow: shareNow, shareAfter: shareAfter,
+      nextSpw: nextSpw, leverDelta: leverDelta
+    };
+  }
+
+  // ── Render ──
+  function pct(el) {
+    var p = (el.value - el.min) / (el.max - el.min) * 100;
+    el.style.setProperty('--p', p + '%');
+  }
+
+  function drawChart(series) {
+    var svg = el('chart');
+    var W = 520, H = 190, L = 44, R = 10, T = 12, B = 26;
+    var max = Math.max(PRICE * 1.4, series[series.length - 1]);
+    var x = function (i) { return L + (W - L - R) * (i / 12); };
+    var y = function (v) { return T + (H - T - B) * (1 - v / max); };
+    var pts = [[x(0), y(0)]].concat(series.map(function (v, i) { return [x(i + 1), y(v)]; }));
+    var line = pts.map(function (p, i) { return (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1); }).join(' ');
+    var area = line + ' L' + x(12) + ' ' + y(0) + ' L' + x(0) + ' ' + y(0) + ' Z';
+    var ticks = [0, max / 2, max].map(function (v) {
+      return '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="#2E2C29" stroke-width="1"/>' +
+             '<text x="' + (L - 8) + '" y="' + (y(v) + 4) + '" text-anchor="end">' + moneyShort(v) + '</text>';
+    }).join('');
+    var months = [1, 3, 6, 9, 12].map(function (m) {
+      return '<text x="' + x(m) + '" y="' + (H - 6) + '" text-anchor="middle">M' + m + '</text>';
+    }).join('');
+    var costY = y(PRICE);
+    svg.innerHTML = ticks + months +
+      '<path d="' + area + '" fill="oklch(72% 0.18 75 / 0.16)"/>' +
+      '<path d="' + line + '" fill="none" stroke="oklch(72% 0.18 75)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>' +
+      '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + costY + '" y2="' + costY + '" stroke="#fff" stroke-width="1.5" stroke-dasharray="5 5"/>' +
+      '<text x="' + (W - R) + '" y="' + (costY - 7) + '" text-anchor="end" style="fill:#fff;font-weight:600">' + money(PRICE) + ' one-time cost</text>' +
+      '<circle cx="' + x(12) + '" cy="' + y(series[11]) + '" r="4.5" fill="oklch(72% 0.18 75)"/>';
+  }
+
+  function render() {
+    [inRev, inAov, inList, inMargin, inSpw].forEach(pct);
+    var r = compute();
+    el('out-rev').textContent = money(r.rev);
+    el('out-aov').textContent = money(r.aov);
+    el('out-list').textContent = r.list.toLocaleString('en-GB');
+    el('out-margin').textContent = Math.round(r.margin * 100) + '%';
+    el('out-spw').textContent = r.spw === 0 ? 'None' : r.spw + (r.spw === 1 ? ' send' : ' sends');
+
+    el('r-month').textContent = '+' + money(r.monthExtra);
+    el('r-year').textContent = moneyShort(r.year);
+    el('r-profit').textContent = moneyShort(r.yearProfit);
+    el('r-payback').textContent = r.payback === null ? '12+ months' : r.payback + (r.payback === 1 ? ' day' : ' days');
+    el('r-share').textContent = Math.round(r.shareAfter * 100) + '%';
+    el('r-share-now').textContent = Math.round(r.shareNow * 100) + '%';
+
+    var rows = r.flows.map(function (f) { return { name: f.key, v: f.v, camp: false }; });
+    rows.push({ name: 'Campaigns', note: r.spw ? r.spw + '/wk, you or us' : 'off', v: r.campNow, camp: true });
+    var top = Math.max.apply(null, rows.map(function (x) { return x.v; })) || 1;
+    el('breakdown').innerHTML = rows.map(function (x) {
+      return '<div class="bd-row' + (x.camp ? ' camp' : '') + '"><span class="bd-name">' + x.name + (x.note ? '<em>' + x.note + '</em>' : '') +
+        '</span><span class="bd-val">' + money(x.v) + '</span><span class="bd-bar"><i style="width:' + (100 * x.v / top).toFixed(1) + '%"></i></span></div>';
+    }).join('');
+
+    drawChart(r.series);
+
+    el('lever').innerHTML = r.nextSpw !== null
+      ? 'Sending <b>' + r.nextSpw + '</b> targeted campaign' + (r.nextSpw > 1 ? 's' : '') + ' a week instead of ' + r.spw + ' would add about <b>' + money(r.leverDelta) + '/mo</b> more at your list size. The bigger your list, the more each send is worth.'
+      : 'At 4 sends a week you\'re near the ceiling. Past this, more emails mostly means more unsubscribes. Better targeting beats more volume.';
+
+    document.querySelectorAll('.seg button').forEach(function (b) {
+      b.setAttribute('aria-pressed', +b.dataset.today === state.today ? 'true' : 'false');
+    });
+  }
+
+  [inRev, inAov, inList, inMargin, inSpw].forEach(function (i) { i.addEventListener('input', render); });
+  document.querySelectorAll('.seg button').forEach(function (b) {
+    b.addEventListener('click', function () { state.today = +b.dataset.today; render(); });
+  });
+  render();
+
+  // ── Sticky mobile CTA: show after the hero, hide over the price card ──
+  var sticky = el('sticky'), hero = document.querySelector('.hero'), offer = document.querySelector('.price-card');
+  if ('IntersectionObserver' in window) {
+    var heroGone = false, offerVisible = false;
+    var upd = function () { sticky.classList.toggle('show', heroGone && !offerVisible); };
+    new IntersectionObserver(function (e) { heroGone = !e[0].isIntersecting; upd(); }).observe(hero);
+    new IntersectionObserver(function (e) { offerVisible = e[0].isIntersecting; upd(); }).observe(offer);
+  }
+
+  document.addEventListener('contextmenu', function (e) { if (e.target.tagName === 'IMG') e.preventDefault(); });
+  document.addEventListener('dragstart', function (e) { if (e.target.tagName === 'IMG') e.preventDefault(); });
+})();
+</script>
+</body>
+</html>
