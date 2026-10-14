@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Marketing ROI | Abu Ecom</title>
+  <meta name="description" content="See what email marketing is worth to your store, and what you get back for every pound or dollar you spend on it." />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --text: #111111;
+      --muted: #5C5A56;
+      --faint: #8A8782;
+      --grid: #E2E3E3;
+      --head: #F8F9FA;
+      --head-text: #5F6368;
+      --input-bg: #FFF8E1;
+      --input-text: #1A57D6;
+      --win-bg: #E6F4EA;
+      --win-text: #137333;
+      --win-strong: #0D652D;
+      --section: #F1F3F4;
+    }
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var(--text); -webkit-font-smoothing: antialiased; letter-spacing: -0.01em; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+    .nav img { width: 44px; height: 44px; display: block; }
+    .nav a.link { font-size: 14px; font-weight: 600; color: var(--muted); text-decoration: none; }
+
+    h1 { font-size: clamp(30px, 7vw, 46px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.06; margin: 20px 0 12px; }
+    h1 .win { color: var(--win-text); white-space: nowrap; }
+    .lede { font-size: 16px; color: var(--muted); margin-bottom: 26px; line-height: 1.55; }
+    .lede b { color: var(--text); }
+
+    /* ── Spreadsheet ── */
+    .sheet { border: 1px solid #DADCE0; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 3px rgb(60 64 67 / 0.12); margin-bottom: 24px; }
+    .bar { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #fff; border-bottom: 1px solid var(--grid); }
+    .bar-icon { width: 20px; height: 24px; border-radius: 3px; background: #188038; position: relative; flex-shrink: 0; }
+    .bar-icon::after { content: ''; position: absolute; left: 4px; right: 4px; top: 8px; height: 10px; border: 1.5px solid #fff; border-radius: 1px; background: linear-gradient(#fff, #fff) center / 100% 1.5px no-repeat, linear-gradient(#fff, #fff) center / 1.5px 100% no-repeat; }
+    .bar-title { font: 400 16px 'Roboto', sans-serif; color: #202124; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+    .fx { display: flex; align-items: center; gap: 10px; padding: 6px 12px; border-bottom: 1px solid var(--grid); font: 400 13px 'Roboto', sans-serif; color: var(--head-text); background: #fff; }
+    .fx i { font-style: italic; font-weight: 500; color: #9AA0A6; }
+
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; font: 400 15px 'Roboto', sans-serif; color: #202124; font-variant-numeric: tabular-nums; }
+    col.rn { width: 34px; }
+    col.c2, col.c3 { width: 28%; }
+    @media (min-width: 600px) { col.c2, col.c3 { width: 25%; } }
+    th, td { border-right: 1px solid var(--grid); border-bottom: 1px solid var(--grid); height: 40px; padding: 0 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    td:last-child, th:last-child { border-right: 0; }
+    thead th { background: var(--head); color: var(--head-text); font-weight: 500; font-size: 12px; height: 26px; text-align: center; }
+    td.rn { background: var(--head); color: var(--head-text); font-size: 12px; text-align: center; padding: 0; }
+    td.num { text-align: right; }
+    td.lbl { white-space: normal; line-height: 1.25; }
+    @media (max-width: 420px) { table { font-size: 14px; } th, td { padding: 0 7px; } }
+    tr.sec td:not(.rn) { background: var(--section); font-weight: 700; font-size: 12px; letter-spacing: 0.04em; color: var(--head-text); }
+    tr.sec td.num { text-align: right; white-space: normal; line-height: 1.2; }
+    tr.blank td:not(.rn) { height: 14px; }
+    tr.blank td { height: 14px; }
+
+    td.in { background: var(--input-bg); padding: 0; position: relative; }
+    td.in:focus-within { outline: 2px solid #1A73E8; outline-offset: -2px; }
+    td.in input {
+      width: 100%; height: 40px; border: 0; background: transparent; outline: none;
+      font: 700 16px 'Roboto', sans-serif; color: var(--input-text); text-align: right; padding: 0 10px;
+      font-variant-numeric: tabular-nums;
+    }
+    td.in .pre { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--input-text); font-weight: 700; pointer-events: none; }
+    .tag-edit { font-size: 11px; font-weight: 500; color: var(--input-text); margin-left: 6px; }
+
+    tr.sum td:not(.rn) { font-weight: 700; }
+    tr.win td:not(.rn) { background: var(--win-bg); color: var(--win-text); font-weight: 700; }
+    tr.big td:not(.rn) { background: var(--win-bg); color: var(--win-strong); font-weight: 700; height: 56px; }
+    tr.big td.num { font-size: 22px; }
+    @media (min-width: 600px) { tr.big td.num { font-size: 26px; } }
+
+    /* ── CTA ── */
+    .cta { display: grid; gap: 10px; margin-bottom: 12px; }
+    @media (min-width: 600px) { .cta { grid-template-columns: 1.4fr 1fr; } }
+    .btn { display: flex; align-items: center; justify-content: center; height: 58px; border-radius: 16px; font: 700 16px 'Inter', sans-serif; text-decoration: none; transition: opacity 140ms ease-out; }
+    .btn:hover { opacity: 0.86; }
+    .btn-primary { background: var(--text); color: #fff; }
+    .btn-outline { border: 1.5px solid #E8E6E2; color: var(--text); }
+    .cur { margin-left: auto; height: 32px; padding: 0 28px 0 10px; border: 1px solid #DADCE0; border-radius: 6px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235F6368'/%3E%3C/svg%3E") no-repeat right 10px center; -webkit-appearance: none; appearance: none; font: 500 14px 'Roboto', sans-serif; color: #202124; cursor: pointer; }
+    .fine { font-size: 13px; color: var(--faint); text-align: center; }
+    .note { font-size: 13px; color: var(--faint); margin: 36px 0 48px; line-height: 1.6; }
+    td.neg { color: #C5221F !important; }
+    h1 .pay { white-space: nowrap; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="/"><img src="/logo.png" alt="Abu Ecom" /></a>
+      <a class="link" href="https://cal.com/abuecom/30min">Book a call →</a>
+    </nav>
+
+    <h1>Pay <span class="pay" id="h-fee">$0</span> a month. Get <span class="win" id="h-rev">$0</span> back.</h1>
+    <p class="lede">Email is the one channel where you already own the audience. Change the <b>yellow cells</b> to your numbers and see what it's worth.</p>
+
+    <div class="sheet">
+      <div class="bar"><span class="bar-icon" aria-hidden="true"></span><span class="bar-title">Email Marketing ROI</span><select id="cur" class="cur" aria-label="Currency"><option value="USD">$ USD</option><option value="GBP">£ GBP</option><option value="EUR">€ EUR</option><option value="CAD">CA$ CAD</option><option value="AUD">A$ AUD</option><option value="AED">AED</option></select></div>
+      <div class="fx"><i>fx</i><span>= Emails sent × Open rate × Click rate × Buy rate × Order value</span></div>
+      <table>
+        <colgroup><col class="rn" /><col /><col class="c2" /><col class="c3" /></colgroup>
+        <thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead>
+        <tbody>
+          <tr class="sec"><td class="rn">1</td><td colspan="3">YOUR NUMBERS</td></tr>
+          <tr><td class="rn">2</td><td class="lbl">Email list size <span class="tag-edit">edit</span></td><td class="in" colspan="2"><input id="list" inputmode="numeric" value="10,000" aria-label="Email list size" /></td></tr>
+          <tr><td class="rn">3</td><td class="lbl">Average order value <span class="tag-edit">edit</span></td><td class="in" colspan="2"><span class="pre sym">$</span><input id="aov" inputmode="numeric" value="60" aria-label="Average order value" /></td></tr>
+          <tr><td class="rn">4</td><td class="lbl">Emails sent a week <span class="tag-edit">edit</span></td><td class="in" colspan="2"><input id="spw" inputmode="numeric" value="3" aria-label="Emails sent a week" /></td></tr>
+          <tr class="blank"><td class="rn">5</td><td colspan="3"></td></tr>
+          <tr class="sec"><td class="rn">6</td><td>THE MATHS</td><td class="num">AVERAGE</td><td class="num">TOP BRANDS</td></tr>
+          <tr><td class="rn">7</td><td class="lbl">Emails sent a month</td><td class="num" id="sent-a"></td><td class="num" id="sent-b"></td></tr>
+          <tr><td class="rn">8</td><td class="lbl">Open rate</td><td class="num">35%</td><td class="num">45%</td></tr>
+          <tr><td class="rn">9</td><td class="lbl">People who open</td><td class="num" id="open-a"></td><td class="num" id="open-b"></td></tr>
+          <tr><td class="rn">10</td><td class="lbl">Click rate</td><td class="num">4%</td><td class="num">6%</td></tr>
+          <tr><td class="rn">11</td><td class="lbl">People who click</td><td class="num" id="click-a"></td><td class="num" id="click-b"></td></tr>
+          <tr><td class="rn">12</td><td class="lbl">Buy rate</td><td class="num">5%</td><td class="num">8%</td></tr>
+          <tr class="sum"><td class="rn">13</td><td class="lbl">Orders a month</td><td class="num" id="ord-a"></td><td class="num" id="ord-b"></td></tr>
+          <tr class="win"><td class="rn">14</td><td class="lbl">Revenue a month</td><td class="num" id="mo-a"></td><td class="num" id="mo-b"></td></tr>
+          <tr class="blank"><td class="rn">15</td><td colspan="3"></td></tr>
+          <tr class="sec"><td class="rn">16</td><td colspan="3">WHAT YOU PAY</td></tr>
+          <tr><td class="rn">17</td><td class="lbl">You pay a month <span class="tag-edit">edit</span></td><td class="in" colspan="2"><span class="pre sym">$</span><input id="fee" inputmode="numeric" value="1,500" aria-label="Monthly fee" /></td></tr>
+          <tr><td class="rn">18</td><td class="lbl">Email brings in a month</td><td class="num" id="in-a"></td><td class="num" id="in-b"></td></tr>
+          <tr class="win"><td class="rn">19</td><td class="lbl">Left over after you pay</td><td class="num" id="left-a"></td><td class="num" id="left-b"></td></tr>
+          <tr class="sum"><td class="rn">20</td><td class="lbl">Every <span class="sym">$</span>1 you spend returns</td><td class="num" id="per-a"></td><td class="num" id="per-b"></td></tr>
+          <tr class="blank"><td class="rn">21</td><td colspan="3"></td></tr>
+          <tr class="sec"><td class="rn">22</td><td colspan="3">OVER A YEAR</td></tr>
+          <tr><td class="rn">23</td><td class="lbl">You pay</td><td class="num" id="ypay-a"></td><td class="num" id="ypay-b"></td></tr>
+          <tr><td class="rn">24</td><td class="lbl">Email brings in</td><td class="num" id="yin-a"></td><td class="num" id="yin-b"></td></tr>
+          <tr class="win"><td class="rn">25</td><td class="lbl">Left over after you pay</td><td class="num" id="yleft-a"></td><td class="num" id="yleft-b"></td></tr>
+          <tr class="big"><td class="rn">26</td><td class="lbl">Return on what you pay</td><td class="num" id="roi-a"></td><td class="num" id="roi-b"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cta">
+      <a class="btn btn-primary" href="https://cal.com/abuecom/30min">Book a free strategy call</a>
+      <a class="btn btn-outline" href="/">See our work</a>
+    </div>
+    <p class="fine">We'll go through your real numbers on the call.</p>
+
+    <p class="note">How it works: "Average" uses typical ecom email rates. "Top brands" is what well-run lists hit with targeted, well-written emails. Brands doing email properly make 30% to 45% of their revenue from it. These are estimates, not promises. Your results depend on your product, list and offer.</p>
+  </div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var CURS = { USD: '$', GBP: '£', EUR: '€', CAD: 'CA$', AUD: 'A$', AED: 'AED ' };
+  var SYM = '$';
+  var RATES = { a: { open: 0.35, click: 0.04, buy: 0.05 }, b: { open: 0.45, click: 0.06, buy: 0.08 } };
+
+  var num = function (s) { return Number(String(s).replace(/[^0-9.]/g, '')) || 0; };
+  var money = function (x) { var r = Math.round(x); return (r < 0 ? '-' : '') + SYM + Math.abs(r).toLocaleString('en-US'); };
+  var count = function (x) { return Math.round(x).toLocaleString('en-US'); };
+  var set = function (id, x) { var e = $(id); e.textContent = money(x); e.classList.toggle('neg', x < 0); };
+
+  function calc() {
+    var list = num($('list').value), aov = num($('aov').value), spw = Math.min(num($('spw').value), 14), fee = num($('fee').value);
+    var sent = list * spw * 4.33, mo = {};
+    ['a', 'b'].forEach(function (k) {
+      var r = RATES[k];
+      var opens = sent * r.open, clicks = opens * r.click, orders = clicks * r.buy, rev = orders * aov;
+      mo[k] = rev;
+      $('sent-' + k).textContent = count(sent);
+      $('open-' + k).textContent = count(opens);
+      $('click-' + k).textContent = count(clicks);
+      $('ord-' + k).textContent = count(orders);
+      set('mo-' + k, rev);
+      set('in-' + k, rev);
+      set('left-' + k, rev - fee);
+      $('per-' + k).textContent = fee > 0 ? SYM + (rev / fee).toFixed(2) : '–';
+      set('ypay-' + k, fee * 12);
+      set('yin-' + k, rev * 12);
+      set('yleft-' + k, (rev - fee) * 12);
+      $('roi-' + k).textContent = fee > 0 ? (rev / fee).toFixed(rev / fee < 10 ? 1 : 0) + 'x' : '–';
+    });
+    $('h-fee').textContent = money(fee);
+    $('h-rev').textContent = money(mo.a) + '–' + money(mo.b);
+  }
+
+  ['list', 'aov', 'spw', 'fee'].forEach(function (id) {
+    var el = $(id);
+    el.addEventListener('input', function () {
+      var raw = num(el.value);
+      el.value = raw ? raw.toLocaleString('en-US') : '';
+      calc();
+    });
+    el.addEventListener('focus', function () { el.select(); });
+  });
+
+  function setCur(code) {
+    SYM = CURS[code] || '$';
+    $('cur').value = code;
+    document.querySelectorAll('.sym').forEach(function (e) { e.textContent = SYM.trim(); });
+    try { localStorage.setItem('abu-cur', code); } catch (e) {}
+    calc();
+  }
+  $('cur').addEventListener('change', function () { setCur(this.value); });
+  var start = 'USD';
+  try {
+    var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    start = localStorage.getItem('abu-cur') ||
+      (/^Europe\/(London|Belfast)$/.test(tz) ? 'GBP' : /^Europe\//.test(tz) ? 'EUR' : /^Australia\//.test(tz) ? 'AUD' : /^Asia\/Dubai$/.test(tz) ? 'AED' : /^America\/(Toronto|Vancouver|Edmonton|Winnipeg|Halifax)$/.test(tz) ? 'CAD' : 'USD');
+  } catch (e) {}
+  setCur(CURS[start] ? start : 'USD');
+})();
+</script>
+</body>
+</html>

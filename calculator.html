@@ -43,7 +43,7 @@
     .bar { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #fff; border-bottom: 1px solid var(--grid); }
     .bar-icon { width: 20px; height: 24px; border-radius: 3px; background: #188038; position: relative; flex-shrink: 0; }
     .bar-icon::after { content: ''; position: absolute; left: 4px; right: 4px; top: 8px; height: 10px; border: 1.5px solid #fff; border-radius: 1px; background: linear-gradient(#fff, #fff) center / 100% 1.5px no-repeat, linear-gradient(#fff, #fff) center / 1.5px 100% no-repeat; }
-    .bar-title { font: 400 16px 'Roboto', sans-serif; color: #202124; }
+    .bar-title { font: 400 16px 'Roboto', sans-serif; color: #202124; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
     .fx { display: flex; align-items: center; gap: 10px; padding: 6px 12px; border-bottom: 1px solid var(--grid); font: 400 13px 'Roboto', sans-serif; color: var(--head-text); background: #fff; }
     .fx i { font-style: italic; font-weight: 500; color: #9AA0A6; }
 
@@ -86,6 +86,7 @@
     .btn:hover { opacity: 0.86; }
     .btn-primary { background: var(--text); color: #fff; }
     .btn-outline { border: 1.5px solid #E8E6E2; color: var(--text); }
+    .cur { margin-left: auto; height: 32px; padding: 0 28px 0 10px; border: 1px solid #DADCE0; border-radius: 6px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235F6368'/%3E%3C/svg%3E") no-repeat right 10px center; -webkit-appearance: none; appearance: none; font: 500 14px 'Roboto', sans-serif; color: #202124; cursor: pointer; }
     .fine { font-size: 13px; color: var(--faint); text-align: center; }
     .note { font-size: 13px; color: var(--faint); margin: 36px 0 48px; line-height: 1.6; }
   </style>
@@ -101,7 +102,7 @@
     <p class="lede">Change the <b>yellow cells</b> to your numbers. Everything else works itself out, the same way we model it for our clients.</p>
 
     <div class="sheet">
-      <div class="bar"><span class="bar-icon" aria-hidden="true"></span><span class="bar-title">Email Revenue Model</span></div>
+      <div class="bar"><span class="bar-icon" aria-hidden="true"></span><span class="bar-title">Email Revenue Model</span><select id="cur" class="cur" aria-label="Currency"><option value="USD">$ USD</option><option value="GBP">£ GBP</option></select></div>
       <div class="fx"><i>fx</i><span id="fx">= Emails sent × Open rate × Click rate × Buy rate × Order value</span></div>
       <table>
         <colgroup><col class="rn" /><col /><col class="c2" /><col class="c3" /></colgroup>
@@ -109,7 +110,7 @@
         <tbody>
           <tr class="sec"><td class="rn">1</td><td colspan="3">YOUR NUMBERS</td></tr>
           <tr><td class="rn">2</td><td class="lbl">Email list size <span class="tag-edit">edit</span></td><td class="in" colspan="2"><input id="list" inputmode="numeric" value="5,000" aria-label="Email list size" /></td></tr>
-          <tr><td class="rn">3</td><td class="lbl">Average order value <span class="tag-edit">edit</span></td><td class="in" colspan="2"><span class="pre">$</span><input id="aov" inputmode="numeric" value="50" aria-label="Average order value" /></td></tr>
+          <tr><td class="rn">3</td><td class="lbl">Average order value <span class="tag-edit">edit</span></td><td class="in" colspan="2"><span class="pre sym">$</span><input id="aov" inputmode="numeric" value="50" aria-label="Average order value" /></td></tr>
           <tr><td class="rn">4</td><td class="lbl">Emails sent a week <span class="tag-edit">edit</span></td><td class="in" colspan="2"><input id="spw" inputmode="numeric" value="3" aria-label="Emails sent a week" /></td></tr>
           <tr class="blank"><td class="rn">5</td><td colspan="3"></td></tr>
           <tr class="sec"><td class="rn">6</td><td>THE MATHS</td><td class="num">AVERAGE</td><td class="num">TOP BRANDS</td></tr>
@@ -124,15 +125,15 @@
           <tr class="blank"><td class="rn">15</td><td colspan="3"></td></tr>
           <tr class="sec"><td class="rn">16</td><td colspan="3">YOUR RETURN</td></tr>
           <tr class="win"><td class="rn">17</td><td class="lbl">Revenue a year</td><td class="num" id="yr-a"></td><td class="num" id="yr-b"></td></tr>
-          <tr><td class="rn">18</td><td class="lbl">Your investment</td><td class="num">$997</td><td class="num">$997</td></tr>
+          <tr><td class="rn">18</td><td class="lbl">Your investment</td><td class="num p997">$997</td><td class="num p997">$997</td></tr>
           <tr><td class="rn">19</td><td class="lbl">Pays itself back in</td><td class="num" id="pb-a"></td><td class="num" id="pb-b"></td></tr>
-          <tr class="big"><td class="rn">20</td><td class="lbl">Return on $997</td><td class="num" id="roi-a"></td><td class="num" id="roi-b"></td></tr>
+          <tr class="big"><td class="rn">20</td><td class="lbl">Return on <span class="p997">$997</span></td><td class="num" id="roi-a"></td><td class="num" id="roi-b"></td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="cta">
-      <a class="btn btn-primary" href="https://buy.stripe.com/00w3cvfGp21b2fm2W55ZC0g">Build my email system for $997</a>
+      <a class="btn btn-primary" id="buy" href="https://buy.stripe.com/00w3cvfGp21b2fm2W55ZC0g"><span>Build my email system for <span class="p997">$997</span></span></a>
       <a class="btn btn-outline" href="https://cal.com/abuecom/30min">Book a free call first</a>
     </div>
     <p class="fine">One payment. Live in 14 days. 3 builds a month.</p>
@@ -144,10 +145,15 @@
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var PRICE = 997;
+  var CURS = {
+    USD: { sym: '$', buy: 'https://buy.stripe.com/00w3cvfGp21b2fm2W55ZC0g' },
+    GBP: { sym: '£', buy: 'https://buy.stripe.com/aFa14nam50X7bPWbsB5ZC0k' }
+  };
+  var SYM = '$';
   var RATES = { a: { open: 0.35, click: 0.04, buy: 0.05 }, b: { open: 0.45, click: 0.06, buy: 0.08 } };
 
   var num = function (s) { return Number(String(s).replace(/[^0-9.]/g, '')) || 0; };
-  var money = function (x) { return '$' + Math.round(x).toLocaleString('en-US'); };
+  var money = function (x) { return SYM + Math.round(x).toLocaleString('en-US'); };
   var count = function (x) { return Math.round(x).toLocaleString('en-US'); };
 
   function calc() {
@@ -168,7 +174,7 @@
       $('pb-' + k).textContent = days === null ? '–' : days > 365 ? '1 year+' : days + (days === 1 ? ' day' : ' days');
       $('roi-' + k).textContent = rev > 0 ? Math.round(rev * 12 / PRICE).toLocaleString('en-US') + 'x' : '–';
     });
-    $('h-month').textContent = mo.a > 0 ? money(mo.a) + '–' + money(mo.b) : '$0';
+    $('h-month').textContent = mo.a > 0 ? money(mo.a) + '–' + money(mo.b) : SYM + '0';
   }
 
   ['list', 'aov', 'spw'].forEach(function (id) {
@@ -180,7 +186,22 @@
     });
     el.addEventListener('focus', function () { el.select(); });
   });
-  calc();
+  function setCur(code) {
+    var c = CURS[code] || CURS.USD;
+    SYM = c.sym;
+    $('cur').value = code;
+    document.querySelectorAll('.sym').forEach(function (e) { e.textContent = SYM; });
+    document.querySelectorAll('.p997').forEach(function (e) { e.textContent = SYM + '997'; });
+    $('buy').href = c.buy;
+    try { localStorage.setItem('abu-cur', code); } catch (e) {}
+    calc();
+  }
+  $('cur').addEventListener('change', function () { setCur(this.value); });
+  var start = 'USD';
+  try {
+    start = localStorage.getItem('abu-cur') || (/^Europe\/(London|Belfast)$/.test(Intl.DateTimeFormat().resolvedOptions().timeZone) ? 'GBP' : 'USD');
+  } catch (e) {}
+  setCur(CURS[start] ? start : 'USD');
 })();
 </script>
 </body>
