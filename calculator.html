@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Revenue Calculator | Abu Ecom</title>
+  <meta name="description" content="Put in your list size, order value and monthly revenue. See how much your store should be making from email." />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #FFFFFF;
+      --surface: #F6F5F3;
+      --border: #E8E6E2;
+      --text: #111111;
+      --muted: #5C5A56;
+      --faint: #8A8782;
+      --accent: oklch(72% 0.18 75);
+      --accent-ink: oklch(52% 0.14 70);
+      --accent-soft: oklch(72% 0.18 75 / 0.14);
+    }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text);
+      letter-spacing: -0.01em; line-height: 1.5; -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 0 20px; }
+
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+    .nav img { width: 44px; height: 44px; display: block; }
+    .nav a.link { font-size: 14px; font-weight: 600; color: var(--muted); text-decoration: none; }
+
+    h1 { font-size: clamp(34px, 8vw, 52px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.04; margin: 24px 0 14px; }
+    .lede { font-size: 17px; color: var(--muted); margin-bottom: 32px; }
+
+    /* Inputs */
+    .inputs { display: grid; gap: 12px; margin-bottom: 28px; }
+    .in {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      background: var(--surface); border: 1.5px solid transparent; border-radius: 14px; padding: 14px 16px;
+      cursor: text;
+    }
+    .in:focus-within { border-color: var(--text); background: #fff; }
+    .in-label { font-size: 15px; font-weight: 700; }
+    .in-label small { display: block; font-size: 13px; font-weight: 500; color: var(--muted); }
+    .in-box { display: flex; align-items: center; gap: 2px; font-size: 22px; font-weight: 800; }
+    .in-box span { color: var(--faint); }
+    .in input {
+      width: 6ch; min-width: 2ch; max-width: 11ch; border: 0; background: transparent; outline: none; text-align: right;
+      font: 800 22px 'Inter', sans-serif; letter-spacing: -0.02em; color: var(--text);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Result */
+    .result { background: var(--text); color: #fff; border-radius: 22px; padding: 26px 22px; margin-bottom: 14px; }
+    .result-label { font-size: 15px; color: #BDB8B0; margin-bottom: 8px; }
+    .result-num { white-space: nowrap; font-size: clamp(30px, 9vw, 62px); font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+    .result-num small { font-size: 0.36em; color: #BDB8B0; font-weight: 700; letter-spacing: -0.02em; }
+    .result-sub { margin-top: 12px; font-size: 15px; color: #DDD9D2; }
+    .result-sub b { color: #fff; }
+
+    /* Sheet */
+    .sheet { border: 1px solid var(--border); border-radius: 18px; overflow: hidden; margin-bottom: 28px; }
+    .sheet table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+    .sheet th, .sheet td { padding: 13px 14px; text-align: right; font-size: 15px; border-bottom: 1px solid var(--border); }
+    .sheet th:first-child, .sheet td:first-child { text-align: left; }
+    .sheet thead th { font-size: 13px; font-weight: 700; color: var(--muted); background: var(--surface); }
+    .sheet td { font-weight: 700; }
+    .sheet td:first-child { font-weight: 500; color: var(--muted); }
+    .sheet tr:last-child td { border-bottom: 0; }
+    .sheet tr.key td { background: var(--accent-soft); color: var(--text); font-weight: 800; }
+    .sheet tr.key td:first-child { font-weight: 700; }
+    .sheet tr.gap td { padding: 6px; background: var(--surface); }
+
+    /* CTA */
+    .cta { display: grid; gap: 10px; margin-bottom: 14px; }
+    .btn {
+      display: flex; align-items: center; justify-content: center; height: 58px; border-radius: 16px;
+      font: 700 16px 'Inter', sans-serif; text-decoration: none; transition: opacity 140ms ease-out;
+    }
+    .btn:hover { opacity: 0.86; }
+    .btn-primary { background: var(--text); color: #fff; }
+    .btn-outline { border: 1.5px solid var(--border); color: var(--text); }
+    .fine { font-size: 13px; color: var(--faint); text-align: center; }
+    .note { font-size: 13px; color: var(--faint); margin: 40px 0 48px; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="/"><img src="/logo.png" alt="Abu Ecom" /></a>
+      <a class="link" href="/newship">See the offer →</a>
+    </nav>
+
+    <h1>How much should email be making you?</h1>
+    <p class="lede">Healthy ecom brands make 30% to 45% of their revenue from email. Put in your numbers and see yours.</p>
+
+    <div class="inputs">
+      <label class="in">
+        <span class="in-label">Email list size<small>Subscribers you have now</small></span>
+        <span class="in-box"><input id="list" inputmode="numeric" value="5,000" /></span>
+      </label>
+      <label class="in">
+        <span class="in-label">Average order value<small>What a typical order is worth</small></span>
+        <span class="in-box"><span>$</span><input id="aov" inputmode="numeric" value="50" /></span>
+      </label>
+      <label class="in">
+        <span class="in-label">Monthly revenue<small>Your store's total sales a month</small></span>
+        <span class="in-box"><span>$</span><input id="rev" inputmode="numeric" value="20,000" /></span>
+      </label>
+    </div>
+
+    <div class="result">
+      <p class="result-label">Email should be making you</p>
+      <p class="result-num"><span id="r-low">$0</span>–<span id="r-high">$0</span><small> /mo</small></p>
+      <p class="result-sub">That's <b id="r-year">$0</b> a year. Your <b>$997</b> pays itself back in <b id="r-payback">0 days</b>.</p>
+    </div>
+
+    <div class="sheet">
+      <table>
+        <thead><tr><th></th><th>Average</th><th>Top brands</th></tr></thead>
+        <tbody>
+          <tr><td>Revenue from email</td><td>30%</td><td>45%</td></tr>
+          <tr class="key"><td>Email revenue a month</td><td id="t-mo-l"></td><td id="t-mo-h"></td></tr>
+          <tr><td>Orders from email a month</td><td id="t-ord-l"></td><td id="t-ord-h"></td></tr>
+          <tr><td>Emails going out a month</td><td id="t-sent" colspan="2" style="text-align:right"></td></tr>
+          <tr><td>Each email sent is worth</td><td id="t-per-l"></td><td id="t-per-h"></td></tr>
+          <tr class="gap"><td colspan="3"></td></tr>
+          <tr class="key"><td>Email revenue a year</td><td id="t-yr-l"></td><td id="t-yr-h"></td></tr>
+          <tr><td>Your investment</td><td>$997</td><td>$997</td></tr>
+          <tr class="key"><td>Return on $997</td><td id="t-roi-l"></td><td id="t-roi-h"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cta">
+      <a class="btn btn-primary" href="https://buy.stripe.com/00w3cvfGp21b2fm2W55ZC0g">Build my email system for $997</a>
+      <a class="btn btn-outline" href="https://cal.com/abuecom/30min">Book a free call first</a>
+    </div>
+    <p class="fine">One payment. Live in 14 days. 3 builds a month.</p>
+
+    <p class="note">How we work it out: 30% to 45% is the share of revenue well-run ecom brands make from email. "Emails going out" assumes 2 emails a week to your list, plus your automated flows. These are targets, not promises. Your results depend on your product, traffic and offer.</p>
+  </div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var SENDS_PER_MONTH = 8; // 2 emails a week
+  var PRICE = 997;
+
+  var num = function (s) { return Number(String(s).replace(/[^0-9.]/g, '')) || 0; };
+  var money = function (x) { return '$' + Math.round(x).toLocaleString('en-US'); };
+  var money2 = function (x) { return '$' + (x < 10 ? x.toFixed(2) : Math.round(x).toLocaleString('en-US')); };
+  var count = function (x) { return Math.round(x).toLocaleString('en-US'); };
+
+  function calc() {
+    var list = num($('list').value), aov = num($('aov').value), rev = num($('rev').value);
+    var lo = rev * 0.30, hi = rev * 0.45;
+    var sent = list * SENDS_PER_MONTH;
+
+    $('r-low').textContent = money(lo);
+    $('r-high').textContent = money(hi);
+    $('r-year').textContent = money(lo * 12) + '–' + money(hi * 12);
+    var days = lo > 0 ? Math.max(1, Math.ceil(PRICE / (lo / 30))) : null;
+    $('r-payback').textContent = days === null ? '–' : days + (days === 1 ? ' day' : ' days');
+
+    $('t-mo-l').textContent = money(lo);
+    $('t-mo-h').textContent = money(hi);
+    $('t-ord-l').textContent = aov ? count(lo / aov) : '–';
+    $('t-ord-h').textContent = aov ? count(hi / aov) : '–';
+    $('t-sent').textContent = count(sent);
+    $('t-per-l').textContent = sent ? money2(lo / sent) : '–';
+    $('t-per-h').textContent = sent ? money2(hi / sent) : '–';
+    $('t-yr-l').textContent = money(lo * 12);
+    $('t-yr-h').textContent = money(hi * 12);
+    $('t-roi-l').textContent = Math.round(lo * 12 / PRICE) + 'x';
+    $('t-roi-h').textContent = Math.round(hi * 12 / PRICE) + 'x';
+  }
+
+  function fit(el) { el.style.width = Math.max(2, el.value.length + 0.6) + 'ch'; }
+  ['list', 'aov', 'rev'].forEach(function (id) {
+    var el = $(id);
+    fit(el);
+    el.addEventListener('input', function () {
+      var raw = num(el.value);
+      el.value = raw ? raw.toLocaleString('en-US') : '';
+      fit(el);
+      calc();
+    });
+    el.addEventListener('focus', function () { el.select(); });
+  });
+  calc();
+})();
+</script>
+</body>
+</html>
