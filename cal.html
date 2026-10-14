@@ -34,7 +34,8 @@
     .nav a.link { font-size: 14px; font-weight: 600; color: var(--muted); text-decoration: none; }
 
     h1 { font-size: clamp(30px, 7vw, 46px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.06; margin: 20px 0 12px; }
-    h1 .win { color: var(--win-text); white-space: nowrap; }
+    h1 .win { color: var(--win-text); }
+    h1 .nw { white-space: nowrap; }
     .lede { font-size: 16px; color: var(--muted); margin-bottom: 26px; line-height: 1.55; }
     .lede b { color: var(--text); }
 
@@ -182,7 +183,7 @@
       $('roi-' + k).textContent = fee > 0 ? (rev / fee).toFixed(rev / fee < 10 ? 1 : 0) + 'x' : '–';
     });
     $('h-fee').textContent = money(fee);
-    $('h-rev').textContent = money(mo.a) + '–' + money(mo.b);
+    $('h-rev').innerHTML = '<span class="nw">' + money(mo.a) + '</span> to <span class="nw">' + money(mo.b) + '</span>';
   }
 
   ['list', 'aov', 'spw', 'fee'].forEach(function (id) {

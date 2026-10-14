@@ -34,7 +34,8 @@
     .nav a.link { font-size: 14px; font-weight: 600; color: var(--muted); text-decoration: none; }
 
     h1 { font-size: clamp(30px, 7vw, 46px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.06; margin: 20px 0 12px; }
-    h1 .win { color: var(--win-text); white-space: nowrap; }
+    h1 .win { color: var(--win-text); }
+    h1 .nw { white-space: nowrap; }
     .lede { font-size: 16px; color: var(--muted); margin-bottom: 26px; line-height: 1.55; }
     .lede b { color: var(--text); }
 
@@ -174,7 +175,7 @@
       $('pb-' + k).textContent = days === null ? '–' : days > 365 ? '1 year+' : days + (days === 1 ? ' day' : ' days');
       $('roi-' + k).textContent = rev > 0 ? Math.round(rev * 12 / PRICE).toLocaleString('en-US') + 'x' : '–';
     });
-    $('h-month').textContent = mo.a > 0 ? money(mo.a) + '–' + money(mo.b) : SYM + '0';
+    $('h-month').innerHTML = mo.a > 0 ? '<span class="nw">' + money(mo.a) + '</span> to <span class="nw">' + money(mo.b) + '</span>' : SYM + '0';
   }
 
   ['list', 'aov', 'spw'].forEach(function (id) {
