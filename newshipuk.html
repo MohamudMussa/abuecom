@@ -357,6 +357,16 @@
     .sticky a { height: 46px; padding: 0 18px; border-radius: 12px; background: var(--accent); color: var(--text); font-weight: 800; font-size: 15px; text-decoration: none; display: inline-flex; align-items: center; white-space: nowrap; }
     @media (min-width: 860px) { .sticky { display: none; } }
   </style>
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1560323142068081');
+    fbq('track', 'PageView');
+  </script>
 </head>
 <body data-cur="£" data-stripe="https://buy.stripe.com/aFa14nam50X7bPWbsB5ZC0k">
 

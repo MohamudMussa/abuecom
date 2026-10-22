@@ -270,6 +270,16 @@
     .sticky .btn { width: 100%; box-shadow: 0 10px 30px rgb(20 18 16 / 0.3); }
     @media (min-width: 860px) { .sticky { display: none; } }
   </style>
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1560323142068081');
+    fbq('track', 'PageView');
+  </script>
 </head>
 <body>
 
@@ -676,6 +686,7 @@
     $('gate').style.display = 'none';
     if (answers.rev === 'yes' && answers.shop === 'yes') {
       $('cal').classList.add('show');
+      if (window.fbq) fbq('track', 'Lead');
       loadCal();
     } else {
       if (answers.shop === 'no') $('nofit-why').textContent = "The Email Takeover is built for Shopify stores. Book a free call anyway and we'll tell you honestly whether we can help.";
