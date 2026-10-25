@@ -82,3 +82,19 @@ body.ondark .nav{background:rgba(255,255,255,.12);color:#fff}body.ondark .count{
 .dark .cta{background:var(--mint);color:var(--ink)}
 .dark .stack em{color:var(--mint)}
 .price .huge{font-size:clamp(64px,15vw,240px);color:var(--ink)}
+/* keynote flow */
+h2.long{font-size:clamp(34px,5.4vw,84px);max-width:18ch}
+.kick{font-size:clamp(14px,1.4vw,20px);font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:3vh}
+.dark .kick,.green .kick{color:var(--mint)}
+.say{font-size:clamp(30px,4.6vw,72px);font-weight:700;letter-spacing:-.04em;line-height:1.08;max-width:20ch}
+.say .em{font-size:1.05em}
+.quote{font-family:var(--serif);font-style:italic;font-size:clamp(34px,5vw,80px);line-height:1.1;max-width:18ch;color:var(--ink)}
+.dark .quote{color:#fff}
+.proof1{margin-top:3vh;width:min(1100px,92vw);border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 60px rgba(20,18,16,.14)}
+.proof1 img{width:100%;display:block}
+.bignum{font-size:clamp(56px,9vw,150px);font-weight:900;letter-spacing:-.055em;line-height:1;color:var(--green)}
+.dark .bignum,.green .bignum{color:var(--mint)}
+.slide.on h1,.slide.on h2,.slide.on .say,.slide.on .quote,.slide.on .bignum,.slide.on .huge{animation:rise .6s ease both}
+.slide.on .sub,.slide.on .proof1,.slide.on .stack,.slide.on .vs,.slide.on .duo,.slide.on .cards3,.slide.on .report,.slide.on .shot,.slide.on .cta{animation:rise .6s .18s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.slide.on *{animation:none!important}}
