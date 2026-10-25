@@ -286,6 +286,13 @@
     .demo video, .demo img { width: 100%; border-radius: 18px; display: block; background: #EDE7DC; box-shadow: 0 2px 4px rgb(20 18 16 / 0.05), 0 18px 40px rgb(20 18 16 / 0.12); }
     .demo figcaption { margin-top: 12px; font-size: 14px; color: var(--muted); text-align: center; }
     .demo figcaption b { color: var(--ink); }
+    .proofs { margin-top: 28px; display: grid; gap: 14px; }
+    @media (min-width: 860px) { .proofs { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
+    .proofs figure { background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+    .proofs img { width: 100%; height: auto; border-bottom: 1px solid var(--line); }
+    .proofs figcaption { padding: 14px 16px 16px; }
+    .proofs b { display: block; font-size: 30px; font-weight: 900; letter-spacing: -0.045em; color: var(--green); }
+    .proofs span { font-size: 14px; color: var(--muted); }
     .gq.step2 { display: none; }
     .gq.step2.show { display: block; }
     .mini-trust { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 18px; margin-top: 16px; font-size: 13.5px; color: var(--muted); }
@@ -484,6 +491,20 @@
         <h3>Switch it on</h3>
         <p>Installed, tested on every device, and live. Then a walkthrough call.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT RESULTS -->
+<section id="results" style="padding-top:0;">
+  <div class="wrap">
+    <p class="eyebrow">Client results, Alhamdulillah</p>
+    <h2>Straight out of <span class="em">Klaviyo.</span></h2>
+    <p class="lede">Real reports from brands we run email for. Names hidden, numbers untouched.</p>
+    <div class="proofs">
+      <figure><img src="/media/proof-1.png" width="1323" height="528" loading="lazy" alt="Klaviyo report: £3,430 from email, 38.6% of total revenue" /><figcaption><b>38.6%</b><span>of all sales came from email. Men's grooming brand, Oct 2026.</span></figcaption></figure>
+      <figure><img src="/media/proof-2.png" width="1323" height="528" loading="lazy" alt="Klaviyo report: £6,487.82 from email, 36.7% of total revenue" /><figcaption><b>£6,488</b><span>from email in one month, 36.7% of sales. Lifestyle brand, Dec 2025.</span></figcaption></figure>
+      <figure><img src="/media/proof-3.png" width="1323" height="528" loading="lazy" alt="Klaviyo report: $17,918.63 from email, 45.9% of total revenue" /><figcaption><b>$17,919</b><span>from email in one month, 45.9% of sales, up 104%. Supplements brand, Nov 2025.</span></figcaption></figure>
     </div>
   </div>
 </section>
