@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abu Ecom — Stop Wasting The Customers You Already Paid For</title>
+  <meta name="description" content="We build retention systems that turn one-time buyers into repeat customers. Done for you. 3 spots a month." />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1560323142068081');
+    fbq('track', 'PageView');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #FFFFFF;
+      --surface: #F7F7F7;
+      --border:  #EBEBEB;
+      --text:    #111111;
+      --muted:   #111111;
+      --faint:   #111111;
+      --accent:  oklch(72% 0.18 75);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── SPLIT LAYOUT ── */
+    .left-panel { padding: 40px 24px 52px; }
+    .right-panel { border-top: 1px solid var(--border); }
+
+    @media (min-width: 860px) {
+      body { display: flex; flex-direction: column; }
+      .page { display: flex; align-items: flex-start; }
+
+      .left-panel {
+        position: sticky; top: 0;
+        width: 42%; height: 100svh;
+        overflow-y: auto; scrollbar-width: none;
+        padding: 48px 40px;
+        border-right: 1px solid var(--border);
+        display: flex; flex-direction: column;
+        justify-content: safe center;
+      }
+      .left-panel > * { flex-shrink: 0; }
+      .left-panel::-webkit-scrollbar { display: none; }
+
+      .right-panel { width: 58%; border-top: none; }
+    }
+
+    /* ── LEFT ── */
+    .brand-logo {
+      width: 44px; height: 44px;
+      display: block; margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(26px, 5.5vw, 38px);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.04em; color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .sub {
+      font-size: 15px; color: var(--muted);
+      line-height: 1.65; max-width: 44ch;
+      margin-bottom: 28px; font-weight: 400;
+    }
+    .sub strong { color: var(--text); font-weight: 600; }
+
+    /* CTA button */
+    .btn-primary {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; height: 52px; padding: 0 20px;
+      background: var(--text); color: #fff;
+      font-family: inherit; font-size: 15px; font-weight: 700;
+      border-radius: 10px; border: none; cursor: pointer;
+      text-decoration: none; letter-spacing: -0.01em;
+      transition: opacity 0.15s; margin-bottom: 10px;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+
+    .btn-ghost {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; height: 52px; padding: 0 20px;
+      background: transparent; color: var(--text);
+      font-family: inherit; font-size: 15px; font-weight: 600;
+      border-radius: 10px; border: 1.5px solid var(--border);
+      cursor: pointer; text-decoration: none; letter-spacing: -0.01em;
+      transition: border-color 0.15s; margin-bottom: 16px;
+    }
+    .btn-ghost:hover { border-color: #bbb; }
+    .btn-ghost .arrow-down { display: inline-block; margin-left: 6px; animation: bounce-down 1.6s ease-in-out infinite; }
+    @keyframes bounce-down {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+
+    .avail {
+      font-size: 12px; color: var(--faint);
+      line-height: 1.55; margin-bottom: 28px;
+    }
+
+    /* stats */
+    .stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border); border-radius: 10px;
+      overflow: hidden; margin-bottom: 24px;
+    }
+    .stat {
+      padding: 16px 8px; text-align: center;
+    }
+    .stat + .stat { border-left: 1px solid var(--border); }
+    .stat-n {
+      font-size: clamp(17px, 2.5vw, 21px);
+      font-weight: 800; letter-spacing: -0.04em;
+      color: var(--accent); line-height: 1;
+      white-space: nowrap;
+    }
+    .stat-l {
+      font-size: 10.5px; color: var(--faint);
+      font-weight: 500; margin-top: 6px; line-height: 1.35;
+    }
+
+    /* three points */
+    .points { display: flex; flex-direction: column; gap: 10px; }
+    .pt {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 13px; color: var(--muted); line-height: 1.5;
+    }
+    .pt-check { color: var(--text); font-weight: 700; flex-shrink: 0; }
+
+    /* ── RIGHT ── */
+    .right-panel img {
+      display: block;
+      width: calc(100% - 32px);
+      margin: 0 16px 16px;
+      border-radius: 12px;
+      object-fit: cover;
+      object-position: center top;
+    }
+    @media (min-width: 860px) {
+      .right-panel img {
+        width: calc(100% - 48px);
+        margin: 0 24px 20px;
+        border-radius: 14px;
+      }
+    }
+
+    /* gallery header */
+    .gallery-header {
+      padding: 28px 20px 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 8px;
+    }
+    @media (min-width: 860px) { .gallery-header { padding: 32px 28px 20px; } }
+    .gallery-tag {
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.07em;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .gallery-headline {
+      font-size: clamp(17px, 2.8vw, 22px);
+      font-weight: 800; letter-spacing: -0.03em;
+      color: var(--text); line-height: 1.15; max-width: 32ch;
+    }
+    .gallery-sub {
+      font-size: 13px; color: var(--muted);
+      margin-top: 6px; line-height: 1.55;
+    }
+
+    /* end cta */
+    .end-cta {
+      padding: 40px 20px 52px;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+    @media (min-width: 860px) { .end-cta { padding: 48px 28px 60px; } }
+    .end-cta h2 {
+      font-size: clamp(20px, 3.5vw, 28px);
+      font-weight: 800; letter-spacing: -0.035em;
+      color: var(--text); line-height: 1.12;
+      margin-bottom: 10px; max-width: 28ch;
+    }
+    .end-cta p {
+      font-size: 14px; color: var(--muted);
+      line-height: 1.6; margin-bottom: 20px; max-width: 46ch;
+    }
+    .end-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .end-btn-primary {
+      display: inline-flex; align-items: center;
+      height: 46px; padding: 0 22px; border-radius: 9px;
+      background: var(--text); color: #fff;
+      font-family: inherit; font-size: 14px; font-weight: 700;
+      text-decoration: none; transition: opacity 0.15s;
+    }
+    .end-btn-primary:hover { opacity: 0.85; }
+    .end-btn-ghost {
+      display: inline-flex; align-items: center;
+      height: 46px; padding: 0 22px; border-radius: 9px;
+      border: 1.5px solid var(--border); color: var(--text);
+      font-family: inherit; font-size: 14px; font-weight: 600;
+      text-decoration: none; transition: border-color 0.15s;
+    }
+    .end-btn-ghost:hover { border-color: #bbb; }
+
+    /* footer */
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--text);
+      padding: 18px clamp(20px, 5vw, 40px);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .f-brand { font-size: 13px; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+    .f-link { font-size: 12px; color: rgba(255,255,255,0.45); text-decoration: none; font-weight: 500; }
+    .f-link:hover { color: #fff; }
+    .f-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+    /* cookie banner */
+    .cookie-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+      background: #111; color: #fff;
+      padding: 14px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .cookie-bar p { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.5; flex: 1; min-width: 200px; }
+    .cookie-bar a { color: #fff; }
+    .cookie-bar button {
+      background: #fff; color: #111; border: none; cursor: pointer;
+      font-family: inherit; font-size: 12px; font-weight: 700;
+      padding: 8px 18px; border-radius: 6px; white-space: nowrap;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1560323142068081&ev=PageView&noscript=1"/></noscript>
+
+<div class="page">
+
+  <!-- ── LEFT: STICKY ── -->
+  <div class="left-panel">
+    <img src="/logo.png" alt="Abu Ecom" class="brand-logo" />
+
+    <h1>You're already paying for customers. Stop wasting them.</h1>
+
+    <p class="sub">
+      Most ecommerce brands spend thousands on ads to get a customer — then never sell to them again. <strong>We build the retention system that fixes that, completely done for you.</strong>
+    </p>
+
+    <a href="https://cal.com/abuecom/30min" class="btn-primary">Book your free revenue audit</a>
+    <a href="#work" class="btn-ghost">See the work <span class="arrow-down">↓</span></a>
+
+    <p class="avail">We only accept 3 new clients a month. Worst case: you leave knowing exactly where your revenue is leaking — for free.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-n">£500K+</div>
+        <div class="stat-l">Revenue generated for clients</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">25–50%</div>
+        <div class="stat-l">Email revenue share we hit for clients</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">7 days</div>
+        <div class="stat-l">From call to fully live</div>
+      </div>
+    </div>
+
+    <div class="points">
+      <div class="pt"><span class="pt-check">✓</span>Your best customers already bought from you once. We make sure they come back.</div>
+      <div class="pt"><span class="pt-check">✓</span>We write it, send it, optimise it. You just review results on a monthly call.</div>
+      <div class="pt"><span class="pt-check">✓</span>Built to become one of your biggest revenue channels.</div>
+    </div>
+  </div>
+
+  <!-- ── RIGHT: SCROLLING ── -->
+  <div class="right-panel" id="work">
+
+    <div class="gallery-header">
+      <p class="gallery-tag">The work</p>
+      <h2 class="gallery-headline">Every email below was researched, strategised, copywritten, and designed by us.</h2>
+      <p class="gallery-sub">Not templates. Not outsourced. Every single one — by us.</p>
+    </div>
+
+    <img src="/emails/5-pillars.jpg"       loading="lazy" alt="" />
+    <img src="/emails/boxed-halal.jpg"     loading="lazy" alt="" />
+    <img src="/emails/bsst.jpg"            loading="lazy" alt="" />
+    <img src="/emails/cave-london.jpg"     loading="lazy" alt="" />
+    <img src="/emails/darassalam.jpg"      loading="lazy" alt="" />
+    <img src="/emails/desi-dolls.jpg"      loading="lazy" alt="" />
+    <img src="/emails/hallal-meals.jpg"    loading="lazy" alt="" />
+    <img src="/emails/huraya.jpg"          loading="lazy" alt="" />
+    <img src="/emails/irontfit.jpg"        loading="lazy" alt="" />
+    <img src="/emails/kube-publishing.jpg" loading="lazy" alt="" />
+    <img src="/emails/lala-and-mo.jpg"     loading="lazy" alt="" />
+    <img src="/emails/mama-yasmin.jpg"     loading="lazy" alt="" />
+    <img src="/emails/noor.jpg"            loading="lazy" alt="" />
+    <img src="/emails/one-stop-halal.jpg"  loading="lazy" alt="" />
+    <img src="/emails/osu.jpg"             loading="lazy" alt="" />
+    <img src="/emails/roohts.jpg"          loading="lazy" alt="" />
+    <img src="/emails/simba.jpg"           loading="lazy" alt="" />
+    <img src="/emails/teapressa.jpg"       loading="lazy" alt="" />
+
+    <div class="end-cta">
+      <h2>You're already paying for these customers. Let's stop wasting them.</h2>
+      <p>Book a free 30-minute call. We'll show you exactly where your money is leaking — even if we never work together.</p>
+      <div class="end-btns">
+        <a href="https://cal.com/abuecom/30min" class="end-btn-primary">Book your free audit</a>
+        <a href="https://instagram.com/thatmussa" class="end-btn-ghost">@thatmussa →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <span class="f-brand">Abu Ecom</span>
+  <a href="https://instagram.com/thatmussa" class="f-link">@thatmussa</a>
+  <a href="/privacy-policy.html" class="f-link">Privacy Policy</a>
+  <span class="f-copy">© 2026</span>
+</footer>
+
+<div class="cookie-bar" id="cookieBar">
+  <p>We use cookies and the Meta Pixel to measure our ads and improve your experience. <a href="/privacy-policy.html">Learn more</a>.</p>
+  <button onclick="document.getElementById('cookieBar').style.display='none'; localStorage.setItem('cookieOk','1')">Got it</button>
+</div>
+<script>if(localStorage.getItem('cookieOk')) document.getElementById('cookieBar').style.display='none';</script>
+
+<script>
+  document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') e.preventDefault();
+  });
+  document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG') e.preventDefault();
+  });
+</script>
+<style>
+  img { -webkit-user-select: none; -moz-user-select: none; user-select: none; -webkit-touch-callout: none; }
+</style>
+
+</body>
+</html>

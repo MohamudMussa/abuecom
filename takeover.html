@@ -269,6 +269,69 @@
     .sticky.show { opacity: 1; pointer-events: auto; }
     .sticky .btn { width: 100%; box-shadow: 0 10px 30px rgb(20 18 16 / 0.3); }
     @media (min-width: 860px) { .sticky { display: none; } }
+    /* ── v2 additions ── */
+    .nav { padding: 16px 20px; }
+    .topbar { background: var(--ink); color: #fff; text-align: center; font-size: 13px; padding: 9px 16px; line-height: 1.4; }
+    .topbar b { background: var(--mint); color: var(--ink); font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 100px; margin-right: 8px; letter-spacing: 0.03em; }
+    .hero .lede { margin-bottom: 24px; }
+    .hero-gate { max-width: 560px; margin: 0 auto; text-align: left; }
+    .hero-gate .gate { box-shadow: 0 2px 4px rgb(20 18 16 / 0.04), 0 18px 40px rgb(20 18 16 / 0.08); }
+    .opts.two { grid-template-columns: 1fr 1fr; }
+    .demo { margin: 28px 0 0; }
+    .demo video, .demo img { width: 100%; border-radius: 18px; display: block; background: #EDE7DC; box-shadow: 0 2px 4px rgb(20 18 16 / 0.05), 0 18px 40px rgb(20 18 16 / 0.12); }
+    .demo figcaption { margin-top: 12px; font-size: 14px; color: var(--muted); text-align: center; }
+    .demo figcaption b { color: var(--ink); }
+    .gq.step2 { display: none; }
+    .gq.step2.show { display: block; }
+    .mini-trust { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 18px; margin-top: 16px; font-size: 13.5px; color: var(--muted); }
+    .mini-trust b { color: var(--ink); }
+    .marquee.one { margin-top: 48px; }
+    .marquee.one .panels img { height: 300px; }
+    @media (min-width: 860px) { .marquee.one .panels img { height: 420px; } }
+
+    .fit { margin-top: 32px; display: grid; gap: 14px; }
+    @media (min-width: 800px) { .fit { grid-template-columns: 1fr 1fr; gap: 18px; } }
+    .fit-col { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px 22px; }
+    .fit-col.no { background: transparent; }
+    .fit-col h3 { font-size: 18px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; display: flex; gap: 10px; align-items: center; }
+    .fit-col h3 i { width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-style: normal; font-size: 13px; font-weight: 800; color: #fff; background: var(--green); }
+    .fit-col.no h3 i { background: var(--red); }
+    .fit-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .fit-col li { font-size: 15.5px; padding-left: 18px; position: relative; color: var(--muted); }
+    .fit-col li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+    .fit-col.no li::before { background: var(--red); }
+    .fit-col li b { color: var(--ink); }
+
+    .split { margin-top: 32px; display: grid; gap: 14px; }
+    @media (min-width: 800px) { .split { grid-template-columns: 1.35fr 1fr; gap: 18px; } }
+    .split .us { background: var(--ink); color: #fff; border-radius: 22px; padding: 26px 24px; }
+    .split .us .big, .split .you .big { font-size: 46px; font-weight: 900; letter-spacing: -0.05em; line-height: 1; }
+    .split .us .big { color: var(--mint); }
+    .split .us h3, .split .you h3 { font-size: 18px; font-weight: 800; margin: 6px 0 16px; letter-spacing: -0.02em; }
+    .split .us ul { list-style: none; display: grid; gap: 10px; }
+    @media (min-width: 560px) { .split .us ul { grid-template-columns: 1fr 1fr; } }
+    .split .us li { font-size: 15px; padding-left: 26px; position: relative; color: #E8E2D8; }
+    .split .us li::before { content: '✓'; position: absolute; left: 0; color: var(--mint); font-weight: 800; }
+    .split .you { background: var(--green-soft); border-radius: 22px; padding: 26px 24px; display: flex; flex-direction: column; }
+    .split .you .big { color: var(--green); }
+    .split .you p { font-size: 15.5px; color: var(--ink); margin-bottom: 10px; }
+    .split .you .vs-note { margin-top: auto; font-size: 13.5px; color: var(--muted); border-top: 1px solid #C5DFCF; padding-top: 12px; }
+
+    .offer { display: grid; gap: 18px; margin-top: 32px; }
+    @media (min-width: 900px) { .offer { grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; } }
+    .offer .price-card .btn { margin-top: 4px; }
+    .guar-card { background: var(--green); color: #fff; border-radius: 26px; padding: 28px 24px; display: flex; flex-direction: column; gap: 14px; }
+    .guar-card .seal { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--mint); color: var(--mint); display: inline-flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; }
+    .guar-card h3 { font-size: 26px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; }
+    .guar-card p { font-size: 15.5px; color: #E6F4EC; }
+    .guar-card p b { color: var(--mint); }
+    .vids.two { grid-auto-columns: 74%; }
+    @media (min-width: 860px) { .vids.two { grid-template-columns: repeat(4, 1fr); } }
+    .proof-h { margin-top: 56px; font-size: 22px; font-weight: 800; letter-spacing: -0.03em; }
+    .again { margin-top: 36px; text-align: center; }
+
+    .calc-mini { padding: 64px 0; }
+    @media (min-width: 860px) { .calc-mini { padding: 88px 0; } }
   </style>
   <!-- Meta Pixel -->
   <script>
@@ -283,28 +346,46 @@
 </head>
 <body>
 
-<!-- HERO -->
-<header class="hero">
+<div class="topbar"><b>STRICT CRITERIA</b>For Muslim-owned Shopify brands doing $20k+ a month</div>
+
+<!-- 1. HERO + QUALIFIER -->
+<header class="hero" id="book">
   <nav class="wrap nav">
     <a href="/"><img src="/logo.png" alt="Abu Ecom" /></a>
     <a class="book" href="#book">Book a call</a>
   </nav>
-  <div class="wrap" style="padding-top:20px;">
-    <span class="pill"><b>EMAIL TAKEOVER</b>For Muslim Shopify brands</span>
+  <div class="wrap" style="padding-top:12px;">
     <h1><span class="who">Muslim brands:</span> we take over your email. <span class="em">You make 30% more in 90 days.</span></h1>
-    <p class="lede">We plan, write, design and send every email from your Klaviyo. You never log in. <b>If email doesn't make you more than you pay us, you get your fees back.</b></p>
-    <div class="hero-ctas">
-      <a class="btn btn-ink" href="#book">See if you qualify <span class="arr">→</span></a>
-      <a class="textlink" href="#calc">or work out what you're missing</a>
-    </div>
-    <div class="trust">
-      <div><b>$600K+</b><span>generated for our clients</span></div>
-      <div><b>14 days</b><span>from call to emails sending</span></div>
-      <div><b>90-day</b><span>money-back guarantee</span></div>
+    <p class="lede">We plan, write, design and send every email. You approve it in one tap. <b>Make more than you pay us, or get your fees back.</b></p>
+
+    <div class="hero-gate">
+      <div class="gate" id="gate">
+        <h3>See if you qualify</h3>
+        <p class="sub">One tap, then pick a time for a free 30-minute call.</p>
+        <div class="gq">
+          <p>Roughly how much does your store make a month?</p>
+          <div class="opts two" data-q="rev">
+            <button type="button" data-v="no">Under $20k</button>
+            <button type="button" data-v="yes">$20k to $50k</button>
+            <button type="button" data-v="yes">$50k to $150k</button>
+            <button type="button" data-v="yes">$150k+</button>
+          </div>
+        </div>
+      </div>
+      <div class="cal" id="cal">
+        <div class="cal-head"><i>✓</i>You qualify. Pick a time that suits you.</div>
+        <div id="cal-inline" style="width:100%;min-height:640px;overflow:auto;"></div>
+      </div>
+      <div class="nofit" id="nofit">
+        <h3>The Takeover isn't the right fit yet.</h3>
+        <p id="nofit-why">The Email Takeover works best for Shopify brands doing $20k+ a month. But you can still get the same flows built for you, once, for a single payment.</p>
+        <a class="btn btn-ink" href="/newship">See the one-off email build <span class="arr">→</span></a>
+      </div>
+      <p class="mini-trust"><span><b>$600K+</b> made for clients</span><span><b>14 days</b> to first sends</span><span><b>90-day</b> money back</span></p>
     </div>
   </div>
 
-  <div class="marquee" aria-label="Examples of emails we design">
+  <div class="marquee one" aria-label="Examples of emails we design">
     <div class="track">
       <figure class="grp"><div class="panels"><img src="/emails/cut/boxed-halal-1.jpg" width="248" height="736" alt="Example email design" /><img src="/emails/cut/boxed-halal-2.jpg" width="249" height="736" alt="Example email design" /></div></figure>
       <figure class="grp"><div class="panels"><img src="/emails/cut/5-pillars-1.jpg" width="210" height="731" alt="Example email design" /><img src="/emails/cut/5-pillars-2.jpg" width="225" height="731" alt="Example email design" /></div></figure>
@@ -325,109 +406,152 @@
       <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/mama-yasmin-1.jpg" width="285" height="735" alt="" loading="lazy" /><img src="/emails/cut/mama-yasmin-2.jpg" width="287" height="727" alt="" loading="lazy" /></div></figure>
       <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/one-stop-halal-1.jpg" width="215" height="748" alt="" loading="lazy" /><img src="/emails/cut/one-stop-halal-2.jpg" width="215" height="748" alt="" loading="lazy" /></div></figure>
     </div>
-    <div class="track rev">
-      <figure class="grp"><div class="panels"><img src="/emails/cut/darassalam-1.jpg" width="220" height="727" alt="Example email design" loading="lazy" /><img src="/emails/cut/darassalam-2.jpg" width="223" height="706" alt="Example email design" loading="lazy" /></div></figure>
-      <figure class="grp"><div class="panels"><img src="/emails/cut/lala-and-mo-1.jpg" width="300" height="720" alt="Example email design" loading="lazy" /><img src="/emails/cut/lala-and-mo-2.jpg" width="300" height="720" alt="Example email design" loading="lazy" /><img src="/emails/cut/lala-and-mo-3.jpg" width="300" height="720" alt="Example email design" loading="lazy" /></div></figure>
-      <figure class="grp"><div class="panels"><img src="/emails/cut/desi-dolls-1.jpg" width="274" height="696" alt="Example email design" loading="lazy" /><img src="/emails/cut/desi-dolls-2.jpg" width="274" height="696" alt="Example email design" loading="lazy" /><img src="/emails/cut/desi-dolls-3.jpg" width="274" height="696" alt="Example email design" loading="lazy" /></div></figure>
-      <figure class="grp"><div class="panels"><img src="/emails/cut/irontfit-1.jpg" width="225" height="646" alt="Example email design" loading="lazy" /><img src="/emails/cut/irontfit-2.jpg" width="225" height="646" alt="Example email design" loading="lazy" /></div></figure>
-      <figure class="grp"><div class="panels"><img src="/emails/cut/hallal-meals-1.jpg" width="275" height="681" alt="Example email design" loading="lazy" /><img src="/emails/cut/hallal-meals-2.jpg" width="251" height="731" alt="Example email design" loading="lazy" /><img src="/emails/cut/hallal-meals-3.jpg" width="279" height="601" alt="Example email design" loading="lazy" /></div></figure>
-      <figure class="grp"><div class="panels"><img src="/emails/cut/roohts-1.jpg" width="190" height="726" alt="Example email design" loading="lazy" /><img src="/emails/cut/roohts-2.jpg" width="190" height="726" alt="Example email design" loading="lazy" /></div></figure>
-      <figure class="grp"><div class="panels"><img src="/emails/cut/simba-1.jpg" width="259" height="715" alt="Example email design" loading="lazy" /><img src="/emails/cut/simba-2.jpg" width="259" height="715" alt="Example email design" loading="lazy" /><img src="/emails/cut/simba-3.jpg" width="259" height="715" alt="Example email design" loading="lazy" /></div></figure>
-      <figure class="grp"><div class="panels"><img src="/emails/cut/osu-1.jpg" width="228" height="726" alt="Example email design" loading="lazy" /><img src="/emails/cut/osu-2.jpg" width="231" height="779" alt="Example email design" loading="lazy" /><img src="/emails/cut/osu-3.jpg" width="242" height="779" alt="Example email design" loading="lazy" /></div></figure>
-      <figure class="grp"><div class="panels"><img src="/emails/cut/bsst-1.jpg" width="230" height="699" alt="Example email design" loading="lazy" /><img src="/emails/cut/bsst-2.jpg" width="230" height="706" alt="Example email design" loading="lazy" /><img src="/emails/cut/bsst-3.jpg" width="231" height="702" alt="Example email design" loading="lazy" /></div></figure>
-      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/darassalam-1.jpg" width="220" height="727" alt="" loading="lazy" /><img src="/emails/cut/darassalam-2.jpg" width="223" height="706" alt="" loading="lazy" /></div></figure>
-      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/lala-and-mo-1.jpg" width="300" height="720" alt="" loading="lazy" /><img src="/emails/cut/lala-and-mo-2.jpg" width="300" height="720" alt="" loading="lazy" /><img src="/emails/cut/lala-and-mo-3.jpg" width="300" height="720" alt="" loading="lazy" /></div></figure>
-      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/desi-dolls-1.jpg" width="274" height="696" alt="" loading="lazy" /><img src="/emails/cut/desi-dolls-2.jpg" width="274" height="696" alt="" loading="lazy" /><img src="/emails/cut/desi-dolls-3.jpg" width="274" height="696" alt="" loading="lazy" /></div></figure>
-      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/irontfit-1.jpg" width="225" height="646" alt="" loading="lazy" /><img src="/emails/cut/irontfit-2.jpg" width="225" height="646" alt="" loading="lazy" /></div></figure>
-      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/hallal-meals-1.jpg" width="275" height="681" alt="" loading="lazy" /><img src="/emails/cut/hallal-meals-2.jpg" width="251" height="731" alt="" loading="lazy" /><img src="/emails/cut/hallal-meals-3.jpg" width="279" height="601" alt="" loading="lazy" /></div></figure>
-      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/roohts-1.jpg" width="190" height="726" alt="" loading="lazy" /><img src="/emails/cut/roohts-2.jpg" width="190" height="726" alt="" loading="lazy" /></div></figure>
-      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/simba-1.jpg" width="259" height="715" alt="" loading="lazy" /><img src="/emails/cut/simba-2.jpg" width="259" height="715" alt="" loading="lazy" /><img src="/emails/cut/simba-3.jpg" width="259" height="715" alt="" loading="lazy" /></div></figure>
-      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/osu-1.jpg" width="228" height="726" alt="" loading="lazy" /><img src="/emails/cut/osu-2.jpg" width="231" height="779" alt="" loading="lazy" /><img src="/emails/cut/osu-3.jpg" width="242" height="779" alt="" loading="lazy" /></div></figure>
-      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/bsst-1.jpg" width="230" height="699" alt="" loading="lazy" /><img src="/emails/cut/bsst-2.jpg" width="230" height="706" alt="" loading="lazy" /><img src="/emails/cut/bsst-3.jpg" width="231" height="702" alt="" loading="lazy" /></div></figure>
-    </div>
   </div>
   <p class="made">Every email written and designed by our team. <b>No templates.</b></p>
 </header>
 
-<!-- PAIN: circumstances, conditions, amplifiers -->
+<!-- 2. WHO IT'S FOR / NOT FOR -->
 <section>
-  <div class="narrow">
-    <p class="eyebrow">Sound familiar?</p>
-    <h2>You built a brand people love. <span class="em">So why does every sale cost you an ad?</span></h2>
-    <p class="lede">If you're running a Muslim-owned Shopify store doing $20k+ a month, you've probably said at least one of these.</p>
-    <div class="pain-list">
-      <p class="pain"><b>I know I should email more.</b> I just never get round to it.</p>
-      <p class="pain"><b>We pay for Klaviyo</b> and send maybe two emails a month.</p>
-      <p class="pain"><b>Ads keep getting more expensive</b> and my margins keep getting thinner.</p>
-      <p class="pain"><b>Ramadan crept up on us again</b> and we threw something together last minute.</p>
-      <p class="pain"><b>I tried an agency.</b> They sent me templates and I still had to do everything.</p>
-      <p class="pain"><b>Customers buy once</b> and I never see them again.</p>
-    </div>
-    <p class="truth">Here's the truth: your problem isn't email. It's that <b>nobody owns it.</b> You're running ads, packing orders and answering DMs. Email is the job that always gets pushed to next week. And every week it gets pushed, you pay for a customer you'll never sell to again.</p>
-  </div>
-</section>
-
-<!-- A vs B -->
-<section style="padding-top:0;">
-  <div class="narrow">
-    <p class="eyebrow">The part nobody tells you</p>
-    <h2>Other agencies write your emails. <span class="em">Then who sends them?</span></h2>
-    <p class="lede">Writing is the easy part. It's everything around it that never gets done. <b>We do all of it.</b></p>
-    <div class="vs">
-      <table>
-        <thead><tr><th></th><th class="c">Others</th><th class="c us">Us</th></tr></thead>
-        <tbody>
-          <tr><td>Write the emails</td><td class="c ok">✓</td><td class="c"><span class="tick">✓</span></td></tr>
-          <tr><td>Design the emails</td><td class="c ok">✓</td><td class="c"><span class="tick">✓</span></td></tr>
-          <tr><td>Set up Klaviyo and your domain</td><td class="c you">You</td><td class="c"><span class="tick">✓</span></td></tr>
-          <tr><td>Find the product photos</td><td class="c you">You</td><td class="c"><span class="tick">✓</span></td></tr>
-          <tr><td>Load and send every week</td><td class="c you">You</td><td class="c"><span class="tick">✓</span></td></tr>
-          <tr><td>Check what sold and fix it</td><td class="c you">You</td><td class="c"><span class="tick">✓</span></td></tr>
-        </tbody>
-        <tfoot><tr><td>Your part</td><td class="c bad">Hours a week</td><td class="c good">Say "yes"</td></tr></tfoot>
-      </table>
+  <div class="wrap">
+    <p class="eyebrow">Read this first</p>
+    <h2>Who this is for. <span class="em">And who it isn't.</span></h2>
+    <div class="fit">
+      <div class="fit-col">
+        <h3><i>✓</i>This is for you if</h3>
+        <ul>
+          <li><b>You run a Muslim-owned Shopify brand</b> doing $20k+ a month</li>
+          <li>You pay for Klaviyo and send <b>maybe two emails a month</b></li>
+          <li>Ads keep getting dearer and <b>customers buy once, then vanish</b></li>
+          <li>Ramadan and Black Friday <b>keep sneaking up on you</b></li>
+          <li>You want email done, <b>not another thing on your list</b></li>
+        </ul>
+      </div>
+      <div class="fit-col no">
+        <h3><i>✕</i>This is not for you if</h3>
+        <ul>
+          <li>You're still looking for your <b>first customers</b></li>
+          <li>You want to <b>write and send the emails yourself</b></li>
+          <li>You won't approve emails within <b>48 hours</b></li>
+          <li>You sell anything <b>haram</b></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- THE SYSTEM (named mechanism + timeframe) -->
+<!-- 3. WE DO 100% / YOUR PART -->
 <section style="padding-top:0;">
   <div class="wrap">
-    <p class="eyebrow">How the Email Takeover works</p>
-    <h2>90 days. <span class="em">Three phases.</span></h2>
-    <p class="lede">A clear plan from the first call, so you always know what's happening and what's next.</p>
+    <p class="eyebrow">How it works</p>
+    <h2>We do all of it. <span class="em">You approve.</span></h2>
+    <p class="lede">Other agencies write your emails, then leave you to load, send and check them. <b>We run the whole channel.</b></p>
+    <div class="split">
+      <div class="us">
+        <p class="big">100%</p>
+        <h3>What our team does</h3>
+        <ul>
+          <li>Klaviyo, Shopify and domain set up</li>
+          <li>Every flow written and built</li>
+          <li>2–3 campaigns a week</li>
+          <li>Copy, design and product photos</li>
+          <li>Loading, scheduling and sending</li>
+          <li>Ramadan, Eid and BFCM planned early</li>
+          <li>Testing what sells, cutting what doesn't</li>
+          <li>Monthly report in plain English</li>
+        </ul>
+      </div>
+      <div class="you">
+        <p class="big">1 tap</p>
+        <h3>Your part</h3>
+        <p>Every email lands in your review portal. Look it over, leave a comment if you want a change, then tap <b>Approve</b>.</p>
+        <p>About 5 minutes a week.</p>
+        <p class="vs-note">You keep your Klaviyo, your list and everything we build.</p>
+      </div>
+    </div>
+
+
+    <figure class="demo">
+      <video autoplay muted loop playsinline preload="metadata" poster="/media/portal-poster.jpg" aria-label="A client reviewing, commenting on and approving an email in the review portal">
+        <source src="/media/portal-approve.mp4" type="video/mp4" />
+        <img src="/media/portal-approve.gif" alt="A client approving an email in the review portal" />
+      </video>
+      <figcaption>Your review portal. <b>Comment on the email, tap Approve, done.</b></figcaption>
+    </figure>
+
     <div class="sys">
       <div class="sys-card">
-        <p class="n">1</p>
         <p class="when">Days 1–14</p>
         <h3>We take over</h3>
-        <p>We audit your Klaviyo and set everything up properly, then switch on the flows that sell 24/7.</p>
-        <ul><li>Klaviyo, Shopify and domain set up</li><li>Sign-up pop-up rebuilt</li><li>Welcome, abandoned checkout, browse, post-purchase and winback flows live</li></ul>
+        <p>Audit, set-up, and every money-making flow switched on.</p>
       </div>
       <div class="sys-card">
-        <p class="n">2</p>
         <p class="when">Days 15–60</p>
         <h3>Emails every week</h3>
-        <p>Campaigns go out to your list every week, planned around your products and the Islamic calendar.</p>
-        <ul><li>2–3 campaigns a week</li><li>Written and designed for your brand</li><li>You approve each one on WhatsApp</li></ul>
+        <p>Campaigns planned around your products and the Islamic calendar.</p>
       </div>
       <div class="sys-card">
-        <p class="n">3</p>
         <p class="when">Days 61–90</p>
         <h3>Test and scale</h3>
-        <p>We double down on what sells, cut what doesn't and grow your list so every send is worth more.</p>
-        <ul><li>Subject line and offer tests</li><li>VIP and lapsed-customer segments</li><li>Monthly report in plain English</li></ul>
+        <p>Double down on what sells and grow your list so every send is worth more.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CALCULATOR -->
-<section class="calc" id="calc">
+<!-- 4. PRICE + GUARANTEE + PROOF -->
+<section id="price" style="padding-top:0;">
+  <div class="wrap">
+    <p class="eyebrow">The price</p>
+    <h2>One fee. <span class="em">Make it back or don't pay.</span></h2>
+    <div class="offer">
+      <div class="price-card">
+        <span class="tag">The Email Takeover</span>
+        <h3>Your whole email channel, run for you</h3>
+        <div class="amount"><b id="p-fee">$2,000</b><span>/ month</span></div>
+        <p class="terms"><b>No setup fee.</b> 90-day start, then month to month. A full-time email marketer costs $4,500+.</p>
+        <a class="btn btn-ink" href="#book">See if you qualify <span class="arr">→</span></a>
+      </div>
+      <div class="guar-card">
+        <span class="seal">✓</span>
+        <h3>Make it back in 90 days, or get your fees back.</h3>
+        <p>If the revenue Klaviyo reports from our emails in your first 90 days is less than you've paid us, <b>we refund the difference. In full.</b></p>
+        <p>We can offer this because we only take on brands we know we can grow.</p>
+      </div>
+    </div>
+
+    <p class="proof-h">Founders who handed us their email</p>
+    <div class="vids two">
+      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/vozqi9zd59?playsinline=true&videoFoam=false" title="Bijou Cat testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>"Made it all back in week one."</p><span>Bijou Cat, luxury collars</span></div>
+      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/v12houl57j?playsinline=true&videoFoam=false" title="Aman testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>$200k+ from email alone.</p><span>Aman, ecom founder</span></div>
+      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/jbfubarxpf?playsinline=true&videoFoam=false" title="MyOJI testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>40%+ returning customers.</p><span>Zubash, co-founder, MyOJI</span></div>
+      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/me9fxu0nyi?playsinline=true&videoFoam=false" title="VT Fight Gear testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>Repeat sales on autopilot.</p><span>Essa, founder, VT Fight Gear</span></div>
+    </div>
+    <p class="swipe">Swipe for more →</p>
+    <div class="again"><a class="btn btn-green" href="#book">See if you qualify <span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<!-- 5. FAQ -->
+<section style="padding-top:0;">
+  <div class="narrow">
+    <p class="eyebrow">Questions</p>
+    <h2>Straight answers.</h2>
+    <div class="faq">
+      <details><summary>How much does it cost?</summary><p>$2,000 a month, with no setup fee. The first 90 days are the starting term, then it's month to month.</p></details>
+      <details><summary>What do I actually have to do?</summary><p>Fill in one onboarding form and give us Klaviyo access. Then approve each email in your review portal. About 5 minutes a week.</p></details>
+      <details><summary>What if it doesn't work?</summary><p>If Klaviyo shows our emails made you less than you paid us in the first 90 days, we refund the difference.</p></details>
+      <details><summary>Do I lose control of my Klaviyo?</summary><p>No. It's your account and your list. If you ever leave, everything we built stays with you.</p></details>
+      <details><summary>Will the emails fit my values?</summary><p>Always. No music, no immodest imagery, nothing that goes against your deen. You approve every email before it goes out.</p></details>
+      <details><summary>Who's behind this?</summary><p>Abu Ecom is run by Mussa (<a href="https://instagram.com/thatmussa">@thatmussa</a>). A Muslim team writing and designing for Muslim brands, with $600K+ made for our clients.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CALCULATOR (for the people who want the numbers) -->
+<section class="calc calc-mini" id="calc">
   <div class="wrap">
     <p class="eyebrow">Run your numbers</p>
     <h2>What your list should be <span class="em">making you.</span></h2>
-    <p class="lede">Drag the sliders to match your store. We use average email rates here, not best case.</p>
     <div class="calc-box">
       <div class="panel">
         <div class="q">
@@ -457,156 +581,6 @@
   </div>
 </section>
 
-<!-- VIDEOS -->
-<section>
-  <div class="wrap">
-    <p class="eyebrow">Don't take our word for it</p>
-    <h2>Founders who handed us <span class="em">their email.</span></h2>
-    <div class="vids">
-      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/vozqi9zd59?playsinline=true&videoFoam=false" title="Bijou Cat testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>"Made it all back in week one."</p><span>Bijou Cat, luxury collars</span></div>
-      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/v12houl57j?playsinline=true&videoFoam=false" title="Aman testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>$200k+ from email alone.</p><span>Aman, ecom founder</span></div>
-      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/jbfubarxpf?playsinline=true&videoFoam=false" title="MyOJI testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>40%+ returning customers.</p><span>Zubash, co-founder, MyOJI</span></div>
-      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/me9fxu0nyi?playsinline=true&videoFoam=false" title="VT Fight Gear testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>Repeat sales on autopilot.</p><span>Essa, founder, VT Fight Gear</span></div>
-    </div>
-    <p class="swipe">Swipe for more →</p>
-  </div>
-</section>
-
-<!-- PRICE -->
-<section id="price" style="padding-top:0;">
-  <div class="wrap">
-    <p class="eyebrow">The price</p>
-    <h2>One monthly fee. <span class="em">Everything done.</span></h2>
-    <p class="lede">No setup fee. No surprises. We'd rather you know the number now than find out on a call.</p>
-    <div class="price-grid">
-      <div class="price-card">
-        <span class="tag">The Email Takeover</span>
-        <h3>Your whole email channel, run for you</h3>
-        <div class="amount"><b id="p-fee">$2,000</b><span>/ month</span></div>
-        <p class="terms"><b>90-day start, then month to month.</b> Cancel any time after that with 30 days' notice.</p>
-        <ul class="incl">
-          <li>Full Klaviyo, Shopify and domain setup</li>
-          <li>All core automated flows, written and built</li>
-          <li>2–3 campaigns a week, written, designed and sent</li>
-          <li>Ramadan, Eid and Black Friday plans done early</li>
-          <li>Sign-up pop-up rebuilt to grow your list</li>
-          <li>Monthly report and call</li>
-          <li>Direct WhatsApp line to your team</li>
-          <li>90-day make-it-back guarantee</li>
-        </ul>
-        <a class="btn btn-ink" href="#book">See if you qualify <span class="arr">→</span></a>
-      </div>
-      <div>
-        <div class="compare">
-          <h4>What it costs to do this any other way</h4>
-          <table>
-            <tr><td>In-house email marketer</td><td id="c-hire">$4,500+ /mo</td></tr>
-            <tr><td>Copywriter + designer + freelancer</td><td id="c-free">$3,200+ /mo</td></tr>
-            <tr><td>Doing it yourself</td><td>10+ hrs a week</td></tr>
-            <tr class="us"><td>The Email Takeover</td><td id="c-us">$2,000 /mo</td></tr>
-          </table>
-        </div>
-        <div class="fitbox">
-          <h4>Who we take on</h4>
-          <ul>
-            <li class="y"><b>Shopify brands doing $20k+ a month</b></li>
-            <li class="y">Selling to Muslim customers, or Muslim-owned</li>
-            <li class="y">At least 2,000 people on your email list</li>
-            <li class="n">Not for brands still finding their first customers</li>
-            <li class="n">We don't write for anything haram</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GUARANTEE -->
-<section class="guar">
-  <div class="wrap guar-grid">
-    <div>
-      <span class="seal">✓</span>
-      <h2>Make it back in 90 days, <span class="em">or get your fees back.</span></h2>
-      <p class="lede">Email should be the most profitable channel in your store. If it isn't paying for itself with us, you shouldn't be paying for it.</p>
-    </div>
-    <div class="guar-terms">
-      <div><b>The promise</b><p>If the revenue Klaviyo reports from our emails in your first 90 days is less than the fees you've paid us, we refund the difference. In full.</p></div>
-      <div><b>How we measure it</b><p>Klaviyo's own revenue report, for the emails and flows we build. You see the same numbers we do.</p></div>
-      <div><b>Your side</b><p>Approve emails within 48 hours, and keep your store and stock running as normal.</p></div>
-      <div><b>Why we can offer it</b><p>We only take on brands we're confident we can grow. That's why we ask a few questions before you book.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- FOUNDER -->
-<section>
-  <div class="wrap founder">
-    <div class="founder-mark"><img src="/logo.png" alt="" /></div>
-    <div>
-      <p class="eyebrow">Who's behind this</p>
-      <h2>Built for Muslim brands, <span class="em">by Muslims.</span></h2>
-      <p>Abu Ecom is run by Mussa. We write and design every email ourselves, and we've generated over <b>$600K</b> for our clients.</p>
-      <p>We know Ramadan is your biggest month. We know your customers care about how you sell, not just what. And we'd never put your name on anything that goes against your deen.</p>
-      <p><a class="ig" href="https://instagram.com/thatmussa">Follow along: @thatmussa →</a></p>
-    </div>
-  </div>
-</section>
-
-<!-- BOOK (qualify, then show calendar) -->
-<section id="book" style="padding-top:0;">
-  <div class="wrap book-grid">
-    <div class="book-head">
-      <p class="eyebrow">Free 30-minute call</p>
-      <h2>See if you <span class="em">qualify.</span></h2>
-      <p class="lede">Two quick questions, then pick a time. On the call we'll go through your Klaviyo and show you exactly what email should be making you. Even if we never work together.</p>
-    </div>
-    <div class="gate-wrap">
-      <div class="gate" id="gate">
-        <h3>Two quick questions</h3>
-        <p class="sub">So we only book calls we can actually help with.</p>
-        <div class="gq">
-          <p>Roughly how much does your store make a month?</p>
-          <div class="opts" data-q="rev">
-            <button type="button" data-v="no">Under $20k</button>
-            <button type="button" data-v="yes">$20k to $50k</button>
-            <button type="button" data-v="yes">$50k to $150k</button>
-            <button type="button" data-v="yes">$150k+</button>
-          </div>
-        </div>
-        <div class="gq">
-          <p>Is your store on Shopify?</p>
-          <div class="opts" data-q="shop">
-            <button type="button" data-v="yes">Yes</button>
-            <button type="button" data-v="no">No, something else</button>
-          </div>
-        </div>
-        <button type="button" class="btn btn-green" id="gate-go" disabled>Show me available times <span class="arr">→</span></button>
-      </div>
-      <div class="cal" id="cal">
-        <div class="cal-head"><i>✓</i>You qualify. Pick a time that suits you.</div>
-        <div id="cal-inline" style="width:100%;min-height:640px;overflow:auto;"></div>
-      </div>
-      <div class="nofit" id="nofit">
-        <h3>The Takeover isn't the right fit yet.</h3>
-        <p id="nofit-why">The Email Takeover works best for Shopify brands doing $20k+ a month. But you can still get the same flows built for you, once, for a single payment.</p>
-        <a class="btn btn-ink" href="/newship">See the one-off email build <span class="arr">→</span></a>
-      </div>
-    </div>
-    <div class="book-faq">
-      <div class="faq">
-        <details><summary>How much does it cost?</summary><p>$2,000 a month, with no setup fee. The first 90 days are the starting term, then it's month to month.</p></details>
-        <details><summary>What do I actually have to do?</summary><p>Fill in one onboarding form and give us Klaviyo access. Then approve emails on WhatsApp when we send them. About 5 minutes a week.</p></details>
-        <details><summary>What if it doesn't work?</summary><p>If Klaviyo shows our emails made you less than you paid us in the first 90 days, we refund the difference.</p></details>
-        <details><summary>Do I lose control of my Klaviyo?</summary><p>No. It's your account and your list. You keep full access and can see everything we do. If you ever leave, everything we built stays with you.</p></details>
-        <details><summary>How fast will I see results?</summary><p>Flows go live in the first 14 days and start selling straight away. Weekly campaigns start from week three.</p></details>
-        <details><summary>I'm not on Klaviyo yet. Is that okay?</summary><p>Yes. We set it up from scratch and bring your list over.</p></details>
-        <details><summary>Will the emails fit my values?</summary><p>Always. No music, no immodest imagery, nothing that goes against your deen. You approve every email before it goes out.</p></details>
-        <details><summary>What happens on the call?</summary><p>We look at your store and your Klaviyo together, show you where you're losing money, and tell you honestly whether the Takeover makes sense for you.</p></details>
-      </div>
-    </div>
-  </div>
-</section>
-
 <footer>
   <div class="wrap">
     <span>© 2026 Abu Ecom</span>
@@ -620,72 +594,59 @@
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
+  var FEE = 2000;
+  var money = function (x) { return '$' + Math.round(x).toLocaleString('en-US'); };
 
-  // ── Currency ──
-  var FEES = { '$': 2000 };
-  var HIRE = { '$': '4,500' };
-  var FREE = { '$': '3,200' };
-  var CUR = '$';
-  var money = function (x) { return CUR + Math.round(x).toLocaleString('en-US'); };
-
-  // ── Calculator (average rates only) ──
+  // ── Calculator ──
   var list = $('list'), aov = $('aov');
   var LO = 500, HI = 200000;
   var fromLog = function (v) { return LO * Math.pow(HI / LO, v / 1000); };
   var toLog = function (x) { return Math.round(1000 * Math.log(x / LO) / Math.log(HI / LO)); };
   var round = function (x) { var m = x < 2000 ? 100 : x < 10000 ? 500 : x < 50000 ? 1000 : 5000; return Math.round(x / m) * m; };
   var fill = function (el) { el.style.setProperty('--p', ((el.value - el.min) / (el.max - el.min) * 100) + '%'); };
-  list.value = toLog(10000);
-  aov.value = 50;
-
+  list.value = toLog(10000); aov.value = 50;
   function render() {
-    var fee = FEES[CUR];
     var subs = round(fromLog(+list.value)), order = +aov.value;
     var mo = subs * 3 * 4.33 * 0.35 * 0.04 * 0.05 * order;
     $('o-list').textContent = subs.toLocaleString('en-US') + ' people';
     $('o-aov').textContent = money(order);
     $('r-mo').textContent = money(mo);
     $('r-yr').textContent = money(mo * 12);
-    $('r-fee').textContent = money(fee) + ' /mo';
-    $('r-roi').textContent = CUR + (mo / fee).toFixed(2);
-    document.querySelector('.rows .hl span').textContent = 'Every ' + CUR + '1 you pay us returns';
+    $('r-roi').textContent = '$' + (mo / FEE).toFixed(2);
     fill(list); fill(aov);
-    $('p-fee').textContent = money(fee);
-    $('c-us').textContent = money(fee) + ' /mo';
-    $('c-hire').textContent = CUR + HIRE[CUR] + '+ /mo';
-    $('c-free').textContent = CUR + FREE[CUR] + '+ /mo';
   }
-  list.addEventListener('input', render);
-  aov.addEventListener('input', render);
-  render();
+  list.addEventListener('input', render); aov.addEventListener('input', render); render();
 
-  // ── Qualify, then reveal the calendar ──
+  // ── Qualify in the hero: revenue, then Shopify, then calendar ──
   var answers = {};
-  document.querySelectorAll('.opts').forEach(function (group) {
-    group.querySelectorAll('button').forEach(function (b) {
-      b.addEventListener('click', function () {
-        group.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
-        b.setAttribute('aria-pressed', 'true');
-        answers[group.dataset.q] = b.dataset.v;
-        $('gate-go').disabled = !(answers.rev && answers.shop);
-      });
-    });
-  });
-  $('gate-go').addEventListener('click', function () {
+  function decide() {
     $('gate').style.display = 'none';
     if (answers.rev === 'yes' && answers.shop === 'yes') {
       $('cal').classList.add('show');
       if (window.fbq) fbq('track', 'Lead');
       loadCal();
     } else {
-      if (answers.shop === 'no') $('nofit-why').textContent = "The Email Takeover is built for Shopify stores. Book a free call anyway and we'll tell you honestly whether we can help.";
-      if (answers.shop === 'no') { var a = document.querySelector('#nofit .btn'); a.href = 'https://cal.com/abuecom/30min'; a.firstChild.textContent = 'Book a free call anyway '; }
+      if (answers.shop === 'no') {
+        $('nofit-why').textContent = "The Email Takeover is built for Shopify stores. Book a free call anyway and we'll tell you honestly whether we can help.";
+        var a = document.querySelector('#nofit .btn'); a.href = 'https://cal.com/abuecom/30min'; a.firstChild.textContent = 'Book a free call anyway ';
+      }
       $('nofit').classList.add('show');
     }
-    $('book').scrollIntoView({ behavior: 'smooth' });
+  }
+  document.querySelectorAll('.opts').forEach(function (group) {
+    group.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        group.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+        b.setAttribute('aria-pressed', 'true');
+        answers[group.dataset.q] = b.dataset.v;
+        if (group.dataset.q === 'rev') {
+          answers.shop = 'yes'; setTimeout(decide, 180);
+        } else setTimeout(decide, 180);
+      });
+    });
   });
 
-  // ── cal.com inline embed: send bookers to /booked after a successful booking ──
+  // ── cal.com inline embed: send bookers to /booked ──
   var calLoaded = false;
   function goBooked() { window.location.href = '/booked'; }
   function fallbackIframe() {
@@ -703,12 +664,10 @@
     setTimeout(function () { if (!$('cal-inline').querySelector('iframe')) fallbackIframe(); }, 8000);
   }
 
-  // ── Sticky mobile CTA ──
-  var sticky = $('sticky'), hero = document.querySelector('.hero'), book = $('book'), heroGone = false, bookOn = false;
-  var upd = function () { sticky.classList.toggle('show', heroGone && !bookOn); };
+  // ── Sticky mobile CTA: show once the qualifier is off screen ──
+  var sticky = $('sticky'), gateWrap = document.querySelector('.hero-gate'), gone = false;
   if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (e) { heroGone = !e[0].isIntersecting; upd(); }).observe(hero);
-    new IntersectionObserver(function (e) { bookOn = e[0].isIntersecting; upd(); }).observe(book);
+    new IntersectionObserver(function (e) { gone = !e[0].isIntersecting; sticky.classList.toggle('show', gone); }).observe(gateWrap);
   }
   document.addEventListener('contextmenu', function (e) { if (e.target.tagName === 'IMG') e.preventDefault(); });
 })();
