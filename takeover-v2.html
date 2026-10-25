@@ -645,11 +645,24 @@
     if (calLoaded) return; calLoaded = true;
     (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, 'https://app.cal.com/embed/embed.js', 'init');
     Cal('init', 'takeover', { origin: 'https://app.cal.com' });
-    Cal.ns.takeover('inline', { elementOrSelector: '#cal-inline', config: { layout: 'month_view', theme: 'light' }, calLink: 'abuecom/takeover' });
-    Cal.ns.takeover('ui', { theme: 'light', hideEventTypeDetails: false, layout: 'month_view' });
     Cal.ns.takeover('on', { action: 'bookingSuccessfulV2', callback: goBooked });
     Cal.ns.takeover('on', { action: 'bookingSuccessful', callback: goBooked });
+    Cal.ns.takeover('ui', { theme: 'light', hideEventTypeDetails: false, layout: 'month_view' });
+    if (isPhone) {
+      // Phones: cal.com's full-screen pop-up instead of a very tall inline calendar.
+      $('cal-inline').style.minHeight = '0';
+      $('cal-inline').innerHTML = '<div style="padding:22px 20px"><button type="button" class="btn btn-green" id="cal-open" style="width:100%">Open the calendar <span class="arr">→</span></button><p style="margin-top:12px;font-size:14px;color:var(--muted);text-align:center">Pick a time that suits you. It takes 30 seconds.</p></div>';
+      $('cal-open').addEventListener('click', openModal);
+      openModal();
+      return;
+    }
+    Cal.ns.takeover('inline', { elementOrSelector: '#cal-inline', config: { layout: 'month_view', theme: 'light' }, calLink: 'abuecom/takeover' });
     setTimeout(function () { if (!$('cal-inline').querySelector('iframe')) fallbackIframe(); }, 8000);
+  }
+  var isPhone = window.matchMedia('(max-width: 760px)').matches;
+  function openModal() {
+    if (window.Cal && Cal.ns && Cal.ns.takeover) Cal.ns.takeover('modal', { calLink: 'abuecom/takeover', config: { layout: 'month_view', theme: 'light' } });
+    else window.location.href = 'https://cal.com/abuecom/takeover';
   }
 
   // ── Sticky mobile CTA: show once the qualifier is off screen ──
