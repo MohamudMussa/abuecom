@@ -362,7 +362,7 @@
     <div class="hero-gate">
       <div class="gate" id="gate">
         <h3>See if you qualify</h3>
-        <p class="sub">Two taps, then pick a time for a free 30-minute call.</p>
+        <p class="sub">One tap, then pick a time for a free 30-minute call.</p>
         <div class="gq">
           <p>Roughly how much does your store make a month?</p>
           <div class="opts two" data-q="rev">
@@ -370,13 +370,6 @@
             <button type="button" data-v="yes">$20k to $50k</button>
             <button type="button" data-v="yes">$50k to $150k</button>
             <button type="button" data-v="yes">$150k+</button>
-          </div>
-        </div>
-        <div class="gq step2" id="step2">
-          <p>Is your store on Shopify?</p>
-          <div class="opts two" data-q="shop">
-            <button type="button" data-v="yes">Yes</button>
-            <button type="button" data-v="no">No</button>
           </div>
         </div>
       </div>
@@ -648,8 +641,7 @@
         b.setAttribute('aria-pressed', 'true');
         answers[group.dataset.q] = b.dataset.v;
         if (group.dataset.q === 'rev') {
-          if (b.dataset.v === 'no') { answers.shop = 'yes'; setTimeout(decide, 180); }
-          else $('step2').classList.add('show');
+          answers.shop = 'yes'; setTimeout(decide, 180);
         } else setTimeout(decide, 180);
       });
     });
