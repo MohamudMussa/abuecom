@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 14-Day Email Build | Abu Ecom</title>
+  <meta name="description" content="For Muslim-owned Shopify brands: we build the email flows that make you money every day. One payment of $997. Earn it back or get every penny back." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/emails/cut/boxed-halal-1.jpg" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F5F0E8;
+      --card: #FFFDF9;
+      --ink: #141210;
+      --ink-2: #221F1B;
+      --muted: #5E584F;
+      --faint: #8F877B;
+      --line: #E2D9CA;
+      --green: #0E6B4A;
+      --green-soft: #DFEEE5;
+      --mint: #8FE3B8;
+      --red: #B3261E;
+      --serif: 'Instrument Serif', Georgia, serif;
+    }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--cream); color: var(--ink); letter-spacing: -0.012em; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; -webkit-user-select: none; user-select: none; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+    .narrow { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 72px 0; }
+    @media (min-width: 860px) { section { padding: 112px 0; } }
+    .em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+    .eyebrow { font-size: 13px; font-weight: 700; color: var(--green); margin-bottom: 14px; display: inline-flex; align-items: center; gap: 8px; }
+    .eyebrow::before { content: ''; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+    h2 { font-size: clamp(32px, 6vw, 54px); font-weight: 800; letter-spacing: -0.045em; line-height: 1.02; margin-bottom: 16px; }
+    h2 .em { font-size: 1.12em; color: var(--green); }
+    .lede { font-size: 17px; color: var(--muted); max-width: 56ch; }
+    .lede b { color: var(--ink); font-weight: 650; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 60px; padding: 0 30px; border-radius: 100px; font: 700 16.5px/1 'Inter', sans-serif; letter-spacing: -0.015em; text-decoration: none; transition: opacity 140ms ease-out; cursor: pointer; border: 0; white-space: nowrap; }
+    .btn:hover { opacity: 0.88; }
+    .btn-ink { background: var(--ink); color: #fff; }
+    .btn-green { background: var(--green); color: #fff; }
+    .btn-mint { background: var(--mint); color: var(--ink); }
+    .btn .arr { display: inline-flex; width: 28px; height: 28px; border-radius: 50%; background: rgb(255 255 255 / 0.16); align-items: center; justify-content: center; font-size: 15px; }
+    .btn-mint .arr { background: rgb(0 0 0 / 0.08); }
+
+    /* NAV */
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+    .nav img { width: 40px; height: 40px; border-radius: 8px; }
+    .nav a.book { font-size: 14px; font-weight: 700; text-decoration: none; padding: 10px 16px; border-radius: 100px; border: 1.5px solid var(--ink); }
+
+    /* HERO */
+    .hero { padding: 20px 0 0; text-align: center; }
+    @media (min-width: 860px) { .hero { padding: 40px 0 0; } }
+    .pill { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; background: var(--card); border: 1px solid var(--line); padding: 7px 14px 7px 8px; border-radius: 100px; margin-bottom: 22px; }
+    .pill b { background: var(--green); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 100px; letter-spacing: 0.02em; }
+    .hero h1 { font-size: clamp(36px, 8.4vw, 76px); font-weight: 800; letter-spacing: -0.055em; line-height: 1; max-width: 16ch; margin: 0 auto 22px; }
+    .hero h1 .who { color: var(--muted); }
+    .hero h1 .em { color: var(--green); font-size: 1.1em; letter-spacing: -0.02em; }
+    .hero .lede { margin: 0 auto 28px; font-size: 18px; max-width: 46ch; }
+    .hero-ctas { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    @media (min-width: 600px) { .hero-ctas { flex-direction: row; justify-content: center; } }
+    .hero-ctas .btn { width: 100%; max-width: 360px; }
+    @media (min-width: 600px) { .hero-ctas .btn { width: auto; } }
+    .textlink { font-size: 15px; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--line); }
+    .trust { margin: 26px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); max-width: 560px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; }
+    .trust div { padding: 14px 8px; }
+    .trust div + div { border-left: 1px solid var(--line); }
+    .trust b { display: block; font-size: 20px; font-weight: 800; letter-spacing: -0.04em; color: var(--green); }
+    .trust span { display: block; font-size: 12px; color: var(--muted); line-height: 1.3; margin-top: 2px; }
+
+    .marquee { margin-top: 44px; display: flex; flex-direction: column; gap: 26px; overflow: hidden; padding: 4px 0 14px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+    @media (min-width: 860px) { .marquee { margin-top: 64px; gap: 18px; } }
+    .track { display: flex; gap: 22px; width: max-content; animation: slide 120s linear infinite; }
+    .track.rev { animation-direction: reverse; animation-duration: 135s; }
+    @media (min-width: 860px) { .track { gap: 32px; } }
+    .grp { margin: 0; flex-shrink: 0; }
+    .panels { display: flex; gap: 6px; }
+    .panels img { height: 360px; width: auto; border-radius: 10px; background: var(--line); box-shadow: 0 1px 2px rgb(20 18 16 / 0.08), 0 6px 18px rgb(20 18 16 / 0.08); }
+    @media (min-width: 860px) { .panels img { height: 520px; border-radius: 12px; } .panels { gap: 8px; } }
+    @keyframes slide { to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .track { animation: none; } }
+    .made { text-align: center; font-size: 13.5px; color: var(--muted); margin-top: 18px; padding: 0 20px; line-height: 1.7; }
+    .made b { color: var(--ink); font-weight: 650; }
+
+    /* PAIN */
+    .pain-list { margin-top: 32px; display: grid; gap: 12px; }
+    @media (min-width: 760px) { .pain-list { grid-template-columns: 1fr 1fr; } }
+    .pain { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px 20px 20px 54px; position: relative; font-size: 16px; line-height: 1.45; }
+    .pain::before { content: '“'; position: absolute; left: 18px; top: 8px; font-family: var(--serif); font-size: 46px; color: var(--green); line-height: 1; }
+    .pain b { font-weight: 700; }
+    .truth { margin-top: 28px; background: var(--ink); color: #fff; border-radius: 22px; padding: 26px 22px; font-size: 18px; line-height: 1.5; }
+    @media (min-width: 860px) { .truth { padding: 34px 36px; font-size: 21px; } }
+    .truth b { color: var(--mint); font-weight: 700; }
+
+    /* A vs B */
+    .vs { margin-top: 36px; background: var(--card); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; }
+    .vs table { width: 100%; border-collapse: collapse; }
+    .vs th, .vs td { padding: 15px 16px; text-align: left; border-top: 1px solid var(--line); font-size: 15px; }
+    @media (min-width: 760px) { .vs th, .vs td { padding: 18px 28px; font-size: 16px; } }
+    .vs thead th { border-top: 0; font-size: 12.5px; font-weight: 700; color: var(--faint); letter-spacing: 0.04em; text-transform: uppercase; }
+    .vs thead th.us { color: var(--green); }
+    .vs td.c, .vs th.c { text-align: center; width: 23%; }
+    .vs td:first-child { font-weight: 600; }
+    .vs .you { color: var(--red); font-weight: 700; font-size: 14px; }
+    .vs .tick { display: inline-flex; width: 26px; height: 26px; border-radius: 50%; background: var(--green); color: #fff; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; }
+    .vs .ok { color: var(--muted); font-weight: 700; }
+    .vs tfoot td { background: var(--ink); color: #fff; font-weight: 700; border-top: 0; }
+    .vs tfoot .bad { color: #F4A79F; }
+    .vs tfoot .good { color: var(--mint); }
+
+    /* SYSTEM */
+    .sys { margin-top: 36px; display: grid; gap: 14px; }
+    @media (min-width: 860px) { .sys { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
+    .sys-card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 26px 22px; }
+    .sys-card .when { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green); }
+    .sys-card .n { font-family: var(--serif); font-style: italic; font-size: 44px; line-height: 1; color: var(--green); margin-bottom: 10px; }
+    .sys-card h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.03em; margin: 8px 0 8px; }
+    .sys-card p { font-size: 15px; color: var(--muted); }
+    .sys-card ul { list-style: none; margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+    .sys-card li { font-size: 14px; padding-left: 22px; position: relative; }
+    .sys-card li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 800; }
+
+    /* CALC */
+    .calc { background: var(--ink); color: #fff; }
+    .calc .eyebrow { color: var(--mint); }
+    .calc h2 .em { color: var(--mint); }
+    .calc .lede { color: #B7AFA3; }
+    .calc-box { margin-top: 36px; display: grid; gap: 18px; }
+    @media (min-width: 860px) { .calc-box { grid-template-columns: 1fr 1fr; gap: 22px; } }
+    .panel { background: var(--ink-2); border: 1px solid #34302A; border-radius: 22px; padding: 24px 20px; }
+    @media (min-width: 860px) { .panel { padding: 32px 30px; } }
+    .q { margin-bottom: 28px; }
+    .q-top { margin-bottom: 8px; }
+    .q label { font-size: 16px; font-weight: 650; }
+    .q output { display: block; font-size: 24px; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; margin-bottom: 6px; }
+    input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 30px; background: transparent; cursor: pointer; --p: 50%; }
+    input[type=range]::-webkit-slider-runnable-track { height: 8px; border-radius: 8px; background: linear-gradient(to right, var(--mint) 0 var(--p), #3A352E var(--p) 100%); }
+    input[type=range]::-moz-range-track { height: 8px; border-radius: 8px; background: #3A352E; }
+    input[type=range]::-moz-range-progress { height: 8px; border-radius: 8px; background: var(--mint); }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 30px; height: 30px; border-radius: 50%; background: #fff; margin-top: -11px; box-shadow: 0 2px 8px rgb(0 0 0 / 0.4); }
+    input[type=range]::-moz-range-thumb { width: 30px; height: 30px; border-radius: 50%; background: #fff; border: 0; }
+    input[type=range]:focus-visible { outline: 2px solid var(--mint); outline-offset: 4px; border-radius: 8px; }
+    .cur { display: flex; gap: 6px; }
+    .cur button { font: 700 13px 'Inter', sans-serif; color: #B7AFA3; background: transparent; border: 1px solid #3A352E; border-radius: 100px; padding: 6px 12px; cursor: pointer; }
+    .cur button[aria-pressed=true] { background: #fff; color: var(--ink); border-color: #fff; }
+    .result { background: var(--green); border-color: var(--green); display: flex; flex-direction: column; }
+    .result .label { font-size: 15px; color: #CFEBDD; }
+    .result .big { font-size: clamp(44px, 10vw, 68px); font-weight: 900; letter-spacing: -0.05em; line-height: 1.02; margin: 8px 0 4px; font-variant-numeric: tabular-nums; }
+    .result .per { font-size: 15px; color: #CFEBDD; }
+    .rows { margin: 20px 0 24px; border-top: 1px solid rgb(255 255 255 / 0.2); }
+    .rows div { display: flex; justify-content: space-between; gap: 12px; padding: 11px 0; border-bottom: 1px solid rgb(255 255 255 / 0.14); font-size: 15px; }
+    .rows div b { font-weight: 800; font-variant-numeric: tabular-nums; }
+    .rows .hl b { color: var(--mint); font-size: 18px; }
+    .result .btn { margin-top: auto; width: 100%; }
+    .calc-note { margin-top: 16px; font-size: 13px; color: #8F877B; max-width: 72ch; }
+
+    /* VIDEOS */
+    .vids { margin-top: 36px; display: grid; grid-auto-flow: column; grid-auto-columns: 74%; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
+    .vids::-webkit-scrollbar { display: none; }
+    @media (min-width: 860px) { .vids { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); overflow: visible; gap: 18px; } }
+    .v { scroll-snap-align: start; }
+    .v-frame { position: relative; aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden; background: var(--ink); }
+    .v-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .v p { margin-top: 12px; font-size: 16px; font-weight: 750; letter-spacing: -0.02em; line-height: 1.3; }
+    .v span { display: block; margin-top: 3px; font-size: 13px; color: var(--muted); }
+    .swipe { margin-top: 12px; font-size: 13px; color: var(--faint); }
+    @media (min-width: 860px) { .swipe { display: none; } }
+
+    /* PRICE */
+    .price-grid { display: grid; gap: 18px; margin-top: 36px; }
+    @media (min-width: 900px) { .price-grid { grid-template-columns: 1.1fr 0.9fr; gap: 22px; align-items: start; } }
+    .price-card { background: var(--card); border: 2px solid var(--ink); border-radius: 26px; padding: 28px 22px; }
+    @media (min-width: 860px) { .price-card { padding: 36px 34px; } }
+    .price-card .tag { display: inline-block; font-size: 12px; font-weight: 700; color: var(--green); background: var(--green-soft); border-radius: 100px; padding: 5px 10px; margin-bottom: 14px; }
+    .price-card h3 { font-size: 24px; font-weight: 800; letter-spacing: -0.035em; }
+    .amount { display: flex; align-items: baseline; gap: 8px; margin: 14px 0 4px; }
+    .amount b { font-size: clamp(48px, 10vw, 64px); font-weight: 900; letter-spacing: -0.05em; line-height: 1; }
+    .amount span { font-size: 18px; color: var(--muted); font-weight: 600; }
+    .terms { font-size: 15px; color: var(--muted); margin-bottom: 22px; }
+    .terms b { color: var(--ink); }
+    .incl { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; border-top: 1px solid var(--line); padding-top: 20px; }
+    .incl li { font-size: 15.5px; padding-left: 28px; position: relative; }
+    .incl li::before { content: '✓'; position: absolute; left: 0; top: 1px; width: 19px; height: 19px; border-radius: 50%; background: var(--green); color: #fff; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+    .price-card .btn { width: 100%; }
+    .compare { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px 22px; }
+    .compare h4 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+    .compare table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .compare td { padding: 12px 0; border-top: 1px solid var(--line); }
+    .compare td:last-child { text-align: right; font-weight: 700; }
+    .compare tr.us td { color: var(--green); font-weight: 800; }
+    .fitbox { margin-top: 14px; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px 22px; }
+    .fitbox h4 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+    .fitbox ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .fitbox li { font-size: 15px; padding-left: 24px; position: relative; color: var(--muted); }
+    .fitbox li b { color: var(--ink); }
+    .fitbox li.y::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 800; }
+    .fitbox li.n::before { content: '✕'; position: absolute; left: 0; color: var(--red); font-weight: 800; }
+
+    /* GUARANTEE */
+    .guar { background: var(--green); color: #fff; }
+    .guar-grid { display: grid; gap: 28px; }
+    @media (min-width: 900px) { .guar-grid { grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; } }
+    .guar .seal { width: 76px; height: 76px; border-radius: 50%; border: 2px solid var(--mint); color: var(--mint); display: inline-flex; align-items: center; justify-content: center; font-family: var(--serif); font-style: italic; font-size: 34px; margin-bottom: 20px; }
+    .guar h2 .em { color: var(--mint); }
+    .guar .lede { color: #CFEBDD; }
+    .guar-terms { background: rgb(0 0 0 / 0.16); border-radius: 22px; padding: 24px 22px; }
+    .guar-terms div { padding: 14px 0; border-top: 1px solid rgb(255 255 255 / 0.16); }
+    .guar-terms div:first-child { border-top: 0; padding-top: 0; }
+    .guar-terms b { display: block; font-size: 15px; color: var(--mint); margin-bottom: 3px; }
+    .guar-terms p { font-size: 15.5px; color: #E6F4EC; }
+
+    /* FOUNDER */
+    .founder { display: grid; gap: 24px; }
+    @media (min-width: 860px) { .founder { grid-template-columns: 0.4fr 1fr; gap: 48px; align-items: center; } }
+    .founder-mark { width: 120px; height: 120px; border-radius: 28px; background: var(--ink); display: flex; align-items: center; justify-content: center; }
+    .founder-mark img { width: 72px; height: 72px; }
+    .founder p { font-size: 17px; color: var(--muted); margin-bottom: 12px; max-width: 60ch; }
+    .founder p b { color: var(--ink); }
+    .founder a.ig { font-weight: 700; color: var(--green); text-decoration: none; }
+
+    /* BOOK */
+    .book-grid { display: grid; gap: 28px; grid-template-areas: "head" "gate" "faq"; }
+    .book-head { grid-area: head; } .gate-wrap { grid-area: gate; } .book-faq { grid-area: faq; }
+    @media (min-width: 960px) { .book-grid { grid-template-columns: 0.85fr 1.15fr; grid-template-areas: "head gate" "faq gate"; gap: 28px 48px; align-items: start; } }
+    .gate { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px 20px; }
+    @media (min-width: 860px) { .gate { padding: 30px 28px; } }
+    .gate h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 4px; }
+    .gate .sub { font-size: 14.5px; color: var(--muted); margin-bottom: 20px; }
+    .gq { margin-bottom: 20px; }
+    .gq p { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+    .opts { display: grid; gap: 8px; }
+    .opts button { text-align: left; font: 600 15px 'Inter', sans-serif; letter-spacing: -0.01em; color: var(--ink); background: #fff; border: 1.5px solid var(--line); border-radius: 14px; padding: 14px 16px; cursor: pointer; transition: opacity 140ms ease-out; }
+    .opts button[aria-pressed=true] { border-color: var(--green); background: var(--green-soft); }
+    .gate .btn { width: 100%; margin-top: 4px; }
+    .gate .btn[disabled] { opacity: 0.35; cursor: not-allowed; }
+    .cal { display: none; border-radius: 22px; overflow: hidden; background: var(--card); border: 1px solid var(--line); }
+    .cal.show { display: block; }
+    .cal-head { padding: 18px 20px; border-bottom: 1px solid var(--line); font-weight: 700; font-size: 15px; display: flex; gap: 10px; align-items: center; }
+    .cal-head i { width: 22px; height: 22px; border-radius: 50%; background: var(--green); color: #fff; font-style: normal; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; }
+    .cal iframe { width: 100%; border: 0; display: block; }
+    .nofit { display: none; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 26px 22px; }
+    .nofit.show { display: block; }
+    .nofit h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; }
+    .nofit p { font-size: 15.5px; color: var(--muted); margin-bottom: 18px; }
+    .nofit .btn { width: 100%; }
+    .faq { border-top: 1px solid var(--line); }
+    .faq details { border-bottom: 1px solid var(--line); }
+    .faq summary { list-style: none; cursor: pointer; padding: 17px 0; font-size: 16px; font-weight: 700; letter-spacing: -0.02em; display: flex; justify-content: space-between; gap: 14px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; color: var(--green); font-size: 20px; font-weight: 600; line-height: 1; }
+    .faq details[open] summary::after { content: '−'; }
+    .faq p { font-size: 15px; color: var(--muted); padding-bottom: 17px; }
+
+    footer { padding: 28px 0 110px; font-size: 13px; color: var(--faint); border-top: 1px solid var(--line); }
+    @media (min-width: 860px) { footer { padding-bottom: 28px; } }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    footer a { text-decoration: none; color: var(--muted); }
+    footer p.disc { flex-basis: 100%; font-size: 12px; line-height: 1.6; }
+
+    .sticky { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 50; opacity: 0; pointer-events: none; transition: opacity 140ms ease-out; }
+    .sticky.show { opacity: 1; pointer-events: auto; }
+    .sticky .btn { width: 100%; box-shadow: 0 10px 30px rgb(20 18 16 / 0.3); }
+    @media (min-width: 860px) { .sticky { display: none; } }
+    /* ── v2 additions ── */
+    .nav { padding: 16px 20px; }
+    .topbar { background: var(--ink); color: #fff; text-align: center; font-size: 13px; padding: 9px 16px; line-height: 1.4; }
+    .topbar b { background: var(--mint); color: var(--ink); font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 100px; margin-right: 8px; letter-spacing: 0.03em; }
+    .hero .lede { margin-bottom: 24px; }
+    .hero-gate { max-width: 560px; margin: 0 auto; text-align: left; }
+    .hero-gate .gate { box-shadow: 0 2px 4px rgb(20 18 16 / 0.04), 0 18px 40px rgb(20 18 16 / 0.08); }
+    .opts.two { grid-template-columns: 1fr 1fr; }
+    .hero-price { display: flex; align-items: baseline; gap: 10px; margin: 6px 0 18px; }
+    .hero-price b { font-size: 56px; font-weight: 900; letter-spacing: -0.05em; line-height: 1; }
+    .hero-price span { color: var(--muted); font-weight: 600; }
+    .gate .textlink.sec { display: block; text-align: center; margin-top: 14px; }
+    .gq.step2 { display: none; }
+    .gq.step2.show { display: block; }
+    .mini-trust { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 18px; margin-top: 16px; font-size: 13.5px; color: var(--muted); }
+    .mini-trust b { color: var(--ink); }
+    .marquee.one { margin-top: 48px; }
+    .marquee.one .panels img { height: 300px; }
+    @media (min-width: 860px) { .marquee.one .panels img { height: 420px; } }
+
+    .fit { margin-top: 32px; display: grid; gap: 14px; }
+    @media (min-width: 800px) { .fit { grid-template-columns: 1fr 1fr; gap: 18px; } }
+    .fit-col { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px 22px; }
+    .fit-col.no { background: transparent; }
+    .fit-col h3 { font-size: 18px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; display: flex; gap: 10px; align-items: center; }
+    .fit-col h3 i { width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-style: normal; font-size: 13px; font-weight: 800; color: #fff; background: var(--green); }
+    .fit-col.no h3 i { background: var(--red); }
+    .fit-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .fit-col li { font-size: 15.5px; padding-left: 18px; position: relative; color: var(--muted); }
+    .fit-col li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+    .fit-col.no li::before { background: var(--red); }
+    .fit-col li b { color: var(--ink); }
+
+    .split { margin-top: 32px; display: grid; gap: 14px; }
+    @media (min-width: 800px) { .split { grid-template-columns: 1.35fr 1fr; gap: 18px; } }
+    .split .us { background: var(--ink); color: #fff; border-radius: 22px; padding: 26px 24px; }
+    .split .us .big, .split .you .big { font-size: 46px; font-weight: 900; letter-spacing: -0.05em; line-height: 1; }
+    .split .us .big { color: var(--mint); }
+    .split .us h3, .split .you h3 { font-size: 18px; font-weight: 800; margin: 6px 0 16px; letter-spacing: -0.02em; }
+    .split .us ul { list-style: none; display: grid; gap: 10px; }
+    @media (min-width: 560px) { .split .us ul { grid-template-columns: 1fr 1fr; } }
+    .split .us li { font-size: 15px; padding-left: 26px; position: relative; color: #E8E2D8; }
+    .split .us li::before { content: '✓'; position: absolute; left: 0; color: var(--mint); font-weight: 800; }
+    .split .you { background: var(--green-soft); border-radius: 22px; padding: 26px 24px; display: flex; flex-direction: column; }
+    .split .you .big { color: var(--green); }
+    .split .you p { font-size: 15.5px; color: var(--ink); margin-bottom: 10px; }
+    .split .you .vs-note { margin-top: auto; font-size: 13.5px; color: var(--muted); border-top: 1px solid #C5DFCF; padding-top: 12px; }
+
+    .offer { display: grid; gap: 18px; margin-top: 32px; }
+    @media (min-width: 900px) { .offer { grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; } }
+    .offer .price-card .btn { margin-top: 4px; }
+    .guar-card { background: var(--green); color: #fff; border-radius: 26px; padding: 28px 24px; display: flex; flex-direction: column; gap: 14px; }
+    .guar-card .seal { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--mint); color: var(--mint); display: inline-flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; }
+    .guar-card h3 { font-size: 26px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; }
+    .guar-card p { font-size: 15.5px; color: #E6F4EC; }
+    .guar-card p b { color: var(--mint); }
+    .vids.two { grid-auto-columns: 74%; }
+    @media (min-width: 860px) { .vids.two { grid-template-columns: repeat(4, 1fr); } }
+    .proof-h { margin-top: 56px; font-size: 22px; font-weight: 800; letter-spacing: -0.03em; }
+    .again { margin-top: 36px; text-align: center; }
+
+    .calc-mini { padding: 64px 0; }
+    @media (min-width: 860px) { .calc-mini { padding: 88px 0; } }
+  </style>
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1560323142068081');
+    fbq('track', 'PageView');
+  </script>
+</head>
+<body>
+
+<div class="topbar"><b>STRICT CRITERIA</b>For Muslim-owned Shopify brands already making sales</div>
+
+<!-- 1. HERO + QUALIFIER -->
+<header class="hero">
+  <nav class="wrap nav">
+    <a href="/"><img src="/logo.png" alt="Abu Ecom" /></a>
+    <a class="book" href="#start">Book a call</a>
+  </nav>
+  <div class="wrap" style="padding-top:12px;">
+    <h1><span class="who">Muslim brands:</span> we build the emails that sell for you. <span class="em">Every day, forever.</span></h1>
+    <p class="lede">24 emails across 6 flows, written, designed and switched on in your Klaviyo in 14 days. One payment. <b>Earn back what you paid us, or get every penny back.</b></p>
+
+    <div class="hero-gate" id="start">
+      <div class="gate">
+        <h3>The 14-Day Email Build</h3>
+        <p class="sub">Welcome, abandoned checkout, browse, post-purchase, winback and sunset. Done for you, owned by you.</p>
+        <div class="hero-price"><b>$997</b><span>once. No retainer.</span></div>
+        <a class="btn btn-green" href="https://buy.stripe.com/00w3cvfGp21b2fm2W55ZC0g" data-buy>Start my build <span class="arr">→</span></a>
+        <a class="textlink sec" href="https://cal.com/abuecom/30min">Not sure? Book a free 30-minute call</a>
+      </div>
+      <p class="mini-trust"><span><b>$600K+</b> made for clients</span><span><b>14 days</b> to live</span><span><b>100%</b> money back</span></p>
+    </div>
+  </div>
+
+  <div class="marquee one" aria-label="Examples of emails we design">
+    <div class="track">
+      <figure class="grp"><div class="panels"><img src="/emails/cut/boxed-halal-1.jpg" width="248" height="736" alt="Example email design" /><img src="/emails/cut/boxed-halal-2.jpg" width="249" height="736" alt="Example email design" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/5-pillars-1.jpg" width="210" height="731" alt="Example email design" /><img src="/emails/cut/5-pillars-2.jpg" width="225" height="731" alt="Example email design" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/teapressa-1.jpg" width="250" height="735" alt="Example email design" /><img src="/emails/cut/teapressa-2.jpg" width="222" height="734" alt="Example email design" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/huraya-1.jpg" width="209" height="720" alt="Example email design" /><img src="/emails/cut/huraya-2.jpg" width="201" height="720" alt="Example email design" /><img src="/emails/cut/huraya-3.jpg" width="245" height="719" alt="Example email design" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/kube-publishing-1.jpg" width="200" height="749" alt="Example email design" /><img src="/emails/cut/kube-publishing-2.jpg" width="200" height="747" alt="Example email design" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/cave-london-1.jpg" width="226" height="720" alt="Example email design" /><img src="/emails/cut/cave-london-2.jpg" width="227" height="720" alt="Example email design" /><img src="/emails/cut/cave-london-3.jpg" width="226" height="720" alt="Example email design" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/noor-1.jpg" width="169" height="693" alt="Example email design" /><img src="/emails/cut/noor-2.jpg" width="204" height="693" alt="Example email design" /><img src="/emails/cut/noor-3.jpg" width="200" height="664" alt="Example email design" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/mama-yasmin-1.jpg" width="285" height="735" alt="Example email design" /><img src="/emails/cut/mama-yasmin-2.jpg" width="287" height="727" alt="Example email design" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/one-stop-halal-1.jpg" width="215" height="748" alt="Example email design" /><img src="/emails/cut/one-stop-halal-2.jpg" width="215" height="748" alt="Example email design" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/boxed-halal-1.jpg" width="248" height="736" alt="" loading="lazy" /><img src="/emails/cut/boxed-halal-2.jpg" width="249" height="736" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/5-pillars-1.jpg" width="210" height="731" alt="" loading="lazy" /><img src="/emails/cut/5-pillars-2.jpg" width="225" height="731" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/teapressa-1.jpg" width="250" height="735" alt="" loading="lazy" /><img src="/emails/cut/teapressa-2.jpg" width="222" height="734" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/huraya-1.jpg" width="209" height="720" alt="" loading="lazy" /><img src="/emails/cut/huraya-2.jpg" width="201" height="720" alt="" loading="lazy" /><img src="/emails/cut/huraya-3.jpg" width="245" height="719" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/kube-publishing-1.jpg" width="200" height="749" alt="" loading="lazy" /><img src="/emails/cut/kube-publishing-2.jpg" width="200" height="747" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/cave-london-1.jpg" width="226" height="720" alt="" loading="lazy" /><img src="/emails/cut/cave-london-2.jpg" width="227" height="720" alt="" loading="lazy" /><img src="/emails/cut/cave-london-3.jpg" width="226" height="720" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/noor-1.jpg" width="169" height="693" alt="" loading="lazy" /><img src="/emails/cut/noor-2.jpg" width="204" height="693" alt="" loading="lazy" /><img src="/emails/cut/noor-3.jpg" width="200" height="664" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/mama-yasmin-1.jpg" width="285" height="735" alt="" loading="lazy" /><img src="/emails/cut/mama-yasmin-2.jpg" width="287" height="727" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/one-stop-halal-1.jpg" width="215" height="748" alt="" loading="lazy" /><img src="/emails/cut/one-stop-halal-2.jpg" width="215" height="748" alt="" loading="lazy" /></div></figure>
+    </div>
+  </div>
+  <p class="made">Every email written and designed by our team. <b>No templates.</b></p>
+</header>
+
+<!-- 2. WHO IT'S FOR / NOT FOR -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Read this first</p>
+    <h2>Who this is for. <span class="em">And who it isn't.</span></h2>
+    <div class="fit">
+      <div class="fit-col">
+        <h3><i>✓</i>This is for you if</h3>
+        <ul>
+          <li><b>You run a Muslim-owned Shopify store</b> that's already making sales</li>
+          <li>You get <b>steady traffic</b> from ads, social or search</li>
+          <li>You have <b>no flows</b>, or flows you set up years ago</li>
+          <li>Customers <b>buy once, then vanish</b></li>
+          <li>You want an <b>asset you own</b>, not another monthly bill</li>
+        </ul>
+      </div>
+      <div class="fit-col no">
+        <h3><i>✕</i>This is not for you if</h3>
+        <ul>
+          <li>You haven't made your <b>first sales</b> yet</li>
+          <li>You want someone to fix your <b>product or your ads</b></li>
+          <li>You expect email to <b>replace having traffic</b></li>
+          <li>You sell anything <b>haram</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WE DO 100% / YOUR PART -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>Build it once. <span class="em">Get paid every day.</span></h2>
+    <p class="lede">Every time someone signs up, adds to cart, buys or goes quiet, the right email goes out on its own. <b>We build all of it. You approve.</b></p>
+    <div class="split">
+      <div class="us">
+        <p class="big">24</p>
+        <h3>Emails we write, design and install</h3>
+        <ul>
+          <li>Klaviyo revenue audit first</li>
+          <li>Welcome series</li>
+          <li>Abandoned checkout</li>
+          <li>Browse abandonment</li>
+          <li>Post-purchase</li>
+          <li>Winback and sunset</li>
+          <li>Sign-up pop-up rebuilt</li>
+          <li>Every link and trigger tested</li>
+        </ul>
+      </div>
+      <div class="you">
+        <p class="big">1 tap</p>
+        <h3>Your part</h3>
+        <p>Every email lands in your review portal. Look it over, leave a comment if you want a change, then tap <b>Approve</b>.</p>
+        <p>We switch it on. It sells while you sleep.</p>
+        <p class="vs-note">No files and "good luck". It's built and running inside your own Klaviyo.</p>
+      </div>
+    </div>
+
+    <div class="sys">
+      <div class="sys-card">
+        <p class="when">Days 1–3</p>
+        <h3>Audit and plan</h3>
+        <p>We find where your store is leaking money and map every flow.</p>
+      </div>
+      <div class="sys-card">
+        <p class="when">Days 4–11</p>
+        <h3>Write and design</h3>
+        <p>24 emails made for your brand. You review and approve in the portal.</p>
+      </div>
+      <div class="sys-card">
+        <p class="when">Days 12–14</p>
+        <h3>Switch it on</h3>
+        <p>Installed, tested on every device, and live. Then a walkthrough call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. PRICE + GUARANTEE + PROOF -->
+<section id="price" style="padding-top:0;">
+  <div class="wrap">
+    <p class="eyebrow">The price</p>
+    <h2>One payment. <span class="em">Earn it back or don't pay.</span></h2>
+    <div class="offer">
+      <div class="price-card">
+        <span class="tag">The 14-Day Email Build</span>
+        <h3>Your always-on email system</h3>
+        <div class="amount"><b>$997</b><span>once</span></div>
+        <p class="terms"><b>No retainer. No contract.</b> You own it forever. An email agency charges $2,000+ a month for less.</p>
+        <a class="btn btn-ink" href="https://buy.stripe.com/00w3cvfGp21b2fm2W55ZC0g" data-buy>Start my build <span class="arr">→</span></a>
+      </div>
+      <div class="guar-card">
+        <span class="seal">✓</span>
+        <h3>Earn back the $997, or get every penny back.</h3>
+        <p>If the revenue Klaviyo reports from the flows we build is less than $997 in the first 90 days after launch, <b>we refund you 100%.</b> And you keep the emails.</p>
+        <p>We only take on stores we know we can help.</p>
+      </div>
+    </div>
+
+    <p class="proof-h">Founders who let us build their system</p>
+    <div class="vids two">
+      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/vozqi9zd59?playsinline=true&videoFoam=false" title="Bijou Cat testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>"Made it all back in week one."</p><span>Bijou Cat, luxury collars</span></div>
+      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/v12houl57j?playsinline=true&videoFoam=false" title="Aman testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>$200k+ from email alone.</p><span>Aman, ecom founder</span></div>
+      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/jbfubarxpf?playsinline=true&videoFoam=false" title="MyOJI testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>40%+ returning customers.</p><span>Zubash, co-founder, MyOJI</span></div>
+      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/me9fxu0nyi?playsinline=true&videoFoam=false" title="VT Fight Gear testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>Repeat sales on autopilot.</p><span>Essa, founder, VT Fight Gear</span></div>
+    </div>
+    <p class="swipe">Swipe for more →</p>
+    <div class="again"><a class="btn btn-green" href="https://buy.stripe.com/00w3cvfGp21b2fm2W55ZC0g" data-buy>Start my build <span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<!-- 5. FAQ -->
+<section style="padding-top:0;">
+  <div class="narrow">
+    <p class="eyebrow">Questions</p>
+    <h2>Straight answers.</h2>
+    <div class="faq">
+      <details><summary>How much is it?</summary><p>$997, once. No retainer, no contract, nothing to cancel.</p></details>
+      <details><summary>What if it doesn't make the money back?</summary><p>If Klaviyo shows the flows we built made you less than $997 in the first 90 days after launch, we refund you in full. You keep the emails.</p></details>
+      <details><summary>What do I have to do?</summary><p>Fill in one onboarding form, give us Klaviyo access, and approve the emails in your review portal. That's it.</p></details>
+      <details><summary>I'm not on Klaviyo yet. Is that okay?</summary><p>Yes. We set it up from scratch and bring your list over.</p></details>
+      <details><summary>Will the emails fit my values?</summary><p>Always. No music, no immodest imagery, nothing that goes against your deen. You approve every email.</p></details>
+      <details><summary>Who's behind this?</summary><p>Abu Ecom is run by Mussa (<a href="https://instagram.com/thatmussa">@thatmussa</a>). A Muslim team writing and designing for Muslim brands, with $600K+ made for our clients.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CALCULATOR (for the people who want the numbers) -->
+<section class="calc calc-mini" id="calc">
+  <div class="wrap">
+    <p class="eyebrow">Run your numbers</p>
+    <h2>What your list should be <span class="em">making you.</span></h2>
+    <div class="calc-box">
+      <div class="panel">
+        <div class="q">
+          <div class="q-top"><label for="list">How many people are on your email list?</label></div>
+          <output id="o-list"></output>
+          <input type="range" id="list" min="0" max="1000" step="1" aria-label="Email list size" />
+        </div>
+        <div class="q">
+          <div class="q-top"><label for="aov">What's your average order?</label></div>
+          <output id="o-aov"></output>
+          <input type="range" id="aov" min="10" max="300" step="5" aria-label="Average order value" />
+        </div>
+      </div>
+      <div class="panel result" aria-live="polite">
+        <p class="label">Your flows should be making you</p>
+        <p class="big" id="r-mo">$0</p>
+        <p class="per">a month, at average rates</p>
+        <div class="rows">
+          <div><span>A year</span><b id="r-yr">$0</b></div>
+          <div><span>Our fee</span><b id="r-fee">$997 once</b></div>
+          <div class="hl"><span>Pays for itself in</span><b id="r-roi">0 days</b></div>
+        </div>
+        <a class="btn btn-mint" href="#start">Start my build <span class="arr">→</span></a>
+      </div>
+    </div>
+    <p class="calc-note">A rough guide using average rates: about 1 order a month for every 100 subscribers. Estimates, not promises.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Abu Ecom</span>
+    <a href="/privacy-policy">Privacy policy</a>
+    <p class="disc">Results vary. Figures shown are estimates and past client results, not a promise of future earnings. Your results depend on your products, list, traffic and offer.</p>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky"><a class="btn btn-ink" href="#start">Start my build, $997 <span class="arr">→</span></a></div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var FEE = 997;
+  var money = function (x) { return '$' + Math.round(x).toLocaleString('en-US'); };
+
+  // ── Calculator ──
+  var list = $('list'), aov = $('aov');
+  var LO = 500, HI = 200000;
+  var fromLog = function (v) { return LO * Math.pow(HI / LO, v / 1000); };
+  var toLog = function (x) { return Math.round(1000 * Math.log(x / LO) / Math.log(HI / LO)); };
+  var round = function (x) { var m = x < 2000 ? 100 : x < 10000 ? 500 : x < 50000 ? 1000 : 5000; return Math.round(x / m) * m; };
+  var fill = function (el) { el.style.setProperty('--p', ((el.value - el.min) / (el.max - el.min) * 100) + '%'); };
+  list.value = toLog(10000); aov.value = 50;
+  function render() {
+    var subs = round(fromLog(+list.value)), order = +aov.value;
+    var mo = subs * 0.01 * order;
+    $('o-list').textContent = subs.toLocaleString('en-US') + ' people';
+    $('o-aov').textContent = money(order);
+    $('r-mo').textContent = money(mo);
+    $('r-yr').textContent = money(mo * 12);
+    $('r-roi').textContent = mo > 0 ? Math.max(1, Math.ceil(FEE / (mo / 30))) + ' days' : '-';
+    fill(list); fill(aov);
+  }
+  list.addEventListener('input', render); aov.addEventListener('input', render); render();
+
+  // ── Checkout clicks ──
+  document.querySelectorAll('[data-buy]').forEach(function (a) {
+    a.addEventListener('click', function () { if (window.fbq) fbq('track', 'InitiateCheckout', { value: 997, currency: 'USD' }); });
+  });
+
+  // ── Sticky mobile CTA: show once the qualifier is off screen ──
+  var sticky = $('sticky'), gateWrap = document.querySelector('.hero-gate'), gone = false;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (e) { gone = !e[0].isIntersecting; sticky.classList.toggle('show', gone); }).observe(gateWrap);
+  }
+  document.addEventListener('contextmenu', function (e) { if (e.target.tagName === 'IMG') e.preventDefault(); });
+})();
+</script>
+</body>
+</html>
