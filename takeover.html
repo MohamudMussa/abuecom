@@ -290,6 +290,10 @@
     .proofs span { font-size: 14px; color: var(--muted); }
     .gq.step2 { display: none; }
     .gq.step2.show { display: block; }
+    .apply-card { text-align: center; }
+    .btn-apply .arr { flex: none; }
+    .btn-apply { width: 100%; height: 72px; font-size: 20px; font-weight: 800; letter-spacing: 0.01em; }
+    .apply-card .sub { margin: 14px 0 0; }
     .mini-trust { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 18px; margin-top: 16px; font-size: 13.5px; color: var(--muted); }
     .mini-trust b { color: var(--ink); }
     .marquee.one { margin-top: 48px; }
@@ -359,34 +363,16 @@
 <header class="hero" id="book">
   <nav class="wrap nav">
     <a href="/"><img src="/logo.png" alt="Abu Ecom" /></a>
-    <a class="book" href="#book">Book a call</a>
+    <a class="book" href="/apply">Apply</a>
   </nav>
   <div class="wrap" style="padding-top:12px;">
     <h1><span class="who">Muslim brands:</span> we take over your email. <span class="em">You make 30% more in 90 days.</span></h1>
     <p class="lede">We plan, write, design and send every email. You approve it in one tap. <b>Make more than you pay us, or get your fees back.</b></p>
 
     <div class="hero-gate">
-      <div class="gate" id="gate">
-        <h3>See if you qualify</h3>
-        <p class="sub">One tap, then pick a time for a free 30-minute call.</p>
-        <div class="gq">
-          <p>Roughly how much does your store make a month?</p>
-          <div class="opts two" data-q="rev">
-            <button type="button" data-v="no">Under $20k</button>
-            <button type="button" data-v="yes">$20k to $50k</button>
-            <button type="button" data-v="yes">$50k to $150k</button>
-            <button type="button" data-v="yes">$150k+</button>
-          </div>
-        </div>
-      </div>
-      <div class="cal" id="cal">
-        <div class="cal-head"><i>✓</i>You qualify. Pick a time that suits you.</div>
-        <div id="cal-inline" style="width:100%;min-height:640px;overflow:auto;"></div>
-      </div>
-      <div class="nofit" id="nofit">
-        <h3>The Takeover isn't the right fit yet.</h3>
-        <p id="nofit-why">The Email Takeover works best for Shopify brands doing $20k+ a month. But you can still get the same flows built for you, once, for a single payment.</p>
-        <a class="btn btn-ink" href="/newship">See the one-off email build <span class="arr">→</span></a>
+      <div class="gate apply-card">
+        <a class="btn btn-green btn-apply" href="/apply">CLICK HERE TO APPLY <span class="arr">→</span></a>
+        <p class="sub">60-second application. If you're a fit, you pick a time for a free 30-minute call.</p>
       </div>
       <p class="mini-trust"><span><b>$600K+</b> made for clients</span><span><b>14 days</b> to first sends</span><span><b>90-day</b> money back</span></p>
     </div>
@@ -532,7 +518,7 @@
         <h3>Your whole email channel, run for you</h3>
         <div class="amount"><b id="p-fee">$2,000</b><span>/ month</span></div>
         <p class="terms"><b>No setup fee.</b> 90-day start, then month to month. A full-time email marketer costs $4,500+.</p>
-        <a class="btn btn-ink" href="#book">See if you qualify <span class="arr">→</span></a>
+        <a class="btn btn-ink" href="/apply">Click here to apply <span class="arr">→</span></a>
       </div>
       <div class="guar-card">
         <span class="seal">✓</span>
@@ -550,7 +536,7 @@
       <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/me9fxu0nyi?playsinline=true&videoFoam=false" title="VT Fight Gear testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>Repeat sales on autopilot.</p><span>Essa, founder, VT Fight Gear</span></div>
     </div>
     <p class="swipe">Swipe for more →</p>
-    <div class="again"><a class="btn btn-green" href="#book">See if you qualify <span class="arr">→</span></a></div>
+    <div class="again"><a class="btn btn-green" href="/apply">Click here to apply <span class="arr">→</span></a></div>
   </div>
 </section>
 
@@ -597,7 +583,7 @@
           <div><span>Our fee</span><b id="r-fee">$2,000 /mo</b></div>
           <div class="hl"><span>Every $1 you pay us returns</span><b id="r-roi">$0</b></div>
         </div>
-        <a class="btn btn-mint" href="#book">See if you qualify <span class="arr">→</span></a>
+        <a class="btn btn-mint" href="/apply">Click here to apply <span class="arr">→</span></a>
       </div>
     </div>
     <p class="calc-note">Based on 3 campaigns a week, a 35% open rate, 4% click rate and 5% of clickers buying. Automated flows earn on top of this. Estimates, not promises.</p>
@@ -612,7 +598,7 @@
   </div>
 </footer>
 
-<div class="sticky" id="sticky"><a class="btn btn-ink" href="#book">See if you qualify <span class="arr">→</span></a></div>
+<div class="sticky" id="sticky"><a class="btn btn-ink" href="/apply">Click here to apply <span class="arr">→</span></a></div>
 
 <script>
 (function () {
@@ -640,65 +626,8 @@
   }
   list.addEventListener('input', render); aov.addEventListener('input', render); render();
 
-  // ── Qualify in the hero: revenue, then Shopify, then calendar ──
-  var answers = {};
-  function decide() {
-    $('gate').style.display = 'none';
-    if (answers.rev === 'yes' && answers.shop === 'yes') {
-      $('cal').classList.add('show');
-      if (window.fbq) fbq('track', 'Lead');
-      loadCal();
-    } else {
-      if (answers.shop === 'no') {
-        $('nofit-why').textContent = "The Email Takeover is built for Shopify stores. Book a free call anyway and we'll tell you honestly whether we can help.";
-        var a = document.querySelector('#nofit .btn'); a.href = 'https://cal.com/abuecom/30min'; a.firstChild.textContent = 'Book a free call anyway ';
-      }
-      $('nofit').classList.add('show');
-    }
-  }
-  document.querySelectorAll('.opts').forEach(function (group) {
-    group.querySelectorAll('button').forEach(function (b) {
-      b.addEventListener('click', function () {
-        group.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
-        b.setAttribute('aria-pressed', 'true');
-        answers[group.dataset.q] = b.dataset.v;
-        if (group.dataset.q === 'rev') {
-          answers.shop = 'yes'; setTimeout(decide, 180);
-        } else setTimeout(decide, 180);
-      });
-    });
-  });
-
-  // ── cal.com inline embed: send bookers to /booked ──
-  var calLoaded = false;
-  function goBooked() { window.location.href = '/booked'; }
-  function fallbackIframe() {
-    if ($('cal-inline').querySelector('iframe')) return;
-    $('cal-inline').innerHTML = '<iframe src="https://cal.com/abuecom/takeover?embed=true&theme=light" title="Book a call with Abu Ecom" style="width:100%;height:720px;border:0;display:block;"></iframe>';
-  }
-  function loadCal() {
-    if (calLoaded) return; calLoaded = true;
-    (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, 'https://app.cal.com/embed/embed.js', 'init');
-    Cal('init', 'takeover', { origin: 'https://app.cal.com' });
-    Cal.ns.takeover('on', { action: 'bookingSuccessfulV2', callback: goBooked });
-    Cal.ns.takeover('on', { action: 'bookingSuccessful', callback: goBooked });
-    Cal.ns.takeover('ui', { theme: 'light', hideEventTypeDetails: false, layout: 'month_view' });
-    if (isPhone) {
-      // Phones: cal.com's full-screen pop-up instead of a very tall inline calendar.
-      $('cal-inline').style.minHeight = '0';
-      $('cal-inline').innerHTML = '<div style="padding:22px 20px"><button type="button" class="btn btn-green" id="cal-open" style="width:100%">Open the calendar <span class="arr">→</span></button><p style="margin-top:12px;font-size:14px;color:var(--muted);text-align:center">Pick a time that suits you. It takes 30 seconds.</p></div>';
-      $('cal-open').addEventListener('click', openModal);
-      openModal();
-      return;
-    }
-    Cal.ns.takeover('inline', { elementOrSelector: '#cal-inline', config: { layout: 'month_view', theme: 'light' }, calLink: 'abuecom/takeover' });
-    setTimeout(function () { if (!$('cal-inline').querySelector('iframe')) fallbackIframe(); }, 8000);
-  }
-  var isPhone = window.matchMedia('(max-width: 760px)').matches;
-  function openModal() {
-    if (window.Cal && Cal.ns && Cal.ns.takeover) Cal.ns.takeover('modal', { calLink: 'abuecom/takeover', config: { layout: 'month_view', theme: 'light' } });
-    else window.location.href = 'https://cal.com/abuecom/takeover';
-  }
+  // ── Apply links keep the ad's UTM tags ──
+  if (location.search) document.querySelectorAll('a[href="/apply"]').forEach(function (l) { l.href = '/apply' + location.search; });
 
   // ── Sticky mobile CTA: show once the qualifier is off screen ──
   var sticky = $('sticky'), gateWrap = document.querySelector('.hero-gate'), gone = false;

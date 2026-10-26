@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply | The Email Takeover | Abu Ecom</title>
+  <meta name="description" content="Apply for the Email Takeover. A 60-second application for Muslim-owned Shopify brands doing $20k+ a month." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F5F0E8;
+      --card: #FFFDF9;
+      --ink: #141210;
+      --muted: #5E584F;
+      --faint: #8F877B;
+      --line: #E2D9CA;
+      --green: #0E6B4A;
+      --green-soft: #DFEEE5;
+      --mint: #8FE3B8;
+      --red: #B3261E;
+      --serif: 'Instrument Serif', Georgia, serif;
+    }
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--cream); color: var(--ink); letter-spacing: -0.012em; line-height: 1.5; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+    a { color: inherit; }
+    .em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+    .top { background: var(--ink); color: #fff; text-align: center; font-size: 13px; padding: 9px 16px; line-height: 1.4; }
+    .top b { background: var(--mint); color: var(--ink); font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 100px; margin-right: 8px; letter-spacing: 0.03em; }
+
+    .shell { max-width: 600px; margin: 0 auto; padding: 18px 16px 48px; }
+    .head { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+    .head img { width: 40px; height: 40px; border-radius: 8px; }
+    .head .t { font-size: 13px; color: var(--muted); line-height: 1.3; }
+    .head .t b { display: block; color: var(--ink); font-size: 15px; font-weight: 800; letter-spacing: -0.02em; }
+
+    .prog { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .bar { flex: 1; height: 6px; border-radius: 6px; background: var(--line); overflow: hidden; }
+    .bar i { display: block; height: 100%; width: 20%; background: var(--green); border-radius: 6px; transition: width 260ms ease-out; }
+    .step-n { font-size: 12.5px; font-weight: 700; color: var(--faint); white-space: nowrap; }
+
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 26px 20px 22px; box-shadow: 0 2px 4px rgb(20 18 16 / 0.04), 0 18px 40px rgb(20 18 16 / 0.08); }
+    @media (min-width: 640px) { .card { padding: 34px 32px 28px; } }
+
+    .q { display: none; }
+    .q.on { display: block; }
+    .ready .q.on { animation: in 220ms ease-out; }
+    @keyframes in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .q.on { animation: none; } .bar i { transition: none; } }
+
+    .q h1, .q h2 { font-size: clamp(24px, 5.6vw, 32px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.12; margin-bottom: 8px; }
+    .q h1 .em, .q h2 .em { color: var(--green); font-size: 1.08em; }
+    .q .hint { font-size: 15px; color: var(--muted); margin-bottom: 20px; }
+
+    .opts { display: grid; gap: 10px; }
+    .opts button { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; font: 650 16.5px 'Inter', sans-serif; letter-spacing: -0.015em; color: var(--ink); background: #fff; border: 1.5px solid var(--line); border-radius: 16px; padding: 17px 18px; cursor: pointer; transition: border-color 140ms ease-out, background 140ms ease-out; }
+    .opts button .k { flex: none; width: 26px; height: 26px; border-radius: 8px; border: 1.5px solid var(--line); font-size: 12px; font-weight: 800; color: var(--faint); display: inline-flex; align-items: center; justify-content: center; }
+    .opts button:hover { border-color: var(--ink); }
+    .opts button[aria-pressed=true] { border-color: var(--green); background: var(--green-soft); }
+    .opts button[aria-pressed=true] .k { background: var(--green); border-color: var(--green); color: #fff; }
+
+    label.f { display: block; font-size: 14px; font-weight: 700; margin: 0 0 6px; }
+    .in { width: 100%; height: 56px; border: 1.5px solid var(--line); border-radius: 14px; background: #fff; padding: 0 16px; font: 500 17px 'Inter', sans-serif; color: var(--ink); letter-spacing: -0.01em; }
+    .in:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px var(--green-soft); }
+    .in.bad { border-color: var(--red); }
+    .fld { margin-bottom: 14px; }
+    .err { display: none; font-size: 13.5px; color: var(--red); font-weight: 600; margin-top: 6px; }
+    .err.show { display: block; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; height: 60px; padding: 0 28px; border-radius: 100px; font: 800 17px/1 'Inter', sans-serif; letter-spacing: -0.01em; text-decoration: none; cursor: pointer; border: 0; margin-top: 6px; transition: opacity 140ms ease-out; }
+    .btn:hover { opacity: 0.9; }
+    .btn[disabled] { opacity: 0.5; cursor: wait; }
+    .btn-green { background: var(--green); color: #fff; }
+    .btn-ink { background: var(--ink); color: #fff; }
+    .btn .arr { display: inline-flex; width: 28px; height: 28px; border-radius: 50%; background: rgb(255 255 255 / 0.16); align-items: center; justify-content: center; font-size: 15px; }
+
+    .nav { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; min-height: 22px; }
+    .back { background: none; border: 0; font: 600 14px 'Inter', sans-serif; color: var(--muted); cursor: pointer; padding: 4px 0; }
+    .back:hover { color: var(--ink); }
+    .private { font-size: 12.5px; color: var(--faint); }
+
+    .done-tick { width: 44px; height: 44px; border-radius: 50%; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; margin-bottom: 14px; }
+    #cal-inline { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 6px; min-height: 620px; }
+    #cal-inline iframe { width: 100%; border: 0; display: block; }
+    .card.wide { padding-left: 0; padding-right: 0; }
+    .card.wide .q > :not(#cal-inline) { margin-left: 20px; margin-right: 20px; }
+    @media (min-width: 640px) { .card.wide .q > :not(#cal-inline) { margin-left: 32px; margin-right: 32px; } }
+
+    .proof { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 18px; margin-top: 18px; font-size: 13.5px; color: var(--muted); }
+    .proof b { color: var(--ink); }
+  </style>
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1560323142068081');
+    fbq('track', 'PageView');
+  </script>
+</head>
+<body>
+
+<div class="top"><b>STRICT CRITERIA</b>For Muslim-owned Shopify brands doing $20k+ a month</div>
+
+<main class="shell">
+  <div class="head">
+    <a href="/takeover"><img src="/logo.png" alt="Abu Ecom" /></a>
+    <div class="t"><b>Email Takeover application</b>Takes about 60 seconds</div>
+  </div>
+
+  <div class="prog" id="prog"><div class="bar"><i id="bar"></i></div><span class="step-n" id="step-n">Step 1 of 5</span></div>
+
+  <div class="card" id="card">
+
+    <!-- 1. Revenue -->
+    <section class="q on" data-step="1">
+      <h1>Roughly how much does your store make <span class="em">a month?</span></h1>
+      <p class="hint">Total sales, all channels.</p>
+      <div class="opts" data-q="revenue">
+        <button type="button" data-v="Under $20k"><span class="k">A</span>Under $20k</button>
+        <button type="button" data-v="$20k to $50k"><span class="k">B</span>$20k to $50k</button>
+        <button type="button" data-v="$50k to $150k"><span class="k">C</span>$50k to $150k</button>
+        <button type="button" data-v="$150k+"><span class="k">D</span>$150k+</button>
+      </div>
+    </section>
+
+    <!-- 2. Muslim -->
+    <section class="q" data-step="2">
+      <h2>Are you <span class="em">Muslim?</span></h2>
+      <p class="hint">We only work with Muslim-owned brands.</p>
+      <div class="opts" data-q="muslim">
+        <button type="button" data-v="Yes"><span class="k">A</span>Yes</button>
+        <button type="button" data-v="No"><span class="k">B</span>No</button>
+      </div>
+    </section>
+
+    <!-- 3. Imagery -->
+    <section class="q" data-step="3">
+      <h2>We design product-first emails, with <span class="em">no photos of women.</span> Is that okay?</h2>
+      <p class="hint">The product does the selling.</p>
+      <div class="opts" data-q="imagery">
+        <button type="button" data-v="Yes, that's fine"><span class="k">A</span>Yes, that's fine</button>
+        <button type="button" data-v="No"><span class="k">B</span>No</button>
+      </div>
+    </section>
+
+    <!-- 4. Store -->
+    <section class="q" data-step="4">
+      <h2>What's your <span class="em">store's website?</span></h2>
+      <p class="hint">We'll look at your emails before the call.</p>
+      <form id="f-site" novalidate>
+        <div class="fld">
+          <label class="f" for="site">Website</label>
+          <input class="in" id="site" name="site" type="text" inputmode="url" autocomplete="url" autocapitalize="off" spellcheck="false" placeholder="yourstore.com" />
+          <p class="err" id="e-site">Add your store's website.</p>
+        </div>
+        <button class="btn btn-ink" type="submit">Continue <span class="arr">→</span></button>
+      </form>
+    </section>
+
+    <!-- 5. Contact -->
+    <section class="q" data-step="5">
+      <h2>Last step. Where should we <span class="em">reach you?</span></h2>
+      <p class="hint">Then you pick a time for your free 30-minute call.</p>
+      <form id="f-contact" novalidate>
+        <div class="fld">
+          <label class="f" for="name">Full name</label>
+          <input class="in" id="name" name="name" type="text" autocomplete="name" placeholder="Your name" />
+          <p class="err" id="e-name">Add your name.</p>
+        </div>
+        <div class="fld">
+          <label class="f" for="email">Email</label>
+          <input class="in" id="email" name="email" type="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@yourstore.com" />
+          <p class="err" id="e-email">Add a valid email.</p>
+        </div>
+        <div class="fld">
+          <label class="f" for="phone">WhatsApp number</label>
+          <input class="in" id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 555 123 4567" />
+          <p class="err" id="e-phone">Add your WhatsApp number with the country code, e.g. +1.</p>
+        </div>
+        <input class="hp" id="company" name="company" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <button class="btn btn-green" id="submit" type="submit">Submit application <span class="arr">→</span></button>
+      </form>
+    </section>
+
+    <!-- Qualified: calendar -->
+    <section class="q" data-step="ok">
+      <div class="done-tick">✓</div>
+      <h2>You qualify. <span class="em">Pick a time.</span></h2>
+      <p class="hint">Free 30-minute call. We'll go through your Klaviyo and show you what email should be making you.</p>
+      <div id="cal-inline"></div>
+    </section>
+
+    <!-- Not a fit: revenue -->
+    <section class="q" data-step="no-rev">
+      <h2>The Takeover isn't the <span class="em">right fit yet.</span></h2>
+      <p class="hint">It works best for brands doing $20k+ a month. But you can still get the same flows built for you, once, for a single payment.</p>
+      <a class="btn btn-ink" href="/newship">See the one-off email build <span class="arr">→</span></a>
+    </section>
+
+    <!-- Not a fit: other -->
+    <section class="q" data-step="no-fit">
+      <h2>Thanks for <span class="em">being honest.</span></h2>
+      <p class="hint" id="nofit-why">The Email Takeover is only for Muslim-owned brands, so we're not the right team for you.</p>
+      <a class="btn btn-ink" href="/">Back to Abu Ecom <span class="arr">→</span></a>
+    </section>
+
+    <div class="nav" id="nav">
+      <button class="back" type="button" id="back" hidden>← Back</button>
+      <span class="private">Your answers stay private.</span>
+    </div>
+  </div>
+
+  <p class="proof"><span><b>$600K+</b> made for clients</span><span><b>14 days</b> to first sends</span><span><b>90-day</b> money back</span></p>
+</main>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var TOTAL = 5;
+  var answers = {};
+  var history = [];
+  var current = '1';
+
+  function show(step, push) {
+    if (push !== false && current !== step) history.push(current);
+    current = step;
+    document.querySelectorAll('.q').forEach(function (q) { q.classList.toggle('on', q.dataset.step === step); });
+    var n = parseInt(step, 10);
+    var numbered = !isNaN(n);
+    $('prog').style.visibility = numbered ? 'visible' : 'hidden';
+    if (numbered) { $('bar').style.width = (n / TOTAL * 100) + '%'; $('step-n').textContent = 'Step ' + n + ' of ' + TOTAL; }
+    $('back').hidden = !numbered || n === 1;
+    $('nav').style.display = step === 'ok' ? 'none' : 'flex';
+    $('card').classList.toggle('wide', step === 'ok');
+    var focusEl = { '4': 'site', '5': 'name' }[step];
+    if (focusEl && window.matchMedia('(min-width: 760px)').matches) setTimeout(function () { $(focusEl).focus(); }, 60);
+    window.scrollTo({ top: 0 });
+  }
+
+  $('back').addEventListener('click', function () { if (history.length) show(history.pop(), false); });
+
+  // Tap answers
+  var next = {
+    revenue: function (v) { return v === 'Under $20k' ? 'no-rev' : '2'; },
+    muslim: function (v) { return v === 'Yes' ? '3' : 'no-fit'; },
+    imagery: function (v) {
+      if (v !== 'No') return '4';
+      $('nofit-why').textContent = "We only design product-first emails without photos of women, so we're not the right team for you.";
+      return 'no-fit';
+    }
+  };
+  document.querySelectorAll('.opts').forEach(function (group) {
+    group.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        group.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+        b.setAttribute('aria-pressed', 'true');
+        var key = group.dataset.q;
+        answers[key] = b.dataset.v;
+        if (key === 'muslim' && b.dataset.v === 'Yes') $('nofit-why').textContent = 'The Email Takeover is only for Muslim-owned brands, so we\'re not the right team for you.';
+        setTimeout(function () { show(next[key](b.dataset.v)); }, 200);
+      });
+    });
+  });
+
+  function flag(id, bad) { $(id).classList.toggle('bad', bad); $('e-' + id).classList.toggle('show', bad); return bad; }
+  ['site', 'name', 'email', 'phone'].forEach(function (id) { $(id).addEventListener('input', function () { flag(id, false); }); });
+
+  // Store
+  $('f-site').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = $('site').value.trim();
+    if (flag('site', !/[a-z0-9-]+\.[a-z]{2,}/i.test(v))) return;
+    answers.site = v.replace(/^https?:\/\//i, '').replace(/\/$/, '');
+    show('5');
+  });
+
+  // Contact, then calendar
+  var digits = function (s) { return String(s || '').replace(/[^\d]/g, '').replace(/^00/, ''); };
+  $('f-contact').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = $('name').value.trim(), email = $('email').value.trim(), phone = digits($('phone').value);
+    var bad = flag('name', name.length < 2);
+    bad = flag('email', !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) || bad;
+    bad = flag('phone', phone.length < 9 || phone.length > 15) || bad;
+    if (bad) return;
+    answers.name = name; answers.email = email; answers.phone = phone;
+    $('submit').disabled = true;
+
+    var params = new URLSearchParams(location.search), utm = {};
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'].forEach(function (k) { if (params.get(k)) utm[k] = params.get(k); });
+    var payload = JSON.stringify(Object.assign({}, answers, { utm: utm, company: $('company').value }));
+    try {
+      fetch('/api/apply', { method: 'POST', headers: { 'content-type': 'application/json' }, body: payload, keepalive: true }).catch(function () {});
+    } catch (err) {}
+    if (window.fbq) fbq('track', 'Lead');
+    show('ok');
+    loadCal();
+  });
+
+  // cal.com, pre-filled so they don't answer twice
+  var REV = { '$20k to $50k': '$25k - $50k', '$50k to $150k': '$50k - $150k', '$150k+': '$150k+' };
+  function prefill() {
+    return {
+      name: answers.name,
+      email: answers.email,
+      attendeePhoneNumber: '+' + answers.phone,
+      'Shopify-URL--Your-Website': 'https://' + answers.site,
+      'Are-you-Muslim': 'Yes',
+      'What-s-your-experience-with-eCom---CURRENT-Revenue-Monthly': REV[answers.revenue] || '',
+      'no-women-imagery': "Yes, that's fine",
+      layout: 'month_view',
+      theme: 'light'
+    };
+  }
+  function calUrl() {
+    var q = new URLSearchParams(prefill());
+    return 'https://cal.com/abuecom/takeover?' + q.toString();
+  }
+  var isPhone = window.matchMedia('(max-width: 760px)').matches;
+  function goBooked() { window.location.href = '/booked'; }
+  function fallbackIframe() {
+    if ($('cal-inline').querySelector('iframe')) return;
+    $('cal-inline').innerHTML = '<iframe src="' + calUrl() + '&embed=true" title="Book a call with Abu Ecom" style="height:720px"></iframe>';
+  }
+  function openModal() {
+    if (window.Cal && Cal.ns && Cal.ns.takeover) Cal.ns.takeover('modal', { calLink: 'abuecom/takeover', config: prefill() });
+    else window.location.href = calUrl();
+  }
+  function loadCal() {
+    (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, 'https://app.cal.com/embed/embed.js', 'init');
+    Cal('init', 'takeover', { origin: 'https://app.cal.com' });
+    Cal.ns.takeover('on', { action: 'bookingSuccessfulV2', callback: goBooked });
+    Cal.ns.takeover('on', { action: 'bookingSuccessful', callback: goBooked });
+    Cal.ns.takeover('ui', { theme: 'light', hideEventTypeDetails: true, layout: 'month_view' });
+    if (isPhone) {
+      $('cal-inline').style.minHeight = '0';
+      $('cal-inline').style.borderTop = '0';
+      $('cal-inline').innerHTML = '<div style="padding:4px 20px 22px"><button type="button" class="btn btn-green" id="cal-open">Open the calendar <span class="arr">→</span></button><p style="margin-top:12px;font-size:14px;color:var(--muted);text-align:center">Your details are already filled in. It takes 30 seconds.</p></div>';
+      $('cal-open').addEventListener('click', openModal);
+      openModal();
+      return;
+    }
+    Cal.ns.takeover('inline', { elementOrSelector: '#cal-inline', config: prefill(), calLink: 'abuecom/takeover' });
+    setTimeout(function () { if (!$('cal-inline').querySelector('iframe')) fallbackIframe(); }, 8000);
+  }
+
+  show('1', false);
+  setTimeout(function () { document.body.classList.add('ready'); }, 50);
+})();
+</script>
+</body>
+</html>
