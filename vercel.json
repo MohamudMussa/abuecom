@@ -2,5 +2,8 @@
   "buildCommand": null,
   "framework": null,
   "outputDirectory": null,
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/offer", "destination": "/newship", "permanent": false }
+  ]
 }
