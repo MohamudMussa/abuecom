@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Review Portal | Abu Ecom</title>
+<meta name="description" content="Approve a month of emails in five minutes. Every email we write for your brand lives in one calendar. Comment on the design, tap Approve, done." />
+<link rel="icon" type="image/png" href="/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0B0B0A;--bg2:#121211;--panel:#161615;--panel2:#1C1C1A;--line:#2A2A27;--line2:#353531;--ink:#F4F1EA;--muted:#A19C92;--faint:#6E6A63;--mint:#8FE3B8;--green:#2FBF7A;--gold:#F2C14E;--coral:#FF6B5B;--violet:#A78BFA;--serif:'Instrument Serif',Georgia,serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;letter-spacing:-.012em;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.grad{background:linear-gradient(90deg,#fff 0%,#CFF5E1 45%,var(--mint) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(11,11,10,.72);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px}
+.brand img{width:30px;height:30px;border-radius:8px}
+.brand{white-space:nowrap}.brand span{color:var(--faint);font-weight:500}@media(max-width:600px){.brand span{display:none}}
+.nav-links{display:none;gap:28px;font-size:14px;color:var(--muted);font-weight:500}
+@media(min-width:820px){.nav-links{display:flex}}
+.nav-links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:12px;font-weight:700;font-size:14.5px;transition:transform .15s ease,opacity .15s ease;white-space:nowrap}
+.btn:hover{transform:translateY(-1px)}
+.btn-light{background:var(--ink);color:#0B0B0A}
+.btn-ghost{border:1px solid var(--line2);color:var(--ink);background:rgba(255,255,255,.02)}
+.btn-lg{height:54px;padding:0 24px;font-size:16px;border-radius:14px}
+
+/* hero */
+.hero{position:relative;padding:72px 0 40px;text-align:center;overflow:hidden}
+@media(min-width:820px){.hero{padding:110px 0 60px}}
+.glow{position:absolute;inset:-20% -10% auto;height:720px;background:radial-gradient(50% 50% at 50% 40%,rgba(47,191,122,.22),transparent 70%),radial-gradient(30% 30% at 75% 20%,rgba(167,139,250,.14),transparent 70%);pointer-events:none;filter:blur(10px)}
+.gridbg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(60% 50% at 50% 30%,#000,transparent);mask-image:radial-gradient(60% 50% at 50% 30%,#000,transparent);pointer-events:none}
+.badge{position:relative;display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:100px;border:1px solid var(--line2);background:rgba(255,255,255,.03);font-size:13px;color:var(--muted);font-weight:500;margin-bottom:26px}
+.badge b{background:var(--mint);color:#0B0B0A;font-size:11px;font-weight:800;padding:3px 9px;border-radius:100px;letter-spacing:.02em}
+h1{position:relative;font-size:clamp(42px,7.6vw,92px);font-weight:800;letter-spacing:-.055em;line-height:.98;max-width:13ch;margin:0 auto 22px}
+h1 .em{font-size:1.06em}
+.sub{position:relative;font-size:clamp(17px,1.9vw,21px);color:var(--muted);max-width:40ch;margin:0 auto 34px}
+.ctas{position:relative;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.trustline{position:relative;margin-top:22px;font-size:13px;color:var(--faint)}
+.trustline b{color:var(--muted);font-weight:600}
+
+/* product frame */
+.frame-wrap{position:relative;margin:56px auto 0;max-width:1040px;perspective:1600px}
+.frame{border-radius:18px;padding:8px;background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.03));box-shadow:0 40px 120px -20px rgba(47,191,122,.25),0 30px 80px rgba(0,0,0,.6);transform:rotateX(8deg);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.frame.flat{transform:none}
+.frame-inner{border-radius:12px;overflow:hidden;background:#EDE7DC}
+.frame video{display:block;width:100%;height:auto}
+.frame-cap{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-top:22px;font-size:13px;color:var(--faint)}
+.frame-cap span{display:inline-flex;align-items:center;gap:8px}
+.frame-cap i{width:6px;height:6px;border-radius:50%;background:var(--mint);display:inline-block;box-shadow:0 0 12px var(--mint)}
+
+/* sections */
+section{padding:96px 0;position:relative}
+@media(max-width:700px){section{padding:72px 0}}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);margin-bottom:16px}
+h2{font-size:clamp(32px,4.8vw,58px);font-weight:800;letter-spacing:-.05em;line-height:1.02;max-width:18ch}
+h2 .em{color:var(--mint)}
+.lead{font-size:18px;color:var(--muted);max-width:52ch;margin-top:16px}
+.center{text-align:center}.center h2,.center .lead{margin-left:auto;margin-right:auto}
+
+/* problem vs solution */
+.vs{margin-top:48px;display:grid;gap:18px}
+@media(min-width:900px){.vs{grid-template-columns:1fr 1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden;position:relative}
+.card-h{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid var(--line);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.card-h.bad{color:var(--coral)}.card-h.good{color:var(--mint)}
+.chat{padding:20px;display:flex;flex-direction:column;gap:10px;min-height:340px;background:#0F1512}
+.msg{max-width:82%;padding:10px 13px;border-radius:14px;font-size:14px;background:#1F2C24;color:#E6EEE9;opacity:0;transform:translateY(8px);animation:msg 11s infinite}
+.msg small{display:block;font-size:11px;font-weight:700;color:#7FA592;margin-bottom:2px}
+.msg.me{align-self:flex-end;background:#145C3D}
+.msg.alert{align-self:center;background:rgba(255,107,91,.14);color:var(--coral);font-weight:700;text-align:center}
+.msg:nth-child(1){animation-delay:.2s}.msg:nth-child(2){animation-delay:1.2s}.msg:nth-child(3){animation-delay:2.2s}.msg:nth-child(4){animation-delay:3.2s}.msg:nth-child(5){animation-delay:4.2s}.msg:nth-child(6){animation-delay:5.4s}
+@keyframes msg{0%{opacity:0;transform:translateY(8px)}3%{opacity:1;transform:none}82%{opacity:1}90%,100%{opacity:0}}
+.goodside{padding:0;background:#EDE7DC;display:flex;align-items:center}
+.goodside video{width:100%;display:block}
+
+/* bento */
+.bento{margin-top:52px;display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:760px){.bento{grid-template-columns:repeat(6,1fr)}}
+.tile{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:22px;padding:24px;position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column}
+.tile:hover{border-color:var(--line2)}
+.tile::after{content:'';position:absolute;inset:auto -40% -60% auto;width:300px;height:300px;background:radial-gradient(closest-side,rgba(143,227,184,.08),transparent);pointer-events:none}
+@media(min-width:760px){.t-a{grid-column:span 4}.t-b{grid-column:span 2}.t-c{grid-column:span 2}.t-d{grid-column:span 2}.t-e{grid-column:span 2}.t-f{grid-column:span 3}.t-g{grid-column:span 3}}
+.ico{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(143,227,184,.08);border:1px solid rgba(143,227,184,.22);margin-bottom:16px}
+.ico svg{width:22px;height:22px}
+.tile h3{font-size:20px;font-weight:750;letter-spacing:-.03em;margin-bottom:6px}
+.tile p{font-size:14.5px;color:var(--muted);max-width:44ch}
+.demo{margin-top:auto;padding-top:20px}
+
+/* demo: calendar */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal div{aspect-ratio:1.5;border-radius:8px;background:#1F1F1C;border:1px solid #262623;position:relative;font-size:10px;color:var(--faint);padding:5px}
+.cal .ev{position:absolute;left:4px;right:4px;bottom:4px;height:10px;border-radius:4px;background:var(--gold);opacity:0;animation:fill 6s infinite}
+.cal .ev.ok{background:var(--green)}
+@keyframes fill{0%,8%{opacity:0;transform:scaleX(.3)}16%{opacity:1;transform:none}88%{opacity:1}96%,100%{opacity:0}}
+.legend{display:flex;gap:16px;margin-top:12px;font-size:12px;color:var(--faint)}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:middle}
+
+/* demo: pin comment */
+.mock{position:relative;border-radius:12px;background:#F2EDE3;height:170px;overflow:hidden}
+.mock .bar{position:absolute;left:18%;right:18%;height:9px;border-radius:5px;background:#D9D1C3}
+.mock .hero-b{position:absolute;left:18%;right:18%;top:52px;height:58px;border-radius:8px;background:linear-gradient(135deg,#2A4D3E,#3F6B57)}
+.mock .btnm{position:absolute;left:34%;right:34%;top:124px;height:20px;border-radius:10px;background:#8FBF9F}
+.pin{position:absolute;left:60%;top:118px;width:26px;height:26px;border-radius:50% 50% 50% 0;background:var(--gold);transform:rotate(-45deg) scale(0);display:flex;align-items:center;justify-content:center;animation:pin 6s infinite;box-shadow:0 6px 14px rgba(0,0,0,.35)}
+.pin span{transform:rotate(45deg);font-size:11px;font-weight:800;color:#1a1a1a}
+@keyframes pin{0%,12%{transform:rotate(-45deg) scale(0)}20%{transform:rotate(-45deg) scale(1.15)}25%,90%{transform:rotate(-45deg) scale(1)}100%{transform:rotate(-45deg) scale(0)}}
+.bubble{position:absolute;left:22%;top:78px;background:#111;color:#fff;font-size:12px;font-weight:600;padding:8px 11px;border-radius:10px;opacity:0;animation:bub 6s infinite;white-space:nowrap}
+@keyframes bub{0%,26%{opacity:0;transform:translateY(6px)}32%,86%{opacity:1;transform:none}94%,100%{opacity:0}}
+
+/* demo: approve */
+.approve{display:flex;flex-direction:column;gap:10px}
+.st{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700}
+.st i{width:9px;height:9px;border-radius:50%;background:var(--gold);animation:dot 5s infinite}
+@keyframes dot{0%,45%{background:var(--gold)}50%,100%{background:var(--green)}}
+.st .t1,.st .t2{animation:sw 5s infinite}.st .t2{position:absolute;opacity:0;animation-name:sw2}
+@keyframes sw{0%,45%{opacity:1}50%,100%{opacity:0}}@keyframes sw2{0%,45%{opacity:0}50%,95%{opacity:1}100%{opacity:0}}
+.abtn{height:44px;border-radius:12px;background:var(--green);color:#06210F;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px;animation:press 5s infinite}
+@keyframes press{0%,40%{transform:none;box-shadow:0 0 0 0 rgba(47,191,122,.5)}44%{transform:scale(.95)}50%{transform:none;box-shadow:0 0 0 14px rgba(47,191,122,0)}100%{transform:none}}
+.toast{font-size:12.5px;color:var(--mint);opacity:0;animation:sw2 5s infinite}
+
+/* demo: versions */
+.vers{display:flex;gap:10px;align-items:center}
+.v{flex:1;border-radius:10px;height:110px;background:#F2EDE3;position:relative;overflow:hidden}
+.v .b1{position:absolute;left:12%;right:12%;top:16px;height:40px;border-radius:6px;background:#3F6B57}
+.v .b2{position:absolute;left:28%;right:28%;top:70px;height:16px;border-radius:8px;background:#8FBF9F}
+.v.new .b2{background:var(--gold);animation:goldin 5s infinite}
+@keyframes goldin{0%,30%{background:#8FBF9F}40%,100%{background:var(--gold)}}
+.v small{position:absolute;right:8px;bottom:6px;font-size:10px;font-weight:800;color:#555}
+.arrow{color:var(--faint);font-size:20px}
+
+/* demo: links */
+.links{display:flex;flex-direction:column;gap:8px}
+.lk{display:flex;justify-content:space-between;align-items:center;background:#1F1F1C;border:1px solid #262623;border-radius:10px;padding:9px 12px;font-size:13px;color:var(--muted)}
+.lk b{color:var(--mint);font-size:12px;opacity:0;animation:ok 6s infinite}
+.lk:nth-child(2) b{animation-delay:.5s}.lk:nth-child(3) b{animation-delay:1s}.lk:nth-child(4) b{animation-delay:1.5s}
+@keyframes ok{0%,10%{opacity:0}18%,90%{opacity:1}100%{opacity:0}}
+
+/* demo: team */
+.team{display:flex;align-items:center}
+.av{width:44px;height:44px;border-radius:50%;border:3px solid var(--panel);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;margin-left:-10px;color:#0B0B0A}
+.av:first-child{margin-left:0}
+.feed{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.fi{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center;opacity:0;animation:fi 8s infinite}
+.fi:nth-child(2){animation-delay:1s}.fi:nth-child(3){animation-delay:2s}
+.fi i{width:6px;height:6px;border-radius:50%;background:var(--mint)}
+@keyframes fi{0%,6%{opacity:0;transform:translateX(-6px)}12%,88%{opacity:1;transform:none}96%,100%{opacity:0}}
+
+/* demo: private link */
+.url{display:flex;align-items:center;gap:10px;background:#1F1F1C;border:1px solid #262623;border-radius:12px;padding:12px 14px;font-size:13px;color:var(--muted);font-family:ui-monospace,Menlo,monospace}
+.url svg{flex:none;width:16px;height:16px}
+.url .typed{color:var(--ink);overflow:hidden;white-space:nowrap;border-right:2px solid var(--mint);width:0;animation:type 6s steps(26) infinite}
+@keyframes type{0%,10%{width:0}50%,90%{width:26ch}100%{width:0}}
+.nologin{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.chip{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line2);border-radius:100px;padding:5px 10px}
+
+/* steps */
+.steps{margin-top:52px;display:grid;gap:16px}
+@media(min-width:860px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{border:1px solid var(--line);border-radius:22px;padding:28px;background:var(--panel)}
+.step .n{font-family:var(--serif);font-style:italic;font-size:54px;color:var(--mint);line-height:1}
+.step h3{font-size:21px;font-weight:750;letter-spacing:-.03em;margin:10px 0 6px}
+.step p{color:var(--muted);font-size:15px}
+
+/* stats */
+.stats{margin-top:48px;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+@media(min-width:860px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--bg2);padding:30px 24px}
+.stat b{display:block;font-size:clamp(34px,4vw,48px);font-weight:800;letter-spacing:-.05em}
+.stat span{color:var(--muted);font-size:14px}
+
+/* quote */
+.quote{margin-top:48px;display:grid;gap:18px}
+@media(min-width:860px){.quote{grid-template-columns:repeat(2,1fr)}}
+.vid{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#000;position:relative;aspect-ratio:9/12}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid-cap{margin-top:10px;font-weight:700}.vid-cap span{display:block;color:var(--faint);font-weight:500;font-size:13px}
+
+/* final cta */
+.final{border:1px solid var(--line2);border-radius:28px;padding:56px 24px;text-align:center;background:radial-gradient(60% 80% at 50% 0%,rgba(47,191,122,.18),transparent 70%),var(--bg2);position:relative;overflow:hidden}
+.final h2{margin:0 auto}
+.final .lead{margin:16px auto 30px}
+footer{padding:40px 0 60px;color:var(--faint);font-size:13px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.msg,.fi,.toast,.bubble,.cal .ev,.lk b{opacity:1}.pin{transform:rotate(-45deg)}.url .typed{width:26ch}}
+</style>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1560323142068081');fbq('track','PageView');
+</script>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="/"><img src="/logo.png" alt="" />abu ecom <span>/ Review Portal</span></a>
+  <div class="nav-links"><a href="#features">Features</a><a href="#how">How it works</a><a href="#results">Results</a></div>
+  <a class="btn btn-light" href="/takeover#book">Book a demo</a>
+</div></nav>
+
+<header class="hero">
+  <div class="glow"></div><div class="gridbg"></div>
+  <div class="wrap">
+    <a class="badge" href="#features"><b>NEW</b>The Abu Ecom Review Portal →</a>
+    <h1>Approve a month of emails in <span class="em grad">five minutes.</span></h1>
+    <p class="sub">Every email we write for your brand lives in one calendar. Comment right on the design. Tap Approve. We handle everything else.</p>
+    <div class="ctas">
+      <a class="btn btn-light btn-lg" href="/takeover#book">Get it with the Email Takeover →</a>
+      <a class="btn btn-ghost btn-lg" href="#demo">Watch it work</a>
+    </div>
+    <p class="trustline">Included free for every Email Takeover client · <b>No login. No WhatsApp chaos.</b></p>
+    <div class="frame-wrap" id="demo">
+      <div class="frame" id="frame"><div class="frame-inner">
+        <video autoplay muted loop playsinline preload="auto" poster="/media/portal-poster.jpg"><source src="/media/portal-approve.mp4" type="video/mp4" /><img src="/media/portal-approve.gif" alt="A client reviewing and approving an email in the portal" /></video>
+      </div></div>
+      <div class="frame-cap"><span><i></i>Campaign calendar</span><span><i></i>Comments pinned on the design</span><span><i></i>One-tap approve</span></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap center rv">
+    <p class="kicker">The problem</p>
+    <h2>Email approvals are <span class="em">broken.</span></h2>
+    <p class="lead">Screenshots in WhatsApp. Five versions of the same file. Nobody sure what's final, or if it even went out.</p>
+  </div>
+  <div class="wrap vs">
+    <div class="card rv"><div class="card-h bad"><span>How it usually goes</span><span>😵</span></div>
+      <div class="chat">
+        <div class="msg"><small>Agency</small>Here's this week's copy 👍 can you load it in?</div>
+        <div class="msg"><small>Designer</small>eid_email_v4_FINAL_final2.png</div>
+        <div class="msg me"><small>You</small>Which one is the final one?</div>
+        <div class="msg"><small>Partner</small>Did the Eid email go out?</div>
+        <div class="msg me"><small>You</small>I thought you sent it</div>
+        <div class="msg alert">Emails sent this week: 0</div>
+      </div></div>
+    <div class="card rv"><div class="card-h good"><span>With the Review Portal</span><span>✓</span></div>
+      <div class="goodside"><video autoplay muted loop playsinline preload="metadata" poster="/media/portal-poster.jpg"><source src="/media/portal-approve.mp4" type="video/mp4" /></video></div></div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap rv">
+    <p class="kicker">Features</p>
+    <h2>Everything your team needs. <span class="em">Nothing it doesn't.</span></h2>
+    <p class="lead">Built around one idea: you should spend minutes on email, not hours. We do the work. You make the calls.</p>
+  </div>
+  <div class="wrap bento">
+
+    <div class="tile t-a rv">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#8FE3B8" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/><rect x="7" y="13.5" width="3" height="3" rx=".8" fill="#8FE3B8" stroke="none"/></svg></div>
+      <h3>Your whole month, on one calendar</h3>
+      <p>See every email we're planning, when it sends and what it says. Ramadan, Eid and Black Friday, mapped out weeks ahead.</p>
+      <div class="demo">
+        <div class="cal" id="calgrid"></div>
+        <div class="legend"><span><i style="background:var(--gold)"></i>Ready for review</span><span><i style="background:var(--green)"></i>Approved</span></div>
+      </div>
+    </div>
+
+    <div class="tile t-b rv">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#8FE3B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-10.5A6 6 0 0 1 18 10.5C18 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.2"/></svg></div>
+      <h3>Comment on the design itself</h3>
+      <p>Tap anywhere on the email and leave a note. No screenshots, no guessing.</p>
+      <div class="demo"><div class="mock"><div class="bar" style="top:18px"></div><div class="bar" style="top:34px;left:30%;right:30%"></div><div class="hero-b"></div><div class="btnm"></div><div class="bubble">Can we make this button gold?</div><div class="pin"><span>1</span></div></div></div>
+    </div>
+
+    <div class="tile t-c rv">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#8FE3B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.6L16.5 9"/></svg></div>
+      <h3>One tap to approve</h3>
+      <p>Happy with it? Approve and it's locked in and scheduled. That's your whole job.</p>
+      <div class="demo approve">
+        <div class="st" style="position:relative"><i></i><span class="t1">Ready for review</span><span class="t2">Approved by Aisha</span></div>
+        <div class="abtn">Approve</div>
+        <div class="toast">✓ Scheduled for Friday, 21:00</div>
+      </div>
+    </div>
+
+    <div class="tile t-d rv">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#8FE3B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11M4 12h8M4 17h11"/><path d="M17 10l3 2-3 2"/></svg></div>
+      <h3>Every version, kept</h3>
+      <p>Asked for a change? See exactly what moved between v1 and v2.</p>
+      <div class="demo vers"><div class="v"><div class="b1"></div><div class="b2"></div><small>v1</small></div><span class="arrow">→</span><div class="v new"><div class="b1"></div><div class="b2"></div><small>v2</small></div></div>
+    </div>
+
+    <div class="tile t-e rv">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#8FE3B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></div>
+      <h3>Every link, checked</h3>
+      <p>See every product and page the email points to before it sends.</p>
+      <div class="demo links"><div class="lk">Oud Enigma<b>✓ Live</b></div><div class="lk">Gift sets<b>✓ Live</b></div><div class="lk">Free gift wrap<b>✓ Live</b></div><div class="lk">Shop all<b>✓ Live</b></div></div>
+    </div>
+
+    <div class="tile t-f rv">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#8FE3B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c.8-3.2 3.2-5 6-5s5.2 1.8 6 5"/><circle cx="17" cy="9" r="2.6"/><path d="M16 14.2c2.4.2 4.2 1.8 5 4.8"/></svg></div>
+      <h3>Your whole team, one place</h3>
+      <p>Founder, partner, designer, marketing lead. Everyone sees the same calendar and the same comments. No more "which version is this?"</p>
+      <div class="demo">
+        <div class="team"><div class="av" style="background:var(--violet)">A</div><div class="av" style="background:var(--gold)">Y</div><div class="av" style="background:var(--mint)">S</div><div class="av" style="background:var(--coral)">M</div></div>
+        <div class="feed"><div class="fi"><i></i>Aisha commented on "Eid gift guide"</div><div class="fi"><i></i>Abu Ecom updated it to v2</div><div class="fi"><i></i>Yusuf approved "Eid gift guide"</div></div>
+      </div>
+    </div>
+
+    <div class="tile t-g rv">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#8FE3B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/><circle cx="12" cy="15.5" r="1.3" fill="#8FE3B8"/></svg></div>
+      <h3>A private link. No login.</h3>
+      <p>Your portal lives at its own private link. Open it on your phone between orders. Nothing to install, no passwords to remember.</p>
+      <div class="demo">
+        <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="#8FE3B8" stroke-width="2" stroke-linecap="round"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg><span class="typed">portal.abuecom.com/your-brand</span></div>
+        <div class="nologin"><span class="chip">Works on mobile</span><span class="chip">No app</span><span class="chip">No passwords</span><span class="chip">Shareable with your team</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap center rv">
+    <p class="kicker">How it works</p>
+    <h2>Three steps. <span class="em">Five minutes a week.</span></h2>
+  </div>
+  <div class="wrap steps">
+    <div class="step rv"><div class="n">1</div><h3>We plan and design</h3><p>Every email for the month is written and designed for your brand, then lands on your calendar.</p></div>
+    <div class="step rv"><div class="n">2</div><h3>You review</h3><p>Open your private link. Comment on anything you want changed. We update it, usually the same day.</p></div>
+    <div class="step rv"><div class="n">3</div><h3>Tap Approve</h3><p>It's scheduled and sent at the right time. At the end of the month, you get a report on money made.</p></div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap center rv">
+    <p class="kicker">Client results · Alhamdulillah</p>
+    <h2>Less time on email. <span class="em">More money from it.</span></h2>
+  </div>
+  <div class="wrap">
+    <div class="stats rv">
+      <div class="stat"><b class="count" data-to="5" data-suffix=" min">0</b><span>a week to approve your emails</span></div>
+      <div class="stat"><b class="count" data-to="12" data-suffix="+">0</b><span>emails a month, done for you</span></div>
+      <div class="stat"><b class="count" data-to="45.9" data-dec="1" data-suffix="%">0</b><span>of a client's sales from email in one month</span></div>
+      <div class="stat"><b class="count" data-to="600" data-prefix="$" data-suffix="K+">0</b><span>made for our clients</span></div>
+    </div>
+    <div class="quote">
+      <div class="rv"><div class="vid"><iframe src="https://fast.wistia.com/embed/iframe/v12houl57j?playsinline=true&videoFoam=false" title="Aman testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p class="vid-cap">"$200k+ from email alone."<span>Aman, ecom founder</span></p></div>
+      <div class="rv"><div class="vid"><iframe src="https://fast.wistia.com/embed/iframe/vozqi9zd59?playsinline=true&videoFoam=false" title="Bijou Cat testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p class="vid-cap">"Made it all back in week one."<span>Bijou Cat, luxury collars</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="final rv">
+      <p class="kicker">Included with the Email Takeover</p>
+      <h2>Stop chasing emails. <span class="em">Start approving them.</span></h2>
+      <p class="lead">The Review Portal comes free with every Email Takeover. We write, design and send every email. You tap Approve.</p>
+      <div class="ctas"><a class="btn btn-light btn-lg" href="/takeover#book">See if you qualify →</a><a class="btn btn-ghost btn-lg" href="/takeover">How the Takeover works</a></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© 2026 Abu Ecom</span><span>Built for Muslim-owned brands.</span></div></footer>
+
+<script>
+(function(){
+  // calendar demo cells
+  var g=document.getElementById('calgrid'),days=['M','T','W','T','F','S','S'],h='';
+  var evs={1:'',3:'',5:'ok',8:'ok',10:'',12:'',15:'ok',17:'',19:'',22:'',24:'ok',26:''};
+  for(var i=0;i<28;i++){var e=evs[i];h+='<div>'+(i+1)+(e!==undefined?'<span class="ev '+e+'" style="animation-delay:'+(i*0.12).toFixed(2)+'s"></span>':'')+'</div>';}
+  g.innerHTML=h;
+  // reveal
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}})},{threshold:.12});els.forEach(function(e){io.observe(e)});}
+  else els.forEach(function(e){e.classList.add('in')});
+  // flatten hero frame on scroll
+  var f=document.getElementById('frame');addEventListener('scroll',function(){f.classList.toggle('flat',scrollY>60)},{passive:true});
+  // count up
+  var cs=document.querySelectorAll('.count');
+  var co=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var el=x.target,to=+el.dataset.to,d=+(el.dataset.dec||0),p=el.dataset.prefix||'',s=el.dataset.suffix||'',t0=null;
+    function step(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),v=to*(1-Math.pow(1-k,3));el.textContent=p+v.toFixed(d)+s;if(k<1)requestAnimationFrame(step)}requestAnimationFrame(step);co.unobserve(el)})},{threshold:.4});
+  cs.forEach(function(c){co.observe(c)});
+})();
+</script>
+</body>
+</html>
