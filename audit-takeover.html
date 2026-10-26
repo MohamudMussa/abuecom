@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free email audit | Abu Ecom</title>
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="Free 30-minute email audit for Muslim-owned Shopify brands doing $30k+ a month. See what email should be making you, and what it takes to get there." />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/emails/cut/boxed-halal-1.jpg" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F5F0E8;
+      --card: #FFFDF9;
+      --ink: #141210;
+      --ink-2: #221F1B;
+      --muted: #5E584F;
+      --faint: #8F877B;
+      --line: #E2D9CA;
+      --green: #0E6B4A;
+      --green-soft: #DFEEE5;
+      --mint: #8FE3B8;
+      --red: #B3261E;
+      --serif: 'Instrument Serif', Georgia, serif;
+    }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--cream); color: var(--ink); letter-spacing: -0.012em; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; -webkit-user-select: none; user-select: none; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+    .narrow { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 72px 0; }
+    @media (min-width: 860px) { section { padding: 112px 0; } }
+    .em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+    .eyebrow { font-size: 13px; font-weight: 700; color: var(--green); margin-bottom: 14px; display: inline-flex; align-items: center; gap: 8px; }
+    .eyebrow::before { content: ''; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+    h2 { font-size: clamp(32px, 6vw, 54px); font-weight: 800; letter-spacing: -0.045em; line-height: 1.02; margin-bottom: 16px; }
+    h2 .em { font-size: 1.12em; color: var(--green); }
+    .lede { font-size: 17px; color: var(--muted); max-width: 56ch; }
+    .lede b { color: var(--ink); font-weight: 650; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 60px; padding: 0 30px; border-radius: 100px; font: 700 16.5px/1 'Inter', sans-serif; letter-spacing: -0.015em; text-decoration: none; transition: opacity 140ms ease-out; cursor: pointer; border: 0; white-space: nowrap; }
+    .btn:hover { opacity: 0.88; }
+    .btn-ink { background: var(--ink); color: #fff; }
+    .btn-green { background: var(--green); color: #fff; }
+    .btn-mint { background: var(--mint); color: var(--ink); }
+    .btn .arr { display: inline-flex; width: 28px; height: 28px; border-radius: 50%; background: rgb(255 255 255 / 0.16); align-items: center; justify-content: center; font-size: 15px; }
+    .btn-mint .arr { background: rgb(0 0 0 / 0.08); }
+
+    /* NAV */
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+    .nav img { width: 40px; height: 40px; border-radius: 8px; }
+    .nav a.book { font-size: 14px; font-weight: 700; text-decoration: none; padding: 10px 16px; border-radius: 100px; border: 1.5px solid var(--ink); }
+
+    /* HERO */
+    .hero { padding: 20px 0 0; text-align: center; }
+    @media (min-width: 860px) { .hero { padding: 40px 0 0; } }
+    .pill { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; background: var(--card); border: 1px solid var(--line); padding: 7px 14px 7px 8px; border-radius: 100px; margin-bottom: 22px; }
+    .pill b { background: var(--green); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 100px; letter-spacing: 0.02em; }
+    .hero h1 { font-size: clamp(36px, 8.4vw, 76px); font-weight: 800; letter-spacing: -0.055em; line-height: 1; max-width: 16ch; margin: 0 auto 22px; }
+    .hero h1 .who { color: var(--muted); }
+    .hero h1 .em { color: var(--green); font-size: 1.1em; letter-spacing: -0.02em; }
+    .hero .lede { margin: 0 auto 28px; font-size: 18px; max-width: 46ch; }
+    .hero-ctas { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    @media (min-width: 600px) { .hero-ctas { flex-direction: row; justify-content: center; } }
+    .hero-ctas .btn { width: 100%; max-width: 360px; }
+    @media (min-width: 600px) { .hero-ctas .btn { width: auto; } }
+    .textlink { font-size: 15px; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--line); }
+    .trust { margin: 26px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); max-width: 560px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; }
+    .trust div { padding: 14px 8px; }
+    .trust div + div { border-left: 1px solid var(--line); }
+    .trust b { display: block; font-size: 20px; font-weight: 800; letter-spacing: -0.04em; color: var(--green); }
+    .trust span { display: block; font-size: 12px; color: var(--muted); line-height: 1.3; margin-top: 2px; }
+
+    .marquee { margin-top: 44px; display: flex; flex-direction: column; gap: 26px; overflow: hidden; padding: 4px 0 14px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+    @media (min-width: 860px) { .marquee { margin-top: 64px; gap: 18px; } }
+    .track { display: flex; gap: 22px; width: max-content; animation: slide 120s linear infinite; }
+    .track.rev { animation-direction: reverse; animation-duration: 135s; }
+    @media (min-width: 860px) { .track { gap: 32px; } }
+    .grp { margin: 0; flex-shrink: 0; }
+    .panels { display: flex; gap: 6px; }
+    .panels img { height: 360px; width: auto; border-radius: 10px; background: var(--line); box-shadow: 0 1px 2px rgb(20 18 16 / 0.08), 0 6px 18px rgb(20 18 16 / 0.08); }
+    @media (min-width: 860px) { .panels img { height: 520px; border-radius: 12px; } .panels { gap: 8px; } }
+    @keyframes slide { to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .track { animation: none; } }
+    .made { text-align: center; font-size: 13.5px; color: var(--muted); margin-top: 18px; padding: 0 20px; line-height: 1.7; }
+    .made b { color: var(--ink); font-weight: 650; }
+
+    /* PAIN */
+    .pain-list { margin-top: 32px; display: grid; gap: 12px; }
+    @media (min-width: 760px) { .pain-list { grid-template-columns: 1fr 1fr; } }
+    .pain { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px 20px 20px 54px; position: relative; font-size: 16px; line-height: 1.45; }
+    .pain::before { content: '“'; position: absolute; left: 18px; top: 8px; font-family: var(--serif); font-size: 46px; color: var(--green); line-height: 1; }
+    .pain b { font-weight: 700; }
+    .truth { margin-top: 28px; background: var(--ink); color: #fff; border-radius: 22px; padding: 26px 22px; font-size: 18px; line-height: 1.5; }
+    @media (min-width: 860px) { .truth { padding: 34px 36px; font-size: 21px; } }
+    .truth b { color: var(--mint); font-weight: 700; }
+
+    /* A vs B */
+    .vs { margin-top: 36px; background: var(--card); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; }
+    .vs table { width: 100%; border-collapse: collapse; }
+    .vs th, .vs td { padding: 15px 16px; text-align: left; border-top: 1px solid var(--line); font-size: 15px; }
+    @media (min-width: 760px) { .vs th, .vs td { padding: 18px 28px; font-size: 16px; } }
+    .vs thead th { border-top: 0; font-size: 12.5px; font-weight: 700; color: var(--faint); letter-spacing: 0.04em; text-transform: uppercase; }
+    .vs thead th.us { color: var(--green); }
+    .vs td.c, .vs th.c { text-align: center; width: 23%; }
+    .vs td:first-child { font-weight: 600; }
+    .vs .you { color: var(--red); font-weight: 700; font-size: 14px; }
+    .vs .tick { display: inline-flex; width: 26px; height: 26px; border-radius: 50%; background: var(--green); color: #fff; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; }
+    .vs .ok { color: var(--muted); font-weight: 700; }
+    .vs tfoot td { background: var(--ink); color: #fff; font-weight: 700; border-top: 0; }
+    .vs tfoot .bad { color: #F4A79F; }
+    .vs tfoot .good { color: var(--mint); }
+
+    /* SYSTEM */
+    .sys { margin-top: 36px; display: grid; gap: 14px; }
+    @media (min-width: 860px) { .sys { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
+    .sys-card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 26px 22px; }
+    .sys-card .when { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green); }
+    .sys-card .n { font-family: var(--serif); font-style: italic; font-size: 44px; line-height: 1; color: var(--green); margin-bottom: 10px; }
+    .sys-card h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.03em; margin: 8px 0 8px; }
+    .sys-card p { font-size: 15px; color: var(--muted); }
+    .sys-card ul { list-style: none; margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+    .sys-card li { font-size: 14px; padding-left: 22px; position: relative; }
+    .sys-card li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 800; }
+
+    /* CALC */
+    .calc { background: var(--ink); color: #fff; }
+    .calc .eyebrow { color: var(--mint); }
+    .calc h2 .em { color: var(--mint); }
+    .calc .lede { color: #B7AFA3; }
+    .calc-box { margin-top: 36px; display: grid; gap: 18px; }
+    @media (min-width: 860px) { .calc-box { grid-template-columns: 1fr 1fr; gap: 22px; } }
+    .panel { background: var(--ink-2); border: 1px solid #34302A; border-radius: 22px; padding: 24px 20px; }
+    @media (min-width: 860px) { .panel { padding: 32px 30px; } }
+    .q { margin-bottom: 28px; }
+    .q-top { margin-bottom: 8px; }
+    .q label { font-size: 16px; font-weight: 650; }
+    .q output { display: block; font-size: 24px; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; margin-bottom: 6px; }
+    input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 30px; background: transparent; cursor: pointer; --p: 50%; }
+    input[type=range]::-webkit-slider-runnable-track { height: 8px; border-radius: 8px; background: linear-gradient(to right, var(--mint) 0 var(--p), #3A352E var(--p) 100%); }
+    input[type=range]::-moz-range-track { height: 8px; border-radius: 8px; background: #3A352E; }
+    input[type=range]::-moz-range-progress { height: 8px; border-radius: 8px; background: var(--mint); }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 30px; height: 30px; border-radius: 50%; background: #fff; margin-top: -11px; box-shadow: 0 2px 8px rgb(0 0 0 / 0.4); }
+    input[type=range]::-moz-range-thumb { width: 30px; height: 30px; border-radius: 50%; background: #fff; border: 0; }
+    input[type=range]:focus-visible { outline: 2px solid var(--mint); outline-offset: 4px; border-radius: 8px; }
+    .cur { display: flex; gap: 6px; }
+    .cur button { font: 700 13px 'Inter', sans-serif; color: #B7AFA3; background: transparent; border: 1px solid #3A352E; border-radius: 100px; padding: 6px 12px; cursor: pointer; }
+    .cur button[aria-pressed=true] { background: #fff; color: var(--ink); border-color: #fff; }
+    .result { background: var(--green); border-color: var(--green); display: flex; flex-direction: column; }
+    .result .label { font-size: 15px; color: #CFEBDD; }
+    .result .big { font-size: clamp(44px, 10vw, 68px); font-weight: 900; letter-spacing: -0.05em; line-height: 1.02; margin: 8px 0 4px; font-variant-numeric: tabular-nums; }
+    .result .per { font-size: 15px; color: #CFEBDD; }
+    .rows { margin: 20px 0 24px; border-top: 1px solid rgb(255 255 255 / 0.2); }
+    .rows div { display: flex; justify-content: space-between; gap: 12px; padding: 11px 0; border-bottom: 1px solid rgb(255 255 255 / 0.14); font-size: 15px; }
+    .rows div b { font-weight: 800; font-variant-numeric: tabular-nums; }
+    .rows .hl b { color: var(--mint); font-size: 18px; }
+    .result .btn { margin-top: auto; width: 100%; }
+    .calc-note { margin-top: 16px; font-size: 13px; color: #8F877B; max-width: 72ch; }
+
+    /* VIDEOS */
+    .vids { margin-top: 36px; display: grid; grid-auto-flow: column; grid-auto-columns: 74%; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
+    .vids::-webkit-scrollbar { display: none; }
+    @media (min-width: 860px) { .vids { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); overflow: visible; gap: 18px; } }
+    .v { scroll-snap-align: start; }
+    .v-frame { position: relative; aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden; background: var(--ink); }
+    .v-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .v p { margin-top: 12px; font-size: 16px; font-weight: 750; letter-spacing: -0.02em; line-height: 1.3; }
+    .v span { display: block; margin-top: 3px; font-size: 13px; color: var(--muted); }
+    .swipe { margin-top: 12px; font-size: 13px; color: var(--faint); }
+    @media (min-width: 860px) { .swipe { display: none; } }
+
+    /* OFFER CARD */
+    .info-grid { display: grid; gap: 18px; margin-top: 36px; }
+    @media (min-width: 900px) { .info-grid { grid-template-columns: 1.1fr 0.9fr; gap: 22px; align-items: start; } }
+    .info-card { background: var(--card); border: 2px solid var(--ink); border-radius: 26px; padding: 28px 22px; }
+    @media (min-width: 860px) { .info-card { padding: 36px 34px; } }
+    .info-card .tag { display: inline-block; font-size: 12px; font-weight: 700; color: var(--green); background: var(--green-soft); border-radius: 100px; padding: 5px 10px; margin-bottom: 14px; }
+    .info-card h3 { font-size: 24px; font-weight: 800; letter-spacing: -0.035em; }
+    .amount { display: flex; align-items: baseline; gap: 8px; margin: 14px 0 4px; }
+    .amount b { font-size: clamp(48px, 10vw, 64px); font-weight: 900; letter-spacing: -0.05em; line-height: 1; }
+    .amount span { font-size: 18px; color: var(--muted); font-weight: 600; }
+    .terms { font-size: 15px; color: var(--muted); margin-bottom: 22px; }
+    .terms b { color: var(--ink); }
+    .incl { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; border-top: 1px solid var(--line); padding-top: 20px; }
+    .incl li { font-size: 15.5px; padding-left: 28px; position: relative; }
+    .incl li::before { content: '✓'; position: absolute; left: 0; top: 1px; width: 19px; height: 19px; border-radius: 50%; background: var(--green); color: #fff; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+    .info-card .btn { width: 100%; }
+    .compare { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px 22px; }
+    .compare h4 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+    .compare table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .compare td { padding: 12px 0; border-top: 1px solid var(--line); }
+    .compare td:last-child { text-align: right; font-weight: 700; }
+    .compare tr.us td { color: var(--green); font-weight: 800; }
+    .fitbox { margin-top: 14px; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px 22px; }
+    .fitbox h4 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+    .fitbox ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .fitbox li { font-size: 15px; padding-left: 24px; position: relative; color: var(--muted); }
+    .fitbox li b { color: var(--ink); }
+    .fitbox li.y::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 800; }
+    .fitbox li.n::before { content: '✕'; position: absolute; left: 0; color: var(--red); font-weight: 800; }
+
+    /* GUARANTEE */
+    .guar { background: var(--green); color: #fff; }
+    .guar-grid { display: grid; gap: 28px; }
+    @media (min-width: 900px) { .guar-grid { grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; } }
+    .guar .seal { width: 76px; height: 76px; border-radius: 50%; border: 2px solid var(--mint); color: var(--mint); display: inline-flex; align-items: center; justify-content: center; font-family: var(--serif); font-style: italic; font-size: 34px; margin-bottom: 20px; }
+    .guar h2 .em { color: var(--mint); }
+    .guar .lede { color: #CFEBDD; }
+    .guar-terms { background: rgb(0 0 0 / 0.16); border-radius: 22px; padding: 24px 22px; }
+    .guar-terms div { padding: 14px 0; border-top: 1px solid rgb(255 255 255 / 0.16); }
+    .guar-terms div:first-child { border-top: 0; padding-top: 0; }
+    .guar-terms b { display: block; font-size: 15px; color: var(--mint); margin-bottom: 3px; }
+    .guar-terms p { font-size: 15.5px; color: #E6F4EC; }
+
+    /* FOUNDER */
+    .founder { display: grid; gap: 24px; }
+    @media (min-width: 860px) { .founder { grid-template-columns: 0.4fr 1fr; gap: 48px; align-items: center; } }
+    .founder-mark { width: 120px; height: 120px; border-radius: 28px; background: var(--ink); display: flex; align-items: center; justify-content: center; }
+    .founder-mark img { width: 72px; height: 72px; }
+    .founder p { font-size: 17px; color: var(--muted); margin-bottom: 12px; max-width: 60ch; }
+    .founder p b { color: var(--ink); }
+    .founder a.ig { font-weight: 700; color: var(--green); text-decoration: none; }
+
+    /* BOOK */
+    .book-grid { display: grid; gap: 28px; grid-template-areas: "head" "gate" "faq"; }
+    .book-head { grid-area: head; } .gate-wrap { grid-area: gate; } .book-faq { grid-area: faq; }
+    @media (min-width: 960px) { .book-grid { grid-template-columns: 0.85fr 1.15fr; grid-template-areas: "head gate" "faq gate"; gap: 28px 48px; align-items: start; } }
+    .gate { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px 20px; }
+    @media (min-width: 860px) { .gate { padding: 30px 28px; } }
+    .gate h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 4px; }
+    .gate .sub { font-size: 14.5px; color: var(--muted); margin-bottom: 20px; }
+    .gq { margin-bottom: 20px; }
+    .gq p { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+    .opts { display: grid; gap: 8px; }
+    .opts button { text-align: left; font: 600 15px 'Inter', sans-serif; letter-spacing: -0.01em; color: var(--ink); background: #fff; border: 1.5px solid var(--line); border-radius: 14px; padding: 14px 16px; cursor: pointer; transition: opacity 140ms ease-out; }
+    .opts button[aria-pressed=true] { border-color: var(--green); background: var(--green-soft); }
+    .gate .btn { width: 100%; margin-top: 4px; }
+    .gate .btn[disabled] { opacity: 0.35; cursor: not-allowed; }
+    .cal { display: none; border-radius: 22px; overflow: hidden; background: var(--card); border: 1px solid var(--line); }
+    .cal.show { display: block; }
+    .cal-head { padding: 18px 20px; border-bottom: 1px solid var(--line); font-weight: 700; font-size: 15px; display: flex; gap: 10px; align-items: center; }
+    .cal-head i { width: 22px; height: 22px; border-radius: 50%; background: var(--green); color: #fff; font-style: normal; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; }
+    .cal iframe { width: 100%; border: 0; display: block; }
+    .nofit { display: none; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 26px 22px; }
+    .nofit.show { display: block; }
+    .nofit h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; }
+    .nofit p { font-size: 15.5px; color: var(--muted); margin-bottom: 18px; }
+    .nofit .btn { width: 100%; }
+    .faq { border-top: 1px solid var(--line); }
+    .faq details { border-bottom: 1px solid var(--line); }
+    .faq summary { list-style: none; cursor: pointer; padding: 17px 0; font-size: 16px; font-weight: 700; letter-spacing: -0.02em; display: flex; justify-content: space-between; gap: 14px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; color: var(--green); font-size: 20px; font-weight: 600; line-height: 1; }
+    .faq details[open] summary::after { content: '−'; }
+    .faq p { font-size: 15px; color: var(--muted); padding-bottom: 17px; }
+
+    footer { padding: 28px 0 110px; font-size: 13px; color: var(--faint); border-top: 1px solid var(--line); }
+    @media (min-width: 860px) { footer { padding-bottom: 28px; } }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    footer a { text-decoration: none; color: var(--muted); }
+    footer p.disc { flex-basis: 100%; font-size: 12px; line-height: 1.6; }
+
+    .sticky { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 50; opacity: 0; pointer-events: none; transition: opacity 140ms ease-out; }
+    .sticky.show { opacity: 1; pointer-events: auto; }
+    .sticky .btn { width: 100%; box-shadow: 0 10px 30px rgb(20 18 16 / 0.3); }
+    @media (min-width: 860px) { .sticky { display: none; } }
+    /* ── v2 additions ── */
+    .nav { padding: 16px 20px; }
+    .topbar { background: var(--ink); color: #fff; text-align: center; font-size: 13px; padding: 9px 16px; line-height: 1.4; }
+    .topbar b { background: var(--mint); color: var(--ink); font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 100px; margin-right: 8px; letter-spacing: 0.03em; }
+    .hero .lede { margin-bottom: 24px; }
+    .hero-gate { max-width: 560px; margin: 0 auto; text-align: left; }
+    .hero-gate .gate { box-shadow: 0 2px 4px rgb(20 18 16 / 0.04), 0 18px 40px rgb(20 18 16 / 0.08); }
+    .opts.two { grid-template-columns: 1fr 1fr; }
+    .demo { margin: 28px 0 0; }
+    .demo video, .demo img { width: 100%; border-radius: 18px; display: block; background: #EDE7DC; box-shadow: 0 2px 4px rgb(20 18 16 / 0.05), 0 18px 40px rgb(20 18 16 / 0.12); }
+    .demo figcaption { margin-top: 12px; font-size: 14px; color: var(--muted); text-align: center; }
+    .demo figcaption b { color: var(--ink); }
+    .proofs { margin-top: 28px; display: grid; gap: 14px; }
+    @media (min-width: 860px) { .proofs { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
+    .proofs figure { background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+    .proofs img { width: 100%; height: auto; border-bottom: 1px solid var(--line); }
+    .proofs figcaption { padding: 14px 16px 16px; }
+    .proofs b { display: block; font-size: 30px; font-weight: 900; letter-spacing: -0.045em; color: var(--green); }
+    .proofs span { font-size: 14px; color: var(--muted); }
+    .gq.step2 { display: none; }
+    .gq.step2.show { display: block; }
+    .hero-card { text-align: center; }
+    .btn-hero .arr { flex: none; }
+    .btn-hero { width: 100%; height: 72px; font-size: 20px; font-weight: 800; letter-spacing: 0.01em; }
+    .hero-card .sub { margin: 14px 0 0; }
+    @media (max-width: 380px) { .btn-hero { font-size: 17px; padding: 0 18px; } }
+    .mini-trust { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 18px; margin-top: 16px; font-size: 13.5px; color: var(--muted); }
+    .mini-trust b { color: var(--ink); }
+    .marquee.one { margin-top: 48px; }
+    .marquee.one .panels img { height: 300px; }
+    @media (min-width: 860px) { .marquee.one .panels img { height: 420px; } }
+
+    .fit { margin-top: 32px; display: grid; gap: 14px; }
+    @media (min-width: 800px) { .fit { grid-template-columns: 1fr 1fr; gap: 18px; } }
+    .fit-col { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px 22px; }
+    .fit-col.no { background: transparent; }
+    .fit-col h3 { font-size: 18px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; display: flex; gap: 10px; align-items: center; }
+    .fit-col h3 i { width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-style: normal; font-size: 13px; font-weight: 800; color: #fff; background: var(--green); }
+    .fit-col.no h3 i { background: var(--red); }
+    .fit-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .fit-col li { font-size: 15.5px; padding-left: 18px; position: relative; color: var(--muted); }
+    .fit-col li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+    .fit-col.no li::before { background: var(--red); }
+    .fit-col li b { color: var(--ink); }
+
+    .split { margin-top: 32px; display: grid; gap: 14px; }
+    @media (min-width: 800px) { .split { grid-template-columns: 1.35fr 1fr; gap: 18px; } }
+    .split .us { background: var(--ink); color: #fff; border-radius: 22px; padding: 26px 24px; }
+    .split .us .big, .split .you .big { font-size: 46px; font-weight: 900; letter-spacing: -0.05em; line-height: 1; }
+    .split .us .big { color: var(--mint); }
+    .split .us h3, .split .you h3 { font-size: 18px; font-weight: 800; margin: 6px 0 16px; letter-spacing: -0.02em; }
+    .split .us ul { list-style: none; display: grid; gap: 10px; }
+    @media (min-width: 560px) { .split .us ul { grid-template-columns: 1fr 1fr; } }
+    .split .us li { font-size: 15px; padding-left: 26px; position: relative; color: #E8E2D8; }
+    .split .us li::before { content: '✓'; position: absolute; left: 0; color: var(--mint); font-weight: 800; }
+    .split .you { background: var(--green-soft); border-radius: 22px; padding: 26px 24px; display: flex; flex-direction: column; }
+    .split .you .big { color: var(--green); }
+    .split .you p { font-size: 15.5px; color: var(--ink); margin-bottom: 10px; }
+    .split .you .vs-note { margin-top: auto; font-size: 13.5px; color: var(--muted); border-top: 1px solid #C5DFCF; padding-top: 12px; }
+
+    .offer { display: grid; gap: 18px; margin-top: 32px; }
+    @media (min-width: 900px) { .offer { grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; } }
+    .offer .info-card .btn { margin-top: 4px; }
+    .guar-card { background: var(--green); color: #fff; border-radius: 26px; padding: 28px 24px; display: flex; flex-direction: column; gap: 14px; }
+    .guar-card .seal { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--mint); color: var(--mint); display: inline-flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; }
+    .guar-card h3 { font-size: 26px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; }
+    .guar-card p { font-size: 15.5px; color: #E6F4EC; }
+    .guar-card p b { color: var(--mint); }
+    .vids.two { grid-auto-columns: 74%; }
+    @media (min-width: 860px) { .vids.two { grid-template-columns: repeat(4, 1fr); } }
+    .proof-h { margin-top: 56px; font-size: 22px; font-weight: 800; letter-spacing: -0.03em; }
+    .again { margin-top: 36px; text-align: center; }
+
+    /* AUDIT BOOKING */
+    .audit-grid { display: grid; gap: 18px; margin-top: 32px; grid-template-areas: "info" "cal" "guar"; }
+    @media (min-width: 960px) { .audit-grid { grid-template-columns: 0.8fr 1.2fr; grid-template-areas: "info cal" "guar cal"; gap: 22px; align-items: start; } }
+    .audit-grid .info-card { grid-area: info; }
+    .audit-grid .info-card .incl { margin-bottom: 0; }
+    .audit-grid .info-card .incl li b { font-weight: 700; }
+    .audit-grid .guar-card { grid-area: guar; }
+    .cal-card { grid-area: cal; min-width: 0; background: var(--card); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; }
+    .cal-card .cal-top { padding: 16px 20px; border-bottom: 1px solid var(--line); font-size: 15px; font-weight: 700; display: flex; gap: 10px; align-items: center; }
+    .cal-card .cal-top i { width: 22px; height: 22px; border-radius: 50%; background: var(--green); color: #fff; font-style: normal; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+    #cal-inline { width: 100%; min-height: 620px; overflow: auto; }
+    #cal-inline iframe { width: 100%; border: 0; display: block; }
+    .cal-alt { padding: 14px 20px 18px; font-size: 13.5px; color: var(--muted); text-align: center; border-top: 1px solid var(--line); }
+    .cal-alt a { color: var(--green); font-weight: 700; }
+    .gate .note { margin-top: 12px; font-size: 13.5px; color: var(--muted); text-align: center; }
+
+    .calc-mini { padding: 64px 0; }
+    @media (min-width: 860px) { .calc-mini { padding: 88px 0; } }
+  </style>
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1560323142068081');
+    fbq('track', 'PageView');
+  </script>
+</head>
+<body>
+
+<div class="topbar"><b>YOU QUALIFY</b>Free email audit for Muslim-owned Shopify brands doing $30k+ a month</div>
+
+<!-- 1. HERO + QUALIFIER -->
+<header class="hero">
+  <nav class="wrap nav">
+    <a href="/"><img src="/logo.png" alt="Abu Ecom" /></a>
+    <a class="book" href="#book">Book a call</a>
+  </nav>
+  <div class="wrap" style="padding-top:12px;">
+    <h1><span class="who">Muslim brands:</span> we take over your email. <span class="em">You make 30% more in 90 days.</span></h1>
+    <p class="lede">We plan, write, design and send every email. You approve it in one tap. <b>Make more from email than you invest, or get your money back.</b></p>
+
+    <div class="hero-gate">
+      <div class="gate hero-card">
+        <a class="btn btn-green btn-hero" href="#book">Book my free email audit <span class="arr">→</span></a>
+        <p class="sub">You qualify for a free email audit. Pick a time below and I'll show you exactly what email should be making your store.</p>
+      </div>
+      <p class="mini-trust"><span><b>$600K+</b> made for clients</span><span><b>14 days</b> to first sends</span><span><b>90-day</b> money back</span></p>
+    </div>
+  </div>
+
+  <div class="marquee one" aria-label="Examples of emails we design">
+    <div class="track">
+      <figure class="grp"><div class="panels"><img src="/emails/cut/boxed-halal-1.jpg" width="248" height="736" alt="Example email design" /><img src="/emails/cut/boxed-halal-2.jpg" width="249" height="736" alt="Example email design" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/5-pillars-1.jpg" width="210" height="731" alt="Example email design" /><img src="/emails/cut/5-pillars-2.jpg" width="225" height="731" alt="Example email design" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/teapressa-1.jpg" width="250" height="735" alt="Example email design" /><img src="/emails/cut/teapressa-2.jpg" width="222" height="734" alt="Example email design" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/huraya-1.jpg" width="209" height="720" alt="Example email design" /><img src="/emails/cut/huraya-2.jpg" width="201" height="720" alt="Example email design" /><img src="/emails/cut/huraya-3.jpg" width="245" height="719" alt="Example email design" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/kube-publishing-1.jpg" width="200" height="749" alt="Example email design" /><img src="/emails/cut/kube-publishing-2.jpg" width="200" height="747" alt="Example email design" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/cave-london-1.jpg" width="226" height="720" alt="Example email design" /><img src="/emails/cut/cave-london-2.jpg" width="227" height="720" alt="Example email design" /><img src="/emails/cut/cave-london-3.jpg" width="226" height="720" alt="Example email design" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/noor-1.jpg" width="169" height="693" alt="Example email design" /><img src="/emails/cut/noor-2.jpg" width="204" height="693" alt="Example email design" /><img src="/emails/cut/noor-3.jpg" width="200" height="664" alt="Example email design" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/mama-yasmin-1.jpg" width="285" height="735" alt="Example email design" /><img src="/emails/cut/mama-yasmin-2.jpg" width="287" height="727" alt="Example email design" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/one-stop-halal-1.jpg" width="215" height="748" alt="Example email design" /><img src="/emails/cut/one-stop-halal-2.jpg" width="215" height="748" alt="Example email design" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/boxed-halal-1.jpg" width="248" height="736" alt="" loading="lazy" /><img src="/emails/cut/boxed-halal-2.jpg" width="249" height="736" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/5-pillars-1.jpg" width="210" height="731" alt="" loading="lazy" /><img src="/emails/cut/5-pillars-2.jpg" width="225" height="731" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/teapressa-1.jpg" width="250" height="735" alt="" loading="lazy" /><img src="/emails/cut/teapressa-2.jpg" width="222" height="734" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/huraya-1.jpg" width="209" height="720" alt="" loading="lazy" /><img src="/emails/cut/huraya-2.jpg" width="201" height="720" alt="" loading="lazy" /><img src="/emails/cut/huraya-3.jpg" width="245" height="719" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/kube-publishing-1.jpg" width="200" height="749" alt="" loading="lazy" /><img src="/emails/cut/kube-publishing-2.jpg" width="200" height="747" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/cave-london-1.jpg" width="226" height="720" alt="" loading="lazy" /><img src="/emails/cut/cave-london-2.jpg" width="227" height="720" alt="" loading="lazy" /><img src="/emails/cut/cave-london-3.jpg" width="226" height="720" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/noor-1.jpg" width="169" height="693" alt="" loading="lazy" /><img src="/emails/cut/noor-2.jpg" width="204" height="693" alt="" loading="lazy" /><img src="/emails/cut/noor-3.jpg" width="200" height="664" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/mama-yasmin-1.jpg" width="285" height="735" alt="" loading="lazy" /><img src="/emails/cut/mama-yasmin-2.jpg" width="287" height="727" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/one-stop-halal-1.jpg" width="215" height="748" alt="" loading="lazy" /><img src="/emails/cut/one-stop-halal-2.jpg" width="215" height="748" alt="" loading="lazy" /></div></figure>
+    </div>
+  </div>
+  <p class="made">Every email written and designed by our team. <b>No templates.</b></p>
+</header>
+
+<!-- 2. WHO IT'S FOR / NOT FOR -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Read this first</p>
+    <h2>Who this is for. <span class="em">And who it isn't.</span></h2>
+    <div class="fit">
+      <div class="fit-col">
+        <h3><i>✓</i>This is for you if</h3>
+        <ul>
+          <li><b>You run a Muslim-owned Shopify brand</b> doing $30k+ a month</li>
+          <li>You pay for Klaviyo and send <b>maybe two emails a month</b></li>
+          <li>Ads keep getting dearer and <b>customers buy once, then vanish</b></li>
+          <li>Ramadan and Black Friday <b>keep sneaking up on you</b></li>
+          <li>You want email done, <b>not another thing on your list</b></li>
+        </ul>
+      </div>
+      <div class="fit-col no">
+        <h3><i>✕</i>This is not for you if</h3>
+        <ul>
+          <li>You're still looking for your <b>first customers</b></li>
+          <li>You want to <b>write and send the emails yourself</b></li>
+          <li>You won't approve emails within <b>48 hours</b></li>
+          <li>You sell anything <b>haram</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WE DO 100% / YOUR PART -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>We do all of it. <span class="em">You approve.</span></h2>
+    <p class="lede">Other agencies write your emails, then leave you to load, send and check them. <b>We run the whole channel.</b></p>
+    <div class="split">
+      <div class="us">
+        <p class="big">100%</p>
+        <h3>What our team does</h3>
+        <ul>
+          <li>Klaviyo, Shopify and domain set up</li>
+          <li>Every flow written and built</li>
+          <li>2–3 campaigns a week</li>
+          <li>Copy, design and product photos</li>
+          <li>Loading, scheduling and sending</li>
+          <li>Ramadan, Eid and BFCM planned early</li>
+          <li>Testing what sells, cutting what doesn't</li>
+          <li>Monthly report in plain English</li>
+        </ul>
+      </div>
+      <div class="you">
+        <p class="big">1 tap</p>
+        <h3>Your part</h3>
+        <p>Every email lands in your review portal. Look it over, leave a comment if you want a change, then tap <b>Approve</b>.</p>
+        <p>About 5 minutes a week.</p>
+        <p class="vs-note">You keep your Klaviyo, your list and everything we build.</p>
+      </div>
+    </div>
+
+
+    <figure class="demo">
+      <video autoplay muted loop playsinline preload="metadata" poster="/media/portal-poster.jpg" aria-label="A client reviewing, commenting on and approving an email in the review portal">
+        <source src="/media/portal-approve.mp4" type="video/mp4" />
+        <img src="/media/portal-approve.gif" alt="A client approving an email in the review portal" />
+      </video>
+      <figcaption>Your review portal. <b>Comment on the email, tap Approve, done.</b></figcaption>
+    </figure>
+
+    <div class="sys">
+      <div class="sys-card">
+        <p class="when">Days 1–14</p>
+        <h3>We take over</h3>
+        <p>Audit, set-up, and every money-making flow switched on.</p>
+      </div>
+      <div class="sys-card">
+        <p class="when">Days 15–60</p>
+        <h3>Emails every week</h3>
+        <p>Campaigns planned around your products and the Islamic calendar.</p>
+      </div>
+      <div class="sys-card">
+        <p class="when">Days 61–90</p>
+        <h3>Test and scale</h3>
+        <p>Double down on what sells and grow your list so every send is worth more.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT RESULTS -->
+<section id="results" style="padding-top:0;">
+  <div class="wrap">
+    <p class="eyebrow">Client results, Alhamdulillah</p>
+    <h2>Straight out of <span class="em">Klaviyo.</span></h2>
+    <p class="lede">Real reports from brands we run email for. Names hidden, numbers untouched.</p>
+    <div class="proofs">
+      <figure><img src="/media/proof-1.png" width="1323" height="528" loading="lazy" alt="Klaviyo report: £3,430 from email, 38.6% of total revenue" /><figcaption><b>38.6%</b><span>of all sales came from email. Men's grooming brand, Oct 2026.</span></figcaption></figure>
+      <figure><img src="/media/proof-2.png" width="1323" height="528" loading="lazy" alt="Klaviyo report: £6,487.82 from email, 36.7% of total revenue" /><figcaption><b>£6,488</b><span>from email in one month, 36.7% of sales. Lifestyle brand, Dec 2025.</span></figcaption></figure>
+      <figure><img src="/media/proof-3.png" width="1323" height="528" loading="lazy" alt="Klaviyo report: $17,918.63 from email, 45.9% of total revenue" /><figcaption><b>$17,919</b><span>from email in one month, 45.9% of sales, up 104%. Supplements brand, Nov 2025.</span></figcaption></figure>
+      <figure><img src="/media/proof-4.png" width="2000" height="880" loading="lazy" alt="Klaviyo report: $19,834.22 from email and SMS, 25.4% of total revenue" /><figcaption><b>$19,834</b><span>from email and SMS in 10 weeks. 81% of it from flows that run on their own. Dec 2025 to Feb 2026.</span></figcaption></figure>
+      <figure><img src="/media/proof-5.png" width="1760" height="800" loading="lazy" alt="Klaviyo report: $11,417.71 from email and SMS, 33.6% of total revenue, up 80%" /><figcaption><b>$11,418</b><span>from email and SMS in 4 weeks, a third of all sales, up 80%. Nov to Dec 2025.</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <p class="proof-h" style="margin-top:0;">Founders who handed us their email</p>
+    <div class="vids two">
+      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/vozqi9zd59?playsinline=true&videoFoam=false" title="Bijou Cat testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>"Made it all back in week one."</p><span>Bijou Cat, luxury collars</span></div>
+      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/v12houl57j?playsinline=true&videoFoam=false" title="Aman testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>$200k+ from email alone.</p><span>Aman, ecom founder</span></div>
+      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/jbfubarxpf?playsinline=true&videoFoam=false" title="MyOJI testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>40%+ returning customers.</p><span>Zubash, co-founder, MyOJI</span></div>
+      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/me9fxu0nyi?playsinline=true&videoFoam=false" title="VT Fight Gear testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>Repeat sales on autopilot.</p><span>Essa, founder, VT Fight Gear</span></div>
+    </div>
+    <p class="swipe">Swipe for more →</p>
+    <div class="again"><a class="btn btn-green" href="#book">Book my free email audit <span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<!-- 4. BOOK THE FREE EMAIL AUDIT -->
+<section id="book" style="padding-top:0;">
+  <div class="wrap">
+    <p class="eyebrow">Your next step</p>
+    <h2>Book your free <span style="white-space:nowrap">30-minute</span> <span class="em">email audit.</span></h2>
+    <p class="lede">Pick a time that suits you. <b>It's a working session with Mussa, not a sales pitch.</b></p>
+    <div class="audit-grid">
+      <div class="info-card">
+        <span class="tag">Free email audit with Mussa</span>
+        <h3>What happens on the call</h3>
+        <ul class="incl" style="margin-top:16px;">
+          <li><b>We go through your Klaviyo live</b> on a screen share, flows, campaigns and sign-up forms.</li>
+          <li><b>I show you where money is leaking</b>, and roughly what email should be making your store each month.</li>
+          <li><b>We map the flows and campaigns</b> that should be running. You keep the plan, whether we work together or not.</li>
+        </ul>
+        <p class="terms" style="margin:18px 0 0;"><b>No obligation.</b> If we're not the right fit, I'll tell you.</p>
+      </div>
+      <div class="cal-card">
+        <div class="cal-top"><i>✓</i>Pick a time for your free email audit</div>
+        <div id="cal-inline"></div>
+        <p class="cal-alt">Calendar not loading? <a id="cal-direct" href="https://cal.com/abuecom/takeover" target="_blank" rel="noopener">Open it in a new tab</a></p>
+      </div>
+      <div class="guar-card">
+        <span class="seal">✓</span>
+        <h3>Make it back in 90 days, or get your money back.</h3>
+        <p>If the revenue Klaviyo reports from our emails in your first 90 days is less than you've invested, <b>we refund the difference. In full.</b></p>
+        <p>We can offer this because we only take on brands we know we can grow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. FAQ -->
+<section style="padding-top:0;">
+  <div class="narrow">
+    <p class="eyebrow">Questions</p>
+    <h2>Straight answers.</h2>
+    <div class="faq">
+      <details><summary>Is the audit really free?</summary><p>Yes. 30 minutes with Mussa on a screen share, no obligation. You leave with a clear plan for your email, whether we work together or not.</p></details>
+      <details><summary>What do I actually have to do?</summary><p>Fill in one onboarding form and give us Klaviyo access. Then approve each email in your review portal. About 5 minutes a week.</p></details>
+      <details><summary>What if it doesn't work?</summary><p>If Klaviyo shows our emails made you less than you invested in the first 90 days, we refund the difference.</p></details>
+      <details><summary>Do I lose control of my Klaviyo?</summary><p>No. It's your account and your list. If you ever leave, everything we built stays with you.</p></details>
+      <details><summary>Will the emails fit my values?</summary><p>Always. No music, no immodest imagery, nothing that goes against your deen. You approve every email before it goes out.</p></details>
+      <details><summary>Who's behind this?</summary><p>Abu Ecom is run by Mussa (<a href="https://instagram.com/thatmussa">@thatmussa</a>). A Muslim team writing and designing for Muslim brands, with $600K+ made for our clients.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CALCULATOR (for the people who want the numbers) -->
+<section class="calc calc-mini" id="calc">
+  <div class="wrap">
+    <p class="eyebrow">Run your numbers</p>
+    <h2>What your list should be <span class="em">making you.</span></h2>
+    <div class="calc-box">
+      <div class="panel">
+        <div class="q">
+          <div class="q-top"><label for="list">How many people are on your email list?</label></div>
+          <output id="o-list"></output>
+          <input type="range" id="list" min="0" max="1000" step="1" aria-label="Email list size" />
+        </div>
+        <div class="q">
+          <div class="q-top"><label for="aov">What's your average order?</label></div>
+          <output id="o-aov"></output>
+          <input type="range" id="aov" min="10" max="300" step="5" aria-label="Average order value" />
+        </div>
+      </div>
+      <div class="panel result" aria-live="polite">
+        <p class="label">Your emails should be making you</p>
+        <p class="big" id="r-mo">$0</p>
+        <p class="per">a month, at average rates</p>
+        <div class="rows">
+          <div class="hl"><span>A year</span><b id="r-yr">$0</b></div>
+        </div>
+        <a class="btn btn-mint" href="#book">Book my free email audit <span class="arr">→</span></a>
+      </div>
+    </div>
+    <p class="calc-note">Based on 3 campaigns a week, a 35% open rate, 4% click rate and 5% of clickers buying. Automated flows earn on top of this. Estimates, not promises.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Abu Ecom</span>
+    <a href="/privacy-policy">Privacy policy</a>
+    <p class="disc">Results vary. Figures shown are estimates and past client results, not a promise of future earnings. Your results depend on your products, list, traffic and offer.</p>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky"><a class="btn btn-ink" href="#book">Book my free email audit <span class="arr">→</span></a></div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var money = function (x) { return '$' + Math.round(x).toLocaleString('en-US'); };
+
+  // ── Calculator ──
+  var list = $('list'), aov = $('aov');
+  var LO = 500, HI = 200000;
+  var fromLog = function (v) { return LO * Math.pow(HI / LO, v / 1000); };
+  var toLog = function (x) { return Math.round(1000 * Math.log(x / LO) / Math.log(HI / LO)); };
+  var round = function (x) { var m = x < 2000 ? 100 : x < 10000 ? 500 : x < 50000 ? 1000 : 5000; return Math.round(x / m) * m; };
+  var fill = function (el) { el.style.setProperty('--p', ((el.value - el.min) / (el.max - el.min) * 100) + '%'); };
+  list.value = toLog(10000); aov.value = 50;
+  function render() {
+    var subs = round(fromLog(+list.value)), order = +aov.value;
+    var mo = subs * 3 * 4.33 * 0.35 * 0.04 * 0.05 * order;
+    $('o-list').textContent = subs.toLocaleString('en-US') + ' people';
+    $('o-aov').textContent = money(order);
+    $('r-mo').textContent = money(mo);
+    $('r-yr').textContent = money(mo * 12);
+    fill(list); fill(aov);
+  }
+  list.addEventListener('input', render); aov.addEventListener('input', render); render();
+
+
+  // ── Free email audit booking (cal.com inline embed) ──
+  var CAL_NS = 'takeover', CAL_LINK = 'abuecom/takeover';
+  var qs = new URLSearchParams(location.search);
+  function prefill() {
+    var c = { layout: 'month_view', theme: 'light' };
+    var name = qs.get('name') || qs.get('full_name') || [qs.get('first_name'), qs.get('last_name')].filter(Boolean).join(' ');
+    if (name) c.name = name;
+    if (qs.get('email')) c.email = qs.get('email');
+    var ph = (qs.get('attendeePhoneNumber') || qs.get('phone') || qs.get('phone_number') || '').replace(/[^\d+]/g, '');
+    if (ph.indexOf('00') === 0) ph = '+' + ph.slice(2);
+    if (ph.charAt(0) === '+' && ph.length > 8) c.attendeePhoneNumber = ph;
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) { if (qs.get(k)) c[k] = qs.get(k); });
+    return c;
+  }
+  function calUrl() { return 'https://cal.com/' + CAL_LINK + '?' + new URLSearchParams(prefill()).toString(); }
+  var done = false;
+  function goBooked() {
+    if (done) return; done = true;
+    setTimeout(function () { window.location.href = '/booked'; }, 400);
+  }
+  function fallbackIframe() {
+    var el = $('cal-inline');
+    if (el.querySelector('iframe')) return;
+    el.innerHTML = '<iframe src="' + calUrl() + '&embed=true" title="Book your free email audit" style="height:720px"></iframe>';
+  }
+  $('cal-direct').href = calUrl();
+  var calLoaded = false;
+  function loadCal() {
+    if (calLoaded) return; calLoaded = true;
+    (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, 'https://app.cal.com/embed/embed.js', 'init');
+    Cal('init', CAL_NS, { origin: 'https://app.cal.com' });
+    Cal.ns[CAL_NS]('on', { action: 'bookingSuccessfulV2', callback: goBooked });
+    Cal.ns[CAL_NS]('on', { action: 'bookingSuccessful', callback: goBooked });
+    Cal.ns[CAL_NS]('ui', { theme: 'light', hideEventTypeDetails: true, layout: 'month_view' });
+    Cal.ns[CAL_NS]('inline', { elementOrSelector: '#cal-inline', config: prefill(), calLink: CAL_LINK });
+    setTimeout(function () { if (!$('cal-inline').querySelector('iframe')) fallbackIframe(); }, 8000);
+  }
+  var bookSec = $('book');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (e) { if (e[0].isIntersecting) loadCal(); }, { rootMargin: '1500px 0px' }).observe(bookSec);
+  } else loadCal();
+  document.querySelectorAll('a[href="#book"]').forEach(function (a) { a.addEventListener('click', loadCal); });
+
+  // ── Sticky mobile CTA: show once the hero card is off screen, hide over the calendar ──
+  var sticky = $('sticky'), gateWrap = document.querySelector('.hero-gate'), heroGone = false, atBook = false;
+  var syncSticky = function () { sticky.classList.toggle('show', heroGone && !atBook); };
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (e) { heroGone = !e[0].isIntersecting; syncSticky(); }).observe(gateWrap);
+    new IntersectionObserver(function (e) { atBook = e[0].isIntersecting; syncSticky(); }).observe(bookSec);
+  }
+  document.addEventListener('contextmenu', function (e) { if (e.target.tagName === 'IMG') e.preventDefault(); });
+})();
+</script>
+</body>
+</html>
