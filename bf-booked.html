@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're booked | Abu Ecom</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F5F0E8;
+      --card: #FFFDF9;
+      --ink: #141210;
+      --ink-2: #221F1B;
+      --muted: #5E584F;
+      --faint: #8F877B;
+      --line: #E2D9CA;
+      --green: #0E6B4A;
+      --green-soft: #DFEEE5;
+      --mint: #8FE3B8;
+      --red: #B3261E;
+      --serif: 'Instrument Serif', Georgia, serif;
+    }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--cream); color: var(--ink); letter-spacing: -0.012em; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; -webkit-user-select: none; user-select: none; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+    .narrow { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 64px 0; }
+    @media (min-width: 860px) { section { padding: 96px 0; } }
+    .em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+    .eyebrow { font-size: 13px; font-weight: 700; color: var(--green); margin-bottom: 14px; display: inline-flex; align-items: center; gap: 8px; }
+    .eyebrow::before { content: ''; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+    h2 { font-size: clamp(30px, 6vw, 50px); font-weight: 800; letter-spacing: -0.045em; line-height: 1.04; margin-bottom: 16px; }
+    h2 .em { font-size: 1.12em; color: var(--green); }
+    .lede { font-size: 17px; color: var(--muted); max-width: 56ch; }
+    .lede b { color: var(--ink); font-weight: 650; }
+
+    /* NAV */
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+    .nav img { width: 40px; height: 40px; border-radius: 8px; }
+
+    /* TOP */
+    .top { padding: 20px 0 8px; }
+    @media (min-width: 860px) { .top { padding: 40px 0 8px; } }
+    .done { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--green); background: var(--green-soft); padding: 6px 12px; border-radius: 100px; margin-bottom: 18px; }
+    .top h1 { font-size: clamp(36px, 8vw, 68px); font-weight: 800; letter-spacing: -0.055em; line-height: 1.02; max-width: 15ch; margin-bottom: 18px; }
+    .top h1 .em { color: var(--green); font-size: 1.1em; letter-spacing: -0.02em; }
+    .top .lede { font-size: 18px; }
+
+    /* STEPS (from booked.html) */
+    .steps { display: grid; gap: 12px; margin-top: 24px; }
+    .step { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 18px 18px 64px; position: relative; }
+    .step .n { position: absolute; left: 18px; top: 16px; width: 32px; height: 32px; border-radius: 50%; background: var(--ink); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 15px; }
+    .step b { display: block; font-size: 16.5px; font-weight: 700; margin-bottom: 2px; }
+    .step span { font-size: 15px; color: var(--muted); }
+    .prep-h { margin-top: 32px; font-size: 18px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px; }
+    .prep { list-style: none; display: grid; gap: 10px; }
+    .prep li { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px 14px 46px; position: relative; font-size: 15.5px; }
+    .prep li::before { content: ''; position: absolute; left: 16px; top: 16px; width: 18px; height: 18px; border-radius: 5px; border: 2px solid var(--green); }
+
+    /* AGENDA */
+    .agenda { margin-top: 24px; background: var(--ink); color: #fff; border-radius: 22px; padding: 24px 22px; }
+    @media (min-width: 860px) { .agenda { padding: 30px 30px; } }
+    .agenda div { display: grid; grid-template-columns: 70px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid #34302A; font-size: 15.5px; }
+    .agenda div:first-child { border-top: 0; padding-top: 0; }
+    .agenda b { color: var(--mint); font-weight: 700; }
+    .agenda strong { display: block; font-weight: 700; margin-bottom: 2px; }
+    .agenda span span { color: #B7AFA3; }
+    .agenda-note { margin-top: 14px; font-size: 14.5px; color: var(--muted); }
+    .agenda-note b { color: var(--ink); }
+
+    /* WHAT YOU'RE GETTING */
+    .split { margin-top: 32px; display: grid; gap: 14px; }
+    @media (min-width: 800px) { .split { grid-template-columns: 1.35fr 1fr; gap: 18px; } }
+    .split .us { background: var(--ink); color: #fff; border-radius: 22px; padding: 26px 24px; }
+    .split .us .big, .split .you .big { font-size: 46px; font-weight: 900; letter-spacing: -0.05em; line-height: 1; }
+    .split .us .big { color: var(--mint); }
+    .split .us h3, .split .you h3 { font-size: 18px; font-weight: 800; margin: 6px 0 16px; letter-spacing: -0.02em; }
+    .split .us ul { list-style: none; display: grid; gap: 10px; }
+    @media (min-width: 560px) { .split .us ul { grid-template-columns: 1fr 1fr; } }
+    .split .us li { font-size: 15px; padding-left: 26px; position: relative; color: #E8E2D8; }
+    .split .us li::before { content: '✓'; position: absolute; left: 0; color: var(--mint); font-weight: 800; }
+    .split .you { background: var(--green-soft); border-radius: 22px; padding: 26px 24px; display: flex; flex-direction: column; }
+    .split .you .big { color: var(--green); }
+    .split .you p { font-size: 15.5px; color: var(--ink); margin-bottom: 10px; }
+    .split .you .vs-note { margin-top: auto; font-size: 13.5px; color: var(--muted); border-top: 1px solid #C5DFCF; padding-top: 12px; }
+
+    .demo { margin: 28px 0 0; }
+    .demo video, .demo img { width: 100%; border-radius: 18px; display: block; background: #EDE7DC; box-shadow: 0 2px 4px rgb(20 18 16 / 0.05), 0 18px 40px rgb(20 18 16 / 0.12); }
+    .demo figcaption { margin-top: 12px; font-size: 14px; color: var(--muted); text-align: center; }
+    .demo figcaption b { color: var(--ink); }
+
+    .sys { margin-top: 28px; display: grid; gap: 14px; }
+    @media (min-width: 860px) { .sys { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
+    .sys-card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 26px 22px; }
+    .sys-card .when { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green); }
+    .sys-card h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.03em; margin: 8px 0 8px; }
+    .sys-card p { font-size: 15px; color: var(--muted); }
+
+    /* EMAIL MARQUEE */
+    .marquee { margin-top: 32px; display: flex; flex-direction: column; overflow: hidden; padding: 4px 0 14px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+    .track { display: flex; gap: 22px; width: max-content; animation: slide 120s linear infinite; }
+    @media (min-width: 860px) { .track { gap: 32px; } }
+    .grp { margin: 0; flex-shrink: 0; }
+    .panels { display: flex; gap: 6px; }
+    .panels img { height: 300px; width: auto; border-radius: 10px; background: var(--line); box-shadow: 0 1px 2px rgb(20 18 16 / 0.08), 0 6px 18px rgb(20 18 16 / 0.08); }
+    @media (min-width: 860px) { .panels img { height: 420px; border-radius: 12px; } .panels { gap: 8px; } }
+    @keyframes slide { to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .track { animation: none; } }
+    .made { text-align: center; font-size: 13.5px; color: var(--muted); margin-top: 18px; padding: 0 20px; line-height: 1.7; }
+    .made b { color: var(--ink); font-weight: 650; }
+
+    /* PROOF */
+    .proofs { margin-top: 28px; display: grid; gap: 14px; }
+    @media (min-width: 860px) { .proofs { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
+    .proofs figure { background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+    .proofs img { width: 100%; height: auto; border-bottom: 1px solid var(--line); }
+    .proofs figcaption { padding: 14px 16px 16px; }
+    .proofs b { display: block; font-size: 30px; font-weight: 900; letter-spacing: -0.045em; color: var(--green); }
+    .proofs span { font-size: 14px; color: var(--muted); }
+
+    /* VIDEOS */
+    .proof-h { font-size: 22px; font-weight: 800; letter-spacing: -0.03em; }
+    .vids { margin-top: 24px; display: grid; grid-auto-flow: column; grid-auto-columns: 74%; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
+    .vids::-webkit-scrollbar { display: none; }
+    @media (min-width: 860px) { .vids { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); overflow: visible; gap: 18px; } }
+    .v { scroll-snap-align: start; }
+    .v-frame { position: relative; aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden; background: var(--ink); }
+    .v-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .v p { margin-top: 12px; font-size: 16px; font-weight: 750; letter-spacing: -0.02em; line-height: 1.3; }
+    .swipe { margin-top: 12px; font-size: 13px; color: var(--faint); }
+    @media (min-width: 860px) { .swipe { display: none; } }
+
+    /* FAQ */
+    .faq { border-top: 1px solid var(--line); margin-top: 8px; }
+    .faq details { border-bottom: 1px solid var(--line); }
+    .faq summary { list-style: none; cursor: pointer; padding: 17px 0; font-size: 16px; font-weight: 700; letter-spacing: -0.02em; display: flex; justify-content: space-between; gap: 14px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; color: var(--green); font-size: 20px; font-weight: 600; line-height: 1; }
+    .faq details[open] summary::after { content: '\2212'; }
+    .faq p { font-size: 15px; color: var(--muted); padding-bottom: 17px; }
+    .faq a { color: var(--green); font-weight: 700; }
+
+    .seeyou { margin-top: 40px; background: var(--green); color: #fff; border-radius: 22px; padding: 26px 22px; font-size: 17px; line-height: 1.5; }
+    .seeyou b { color: var(--mint); }
+
+    footer { padding: 28px 0 40px; font-size: 13px; color: var(--faint); border-top: 1px solid var(--line); }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    footer a { text-decoration: none; color: var(--muted); }
+    footer p.disc { flex-basis: 100%; font-size: 12px; line-height: 1.6; }
+  </style>
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1560323142068081');
+    fbq('track', 'PageView');
+    fbq('track', 'Schedule');
+  </script>
+</head>
+<body>
+
+<!-- 1. CONFIRMATION -->
+<header class="narrow">
+  <nav class="nav"><a href="/"><img src="/logo.png" width="40" height="40" alt="Abu Ecom" /></a></nav>
+  <div class="top">
+    <span class="done">✓ Audit booked</span>
+    <h1>You're booked. <span class="em">Here's what happens next.</span></h1>
+    <p class="lede">Your calendar invite is on its way to your inbox. <b>30 minutes on Google Meet with Mussa.</b> Take two minutes to do the steps below so we can spend the call on your Black Friday, not on admin.</p>
+  </div>
+</header>
+
+<!-- 2. DO THESE NOW -->
+<section style="padding-top:40px;">
+  <div class="narrow">
+    <p class="eyebrow">Before the call</p>
+    <h2>Do these <span class="em">three things now.</span></h2>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><b>Accept the calendar invite</b><span>Find it in your inbox and add it to your calendar so it doesn't get buried. The Google Meet link is in there.</span></div>
+      <div class="step"><span class="n">2</span><b>Look out for our WhatsApp</b><span>We'll message the number you gave us before the call. A quick reply lets us know you're still on.</span></div>
+      <div class="step"><span class="n">3</span><b>Have your Klaviyo login handy</b><span>And your Black Friday offer, if you have one in mind. No offer yet is fine, we'll shape it with you.</span></div>
+    </div>
+
+    <p class="prep-h">Useful to have to hand</p>
+    <ul class="prep">
+      <li>Your Klaviyo login (or whichever email platform you use)</li>
+      <li>Roughly how many people are on your email list</li>
+      <li>What you sent last Black Friday, if anything</li>
+      <li>Your best sellers and any stock you want to move</li>
+      <li>Anyone else who makes decisions in the business, on the call with you</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 3. WHAT WE'LL COVER -->
+<section style="padding-top:0;">
+  <div class="narrow">
+    <p class="eyebrow">Your audit</p>
+    <h2>What we'll cover <span class="em">on your audit.</span></h2>
+    <p class="lede">A working session on your store, not a sales pitch. <b>You leave with a plan for your Black Friday emails, whether we work together or not.</b></p>
+    <div class="agenda">
+      <div><b>5 min</b><span><strong>Your list and last year's Black Friday</strong><span>Who's on your list, what you sent last year and how it did.</span></span></div>
+      <div><b>10 min</b><span><strong>Your offer</strong><span>What you're running this year, or what would work best for your store if you haven't decided.</span></span></div>
+      <div><b>10 min</b><span><strong>Your send plan</strong><span>Every email from the teaser to Cyber Monday, with dates.</span></span></div>
+      <div><b>5 min</b><span><strong>What we'd build for you</strong><span>If it's a fit, how we'd write, design and schedule it all. If it isn't, we'll tell you.</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. WHAT YOU'RE GETTING -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <p class="eyebrow">What you're getting</p>
+    <h2>Every Black Friday email, <span class="em">done for you.</span></h2>
+    <p class="lede">If we work together, we plan your Black Friday offer and every send, write them in your brand's voice, design them and schedule them in Klaviyo. <b>You approve. They go out on time.</b></p>
+    <div class="split">
+      <div class="us">
+        <p class="big">Every send</p>
+        <h3>We write, design and schedule</h3>
+        <ul>
+          <li>Teaser: Fri 20 Nov</li>
+          <li>Early access for your list: Mon 23 Nov</li>
+          <li>Black Friday is live: Fri 27 Nov</li>
+          <li>Weekend reminder: Sat 28 Nov</li>
+          <li>Cyber Monday: Mon 30 Nov</li>
+          <li>Last chance: Tue 1 Dec</li>
+          <li>Every link tested before it sends</li>
+        </ul>
+      </div>
+      <div class="you">
+        <p class="big">1 tap</p>
+        <h3>Your part</h3>
+        <p>Every email lands in your review portal. Look it over, leave a comment if you want a change, then tap <b>Approve</b>.</p>
+        <p>We schedule it. It sends while you're at Jummah, with family, or asleep.</p>
+        <p class="vs-note">No files and "good luck". It's built and running inside your own Klaviyo.</p>
+      </div>
+    </div>
+
+    <figure class="demo">
+      <video autoplay muted loop playsinline preload="metadata" poster="/media/portal-poster.jpg" aria-label="A client reviewing, commenting on and approving an email in the review portal">
+        <source src="/media/portal-approve.mp4" type="video/mp4" />
+        <img src="/media/portal-approve.gif" alt="A client approving an email in the review portal" />
+      </video>
+      <figcaption>Your review portal. <b>Comment on the email, tap Approve, done.</b></figcaption>
+    </figure>
+
+    <div class="sys">
+      <div class="sys-card">
+        <p class="when">By 14 Nov</p>
+        <h3>Plan</h3>
+        <p>Starts with your audit. Your offer, your dates, your brand. We plan every send.</p>
+      </div>
+      <div class="sys-card">
+        <p class="when">15–19 Nov</p>
+        <h3>Write and design</h3>
+        <p>Every email made for your brand. You review and approve in the portal.</p>
+      </div>
+      <div class="sys-card">
+        <p class="when">From 20 Nov</p>
+        <h3>Scheduled and sending</h3>
+        <p>Tested on every device and scheduled in your Klaviyo, through to Cyber Monday.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. EMAILS WE'VE MADE -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <p class="eyebrow">Our work</p>
+    <h2>Emails we've made <span class="em">for Muslim brands.</span></h2>
+  </div>
+  <div class="marquee" aria-label="Examples of emails we design">
+    <div class="track">
+      <figure class="grp"><div class="panels"><img src="/emails/cut/boxed-halal-1.jpg" width="248" height="736" alt="Example email design" loading="lazy" /><img src="/emails/cut/boxed-halal-2.jpg" width="249" height="736" alt="Example email design" loading="lazy" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/5-pillars-1.jpg" width="210" height="731" alt="Example email design" loading="lazy" /><img src="/emails/cut/5-pillars-2.jpg" width="225" height="731" alt="Example email design" loading="lazy" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/teapressa-1.jpg" width="250" height="735" alt="Example email design" loading="lazy" /><img src="/emails/cut/teapressa-2.jpg" width="222" height="734" alt="Example email design" loading="lazy" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/huraya-1.jpg" width="209" height="720" alt="Example email design" loading="lazy" /><img src="/emails/cut/huraya-2.jpg" width="201" height="720" alt="Example email design" loading="lazy" /><img src="/emails/cut/huraya-3.jpg" width="245" height="719" alt="Example email design" loading="lazy" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/kube-publishing-1.jpg" width="200" height="749" alt="Example email design" loading="lazy" /><img src="/emails/cut/kube-publishing-2.jpg" width="200" height="747" alt="Example email design" loading="lazy" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/cave-london-1.jpg" width="226" height="720" alt="Example email design" loading="lazy" /><img src="/emails/cut/cave-london-2.jpg" width="227" height="720" alt="Example email design" loading="lazy" /><img src="/emails/cut/cave-london-3.jpg" width="226" height="720" alt="Example email design" loading="lazy" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/noor-1.jpg" width="169" height="693" alt="Example email design" loading="lazy" /><img src="/emails/cut/noor-2.jpg" width="204" height="693" alt="Example email design" loading="lazy" /><img src="/emails/cut/noor-3.jpg" width="200" height="664" alt="Example email design" loading="lazy" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/mama-yasmin-1.jpg" width="285" height="735" alt="Example email design" loading="lazy" /><img src="/emails/cut/mama-yasmin-2.jpg" width="287" height="727" alt="Example email design" loading="lazy" /></div></figure>
+      <figure class="grp"><div class="panels"><img src="/emails/cut/one-stop-halal-1.jpg" width="215" height="748" alt="Example email design" loading="lazy" /><img src="/emails/cut/one-stop-halal-2.jpg" width="215" height="748" alt="Example email design" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/boxed-halal-1.jpg" width="248" height="736" alt="" loading="lazy" /><img src="/emails/cut/boxed-halal-2.jpg" width="249" height="736" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/5-pillars-1.jpg" width="210" height="731" alt="" loading="lazy" /><img src="/emails/cut/5-pillars-2.jpg" width="225" height="731" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/teapressa-1.jpg" width="250" height="735" alt="" loading="lazy" /><img src="/emails/cut/teapressa-2.jpg" width="222" height="734" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/huraya-1.jpg" width="209" height="720" alt="" loading="lazy" /><img src="/emails/cut/huraya-2.jpg" width="201" height="720" alt="" loading="lazy" /><img src="/emails/cut/huraya-3.jpg" width="245" height="719" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/kube-publishing-1.jpg" width="200" height="749" alt="" loading="lazy" /><img src="/emails/cut/kube-publishing-2.jpg" width="200" height="747" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/cave-london-1.jpg" width="226" height="720" alt="" loading="lazy" /><img src="/emails/cut/cave-london-2.jpg" width="227" height="720" alt="" loading="lazy" /><img src="/emails/cut/cave-london-3.jpg" width="226" height="720" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/noor-1.jpg" width="169" height="693" alt="" loading="lazy" /><img src="/emails/cut/noor-2.jpg" width="204" height="693" alt="" loading="lazy" /><img src="/emails/cut/noor-3.jpg" width="200" height="664" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/mama-yasmin-1.jpg" width="285" height="735" alt="" loading="lazy" /><img src="/emails/cut/mama-yasmin-2.jpg" width="287" height="727" alt="" loading="lazy" /></div></figure>
+      <figure class="grp" aria-hidden="true"><div class="panels"><img src="/emails/cut/one-stop-halal-1.jpg" width="215" height="748" alt="" loading="lazy" /><img src="/emails/cut/one-stop-halal-2.jpg" width="215" height="748" alt="" loading="lazy" /></div></figure>
+    </div>
+  </div>
+  <p class="made">Every email written and designed by our team. <b>No templates.</b></p>
+</section>
+
+<!-- 6. CLIENT RESULTS -->
+<section id="results" style="padding-top:0;">
+  <div class="wrap">
+    <p class="eyebrow">Client results, Alhamdulillah</p>
+    <h2>Straight out of <span class="em">Klaviyo.</span></h2>
+    <p class="lede">Real reports from brands we run email for. Names hidden, numbers untouched.</p>
+    <div class="proofs">
+      <figure><img src="/media/proof-1.png" width="1323" height="528" loading="lazy" alt="Klaviyo report: £3,430 from email, 38.6% of total revenue" /><figcaption><b>38.6%</b><span>of all sales came from email. Men's grooming brand, Oct 2026.</span></figcaption></figure>
+      <figure><img src="/media/proof-2.png" width="1323" height="528" loading="lazy" alt="Klaviyo report: £6,487.82 from email, 36.7% of total revenue" /><figcaption><b>£6,488</b><span>from email in one month, 36.7% of sales. Lifestyle brand, Dec 2025.</span></figcaption></figure>
+      <figure><img src="/media/proof-3.png" width="1323" height="528" loading="lazy" alt="Klaviyo report: $17,918.63 from email, 45.9% of total revenue" /><figcaption><b>$17,919</b><span>from email in one month, 45.9% of sales, up 104%. Supplements brand, Nov 2025.</span></figcaption></figure>
+      <figure><img src="/media/proof-4.png" width="2000" height="880" loading="lazy" alt="Klaviyo report: $19,834.22 from email and SMS, 25.4% of total revenue" /><figcaption><b>$19,834</b><span>from email and SMS in 10 weeks. 81% of it from flows that run on their own. Dec 2025 to Feb 2026.</span></figcaption></figure>
+      <figure><img src="/media/proof-5.png" width="1760" height="800" loading="lazy" alt="Klaviyo report: $11,417.71 from email and SMS, 33.6% of total revenue, up 80%" /><figcaption><b>$11,418</b><span>from email and SMS in 4 weeks, a third of all sales, up 80%. Nov to Dec 2025.</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FOUNDER VIDEOS -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <p class="proof-h">Hear it from founders <span class="em" style="color:var(--green);font-size:1.1em;">before your call</span></p>
+    <div class="vids">
+      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/vozqi9zd59?playsinline=true&videoFoam=false" title="Founder testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>"Made it all back in week one."</p></div>
+      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/v12houl57j?playsinline=true&videoFoam=false" title="Founder testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>$200k+ from email alone.</p></div>
+      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/jbfubarxpf?playsinline=true&videoFoam=false" title="Founder testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>40%+ returning customers.</p></div>
+      <div class="v"><div class="v-frame"><iframe src="https://fast.wistia.com/embed/iframe/me9fxu0nyi?playsinline=true&videoFoam=false" title="Founder testimonial" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div><p>Repeat sales on autopilot.</p></div>
+    </div>
+    <p class="swipe">Swipe for more →</p>
+  </div>
+</section>
+
+<!-- 8. FAQ -->
+<section style="padding-top:0;">
+  <div class="narrow">
+    <p class="eyebrow">Questions</p>
+    <h2>Before your call.</h2>
+    <div class="faq">
+      <details><summary>Is the audit really free?</summary><p>Yes. 30 minutes with Mussa on Google Meet, no obligation. You leave with a plan for your Black Friday emails, whether we work together or not.</p></details>
+      <details><summary>Is it a sales pitch?</summary><p>It's a working session on your store. If we can help, we'll say how. If we can't, we'll tell you straight.</p></details>
+      <details><summary>Is it too late for Black Friday?</summary><p>Not if you start by 14 November. The first send goes out on 20 November, and we need a few days before that to write and design.</p></details>
+      <details><summary>What would I have to do?</summary><p>This call, Klaviyo access, and approving the emails in your review portal. That's it.</p></details>
+      <details><summary>I'm not on Klaviyo yet. Is that okay?</summary><p>Yes. We set it up and bring your list over.</p></details>
+      <details><summary>Will the emails fit my values?</summary><p>Always. No music, no immodest imagery, nothing that goes against your deen. You approve every email.</p></details>
+      <details><summary>I need to change the time. What do I do?</summary><p>Use the reschedule link in your calendar invite and pick a new slot. It takes a few seconds.</p></details>
+      <details><summary>Who's behind this?</summary><p>Abu Ecom is run by Mussa (<a href="https://instagram.com/thatmussa">@thatmussa</a>). A Muslim team writing and designing for Muslim brands, with $600K+ made for our clients.</p></details>
+    </div>
+
+    <div class="seeyou">See you on the call. <b>Accept the invite now</b> so it's in your calendar, and keep an eye on WhatsApp.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Abu Ecom</span>
+    <a href="/privacy-policy">Privacy policy</a>
+    <p class="disc">Results vary. Figures shown are past client results, not a promise of future earnings. Your results depend on your products, list, traffic and offer.</p>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('contextmenu', function (e) { if (e.target.tagName === 'IMG') e.preventDefault(); });
+</script>
+</body>
+</html>

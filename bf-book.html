@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book your free Black Friday email audit | Abu Ecom</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://app.cal.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F5F0E8;
+      --card: #FFFDF9;
+      --ink: #141210;
+      --ink-2: #221F1B;
+      --muted: #5E584F;
+      --faint: #8F877B;
+      --line: #E2D9CA;
+      --green: #0E6B4A;
+      --green-soft: #DFEEE5;
+      --mint: #8FE3B8;
+      --red: #B3261E;
+      --serif: 'Instrument Serif', Georgia, serif;
+    }
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--cream); color: var(--ink); letter-spacing: -0.012em; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    .em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; color: var(--green); font-size: 1.1em; }
+
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+    .head { padding: 16px 0 18px; }
+    .head .logo { display: inline-block; }
+    .head .logo img { width: 38px; height: 38px; border-radius: 8px; }
+    .head h1 { margin-top: 18px; font-size: clamp(26px, 6.6vw, 42px); font-weight: 800; letter-spacing: -0.045em; line-height: 1.06; max-width: 22ch; }
+    .head p { margin-top: 10px; font-size: 15.5px; color: var(--muted); }
+    @media (min-width: 860px) { .head { padding: 24px 0 26px; text-align: center; } .head h1 { margin-left: auto; margin-right: auto; } }
+
+    .cal-card { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -16px; }
+    @media (min-width: 760px) { .cal-card { margin: 0; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; } }
+    #cal-inline { width: 100%; min-height: 700px; overflow: auto; }
+    #cal-inline iframe { width: 100%; border: 0; display: block; }
+    /* Once the calendar is in, let it size itself and sit at the top, so the short name + email step has no gap above it */
+    #cal-inline:has(iframe) { min-height: 0; }
+    #cal-inline cal-inline, #cal-inline .cal-inline-container { min-height: 0 !important; display: block !important; }
+    #cal-inline iframe { margin: 0 !important; }
+    .cal-alt { padding: 14px 16px 18px; font-size: 13.5px; color: var(--muted); text-align: center; border-top: 1px solid var(--line); }
+    .cal-alt a { color: var(--green); font-weight: 700; }
+
+    footer { padding: 22px 0 32px; font-size: 12.5px; color: var(--faint); text-align: center; }
+    footer a { color: var(--muted); text-decoration: none; }
+  </style>
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1560323142068081');
+    fbq('track', 'PageView');
+  </script>
+</head>
+<body>
+
+<main class="wrap">
+  <header class="head">
+    <a class="logo" href="/"><img src="/logo.png" width="38" height="38" alt="Abu Ecom" /></a>
+    <h1>Pick a time for your free <span class="em">Black Friday email audit.</span></h1>
+    <p>30 minutes on Google Meet with Mussa. No obligation.</p>
+  </header>
+
+  <div class="cal-card">
+    <div id="cal-inline"></div>
+    <p class="cal-alt">Calendar not loading? <a id="cal-direct" href="https://cal.com/abuecom/bf-audit" target="_blank" rel="noopener">Open it in a new tab</a></p>
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 Abu Ecom</span> · <a href="/privacy-policy">Privacy policy</a>
+</footer>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  // Free Black Friday email audit booking (cal.com inline embed)
+  var CAL_NS = 'bfa', CAL_LINK = 'abuecom/bf-audit';
+  var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  var qs = new URLSearchParams(location.search);
+  function prefill() {
+    var c = { layout: 'month_view', theme: 'light' };
+    var name = qs.get('name') || qs.get('full_name') || [qs.get('first_name'), qs.get('last_name')].filter(Boolean).join(' ');
+    if (name) c.name = name;
+    if (qs.get('email')) c.email = qs.get('email');
+    var ph = (qs.get('attendeePhoneNumber') || qs.get('phone') || qs.get('phone_number') || '').replace(/[^\d+]/g, '');
+    if (ph.indexOf('00') === 0) ph = '+' + ph.slice(2);
+    if (ph.charAt(0) === '+' && ph.length > 8) c.attendeePhoneNumber = ph;
+    UTM_KEYS.forEach(function (k) { if (qs.get(k)) c[k] = qs.get(k); });
+    return c;
+  }
+  function calUrl() { return 'https://cal.com/' + CAL_LINK + '?' + new URLSearchParams(prefill()).toString(); }
+
+  // Carry only the UTM params to the booked page (keeps name, email and phone out of the next URL)
+  function bookedUrl() {
+    var out = new URLSearchParams();
+    UTM_KEYS.forEach(function (k) { if (qs.get(k)) out.set(k, qs.get(k)); });
+    var s = out.toString();
+    return '/bf-booked' + (s ? '?' + s : '');
+  }
+  var done = false;
+  function goBooked() {
+    if (done) return; done = true;
+    setTimeout(function () { window.location.href = bookedUrl(); }, 400);
+  }
+  function fallbackIframe() {
+    var el = $('cal-inline');
+    if (el.querySelector('iframe')) return;
+    el.innerHTML = '<iframe src="' + calUrl() + '&embed=true" title="Book your free Black Friday email audit" style="height:720px"></iframe>';
+  }
+  $('cal-direct').href = calUrl();
+
+  // Load straight away: the calendar is the whole page
+  (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, 'https://app.cal.com/embed/embed.js', 'init');
+  Cal('init', CAL_NS, { origin: 'https://app.cal.com' });
+  Cal.ns[CAL_NS]('on', { action: 'bookingSuccessfulV2', callback: goBooked });
+  Cal.ns[CAL_NS]('on', { action: 'bookingSuccessful', callback: goBooked });
+  Cal.ns[CAL_NS]('ui', { theme: 'light', hideEventTypeDetails: true, layout: 'month_view' });
+  Cal.ns[CAL_NS]('inline', { elementOrSelector: '#cal-inline', config: prefill(), calLink: CAL_LINK });
+  setTimeout(function () { if (!$('cal-inline').querySelector('iframe')) fallbackIframe(); }, 8000);
+})();
+</script>
+</body>
+</html>
