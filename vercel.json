@@ -4,6 +4,16 @@
   "outputDirectory": null,
   "cleanUrls": true,
   "redirects": [
-    { "source": "/offer", "destination": "/newship", "permanent": false }
+    {
+      "source": "/offer",
+      "destination": "/newship",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/bf.html"
+    }
   ]
 }
