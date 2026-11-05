@@ -5,15 +5,14 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/",
+      "destination": "/bf",
+      "permanent": false
+    },
+    {
       "source": "/offer",
       "destination": "/newship",
       "permanent": false
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/bf.html"
     }
   ]
 }
